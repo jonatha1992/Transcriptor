@@ -55,6 +55,7 @@ def crear_interfaz(ventana, idiomas):
     scrollbar_text.config(command=text_area.yview)
 
     # Frame para la barra de progreso
+    # Frame para la barra de progreso
     frame_progress = tk.Frame(ventana)
     frame_progress.pack(fill=tk.X, padx=30, pady=0)
 
@@ -134,6 +135,48 @@ def crear_interfaz(ventana, idiomas):
     )
     boton_limpiar.pack(side=tk.LEFT, padx=20)
 
+    # Frame para controles de reproducción
+    frame_reproduccion = tk.Frame(ventana)
+    frame_reproduccion.pack(side=tk.TOP, pady=5)
+
+    boton_reproducir = tk.Button(
+        frame_reproduccion,
+        text="Reproducir",
+        command=lambda: func.reproducir(
+            lista_archivos,
+            lista_archivos_paths,
+            boton_pausar_reanudar,
+            label_reproduccion,
+            label_tiempo,
+        ),
+    )
+    boton_reproducir.pack(side=tk.LEFT, padx=5)
+
+    boton_pausar_reanudar = tk.Button(
+        frame_reproduccion,
+        text="Pausar",
+        state="disabled",
+        command=lambda: func.pausar_reanudar(
+            boton_pausar_reanudar, label_reproduccion, label_tiempo
+        ),
+    )
+    boton_pausar_reanudar.pack(side=tk.LEFT, padx=5)
+
+    boton_detener = tk.Button(
+        frame_reproduccion,
+        text="Detener",
+        command=lambda: func.detener_reproduccion(
+            boton_pausar_reanudar, label_reproduccion, label_tiempo
+        ),
+    )
+    boton_detener.pack(side=tk.LEFT, padx=5)
+
+    label_reproduccion = tk.Label(frame_reproduccion, text="")
+    label_reproduccion.pack(side=tk.LEFT, padx=5)
+
+    label_tiempo = tk.Label(frame_reproduccion, text="00:00 / 00:00")
+    label_tiempo.pack(side=tk.LEFT, padx=5)
+
     # Frame para el label de créditos
     frame_creditos = tk.Frame(ventana)
     frame_creditos.pack(side=tk.BOTTOM, pady=5)
@@ -152,6 +195,11 @@ def crear_interfaz(ventana, idiomas):
         "archivo_procesando": archivo_procesando,
         "lista_archivos_paths": lista_archivos_paths,
         "transcripcion_resultado": transcripcion_resultado,
+        "boton_reproducir": boton_reproducir,
+        "boton_pausar_renaudar": boton_pausar_reanudar,
+        "boton_detener": boton_detener,
+        "label_reproduccion": label_reproduccion,
+        "label_tiempo": label_tiempo,
     }
 
 

@@ -7,7 +7,14 @@ import speech_recognition as sr
 from pydub import AudioSegment
 from pydub.utils import which
 from googletrans import Translator, LANGUAGES
-
+import pygame
+from mutagen.mp3 import MP3
+import time
+from mutagen import File
+import wave
+import contextlib
+import pygame
+from tkinter import messagebox
 
 # Inicializar el reconocedor y el traductor
 recognizer = sr.Recognizer()
@@ -19,17 +26,192 @@ ffprobe_path = os.path.join(current_dir, "ffmpeg", "bin", "ffprobe.exe")
 AudioSegment.converter = ffmpeg_path
 AudioSegment.ffprobe = ffprobe_path
 
-
-# # Asegurarse de que pydub encuentre ffmpeg y ffprobe
-# AudioSegment.converter = which("ffmpeg")
-# AudioSegment.ffprobe = which("ffprobe")
-
-# Definir la variable global para controlar el estado de la transcripción
+# Definir las variables globales
 transcripcion_activa = False
 idiomas = {v.capitalize(): k for k, v in LANGUAGES.items()}
 
+# Inicializar pygame mixer
+pygame.mixer.init()
 
-# Función para convertir audio a WAV
+reproduciendo = False
+audio_actual = None
+tiempo_reproduccion = 0
+reproduccion_en_curso = False
+transcripcion_en_curso = False
+
+
+def obtener_duracion_audio(ruta_archivo):
+    try:
+        # Intenta primero con mutagen
+        audio = File(ruta_archivo)
+        if audio is not None:
+            return int(audio.info.length)
+    except:
+        pass
+
+    # Si mutagen falla, intenta con wave para archivos WAV
+    if ruta_archivo.lower().endswith(".wav"):
+        try:
+            with contextlib.closing(wave.open(ruta_archivo, "r")) as f:
+                frames = f.getnframes()
+                rate = f.getframerate()
+                duration = frames / float(rate)
+                return int(duration)
+        except:
+            pass
+
+    return 0  # Si no se puede determinar la duración
+
+
+def reproducir(
+    lista_archivos,
+    lista_archivos_paths,
+    boton_pausar_reanudar,
+    label_reproduccion,
+    label_tiempo,
+):
+    global reproduciendo, audio_actual, tiempo_reproduccion, reproduccion_en_curso, transcripcion_en_curso
+
+    if transcripcion_en_curso:
+        messagebox.showwarning(
+            "Advertencia",
+            "Hay una transcripción en curso. Por favor, espere a que termine.",
+        )
+        return
+
+    seleccion = lista_archivos.curselection()
+    if not seleccion:
+        messagebox.showwarning(
+            "Advertencia", "Por favor, seleccione un archivo de audio primero."
+        )
+        return
+
+    reproduccion_en_curso = True
+
+    indice_seleccionado = seleccion[0]
+    item_seleccionado = lista_archivos.get(indice_seleccionado)
+    ruta_archivo = next(
+        key for key, value in lista_archivos_paths.items() if value == item_seleccionado
+    )
+
+    if audio_actual != ruta_archivo:
+        if pygame.mixer.music.get_busy():
+            pygame.mixer.music.stop()
+
+        try:
+            pygame.mixer.music.load(ruta_archivo)
+            audio_actual = ruta_archivo
+            tiempo_reproduccion = 0
+        except pygame.error:
+            if not ruta_archivo.lower().endswith(".wav"):
+                respuesta = messagebox.askyesno(
+                    "Conversión necesaria",
+                    f"El archivo {os.path.basename(ruta_archivo)} necesita ser convertido a WAV para reproducirlo. ¿Desea continuar?",
+                )
+                if respuesta:
+                    try:
+                        ruta_archivo = convertir_a_wav(ruta_archivo)
+                        pygame.mixer.music.load(ruta_archivo)
+                        audio_actual = ruta_archivo
+                        tiempo_reproduccion = 0
+                        messagebox.showinfo(
+                            "Conversión exitosa",
+                            f"El archivo ha sido convertido y guardado como {os.path.basename(ruta_archivo)}",
+                        )
+                    except Exception as e:
+                        messagebox.showerror(
+                            "Error",
+                            f"No se pudo convertir o cargar el archivo: {str(e)}",
+                        )
+                        reproduccion_en_curso = False
+                        return
+                else:
+                    reproduccion_en_curso = False
+                    return
+            else:
+                messagebox.showerror(
+                    "Error", "No se puede reproducir este archivo de audio."
+                )
+                reproduccion_en_curso = False
+                return
+
+    try:
+        pygame.mixer.music.play(start=tiempo_reproduccion)
+        reproduciendo = True
+        boton_pausar_reanudar.config(text="Pausar", state="active")
+        actualizar_tiempo(label_tiempo, ruta_archivo)
+        actualizar_label_reproduccion(label_reproduccion)
+    except pygame.error as e:
+        messagebox.showerror(
+            "Error de reproducción", f"No se pudo reproducir el archivo: {str(e)}"
+        )
+        reproduciendo = False
+    finally:
+        reproduccion_en_curso = False
+
+
+def pausar_reanudar(boton_pausar_reanudar, label_reproduccion, label_tiempo):
+    global reproduciendo, tiempo_reproduccion, audio_actual, reproduccion_en_curso
+
+    try:
+        if reproduciendo:
+            boton_pausar_reanudar.config(text="Reanudar")
+            pygame.mixer.music.pause()
+            reproduciendo = False
+        else:
+            boton_pausar_reanudar.config(text="Pausar")
+            pygame.mixer.music.unpause()
+            reproduciendo = True
+            actualizar_tiempo(label_tiempo, audio_actual)
+
+        actualizar_label_reproduccion(label_reproduccion)
+    except pygame.error as e:
+        messagebox.showerror("Error", f"Ocurrió un error al pausar/reanudar: {str(e)}")
+
+
+def detener_reproduccion(boton_pausar_reanudar, label_reproduccion, label_tiempo):
+    global reproduciendo, audio_actual, tiempo_reproduccion, reproduccion_en_curso
+
+    pygame.mixer.music.stop()
+    pygame.mixer.music.unload()
+
+    reproduciendo = False
+    audio_actual = None
+    tiempo_reproduccion = 0
+    reproduccion_en_curso = False
+
+    boton_pausar_reanudar.config(text="Pausar", state="disabled")
+    actualizar_label_reproduccion(label_reproduccion)
+    label_tiempo.config(text="00:00 / 00:00")
+
+    print("Reproducción detenida y audio descargado")
+
+
+def actualizar_label_reproduccion(label):
+    if reproduciendo and audio_actual:
+        label.config(text=f"Reproduciendo: {os.path.basename(audio_actual)}")
+    else:
+        label.config(text="")
+
+
+def actualizar_tiempo(label, ruta_archivo):
+    global tiempo_reproduccion
+    duracion_total = obtener_duracion_audio(ruta_archivo)
+
+    def actualizar():
+        global tiempo_reproduccion, reproduciendo
+        if reproduciendo:
+            tiempo_reproduccion = pygame.mixer.music.get_pos() // 1000
+            tiempo_actual = time.strftime("%M:%S", time.gmtime(tiempo_reproduccion))
+            tiempo_total = time.strftime("%M:%S", time.gmtime(duracion_total))
+            label.config(text=f"{tiempo_actual} / {tiempo_total}")
+            label.after(1000, actualizar)
+        elif not pygame.mixer.music.get_busy():
+            label.config(text="00:00 / 00:00")
+
+    actualizar()
+
+
 def convertir_a_wav(audio_path):
     try:
         audio_format = audio_path.split(".")[-1]
@@ -43,7 +225,6 @@ def convertir_a_wav(audio_path):
         raise
 
 
-# Función para transcribir archivos WAV
 def transcribir_archivo(audio_path, idioma_entrada):
     try:
         with sr.AudioFile(audio_path) as source:
@@ -62,7 +243,6 @@ def transcribir_archivo(audio_path, idioma_entrada):
         return f"Error al procesar el archivo: {e}"
 
 
-# Función para traducir texto
 def traducir_texto(texto, idioma_salida):
     try:
         traduccion = translator.translate(texto, dest=idioma_salida)
@@ -73,19 +253,21 @@ def traducir_texto(texto, idioma_salida):
         return f"Error al traducir texto: {e}"
 
 
-# Función para seleccionar archivos de audio
 def seleccionar_archivos(lista_archivos, lista_archivos_paths):
     file_paths = filedialog.askopenfilenames(
-        filetypes=[("Archivos de Audio", "*.wav *.mp3 *.flac *.ogg *.m4a *.mp4 *.aac")],
+        filetypes=[("Archivos de Audio", "*.mp3 *.wav *.flac *.ogg *.m4a *.mp4 *.aac")],
         title="Seleccionar archivos de audio",
     )
     archivos_no_agregados = []
     if file_paths:
         for file_path in file_paths:
             file_name = os.path.basename(file_path)
-            if file_name not in lista_archivos.get(0, tk.END):
-                lista_archivos.insert(tk.END, file_name)
-                lista_archivos_paths[file_path] = file_name
+            duracion = obtener_duracion_audio(file_path)
+            duracion_str = time.strftime("%M:%S", time.gmtime(duracion))
+            item = f"{file_name} ({duracion_str})"
+            if item not in lista_archivos.get(0, tk.END):
+                lista_archivos.insert(tk.END, item)
+                lista_archivos_paths[file_path] = item
             else:
                 archivos_no_agregados.append(file_name)
         if archivos_no_agregados:
@@ -95,13 +277,11 @@ def seleccionar_archivos(lista_archivos, lista_archivos_paths):
             )
 
 
-# Función para limpiar el Text y Listbox
 def limpiar(lista_archivos, text_area):
     lista_archivos.delete(0, tk.END)
     text_area.delete("1.0", tk.END)
 
 
-# Función para iniciar la transcripción en un hilo separado
 def iniciar_transcripcion_thread(
     lista_archivos,
     text_area,
@@ -114,20 +294,26 @@ def iniciar_transcripcion_thread(
     combobox_idioma_entrada,
     combobox_idioma_salida,
 ):
-    global transcripcion_activa
+    global transcripcion_activa, transcripcion_en_curso, reproduccion_en_curso
+
+    if reproduccion_en_curso:
+        messagebox.showwarning(
+            "Advertencia",
+            "Hay una reproducción en curso. Por favor, detenga la reproducción antes de transcribir.",
+        )
+        return
+
     if transcripcion_activa:
         transcripcion_activa = False
         boton_transcribir.config(text="Iniciar Transcripción")
         progress_bar["value"] = 0
         progress_bar.pack_forget()
-
     else:
         transcripcion_activa = True
+        transcripcion_en_curso = True
         boton_transcribir.config(text="Detener Transcripción")
         progress_bar["value"] = 0
-        progress_bar.pack(
-            pady=0, padx=60, fill=tk.X
-        )  # Hacer visible la barra de progreso
+        progress_bar.pack(pady=0, padx=60, fill=tk.X)
         threading.Thread(
             target=iniciar_transcripcion,
             args=(
@@ -145,7 +331,6 @@ def iniciar_transcripcion_thread(
         ).start()
 
 
-# Función para iniciar la transcripción
 def iniciar_transcripcion(
     lista_archivos,
     text_area,
@@ -158,16 +343,20 @@ def iniciar_transcripcion(
     combobox_idioma_entrada,
     combobox_idioma_salida,
 ):
-    global transcripcion_activa
+    global transcripcion_activa, transcripcion_en_curso
     archivos = lista_archivos.get(0, tk.END)
     if not archivos:
         messagebox.showwarning(
             "Advertencia", "Seleccione al menos un archivo de audio."
         )
+        transcripcion_en_curso = False
         return
 
     transcripcion_total = ""
-    text_area.delete("1.0", tk.END)
+    text_area.mark_set(tk.INSERT, tk.END)
+    if text_area.get("1.0", tk.END).strip():
+        text_area.insert(tk.END, "\n")
+
     idioma_entrada = idiomas[combobox_idioma_entrada.get()]
     idioma_salida = idiomas[combobox_idioma_salida.get()]
 
@@ -182,7 +371,6 @@ def iniciar_transcripcion(
         logging.info(f"Procesando archivo: {audio_file}")
 
         try:
-            # Convertir archivo a WAV si no es WAV
             if not audio_file.endswith(".wav"):
                 audio_file = convertir_a_wav(audio_file)
 
@@ -191,16 +379,16 @@ def iniciar_transcripcion(
             if idioma_entrada != idioma_salida:
                 texto_transcrito = traducir_texto(texto_transcrito, idioma_salida)
 
-            # Ajustar el texto transcrito
             texto_transcrito = ajustar_texto_sencillo(texto_transcrito)
 
         except Exception as e:
             texto_transcrito = f"Error al procesar el archivo: {e}"
             logging.error(texto_transcrito)
 
-        # Agregar la transcripción al texto total
-        transcripcion_total += f"Transcripción de {archivo}:\n{texto_transcrito}\n\n"
-        text_area.insert(tk.END, f"Transcripción de {archivo}:\n{texto_transcrito}\n\n")
+        nuevo_texto = f"Transcripción de {archivo}:\n{texto_transcrito}\n\n"
+        transcripcion_total += nuevo_texto
+        text_area.insert(tk.END, nuevo_texto)
+        text_area.see(tk.END)
 
         progress_bar["value"] = i + 1
         ventana.update_idletasks()
@@ -211,10 +399,11 @@ def iniciar_transcripcion(
         messagebox.showinfo("Información", "Transcripción completa.")
         boton_transcribir.config(text="Iniciar Transcripción")
         transcripcion_activa = False
-        progress_bar.pack_forget()  # Ocultar la barra de progreso
+        progress_bar.pack_forget()
         progress_bar["value"] = 0
 
     transcripcion_resultado = transcripcion_total
+    transcripcion_en_curso = False
 
 
 def ajustar_texto_sencillo(texto, max_ancho=75):
