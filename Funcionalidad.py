@@ -15,16 +15,34 @@ import wave
 import contextlib
 import pygame
 from tkinter import messagebox
+import urllib.request
+import sys
+
+# Configuración de logging
+logging.basicConfig(
+    level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 # Inicializar el reconocedor y el traductor
 recognizer = sr.Recognizer()
 translator = Translator()
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
-ffmpeg_path = os.path.join(current_dir, "ffmpeg", "bin", "ffmpeg.exe")
-ffprobe_path = os.path.join(current_dir, "ffmpeg", "bin", "ffprobe.exe")
+# Configurar rutas de FFmpeg
+script_dir = os.path.dirname(os.path.abspath(__file__))
+ffmpeg_path = os.path.join(script_dir, "ffmpeg", "bin", "ffmpeg.exe")
+ffprobe_path = os.path.join(script_dir, "ffmpeg", "bin", "ffprobe.exe")
+
+# Agregar la carpeta de FFmpeg al PATH
+ffmpeg_bin_path = os.path.join(script_dir, "ffmpeg", "bin")
+os.environ["PATH"] = ffmpeg_bin_path + os.pathsep + os.environ["PATH"]
+
 AudioSegment.converter = ffmpeg_path
+AudioSegment.ffmpeg = ffmpeg_path
 AudioSegment.ffprobe = ffprobe_path
+
+
+logging.debug(f"FFmpeg path: {ffmpeg_path}")
+logging.debug(f"FFprobe path: {ffprobe_path}")
 
 # Definir las variables globales
 transcripcion_activa = False
@@ -38,6 +56,67 @@ audio_actual = None
 tiempo_reproduccion = 0
 reproduccion_en_curso = False
 transcripcion_en_curso = False
+
+
+def convertir_a_wav(audio_path):
+    try:
+        print(f"Intentando convertir: {audio_path}")
+        print(f"FFMPEG path: {AudioSegment.converter}")
+        print(f"FFPROBE path: {AudioSegment.ffprobe}")
+        audio_format = audio_path.split(".")[-1]
+        print(f"Formato de audio detectado: {audio_format}")
+        audio = AudioSegment.from_file(audio_path, format=audio_format)
+        wav_path = audio_path.replace(audio_format, "wav")
+        audio.export(wav_path, format="wav")
+        print(f"Archivo convertido a WAV: {wav_path}")
+        return wav_path
+    except Exception as e:
+        print(f"Error al convertir archivo a WAV: {e}")
+        print(f"Tipo de error: {type(e)}")
+        import traceback
+
+        print(traceback.format_exc())
+        raise
+
+
+def detectar_y_configurar_proxy():
+    proxy_handler = urllib.request.ProxyHandler()
+    opener = urllib.request.build_opener(proxy_handler)
+    try:
+        # Intenta conectarse a un sitio web sin configurar el proxy
+        opener.open("http://www.google.com", timeout=5)
+        print("Conexión directa exitosa, no se necesita proxy.")
+        return False
+    except Exception:
+        # Si falla, intenta configurar el proxy
+        print("Conexión directa fallida, configurando proxy...")
+        os.environ["http_proxy"] = "http://proxy.psa.gob.ar:3128"
+        os.environ["https_proxy"] = "https://proxy.psa.gob.ar:3128"
+
+        # Verifica si la conexión funciona con el proxy
+        try:
+            proxy_handler = urllib.request.ProxyHandler(
+                {
+                    "http": "http://proxy.psa.gob.ar:3128",
+                    "https": "https://proxy.psa.gob.ar:3128",
+                }
+            )
+            opener = urllib.request.build_opener(proxy_handler)
+            opener.open("http://www.google.com", timeout=5)
+            print("Proxy configurado exitosamente.")
+            return True
+        except Exception:
+            print("No se pudo establecer conexión incluso con el proxy.")
+            return False
+
+
+def check_proxy():
+    http_proxy = os.environ.get("http_proxy")
+    https_proxy = os.environ.get("https_proxy")
+    if http_proxy or https_proxy:
+        return f"Proxy configurado:\nHTTP: {http_proxy}\nHTTPS: {https_proxy}"
+    else:
+        return "No se detectó ningún proxy configurado"
 
 
 def obtener_duracion_audio(ruta_archivo):
@@ -158,13 +237,14 @@ def pausar_reanudar(boton_pausar_reanudar, label_reproduccion, label_tiempo):
             boton_pausar_reanudar.config(text="Reanudar")
             pygame.mixer.music.pause()
             reproduciendo = False
+            actualizar_tiempo(label_tiempo, audio_actual)
         else:
             boton_pausar_reanudar.config(text="Pausar")
             pygame.mixer.music.unpause()
             reproduciendo = True
             actualizar_tiempo(label_tiempo, audio_actual)
 
-        actualizar_label_reproduccion(label_reproduccion)
+        # actualizar_label_reproduccion(label_reproduccion)
     except pygame.error as e:
         messagebox.showerror("Error", f"Ocurrió un error al pausar/reanudar: {str(e)}")
 
@@ -206,23 +286,10 @@ def actualizar_tiempo(label, ruta_archivo):
             tiempo_total = time.strftime("%M:%S", time.gmtime(duracion_total))
             label.config(text=f"{tiempo_actual} / {tiempo_total}")
             label.after(1000, actualizar)
-        elif not pygame.mixer.music.get_busy():
-            label.config(text="00:00 / 00:00")
+        # elif not pygame.mixer.music.get_busy():
+        #     label.config(text="00:00 / 00:00")
 
     actualizar()
-
-
-def convertir_a_wav(audio_path):
-    try:
-        audio_format = audio_path.split(".")[-1]
-        audio = AudioSegment.from_file(audio_path, format=audio_format)
-        wav_path = audio_path.replace(audio_format, "wav")
-        audio.export(wav_path, format="wav")
-        logging.info(f"Archivo convertido a WAV: {wav_path}")
-        return wav_path
-    except Exception as e:
-        logging.error(f"Error al convertir archivo a WAV: {e}")
-        raise
 
 
 def transcribir_archivo(audio_path, idioma_entrada):
