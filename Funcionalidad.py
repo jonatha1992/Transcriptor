@@ -25,7 +25,7 @@ logging.basicConfig(
 
 # Inicializar el reconocedor y el traductor
 recognizer = sr.Recognizer()
-translator = Translator()
+# translator = Translator()
 
 # Configurar rutas de FFmpeg
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -312,6 +312,14 @@ def transcribir_archivo(audio_path, idioma_entrada):
 
 def traducir_texto(texto, idioma_salida):
     try:
+        if check_proxy() == "Proxy configurado:":
+            proxy_config = {
+                "http": "http://proxy.psa.gob.ar:3128",
+                "https": "https://proxy.psa.gob.ar:3128",
+            }
+            translator = Translator(proxies=proxy_config)
+        else:
+            translator = Translator()
         traduccion = translator.translate(texto, dest=idioma_salida)
         logging.info(f"Texto traducido: {traduccion.text}")
         return traduccion.text
