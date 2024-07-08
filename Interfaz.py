@@ -1,9 +1,12 @@
 import tkinter as tk
-from tkinter import filedialog, messagebox, ttk
-import Funcionalidad as func
+from tkinter import ttk
+from Funcionalidad import *
+from Reproductor import *
+from Config import idiomas
 
 
-def crear_interfaz(ventana, idiomas):
+def crear_interfaz(ventana):
+    ventana.geometry("1200x700")
     archivo_procesando = tk.StringVar()
     lista_archivos_paths = {}
     transcripcion_resultado = ""
@@ -16,20 +19,17 @@ def crear_interfaz(ventana, idiomas):
     )
     label_titulo.pack(side=tk.TOP, pady=5)
 
-    # Frame para el listbox
     frame_listbox = tk.Frame(main_frame)
     frame_listbox.pack(side=tk.LEFT, fill=tk.Y, padx=10, pady=2)
 
-    # Etiqueta para el listbox
     label_listbox = tk.Label(frame_listbox, text="Lista de archivos")
     label_listbox.pack(side=tk.TOP)
 
-    # Listbox con scrollbar
     scrollbar_listbox = tk.Scrollbar(frame_listbox, orient=tk.VERTICAL)
     lista_archivos = tk.Listbox(
         frame_listbox,
         selectmode=tk.SINGLE,
-        width=40,
+        width=50,
         height=20,
         yscrollcommand=scrollbar_listbox.set,
     )
@@ -37,15 +37,12 @@ def crear_interfaz(ventana, idiomas):
     scrollbar_listbox.pack(side=tk.RIGHT, fill=tk.Y)
     scrollbar_listbox.config(command=lista_archivos.yview)
 
-    # Frame para el Text widget y su scrollbar
     frame_text = tk.Frame(main_frame)
     frame_text.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=10, pady=2)
 
-    # Etiqueta para el Text area
     label_text_area = tk.Label(frame_text, text="Transcripción")
     label_text_area.pack(side=tk.TOP)
 
-    # Text widget con scrollbar
     scrollbar_text = tk.Scrollbar(frame_text, orient=tk.VERTICAL)
     text_area = tk.Text(
         frame_text, height=25, width=81, yscrollcommand=scrollbar_text.set
@@ -54,59 +51,30 @@ def crear_interfaz(ventana, idiomas):
     scrollbar_text.pack(side=tk.RIGHT, fill=tk.Y)
     scrollbar_text.config(command=text_area.yview)
 
-    # Frame para la barra de progreso
-    # Frame para la barra de progreso
-    frame_progress = tk.Frame(ventana)
-    frame_progress.pack(fill=tk.X, padx=30, pady=0)
-
-    progress_label = tk.Label(frame_progress, textvariable=archivo_procesando)
-    progress_label.pack(pady=5)
-
-    progress_bar = ttk.Progressbar(
-        frame_progress, orient="horizontal", mode="determinate"
-    )
-    progress_bar.pack_forget()
-
-    # Frame para los ComboBox de idiomas
-    frame_idioma_entrada = tk.Frame(ventana)
-    frame_idioma_entrada.pack(side=tk.TOP, pady=5)
-
-    label_idioma_entrada = tk.Label(frame_idioma_entrada, text=" Idioma de Entrada:")
-    label_idioma_entrada.pack(side=tk.LEFT, padx=10)
-
-    combobox_idioma_entrada = ttk.Combobox(
-        frame_idioma_entrada, values=list(idiomas.keys()), state="readonly"
-    )
-    combobox_idioma_entrada.set("Spanish")  # Valor por defecto
-    combobox_idioma_entrada.pack(side=tk.LEFT, padx=10)
-
-    frame_idioma_salida = tk.Frame(ventana)
-    frame_idioma_salida.pack(side=tk.TOP, pady=5)
-
-    label_idioma_salida = tk.Label(frame_idioma_salida, text="Idioma de Salida:")
-    label_idioma_salida.pack(side=tk.LEFT, padx=10)
-
-    combobox_idioma_salida = ttk.Combobox(
-        frame_idioma_salida, values=list(idiomas.keys()), state="readonly"
-    )
-    combobox_idioma_salida.set("Spanish")  # Valor por defecto
-    combobox_idioma_salida.pack(side=tk.LEFT, padx=10)
-
-    # Frame para los botones
     frame_botones = tk.Frame(ventana)
-    frame_botones.pack(side=tk.TOP, pady=10)
+    frame_botones.pack(side=tk.TOP, pady=10, padx=20, fill=tk.X)
 
     boton_seleccionar = tk.Button(
         frame_botones,
         text="Seleccionar Archivos",
-        command=lambda: func.seleccionar_archivos(lista_archivos, lista_archivos_paths),
+        command=lambda: seleccionar_archivos(lista_archivos, lista_archivos_paths),
     )
-    boton_seleccionar.pack(side=tk.LEFT, padx=30)
+    boton_seleccionar.pack(side=tk.LEFT, padx=10)
+
+    boton_borrar = tk.Button(
+        frame_botones,
+        text="Borrar",
+        state="disabled",
+        command=lambda: borrar_y_actualizar(
+            lista_archivos, lista_archivos_paths, boton_borrar
+        ),
+    )
+    boton_borrar.pack(side=tk.LEFT, padx=5)
 
     boton_transcribir = tk.Button(
         frame_botones,
-        text="Iniciar Transcripción",
-        command=lambda: func.iniciar_transcripcion_thread(
+        text="Transcribir",
+        command=lambda: iniciar_transcripcion_thread(
             lista_archivos,
             text_area,
             archivo_procesando,
@@ -124,25 +92,61 @@ def crear_interfaz(ventana, idiomas):
     boton_exportar = tk.Button(
         frame_botones,
         text="Exportar",
-        command=lambda: func.exportar_transcripcion(text_area.get("1.0", tk.END)),
+        command=lambda: exportar_transcripcion(text_area.get("1.0", tk.END)),
     )
-    boton_exportar.pack(side=tk.LEFT, padx=5)
+    boton_exportar.pack(side=tk.RIGHT, padx=10)
 
     boton_limpiar = tk.Button(
         frame_botones,
         text="Limpiar",
-        command=lambda: func.limpiar(lista_archivos, text_area),
+        command=lambda: limpiar(text_area),
     )
-    boton_limpiar.pack(side=tk.LEFT, padx=20)
+    boton_limpiar.pack(side=tk.RIGHT, padx=10)
 
-    # Frame para controles de reproducción
+    frame_progress = tk.Frame(ventana)
+    frame_progress.pack(fill=tk.X, padx=30, pady=0)
+
+    progress_label = tk.Label(frame_progress, textvariable=archivo_procesando)
+    progress_label.pack(pady=5)
+
+    progress_bar = ttk.Progressbar(
+        frame_progress,
+        orient="horizontal",
+        mode="determinate",
+    )
+    progress_bar.pack_forget()
+
+    frame_idioma_entrada = tk.Frame(ventana)
+    frame_idioma_entrada.pack(side=tk.TOP, pady=5)
+
+    label_idioma_entrada = tk.Label(frame_idioma_entrada, text=" Idioma de Entrada:")
+    label_idioma_entrada.pack(side=tk.LEFT, padx=10)
+
+    combobox_idioma_entrada = ttk.Combobox(
+        frame_idioma_entrada, values=list(idiomas.keys()), state="readonly"
+    )
+    combobox_idioma_entrada.set("Spanish")
+    combobox_idioma_entrada.pack(side=tk.LEFT, padx=10)
+
+    frame_idioma_salida = tk.Frame(ventana)
+    frame_idioma_salida.pack(side=tk.TOP, pady=5)
+
+    label_idioma_salida = tk.Label(frame_idioma_salida, text="Idioma de Salida:")
+    label_idioma_salida.pack(side=tk.LEFT, padx=10)
+
+    combobox_idioma_salida = ttk.Combobox(
+        frame_idioma_salida, values=list(idiomas.keys()), state="readonly"
+    )
+    combobox_idioma_salida.set("Spanish")
+    combobox_idioma_salida.pack(side=tk.LEFT, padx=10)
+
     frame_reproduccion = tk.Frame(ventana)
     frame_reproduccion.pack(side=tk.TOP, pady=5)
 
     boton_reproducir = tk.Button(
         frame_reproduccion,
         text="Reproducir",
-        command=lambda: func.reproducir(
+        command=lambda: reproducir(
             lista_archivos,
             lista_archivos_paths,
             boton_pausar_reanudar,
@@ -152,20 +156,36 @@ def crear_interfaz(ventana, idiomas):
     )
     boton_reproducir.pack(side=tk.LEFT, padx=5)
 
+    boton_retroceder = tk.Button(
+        frame_reproduccion,
+        text="Retroceder 5s",
+        command=lambda: retroceder(label_tiempo),
+    )
+    boton_retroceder.pack(side=tk.LEFT, padx=5)
+
+    lista_archivos.bind(
+        "<<ListboxSelect>>", lambda event: activar_boton_borrar(event, boton_borrar)
+    )
     boton_pausar_reanudar = tk.Button(
         frame_reproduccion,
         text="Pausar",
         state="disabled",
-        command=lambda: func.pausar_reanudar(
+        command=lambda: pausar_reanudar(
             boton_pausar_reanudar, label_reproduccion, label_tiempo
         ),
     )
     boton_pausar_reanudar.pack(side=tk.LEFT, padx=5)
 
+    boton_adelantar = tk.Button(
+        frame_reproduccion,
+        text="Adelantar 5s",
+        command=lambda: adelantar(label_tiempo),
+    )
+    boton_adelantar.pack(side=tk.LEFT, padx=5)
     boton_detener = tk.Button(
         frame_reproduccion,
         text="Detener",
-        command=lambda: func.detener_reproduccion(
+        command=lambda: detener_reproduccion(
             boton_pausar_reanudar, label_reproduccion, label_tiempo
         ),
     )
@@ -177,14 +197,14 @@ def crear_interfaz(ventana, idiomas):
     label_tiempo = tk.Label(frame_reproduccion, text="00:00 / 00:00")
     label_tiempo.pack(side=tk.LEFT, padx=5)
 
-    # Frame para el label de créditos
     frame_creditos = tk.Frame(ventana)
     frame_creditos.pack(side=tk.BOTTOM, pady=5)
 
-    label_creditos = tk.Label(frame_creditos, text="Producido por Correa Jonathan")
+    label_creditos = tk.Label(
+        frame_creditos, text="Producido por Correa Jonathan", font=("Arial", 10, "bold")
+    )
     label_creditos.pack()
 
-    # Devolver variables necesarias para funcionalidad
     return {
         "lista_archivos": lista_archivos,
         "text_area": text_area,
@@ -212,3 +232,15 @@ def centrar_ventana(ventana):
     x = (ancho_pantalla // 2) - (ancho_ventana // 2)
     y = (alto_pantalla // 2) - (alto_ventana // 2)
     ventana.geometry(f"{ancho_ventana}x{alto_ventana}+{x}+{y}")
+
+
+def activar_boton_borrar(event, boton_borrar):
+    if event.widget.curselection():
+        boton_borrar.config(state="normal")
+    else:
+        boton_borrar.config(state="disabled")
+
+
+def borrar_y_actualizar(lista_archivos, lista_archivos_paths, boton_borrar):
+    if borrar_archivo(lista_archivos, lista_archivos_paths):
+        boton_borrar.config(state="disabled")
