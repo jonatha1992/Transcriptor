@@ -3,6 +3,8 @@ import speech_recognition as sr
 from pydub import AudioSegment
 from googletrans import Translator
 import tempfile
+import subprocess
+import platform
 import threading
 from tkinter import messagebox
 import tkinter as tk
@@ -20,6 +22,12 @@ from Config import (
     transcripcion_en_curso,
     check_proxy,
 )
+import numpy as np
+import librosa
+import whisper
+from pydub import AudioSegment
+from pydub.silence import split_on_silence
+
 
 # Inicializar el reconocedor
 recognizer = sr.Recognizer()
@@ -164,6 +172,20 @@ def exportar_transcripcion(transcripcion_resultado):
         messagebox.showinfo("Información", f"Transcripción guardada en {output_file}.")
         logging.info(f"Transcripción guardada en {output_file}.")
 
+        # Abrir el archivo
+        try:
+            if platform.system() == "Darwin":  # macOS
+                subprocess.call(("open", output_file))
+            elif platform.system() == "Windows":  # Windows
+                os.startfile(output_file)
+            else:  # linux variants
+                subprocess.call(("xdg-open", output_file))
+
+            logging.info(f"Archivo abierto: {output_file}")
+        except Exception as e:
+            messagebox.showerror("Error", f"No se pudo abrir el archivo: {str(e)}")
+            logging.error(f"Error al abrir el archivo: {str(e)}")
+
 
 def borrar_archivo(lista_archivos, lista_archivos_paths):
     seleccion = lista_archivos.curselection()
@@ -201,6 +223,14 @@ def iniciar_transcripcion_thread(
             "Advertencia",
             "Hay una reproducción en curso. Por favor, detenga la reproducción antes de transcribir.",
         )
+        return
+
+    seleccion = lista_archivos.curselection()
+    if not seleccion:
+        messagebox.showwarning(
+            "Advertencia", "Seleccione un archivo de audio para transcribir."
+        )
+        transcripcion_en_curso = False
         return
 
     if transcripcion_activa:
@@ -247,12 +277,12 @@ def iniciar_transcripcion(
     global transcripcion_activa, transcripcion_en_curso
 
     seleccion = lista_archivos.curselection()
-    if not seleccion:
-        messagebox.showwarning(
-            "Advertencia", "Seleccione un archivo de audio para transcribir."
-        )
-        transcripcion_en_curso = False
-        return
+    # if not seleccion:
+    #     messagebox.showwarning(
+    #         "Advertencia", "Seleccione un archivo de audio para transcribir."
+    #     )
+    #     transcripcion_en_curso = False
+    #     return
 
     archivo = lista_archivos.get(seleccion[0])
     audio_file = next(
@@ -304,6 +334,56 @@ def iniciar_transcripcion(
     transcripcion_en_curso = False
 
 
+# def transcribir_archivo_grande(
+#     audio_path,
+#     idioma_entrada,
+#     progress_bar,
+#     ventana,
+#     transcripcion_activa,
+#     chunk_size=60000,
+# ):
+#     transcripcion_completa = []
+#     progreso_actual = 0
+#     duracion_total = obtener_duracion_audio(audio_path)
+
+#     try:
+#         with sr.AudioFile(audio_path) as source:
+#             for i in range(0, duracion_total * 1000, chunk_size):
+#                 if not transcripcion_activa:
+#                     break
+
+#                 inicio = i / 1000.0
+#                 fin = min((i + chunk_size) / 1000.0, duracion_total)
+
+#                 try:
+#                     audio_chunk = recognizer.record(
+#                         source, offset=inicio, duration=fin - inicio
+#                     )
+
+#                     texto = recognizer.recognize_google(
+#                         audio_chunk, language=idioma_entrada
+#                     )
+#                     transcripcion_completa.append(texto)
+#                 except sr.UnknownValueError:
+#                     transcripcion_completa.append("[inaudible]")
+#                 except sr.RequestError as e:
+#                     logging.error(f"Error en el servicio de reconocimiento: {e}")
+#                     transcripcion_completa.append("[error de reconocimiento]")
+#                 except Exception as e:
+#                     logging.error(f"Error inesperado al procesar chunk: {e}")
+#                     transcripcion_completa.append("[error de procesamiento]")
+
+#                 progreso_actual = int(fin * 1000)
+#                 progress_bar["value"] = min(progreso_actual, duracion_total * 1000)
+#                 ventana.update_idletasks()
+
+#     except Exception as e:
+#         logging.error(f"Error al procesar el archivo: {e}")
+#         return f"Error al procesar el archivo: {e}"
+
+#     return " ".join(transcripcion_completa).strip()
+
+
 def transcribir_archivo_grande(
     audio_path,
     idioma_entrada,
@@ -317,35 +397,61 @@ def transcribir_archivo_grande(
     duracion_total = obtener_duracion_audio(audio_path)
 
     try:
-        with sr.AudioFile(audio_path) as source:
-            for i in range(0, duracion_total * 1000, chunk_size):
-                if not transcripcion_activa:
-                    break
+        # Cargar el audio y preprocesarlo
+        audio = AudioSegment.from_wav(audio_path)
+        audio = audio.normalize()
 
-                inicio = i / 1000.0
-                fin = min((i + chunk_size) / 1000.0, duracion_total)
+        # Segmentación basada en silencios
+        chunks = split_on_silence(audio, min_silence_len=500, silence_thresh=-40)
 
+        # Cargar modelo Whisper
+        model = whisper.load_model("base")
+
+        for i, chunk in enumerate(chunks):
+            if not transcripcion_activa:
+                break
+
+            try:
+                # Convertir chunk a numpy array para Whisper
+                chunk_np = np.frombuffer(chunk.raw_data, dtype=np.int16)
+                chunk_np = (
+                    chunk_np.astype(np.float32) / 32768.0
+                )  # Normalizar a [-1.0, 1.0]
+
+                # Transcribir con Whisper
+                result = model.transcribe(chunk_np, language=idioma_entrada)
+                texto = result["text"]
+
+                # Post-procesamiento básico
+                texto = texto.strip()
+                texto = texto.capitalize()
+
+                transcripcion_completa.append(texto)
+            except Exception as e:
+                logging.error(f"Error al procesar chunk: {e}")
+                transcripcion_completa.append("[error de procesamiento]")
+
+            # Actualizar barra de progreso
+            progreso_actual += len(chunk)
+            progress_bar["value"] = min(progreso_actual, len(audio))
+            ventana.update_idletasks()
+
+        # Si Whisper falla, intentar con el reconocedor de Google como respaldo
+        if not transcripcion_completa:
+            with sr.AudioFile(audio_path) as source:
+                audio_completo = recognizer.record(source)
                 try:
-                    audio_chunk = recognizer.record(
-                        source, offset=inicio, duration=fin - inicio
-                    )
-
                     texto = recognizer.recognize_google(
-                        audio_chunk, language=idioma_entrada
+                        audio_completo, language=idioma_entrada
                     )
                     transcripcion_completa.append(texto)
                 except sr.UnknownValueError:
                     transcripcion_completa.append("[inaudible]")
                 except sr.RequestError as e:
-                    logging.error(f"Error en el servicio de reconocimiento: {e}")
+                    logging.error(
+                        f"Error en el servicio de reconocimiento de Google: {e}"
+                    )
                     transcripcion_completa.append("[error de reconocimiento]")
-                except Exception as e:
-                    logging.error(f"Error inesperado al procesar chunk: {e}")
-                    transcripcion_completa.append("[error de procesamiento]")
-
-                progreso_actual = int(fin * 1000)
-                progress_bar["value"] = min(progreso_actual, duracion_total * 1000)
-                ventana.update_idletasks()
 
     except Exception as e:
         logging.error(f"Error al procesar el archivo: {e}")

@@ -99,6 +99,8 @@ def reproducir(
     boton_pausar_reanudar,
     label_reproduccion,
     label_tiempo,
+    boton_adelantar,
+    boton_retroceder,
 ):
 
     if transcripcion_en_curso:
@@ -121,15 +123,6 @@ def reproducir(
         key for key, value in lista_archivos_paths.items() if value == item_seleccionado
     )
 
-    # try:
-    #     reproductor.iniciar(ruta_archivo)
-    #     boton_pausar_reanudar.config(text="Pausar", state="active")
-    #     actualizar_tiempo(label_tiempo)
-    #     actualizar_label_reproduccion(label_reproduccion)
-    # except pygame.error as e:
-    #     messagebox.showerror(
-    #         "Error de reproducción", f"No se pudo reproducir el archivo: {str(e)}"
-    #     )
     try:
         reproductor.iniciar(ruta_archivo)
     except pygame.error:
@@ -149,6 +142,8 @@ def reproducir(
             return
 
     boton_pausar_reanudar.config(text="Pausar", state="active")
+    boton_retroceder.config(state="active")
+    boton_adelantar.config(state="active")
     actualizar_tiempo(label_tiempo)
     actualizar_label_reproduccion(label_reproduccion)
 
@@ -164,9 +159,18 @@ def pausar_reanudar(boton_pausar_reanudar, label_reproduccion, label_tiempo):
     # actualizar_label_reproduccion(label_reproduccion)
 
 
-def detener_reproduccion(boton_pausar_reanudar, label_reproduccion, label_tiempo):
+def detener_reproduccion(
+    boton_pausar_reanudar,
+    label_reproduccion,
+    label_tiempo,
+    boton_adelantar,
+    boton_retroceder,
+):
     reproductor.detener()
     boton_pausar_reanudar.config(text="Pausar", state="disabled")
+    boton_adelantar.config(state="disabled")
+    boton_retroceder.config(state="disabled")
+
     actualizar_label_reproduccion(label_reproduccion)
     label_tiempo.config(text="00:00 / 00:00")
     pygame.mixer.music.unload()

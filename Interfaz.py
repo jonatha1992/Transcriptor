@@ -150,6 +150,8 @@ def crear_interfaz(ventana):
             boton_pausar_reanudar,
             label_reproduccion,
             label_tiempo,
+            boton_adelantar,
+            boton_retroceder,
         ),
     )
     boton_reproducir.pack(side=tk.LEFT, padx=5)
@@ -157,6 +159,7 @@ def crear_interfaz(ventana):
     boton_retroceder = tk.Button(
         frame_reproduccion,
         text="Retroceder 5s",
+        state="disabled",
         command=lambda: retroceder(label_tiempo),
     )
     boton_retroceder.pack(side=tk.LEFT, padx=5)
@@ -177,6 +180,7 @@ def crear_interfaz(ventana):
     boton_adelantar = tk.Button(
         frame_reproduccion,
         text="Adelantar 5s",
+        state="disabled",
         command=lambda: adelantar(label_tiempo),
     )
     boton_adelantar.pack(side=tk.LEFT, padx=5)
@@ -184,7 +188,11 @@ def crear_interfaz(ventana):
         frame_reproduccion,
         text="Detener",
         command=lambda: detener_reproduccion(
-            boton_pausar_reanudar, label_reproduccion, label_tiempo
+            boton_pausar_reanudar,
+            label_reproduccion,
+            label_tiempo,
+            boton_adelantar,
+            boton_retroceder,
         ),
     )
     boton_detener.pack(side=tk.LEFT, padx=5)
