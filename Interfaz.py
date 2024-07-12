@@ -14,9 +14,7 @@ def crear_interfaz(ventana):
     main_frame = tk.Frame(ventana)
     main_frame.pack(pady=10, padx=10, fill=tk.BOTH, expand=True)
 
-    label_titulo = tk.Label(
-        main_frame, text="Transcriptor de Audio a Texto", font=("Helvetica", 16)
-    )
+    label_titulo = tk.Label(main_frame, text="AudioText", font=("Helvetica", 16))
     label_titulo.pack(side=tk.TOP, pady=5)
 
     frame_listbox = tk.Frame(main_frame)
