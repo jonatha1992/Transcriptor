@@ -12,7 +12,7 @@ def main():
     pygame.mixer.init()
 
     ventana = tk.Tk()
-    ventana.title("Transcriptor")
+    ventana.title("AudioText")
     ventana.iconbitmap("icono.ico")
 
     crear_interfaz(ventana)
