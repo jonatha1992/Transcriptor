@@ -41,12 +41,12 @@ def detectar_y_configurar_proxy():
     except Exception:
         logging.info("Conexión directa fallida, configurando proxy...")
         os.environ["http_proxy"] = "http://proxy.psa.gob.ar:3128"
-        os.environ["https_proxy"] = "https://proxy.psa.gob.ar:3128"
+        os.environ["https_proxy"] = "http://proxy.psa.gob.ar:3128"
         try:
             proxy_handler = urllib.request.ProxyHandler(
                 {
                     "http": "http://proxy.psa.gob.ar:3128",
-                    "https": "https://proxy.psa.gob.ar:3128",
+                    "https": "http://proxy.psa.gob.ar:3128",
                 }
             )
             opener = urllib.request.build_opener(proxy_handler)

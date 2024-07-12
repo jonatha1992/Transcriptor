@@ -2,6 +2,9 @@ import pygame
 import time
 import os
 from Config import *
+from tkinter import messagebox
+from Funcionalidad import obtener_duracion_audio, convertir_a_wav
+import gc
 
 
 class ReproductorAudio:
@@ -13,8 +16,6 @@ class ReproductorAudio:
         self.duracion_total = 0
 
     def iniciar(self, ruta_archivo):
-        from Funcionalidad import obtener_duracion_audio
-
         self.audio_actual = ruta_archivo
         self.duracion_total = obtener_duracion_audio(ruta_archivo)
         pygame.mixer.music.load(ruta_archivo)
@@ -37,10 +38,13 @@ class ReproductorAudio:
 
     def detener(self):
         pygame.mixer.music.stop()
+        pygame.mixer.music.unload()
+        del self.audio_actual
         self.reproduciendo = False
         self.audio_actual = None
         self.tiempo_inicio = 0
         self.tiempo_pausa = 0
+        self.duracion_total = 0
 
     def adelantar(self, segundos):
         if self.reproduciendo:
@@ -96,8 +100,6 @@ def reproducir(
     label_reproduccion,
     label_tiempo,
 ):
-    from Config import transcripcion_en_curso
-    from tkinter import messagebox
 
     if transcripcion_en_curso:
         messagebox.showwarning(
@@ -119,15 +121,36 @@ def reproducir(
         key for key, value in lista_archivos_paths.items() if value == item_seleccionado
     )
 
+    # try:
+    #     reproductor.iniciar(ruta_archivo)
+    #     boton_pausar_reanudar.config(text="Pausar", state="active")
+    #     actualizar_tiempo(label_tiempo)
+    #     actualizar_label_reproduccion(label_reproduccion)
+    # except pygame.error as e:
+    #     messagebox.showerror(
+    #         "Error de reproducción", f"No se pudo reproducir el archivo: {str(e)}"
+    #     )
     try:
         reproductor.iniciar(ruta_archivo)
-        boton_pausar_reanudar.config(text="Pausar", state="active")
-        actualizar_tiempo(label_tiempo)
-        actualizar_label_reproduccion(label_reproduccion)
-    except pygame.error as e:
-        messagebox.showerror(
-            "Error de reproducción", f"No se pudo reproducir el archivo: {str(e)}"
-        )
+    except pygame.error:
+        # Si no se puede reproducir, intenta convertir a WAV
+        try:
+            wav_path = convertir_a_wav(ruta_archivo)
+            reproductor.iniciar(wav_path)
+            messagebox.showinfo(
+                "Conversión",
+                f"El archivo se ha convertido a WAV para su reproducción: {wav_path}",
+            )
+        except Exception as e:
+            messagebox.showerror(
+                "Error de conversión",
+                f"No se pudo convertir ni reproducir el archivo: {str(e)}",
+            )
+            return
+
+    boton_pausar_reanudar.config(text="Pausar", state="active")
+    actualizar_tiempo(label_tiempo)
+    actualizar_label_reproduccion(label_reproduccion)
 
 
 def pausar_reanudar(boton_pausar_reanudar, label_reproduccion, label_tiempo):
@@ -138,7 +161,7 @@ def pausar_reanudar(boton_pausar_reanudar, label_reproduccion, label_tiempo):
         reproductor.reanudar()
         boton_pausar_reanudar.config(text="Pausar")
     actualizar_tiempo(label_tiempo)
-    actualizar_label_reproduccion(label_reproduccion)
+    # actualizar_label_reproduccion(label_reproduccion)
 
 
 def detener_reproduccion(boton_pausar_reanudar, label_reproduccion, label_tiempo):
@@ -146,6 +169,10 @@ def detener_reproduccion(boton_pausar_reanudar, label_reproduccion, label_tiempo
     boton_pausar_reanudar.config(text="Pausar", state="disabled")
     actualizar_label_reproduccion(label_reproduccion)
     label_tiempo.config(text="00:00 / 00:00")
+    pygame.mixer.music.unload()
+    del reproductor.audio_actual
+    reproductor.audio_actual = None
+    gc.collect()
 
 
 def retroceder(label_tiempo):

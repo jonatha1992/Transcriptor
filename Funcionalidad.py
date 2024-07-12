@@ -6,7 +6,11 @@ import tempfile
 import threading
 from tkinter import messagebox
 import tkinter as tk
-
+from mutagen import File
+import wave
+import contextlib
+from tkinter import filedialog
+import time
 from Config import (
     logging,
     ffmpeg_path,
@@ -14,6 +18,7 @@ from Config import (
     idiomas,
     transcripcion_activa,
     transcripcion_en_curso,
+    check_proxy,
 )
 
 # Inicializar el reconocedor
@@ -40,9 +45,6 @@ def convertir_a_wav(audio_path):
 
 
 def obtener_duracion_audio(ruta_archivo):
-    from mutagen import File
-    import wave
-    import contextlib
 
     try:
         audio = File(ruta_archivo)
@@ -83,13 +85,11 @@ def transcribir_archivo(audio_path, idioma_entrada):
 
 
 def traducir_texto(texto, idioma_salida):
-    from Config import check_proxy
-
     try:
         if check_proxy() == "Proxy configurado:":
             proxy_config = {
                 "http": "http://proxy.psa.gob.ar:3128",
-                "https": "https://proxy.psa.gob.ar:3128",
+                "https": "http://proxy.psa.gob.ar:3128",
             }
             translator = Translator(proxies=proxy_config)
         else:
@@ -103,8 +103,6 @@ def traducir_texto(texto, idioma_salida):
 
 
 def seleccionar_archivos(lista_archivos, lista_archivos_paths):
-    from tkinter import filedialog
-    import time
 
     file_paths = filedialog.askopenfilenames(
         filetypes=[("Archivos de Audio", "*.mp3 *.wav *.flac *.ogg *.m4a *.mp4 *.aac")],
@@ -133,7 +131,7 @@ def limpiar(text_area):
     text_area.delete("1.0", tk.END)
 
 
-def ajustar_texto_sencillo(texto, max_ancho=75):
+def ajustar_texto_sencillo(texto, max_ancho=90):
     palabras = texto.split()
     lineas = []
     linea_actual = []
@@ -151,7 +149,6 @@ def ajustar_texto_sencillo(texto, max_ancho=75):
 
 
 def exportar_transcripcion(transcripcion_resultado):
-    from tkinter import filedialog
 
     if not transcripcion_resultado:
         messagebox.showwarning("Advertencia", "No hay transcripción para exportar.")
@@ -315,34 +312,43 @@ def transcribir_archivo_grande(
     transcripcion_activa,
     chunk_size=60000,
 ):
-    audio = AudioSegment.from_wav(audio_path)
-    duracion_total = len(audio)
-    transcripcion_completa = ""
+    transcripcion_completa = []
     progreso_actual = 0
+    duracion_total = obtener_duracion_audio(audio_path)
 
-    for i in range(0, duracion_total, chunk_size):
-        if not transcripcion_activa:
-            break
+    try:
+        with sr.AudioFile(audio_path) as source:
+            for i in range(0, duracion_total * 1000, chunk_size):
+                if not transcripcion_activa:
+                    break
 
-        chunk = audio[i : i + chunk_size]
-        with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as temp_file:
-            chunk.export(temp_file.name, format="wav")
-            try:
-                with sr.AudioFile(temp_file.name) as source:
-                    audio_chunk = recognizer.record(source)
+                inicio = i / 1000.0
+                fin = min((i + chunk_size) / 1000.0, duracion_total)
+
+                try:
+                    audio_chunk = recognizer.record(
+                        source, offset=inicio, duration=fin - inicio
+                    )
+
                     texto = recognizer.recognize_google(
                         audio_chunk, language=idioma_entrada
                     )
-                    transcripcion_completa += texto + " "
-            except sr.UnknownValueError:
-                transcripcion_completa += "[inaudible] "
-            except sr.RequestError as e:
-                logging.error(f"Error en el servicio de reconocimiento: {e}")
-                return f"Error en el servicio de reconocimiento: {e}"
-        os.unlink(temp_file.name)
+                    transcripcion_completa.append(texto)
+                except sr.UnknownValueError:
+                    transcripcion_completa.append("[inaudible]")
+                except sr.RequestError as e:
+                    logging.error(f"Error en el servicio de reconocimiento: {e}")
+                    transcripcion_completa.append("[error de reconocimiento]")
+                except Exception as e:
+                    logging.error(f"Error inesperado al procesar chunk: {e}")
+                    transcripcion_completa.append("[error de procesamiento]")
 
-        progreso_actual += len(chunk)
-        progress_bar["value"] = min(progreso_actual, duracion_total)
-        ventana.update_idletasks()
+                progreso_actual = int(fin * 1000)
+                progress_bar["value"] = min(progreso_actual, duracion_total * 1000)
+                ventana.update_idletasks()
 
-    return transcripcion_completa.strip()
+    except Exception as e:
+        logging.error(f"Error al procesar el archivo: {e}")
+        return f"Error al procesar el archivo: {e}"
+
+    return " ".join(transcripcion_completa).strip()

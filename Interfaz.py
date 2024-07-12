@@ -87,7 +87,7 @@ def crear_interfaz(ventana):
             combobox_idioma_salida,
         ),
     )
-    boton_transcribir.pack(side=tk.RIGHT, padx=5)
+    boton_transcribir.pack(side=tk.LEFT, padx=5)
 
     boton_exportar = tk.Button(
         frame_botones,
