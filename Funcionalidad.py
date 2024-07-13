@@ -24,10 +24,13 @@ from Config import (
 )
 import numpy as np
 import librosa
-import whisper
-from pydub import AudioSegment
 from pydub.silence import split_on_silence
+import speech_recognition as sr
+from pydub.silence import split_on_silence
+import io
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
+logging.basicConfig(level=logging.DEBUG)
 
 # Inicializar el reconocedor
 recognizer = sr.Recognizer()
@@ -235,6 +238,7 @@ def iniciar_transcripcion_thread(
 
     if transcripcion_activa:
         transcripcion_activa = False
+        transcripcion_en_curso = False
         boton_transcribir.config(text="Transcribir")
         progress_bar["value"] = 0
         progress_bar.pack_forget()
@@ -277,12 +281,6 @@ def iniciar_transcripcion(
     global transcripcion_activa, transcripcion_en_curso
 
     seleccion = lista_archivos.curselection()
-    # if not seleccion:
-    #     messagebox.showwarning(
-    #         "Advertencia", "Seleccione un archivo de audio para transcribir."
-    #     )
-    #     transcripcion_en_curso = False
-    #     return
 
     archivo = lista_archivos.get(seleccion[0])
     audio_file = next(
@@ -334,54 +332,48 @@ def iniciar_transcripcion(
     transcripcion_en_curso = False
 
 
-# def transcribir_archivo_grande(
-#     audio_path,
-#     idioma_entrada,
-#     progress_bar,
-#     ventana,
-#     transcripcion_activa,
-#     chunk_size=60000,
-# ):
-#     transcripcion_completa = []
-#     progreso_actual = 0
-#     duracion_total = obtener_duracion_audio(audio_path)
+def mejorar_audio(audio):
+    try:
+        audio = audio.set_channels(1)  # Convertir a mono
+        audio = audio.high_pass_filter(80)
+        audio = audio.normalize()
+        return audio
+    except Exception as e:
+        logging.error(f"Error en mejorar_audio: {e}")
+        return audio
 
-#     try:
-#         with sr.AudioFile(audio_path) as source:
-#             for i in range(0, duracion_total * 1000, chunk_size):
-#                 if not transcripcion_activa:
-#                     break
 
-#                 inicio = i / 1000.0
-#                 fin = min((i + chunk_size) / 1000.0, duracion_total)
+def transcribir_chunk(recognizer, audio_chunk, idioma_entrada):
+    try:
+        if len(audio_chunk) == 0:
+            return "[chunk vacío]"
 
-#                 try:
-#                     audio_chunk = recognizer.record(
-#                         source, offset=inicio, duration=fin - inicio
-#                     )
+        buffer = io.BytesIO()
+        audio_chunk.export(buffer, format="wav")
+        buffer.seek(0)
 
-#                     texto = recognizer.recognize_google(
-#                         audio_chunk, language=idioma_entrada
-#                     )
-#                     transcripcion_completa.append(texto)
-#                 except sr.UnknownValueError:
-#                     transcripcion_completa.append("[inaudible]")
-#                 except sr.RequestError as e:
-#                     logging.error(f"Error en el servicio de reconocimiento: {e}")
-#                     transcripcion_completa.append("[error de reconocimiento]")
-#                 except Exception as e:
-#                     logging.error(f"Error inesperado al procesar chunk: {e}")
-#                     transcripcion_completa.append("[error de procesamiento]")
+        with sr.AudioFile(buffer) as source:
+            audio_data = recognizer.record(source)
 
-#                 progreso_actual = int(fin * 1000)
-#                 progress_bar["value"] = min(progreso_actual, duracion_total * 1000)
-#                 ventana.update_idletasks()
+        if not audio_data or len(audio_data.frame_data) == 0:
+            return "[datos de audio vacíos]"
 
-#     except Exception as e:
-#         logging.error(f"Error al procesar el archivo: {e}")
-#         return f"Error al procesar el archivo: {e}"
-
-#     return " ".join(transcripcion_completa).strip()
+        texto = recognizer.recognize_google(audio_data, language=idioma_entrada)
+        logging.info(
+            f"Chunk transcrito: {texto[:30]}..."
+        )  # Log de los primeros 30 caracteres
+        return texto
+    except sr.UnknownValueError:
+        logging.warning(
+            f"Audio no reconocido - Duración del chunk: {len(audio_chunk) / 1000} segundos"
+        )
+        return "[inaudible]"
+    except sr.RequestError as e:
+        logging.error(f"Error en el servicio de reconocimiento: {e}")
+        return "[error de reconocimiento]"
+    except Exception as e:
+        logging.error(f"Error inesperado al procesar chunk: {e}")
+        return f"[error: {str(e)}]"
 
 
 def transcribir_archivo_grande(
@@ -390,71 +382,82 @@ def transcribir_archivo_grande(
     progress_bar,
     ventana,
     transcripcion_activa,
-    chunk_size=60000,
 ):
     transcripcion_completa = []
     progreso_actual = 0
-    duracion_total = obtener_duracion_audio(audio_path)
 
     try:
-        # Cargar el audio y preprocesarlo
-        audio = AudioSegment.from_wav(audio_path)
-        audio = audio.normalize()
+        if not os.path.exists(audio_path):
+            raise FileNotFoundError(f"El archivo {audio_path} no existe")
 
-        # Segmentación basada en silencios
-        chunks = split_on_silence(audio, min_silence_len=500, silence_thresh=-40)
+        audio = AudioSegment.from_file(audio_path)
+        if len(audio) == 0:
+            raise ValueError("El archivo de audio está vacío")
 
-        # Cargar modelo Whisper
-        model = whisper.load_model("base")
+        duracion_total = len(audio)
+        audio = mejorar_audio(audio)
 
-        for i, chunk in enumerate(chunks):
-            if not transcripcion_activa:
-                break
+        # Ajustar parámetros de segmentación
+        chunks = split_on_silence(
+            audio,
+            min_silence_len=500,  # Aumentado a 1 segundo
+            silence_thresh=audio.dBFS - 25,  # Ajustado para mayor sensibilidad
+            keep_silence=100,  # 500
+        )
 
-            try:
-                # Convertir chunk a numpy array para Whisper
-                chunk_np = np.frombuffer(chunk.raw_data, dtype=np.int16)
-                chunk_np = (
-                    chunk_np.astype(np.float32) / 32768.0
-                )  # Normalizar a [-1.0, 1.0]
+        if not chunks:
+            logging.warning(
+                "No se pudieron crear chunks de audio. Procesando el archivo completo."
+            )
+            chunks = [audio]
 
-                # Transcribir con Whisper
-                result = model.transcribe(chunk_np, language=idioma_entrada)
-                texto = result["text"]
+        recognizer = sr.Recognizer()
+        recognizer.energy_threshold = 300
+        recognizer.dynamic_energy_threshold = True
 
-                # Post-procesamiento básico
-                texto = texto.strip()
-                texto = texto.capitalize()
-
-                transcripcion_completa.append(texto)
-            except Exception as e:
-                logging.error(f"Error al procesar chunk: {e}")
-                transcripcion_completa.append("[error de procesamiento]")
-
-            # Actualizar barra de progreso
-            progreso_actual += len(chunk)
-            progress_bar["value"] = min(progreso_actual, len(audio))
-            ventana.update_idletasks()
-
-        # Si Whisper falla, intentar con el reconocedor de Google como respaldo
-        if not transcripcion_completa:
-            with sr.AudioFile(audio_path) as source:
-                audio_completo = recognizer.record(source)
-                try:
-                    texto = recognizer.recognize_google(
-                        audio_completo, language=idioma_entrada
+        with ThreadPoolExecutor(max_workers=5) as executor:
+            futures = []
+            for chunk in chunks:
+                if not transcripcion_activa or not transcripcion_en_curso:
+                    break
+                futures.append(
+                    executor.submit(
+                        transcribir_chunk, recognizer, chunk, idioma_entrada
                     )
+                )
+
+            for future in as_completed(futures):
+                if not transcripcion_activa:
+                    break
+                texto = future.result()
+                if texto and not texto.startswith("[error:"):
                     transcripcion_completa.append(texto)
-                except sr.UnknownValueError:
-                    transcripcion_completa.append("[inaudible]")
-                except sr.RequestError as e:
-                    logging.error(
-                        f"Error en el servicio de reconocimiento de Google: {e}"
-                    )
-                    transcripcion_completa.append("[error de reconocimiento]")
 
+                progreso_actual += len(chunk)
+                progress_bar["value"] = min(progreso_actual, duracion_total)
+                ventana.update_idletasks()
+
+        # Si no se reconoció nada, intentar con el archivo completo
+        if not transcripcion_completa:
+            logging.warning("Intentando transcribir el archivo completo...")
+            texto_completo = transcribir_chunk(recognizer, audio, idioma_entrada)
+            if texto_completo and not texto_completo.startswith("[error:"):
+                transcripcion_completa.append(texto_completo)
+
+        transcripcion_final = " ".join(transcripcion_completa).strip()
+        transcripcion_final = transcripcion_final.capitalize()
+
+        if not transcripcion_final:
+            return "No se pudo transcribir ninguna parte del audio."
+
+        return transcripcion_final
+
+    except FileNotFoundError as e:
+        logging.error(f"Error de archivo: {e}")
+        return f"Error: {str(e)}"
+    except ValueError as e:
+        logging.error(f"Error de valor: {e}")
+        return f"Error: {str(e)}"
     except Exception as e:
         logging.error(f"Error al procesar el archivo: {e}")
         return f"Error al procesar el archivo: {e}"
-
-    return " ".join(transcripcion_completa).strip()
