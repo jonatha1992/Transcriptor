@@ -1,0 +1,2 @@
+2024-07-16 12:55:00,950 - root - ERROR - Error al convertir archivo a WAV: [Errno 13] Permission denied: 'D:/Repositorio/jonatha1992/Transcriptor/Audios/Recording (2).wav'
+2024-07-16 12:55:04,023 - root - ERROR - Error al convertir archivo a WAV: [Errno 13] Permission denied: 'D:/Repositorio/jonatha1992/Transcriptor/Audios/Recording (2).wav'
