@@ -3,9 +3,6 @@ from tkinter import messagebox
 from Interfaz import crear_interfaz, centrar_ventana
 from Config import detectar_y_configurar_proxy
 from Reproductor import pygame
-import os
-
-
 import os, sys
 
 
@@ -48,9 +45,6 @@ def main():
 
     except Exception as e:
         messagebox.showerror("Error", f"Se produjo un error: {str(e)}")
-        # Opcionalmente, puedes agregar logging aquí para registrar el error
-        # import logging
-        # logging.exception("Se produjo una excepción no manejada")
 
 
 if __name__ == "__main__":
