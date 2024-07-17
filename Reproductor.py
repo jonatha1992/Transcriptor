@@ -14,6 +14,7 @@ class ReproductorAudio:
         self.tiempo_inicio = 0
         self.tiempo_pausa = 0
         self.duracion_total = 0
+        self.posicion_actual = 0
 
     def iniciar(self, ruta_archivo):
         self.audio_actual = ruta_archivo
@@ -23,18 +24,19 @@ class ReproductorAudio:
         self.reproduciendo = True
         self.tiempo_inicio = time.time()
         self.tiempo_pausa = 0
+        self.posicion_actual = 0
 
     def pausar(self):
         if self.reproduciendo:
             pygame.mixer.music.pause()
             self.reproduciendo = False
-            self.tiempo_pausa = time.time() - self.tiempo_inicio
+            self.posicion_actual = self.obtener_tiempo_actual()
 
     def reanudar(self):
         if not self.reproduciendo:
             pygame.mixer.music.unpause()
             self.reproduciendo = True
-            self.tiempo_inicio = time.time() - self.tiempo_pausa
+            self.tiempo_inicio = time.time() - self.posicion_actual
 
     def detener(self):
         pygame.mixer.music.stop()
@@ -45,26 +47,31 @@ class ReproductorAudio:
         self.tiempo_inicio = 0
         self.tiempo_pausa = 0
         self.duracion_total = 0
+        self.posicion_actual = 0
 
     def adelantar(self, segundos):
+        self.posicion_actual = min(
+            self.duracion_total, self.obtener_tiempo_actual() + segundos
+        )
         if self.reproduciendo:
-            tiempo_actual = self.obtener_tiempo_actual()
-            nuevo_tiempo = min(self.duracion_total, tiempo_actual + segundos)
-            pygame.mixer.music.play(start=nuevo_tiempo)
-            self.tiempo_inicio = time.time() - nuevo_tiempo
+            pygame.mixer.music.play(start=self.posicion_actual)
+            self.tiempo_inicio = time.time() - self.posicion_actual
+        else:
+            pygame.mixer.music.set_pos(self.posicion_actual)
 
     def retroceder(self, segundos):
+        self.posicion_actual = max(0, self.obtener_tiempo_actual() - segundos)
         if self.reproduciendo:
-            tiempo_actual = self.obtener_tiempo_actual()
-            nuevo_tiempo = max(0, tiempo_actual - segundos)
-            pygame.mixer.music.play(start=nuevo_tiempo)
-            self.tiempo_inicio = time.time() - nuevo_tiempo
+            pygame.mixer.music.play(start=self.posicion_actual)
+            self.tiempo_inicio = time.time() - self.posicion_actual
+        else:
+            pygame.mixer.music.set_pos(self.posicion_actual)
 
     def obtener_tiempo_actual(self):
         if self.reproduciendo:
             return min(self.duracion_total, time.time() - self.tiempo_inicio)
         else:
-            return self.tiempo_pausa
+            return self.posicion_actual
 
     def obtener_tiempo_formateado(self):
         tiempo_actual = int(self.obtener_tiempo_actual())
@@ -77,9 +84,8 @@ reproductor = ReproductorAudio()
 
 def actualizar_tiempo(label):
     def actualizar():
-        if reproductor.reproduciendo:
-            label.config(text=reproductor.obtener_tiempo_formateado())
-            label.after(100, actualizar)
+        label.config(text=reproductor.obtener_tiempo_formateado())
+        label.after(100, actualizar)
 
     actualizar()
 
@@ -102,7 +108,6 @@ def reproducir(
     boton_adelantar,
     boton_retroceder,
 ):
-
     if transcripcion_en_curso:
         messagebox.showwarning(
             "Advertencia",
@@ -126,7 +131,6 @@ def reproducir(
     try:
         reproductor.iniciar(ruta_archivo)
     except pygame.error:
-        # Si no se puede reproducir, intenta convertir a WAV
         try:
             wav_path = convertir_a_wav(ruta_archivo)
             reproductor.iniciar(wav_path)
@@ -156,7 +160,6 @@ def pausar_reanudar(boton_pausar_reanudar, label_reproduccion, label_tiempo):
         reproductor.reanudar()
         boton_pausar_reanudar.config(text="Pausar")
     actualizar_tiempo(label_tiempo)
-    # actualizar_label_reproduccion(label_reproduccion)
 
 
 def detener_reproduccion(
@@ -170,7 +173,6 @@ def detener_reproduccion(
     boton_pausar_reanudar.config(text="Pausar", state="disabled")
     boton_adelantar.config(state="disabled")
     boton_retroceder.config(state="disabled")
-
     actualizar_label_reproduccion(label_reproduccion)
     label_tiempo.config(text="00:00 / 00:00")
     pygame.mixer.music.unload()

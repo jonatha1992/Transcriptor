@@ -25,7 +25,6 @@ def main():
 
         ventana = tk.Tk()
         ventana.title("AudioText")
-        # ventana.iconbitmap("./icons/icono.ico")
         icon_path = resource_path("icons/icono.ico")
         ventana.iconbitmap(icon_path)
         crear_interfaz(ventana)

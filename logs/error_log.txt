@@ -1,2 +1,6 @@
 2024-07-16 12:55:00,950 - root - ERROR - Error al convertir archivo a WAV: [Errno 13] Permission denied: 'D:/Repositorio/jonatha1992/Transcriptor/Audios/Recording (2).wav'
 2024-07-16 12:55:04,023 - root - ERROR - Error al convertir archivo a WAV: [Errno 13] Permission denied: 'D:/Repositorio/jonatha1992/Transcriptor/Audios/Recording (2).wav'
+2024-07-17 11:00:57,972 - root - ERROR - Error en el servicio de reconocimiento para chunk 0: recognition request failed: Bad Request
+2024-07-17 11:03:16,302 - root - ERROR - Error en el servicio de reconocimiento para chunk 0: recognition request failed: Bad Request
+2024-07-17 11:07:22,961 - root - ERROR - Error al convertir archivo a WAV: [Errno 13] Permission denied: 'C:/Users/jgcorrea/Downloads/WhatsApp Audio 2024-07-12 at 12.15.26.wav'
+2024-07-17 11:52:32,678 - root - ERROR - Error en el servicio de reconocimiento para chunk 0: recognition request failed: Bad Request
