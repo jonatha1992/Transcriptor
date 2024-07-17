@@ -26,8 +26,10 @@ import librosa
 from pydub.silence import split_on_silence
 import io
 from concurrent.futures import ThreadPoolExecutor, as_completed
-
-# Configuración de logging
+import speech_recognition as sr
+from pydub import AudioSegment
+from pydub.silence import split_on_silence
+import io
 import logging
 from logging.handlers import RotatingFileHandler
 
@@ -394,14 +396,6 @@ def mejorar_audio(audio):
         return audio
 
 
-from concurrent.futures import ThreadPoolExecutor, as_completed
-import speech_recognition as sr
-from pydub import AudioSegment
-from pydub.silence import split_on_silence
-import io
-import logging
-
-
 def transcribir_chunk(recognizer, audio_chunk, idioma_entrada, indice):
     try:
         if len(audio_chunk) == 0:
@@ -418,20 +412,18 @@ def transcribir_chunk(recognizer, audio_chunk, idioma_entrada, indice):
             return indice, "[datos de audio vacíos]"
 
         texto = recognizer.recognize_google(audio_data, language=idioma_entrada)
-        logging.info(f"Chunk {indice} transcrito: {texto[:30]}...")
+        logger.info(f"Chunk {indice} transcrito: {texto[:30]}...")
         return indice, texto
     except sr.UnknownValueError:
-        logging.warning(
+        logger.warning(
             f"Audio no reconocido en chunk {indice} - Duración: {len(audio_chunk) / 1000} segundos"
         )
         return indice, "[inaudible]"
     except sr.RequestError as e:
-        logging.error(
-            f"Error en el servicio de reconocimiento para chunk {indice}: {e}"
-        )
+        logger.error(f"Error en el servicio de reconocimiento para chunk {indice}: {e}")
         return indice, "[error de reconocimiento]"
     except Exception as e:
-        logging.error(f"Error inesperado al procesar chunk {indice}: {e}")
+        logger.error(f"Error inesperado al procesar chunk {indice}: {e}")
         return indice, f"[error: {str(e)}]"
 
 
@@ -460,7 +452,7 @@ def transcribir_archivo_grande(
         )
 
         if not chunks:
-            logging.warning(
+            logger.warning(
                 "No se pudieron crear chunks de audio. Procesando el archivo completo."
             )
             chunks = [audio]
@@ -488,7 +480,6 @@ def transcribir_archivo_grande(
                 i, texto = future.result()
                 if texto and not texto.startswith("[error:"):
                     resultados.append((i, texto))
-                    print(f"Chunk {i} transcrito: {texto[:30]}...")
 
                 progreso_actual += len(chunks[i])
                 progress_bar["value"] = min(progreso_actual, duracion_total)
@@ -500,7 +491,7 @@ def transcribir_archivo_grande(
 
         # Si no se reconoció nada, intentar con el archivo completo
         if not transcripcion_completa:
-            logging.warning("Intentando transcribir el archivo completo...")
+            logger.warning("Intentando transcribir el archivo completo...")
             _, texto_completo = transcribir_chunk(recognizer, audio, idioma_entrada, 0)
             if texto_completo and not texto_completo.startswith("[error:"):
                 transcripcion_completa.append(texto_completo)
@@ -514,11 +505,11 @@ def transcribir_archivo_grande(
         return transcripcion_final
 
     except FileNotFoundError as e:
-        logging.error(f"Error de archivo: {e}")
+        logger.error(f"Error de archivo: {e}")
         return f"Error: {str(e)}"
     except ValueError as e:
-        logging.error(f"Error de valor: {e}")
+        logger.error(f"Error de valor: {e}")
         return f"Error: {str(e)}"
     except Exception as e:
-        logging.error(f"Error al procesar el archivo: {e}")
+        logger.error(f"Error al procesar el archivo: {e}")
         return f"Error al procesar el archivo: {e}"

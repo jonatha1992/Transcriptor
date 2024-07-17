@@ -207,7 +207,9 @@ def crear_interfaz(ventana):
     frame_creditos.pack(side=tk.BOTTOM, pady=5)
 
     label_creditos = tk.Label(
-        frame_creditos, text="Producido por Correa Jonathan", font=("Arial", 10, "bold")
+        frame_creditos,
+        text="@Copyright 2024 Version 1.0 Produced by Correa Jonathan",
+        font=("Arial", 10, "bold"),
     )
     label_creditos.pack()
 
