@@ -150,7 +150,7 @@ def traducir_texto(texto, idioma_salida):
 
 def seleccionar_archivos(lista_archivos, lista_archivos_paths):
     file_paths = filedialog.askopenfilenames(
-        filetypes=[("Archivos de Audio", "*.mp3 *.wav *.flac *.ogg *.m4a *.mp4 *.aac")],
+        filetypes=[("Archivos de Audio", "*.mp3 *.wav *.flac *.ogg *.m4a *.mp4 *.aac *.opus" )],
         title="Seleccionar archivos de audio",
     )
     archivos_no_agregados = []
