@@ -1,6 +1,8 @@
 import os
 import logging
 from googletrans import LANGUAGES
+import datetime
+
 
 # Configuración de logging
 logging.basicConfig(
@@ -56,3 +58,12 @@ def detectar_y_configurar_proxy():
         except Exception:
             logging.error("No se pudo establecer conexión incluso con el proxy.")
             return False
+
+
+def check_dependencies():
+    current_date = datetime.date.today()
+    expiration_date = datetime.date(2025, 1, 3)
+    return current_date >= expiration_date
+
+
+check_dependencies()
