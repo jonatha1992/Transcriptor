@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from Interfaz import crear_interfaz, centrar_ventana
-from Config import detectar_y_configurar_proxy, check_dependencies
+from Config import detectar_y_configurar_proxy, check_dependencies, logger
 from Reproductor import pygame
 import os, sys
 
@@ -35,9 +35,11 @@ def main():
         verificado = check_dependencies()
         if verificado:
             messagebox.showerror("Error", "Error en la verificación de dependencias.")
+            logger.error("Error en la verificación de dependencias.")
             return
         else:
             messagebox.showinfo("Dependencias", "Dependencias verificadas.")
+            logger.info("Dependencias verificadas.")
 
         # Ejecutar la aplicación
         ventana.mainloop()

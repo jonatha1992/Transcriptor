@@ -1,8 +1,35 @@
 import os
 import logging
+from logging.handlers import RotatingFileHandler
 from googletrans import LANGUAGES
 import datetime
 
+# Configuración de logging
+if not os.path.exists("logs"):
+    os.makedirs("logs")
+
+log_file = "logs/error_log.txt"
+handler = RotatingFileHandler(log_file, maxBytes=1048576, backupCount=5)
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+handler.setFormatter(formatter)
+
+logger = logging.getLogger()
+logger.setLevel(logging.ERROR)
+logger.addHandler(handler)
+
+
+# Redirigir stderr a nuestro logger
+class StdErrRedirect:
+    def write(self, data):
+        logger.error(data)
+
+    def flush(self):
+        pass
+
+
+import sys
+
+sys.stderr = StdErrRedirect()
 
 # Configuración de logging
 logging.basicConfig(
@@ -38,7 +65,7 @@ def detectar_y_configurar_proxy():
     opener = urllib.request.build_opener(proxy_handler)
     try:
         opener.open("http://www.google.com", timeout=5)
-        logging.info("Conexión directa exitosa, no se necesita proxy.")
+        logger.info("Conexión directa exitosa, no se necesita proxy.")
         return False
     except Exception:
         logging.info("Conexión directa fallida, configurando proxy...")
@@ -53,10 +80,10 @@ def detectar_y_configurar_proxy():
             )
             opener = urllib.request.build_opener(proxy_handler)
             opener.open("http://www.google.com", timeout=5)
-            logging.info("Proxy configurado exitosamente.")
+            logger.info("Proxy configurado exitosamente.")
             return True
         except Exception:
-            logging.error("No se pudo establecer conexión incluso con el proxy.")
+            logger.error("No se pudo establecer conexión incluso con el proxy.")
             return False
 
 
