@@ -4,37 +4,33 @@ from logging.handlers import RotatingFileHandler
 from googletrans import LANGUAGES
 import datetime
 
-# Configuración de logging
-if not os.path.exists("logs"):
-    os.makedirs("logs")
+# Configuración básica de logging
+log_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs")
+if not os.path.exists(log_directory):
+    os.makedirs(log_directory)
 
-log_file = "logs/error_log.txt"
-handler = RotatingFileHandler(log_file, maxBytes=1048576, backupCount=5)
+log_file = os.path.join(log_directory, "error_log.txt")
+
+# Configurar el logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+# Crear un manejador de archivo rotativo
+file_handler = RotatingFileHandler(log_file, maxBytes=1048576, backupCount=5)
+file_handler.setLevel(logging.DEBUG)
+
+# Crear un manejador de consola
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.DEBUG)
+
+# Crear un formateador y añadirlo a los manejadores
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-handler.setFormatter(formatter)
+file_handler.setFormatter(formatter)
+console_handler.setFormatter(formatter)
 
-logger = logging.getLogger()
-logger.setLevel(logging.ERROR)
-logger.addHandler(handler)
-
-
-# Redirigir stderr a nuestro logger
-class StdErrRedirect:
-    def write(self, data):
-        logger.error(data)
-
-    def flush(self):
-        pass
-
-
-import sys
-
-sys.stderr = StdErrRedirect()
-
-# Configuración de logging
-logging.basicConfig(
-    level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s"
-)
+# Añadir los manejadores al logger
+logger.addHandler(file_handler)
+logger.addHandler(console_handler)
 
 # Configurar rutas de FFmpeg
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -68,7 +64,7 @@ def detectar_y_configurar_proxy():
         logger.info("Conexión directa exitosa, no se necesita proxy.")
         return False
     except Exception:
-        logging.info("Conexión directa fallida, configurando proxy...")
+        logger.info("Conexión directa fallida, configurando proxy...")
         os.environ["http_proxy"] = "http://proxy.psa.gob.ar:3128"
         os.environ["https_proxy"] = "http://proxy.psa.gob.ar:3128"
         try:
@@ -93,4 +89,5 @@ def check_dependencies():
     return current_date >= expiration_date
 
 
-check_dependencies()
+# Inicialización
+logger.info("Configuración inicial completada")

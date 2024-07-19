@@ -1,6 +1,63 @@
-2024-07-16 12:55:00,950 - root - ERROR - Error al convertir archivo a WAV: [Errno 13] Permission denied: 'D:/Repositorio/jonatha1992/Transcriptor/Audios/Recording (2).wav'
-2024-07-16 12:55:04,023 - root - ERROR - Error al convertir archivo a WAV: [Errno 13] Permission denied: 'D:/Repositorio/jonatha1992/Transcriptor/Audios/Recording (2).wav'
-2024-07-17 11:00:57,972 - root - ERROR - Error en el servicio de reconocimiento para chunk 0: recognition request failed: Bad Request
-2024-07-17 11:03:16,302 - root - ERROR - Error en el servicio de reconocimiento para chunk 0: recognition request failed: Bad Request
-2024-07-17 11:07:22,961 - root - ERROR - Error al convertir archivo a WAV: [Errno 13] Permission denied: 'C:/Users/jgcorrea/Downloads/WhatsApp Audio 2024-07-12 at 12.15.26.wav'
-2024-07-17 11:52:32,678 - root - ERROR - Error en el servicio de reconocimiento para chunk 0: recognition request failed: Bad Request
+2024-07-18 12:39:36,802 - root - INFO - Configuración inicial completada
+2024-07-18 12:39:40,337 - root - DEBUG - pygame 2.6.0 (SDL 2.28.4, Python 3.11.9)
+2024-07-18 12:39:40,337 - root - DEBUG - Hello from the pygame community. https://www.pygame.org/contribute.html
+2024-07-18 12:39:40,461 - root - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-07-18 12:39:42,211 - root - INFO - Dependencias verificadas.
+2024-07-18 13:01:58,164 - root - INFO - Configuración inicial completada
+2024-07-18 13:01:58,977 - root - DEBUG - pygame 2.6.0 (SDL 2.28.4, Python 3.11.9)
+2024-07-18 13:01:58,979 - root - DEBUG - Hello from the pygame community. https://www.pygame.org/contribute.html
+2024-07-18 13:01:59,090 - root - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-07-18 13:02:05,334 - root - INFO - Dependencias verificadas.
+2024-07-18 13:03:08,180 - root - INFO - Configuración inicial completada
+2024-07-18 13:03:08,661 - root - DEBUG - pygame 2.6.0 (SDL 2.28.4, Python 3.11.9)
+2024-07-18 13:03:08,663 - root - DEBUG - Hello from the pygame community. https://www.pygame.org/contribute.html
+2024-07-18 13:03:08,791 - root - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-07-18 13:03:41,153 - root - INFO - Configuración inicial completada
+2024-07-18 13:03:41,549 - root - DEBUG - pygame 2.6.0 (SDL 2.28.4, Python 3.11.9)
+2024-07-18 13:03:41,551 - root - DEBUG - Hello from the pygame community. https://www.pygame.org/contribute.html
+2024-07-18 13:03:41,656 - root - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-07-18 13:03:43,660 - root - INFO - Dependencias verificadas.
+2024-07-18 13:04:16,705 - root - INFO - Configuración inicial completada
+2024-07-18 13:04:17,515 - root - DEBUG - pygame 2.6.0 (SDL 2.28.4, Python 3.11.9)
+2024-07-18 13:04:17,517 - root - DEBUG - Hello from the pygame community. https://www.pygame.org/contribute.html
+2024-07-18 13:04:17,627 - root - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-07-18 13:04:20,172 - root - INFO - Dependencias verificadas.
+2024-07-18 13:04:41,726 - root - INFO - Configuración inicial completada
+2024-07-18 13:04:42,384 - root - DEBUG - pygame 2.6.0 (SDL 2.28.4, Python 3.11.9)
+2024-07-18 13:04:42,385 - root - DEBUG - Hello from the pygame community. https://www.pygame.org/contribute.html
+2024-07-18 13:04:42,501 - root - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-07-18 13:04:44,777 - root - INFO - Dependencias verificadas.
+2024-07-18 13:05:16,527 - root - INFO - Configuración inicial completada
+2024-07-18 13:05:17,045 - root - DEBUG - pygame 2.6.0 (SDL 2.28.4, Python 3.11.9)
+2024-07-18 13:05:17,048 - root - DEBUG - Hello from the pygame community. https://www.pygame.org/contribute.html
+2024-07-18 13:05:17,197 - root - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-07-18 13:05:20,811 - root - INFO - Dependencias verificadas.
+2024-07-18 13:05:53,637 - root - INFO - Configuración inicial completada
+2024-07-18 13:05:54,075 - root - DEBUG - pygame 2.6.0 (SDL 2.28.4, Python 3.11.9)
+2024-07-18 13:05:54,077 - root - DEBUG - Hello from the pygame community. https://www.pygame.org/contribute.html
+2024-07-18 13:05:54,241 - root - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-07-18 13:05:56,968 - root - INFO - Dependencias verificadas.
+2024-07-18 13:06:18,876 - root - INFO - Configuración inicial completada
+2024-07-18 13:06:19,690 - root - DEBUG - pygame 2.6.0 (SDL 2.28.4, Python 3.11.9)
+2024-07-18 13:06:19,691 - root - DEBUG - Hello from the pygame community. https://www.pygame.org/contribute.html
+2024-07-18 13:06:19,837 - root - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-07-18 13:06:22,131 - root - INFO - Dependencias verificadas.
+2024-07-18 13:06:39,000 - root - INFO - Configuración inicial completada
+2024-07-18 13:06:39,457 - root - DEBUG - pygame 2.6.0 (SDL 2.28.4, Python 3.11.9)
+2024-07-18 13:06:39,458 - root - DEBUG - Hello from the pygame community. https://www.pygame.org/contribute.html
+2024-07-18 13:06:39,622 - root - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-07-18 13:06:41,811 - root - INFO - Dependencias verificadas.
+2024-07-18 13:07:13,172 - root - INFO - Configuración inicial completada
+2024-07-18 13:07:13,575 - root - DEBUG - pygame 2.6.0 (SDL 2.28.4, Python 3.11.9)
+2024-07-18 13:07:13,577 - root - DEBUG - Hello from the pygame community. https://www.pygame.org/contribute.html
+2024-07-18 13:07:13,732 - root - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-07-18 13:07:16,721 - root - INFO - Dependencias verificadas.
+2024-07-18 13:14:39,298 - root - INFO - Configuración inicial completada
+2024-07-18 13:14:40,421 - root - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-07-18 13:14:43,641 - root - INFO - Dependencias verificadas.
+2024-07-18 13:18:33,964 - Config - INFO - Configuración inicial completada
+2024-07-18 13:18:34,997 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-07-18 13:18:36,788 - Config - INFO - Dependencias verificadas.
+2024-07-18 14:03:26,661 - Config - INFO - Configuración inicial completada
+2024-07-18 14:03:30,342 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-07-18 14:03:40,838 - Config - INFO - Dependencias verificadas.
