@@ -1,0 +1,27 @@
+VSVersionInfo(
+  ffi=FixedFileInfo(
+    filevers=(1, 0, 0, 0),
+    prodvers=(1, 0, 0, 0),
+    mask=0x3f,
+    flags=0x0,
+    OS=0x40004,
+    fileType=0x1,
+    subtype=0x0,
+    date=(0, 0)
+  ),
+  kids=[
+    StringFileInfo(
+      [
+      StringTable(
+        u'040904B0',
+        [StringStruct(u'FileDescription', u'AudioText - Transcriptor y Traductor de Audio, producido por Correa Jonathan'),
+        StringStruct(u'FileVersion', u'1.0.0'),
+        StringStruct(u'InternalName', u'AudioText'),
+        StringStruct(u'LegalCopyright', u'© 2024 Producido por Correa Jonathan'),
+        StringStruct(u'OriginalFilename', u'AudioText.exe'),
+        StringStruct(u'ProductName', u'AudioText'),
+        StringStruct(u'ProductVersion', u'1.0.0')
+      ]),
+    VarFileInfo([VarStruct(u'Translation', [1033, 1200])])
+  ]
+)

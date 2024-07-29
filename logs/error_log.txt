@@ -61,3 +61,14 @@
 2024-07-18 14:03:26,661 - Config - INFO - Configuración inicial completada
 2024-07-18 14:03:30,342 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
 2024-07-18 14:03:40,838 - Config - INFO - Dependencias verificadas.
+2024-07-19 09:11:52,621 - Config - INFO - Configuración inicial completada
+2024-07-19 09:11:54,384 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-07-19 09:11:56,635 - Config - INFO - Dependencias verificadas.
+2024-07-19 09:12:06,333 - Config - INFO - Procesando archivo: C:/Users/jgcorrea/Desktop/Repositorio/Transcriptor/Audios/PRUEBA2.ogg
+2024-07-19 09:12:06,334 - Config - INFO - Intentando convertir: C:/Users/jgcorrea/Desktop/Repositorio/Transcriptor/Audios/PRUEBA2.ogg
+2024-07-19 09:12:06,334 - Config - INFO - Formato de audio detectado: ogg
+2024-07-19 09:12:08,003 - Config - INFO - Archivo convertido a WAV: C:/Users/jgcorrea/Desktop/Repositorio/Transcriptor/Audios/PRUEBA2.wav
+2024-07-19 09:12:10,143 - Config - INFO - Chunk 2 transcrito: la aplicación...
+2024-07-19 09:12:10,364 - Config - INFO - Chunk 1 transcrito: Cómo funcionaba la...
+2024-07-19 09:12:10,596 - Config - INFO - Chunk 0 transcrito: No lo que pasa es que quería p...
+2024-07-19 09:12:11,040 - Config - INFO - Chunk 3 transcrito: Cuídense si Necesitaba hablar ...
