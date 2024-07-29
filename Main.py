@@ -32,14 +32,7 @@ def main():
         # Centrar la ventana en la pantalla
         centrar_ventana(ventana)
 
-        verificado = check_dependencies()
-        if verificado:
-            messagebox.showerror("Error", "Error en la verificación de dependencias.")
-            logger.error("Error en la verificación de dependencias.")
-            return
-        else:
-            messagebox.showinfo("Dependencias", "Dependencias verificadas.")
-            logger.info("Dependencias verificadas.")
+    
 
         # Ejecutar la aplicación
         ventana.mainloop()
