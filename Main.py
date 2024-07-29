@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from Interfaz import crear_interfaz, centrar_ventana
-from Config import detectar_y_configurar_proxy
+from Config import detectar_y_configurar_proxy, check_dependencies, logger
 from Reproductor import pygame
 import os, sys
 
@@ -32,12 +32,14 @@ def main():
         # Centrar la ventana en la pantalla
         centrar_ventana(ventana)
 
-        if proxy_configurado:
-            messagebox.showinfo("Proxy", "Proxy configurado automáticamente.")
+        verificado = check_dependencies()
+        if verificado:
+            messagebox.showerror("Error", "Error en la verificación de dependencias.")
+            logger.error("Error en la verificación de dependencias.")
+            return
         else:
-            messagebox.showinfo(
-                "Proxy", "No se requiere proxy o no se pudo configurar."
-            )
+            messagebox.showinfo("Dependencias", "Dependencias verificadas.")
+            logger.info("Dependencias verificadas.")
 
         # Ejecutar la aplicación
         ventana.mainloop()

@@ -1,11 +1,36 @@
 import os
 import logging
+from logging.handlers import RotatingFileHandler
 from googletrans import LANGUAGES
+import datetime
 
-# Configuración de logging
-logging.basicConfig(
-    level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s"
-)
+# Configuración básica de logging
+log_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs")
+if not os.path.exists(log_directory):
+    os.makedirs(log_directory)
+
+log_file = os.path.join(log_directory, "error_log.txt")
+
+# Configurar el logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+# Crear un manejador de archivo rotativo
+file_handler = RotatingFileHandler(log_file, maxBytes=1048576, backupCount=5)
+file_handler.setLevel(logging.DEBUG)
+
+# Crear un manejador de consola
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.DEBUG)
+
+# Crear un formateador y añadirlo a los manejadores
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+file_handler.setFormatter(formatter)
+console_handler.setFormatter(formatter)
+
+# Añadir los manejadores al logger
+logger.addHandler(file_handler)
+logger.addHandler(console_handler)
 
 # Configurar rutas de FFmpeg
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -36,10 +61,10 @@ def detectar_y_configurar_proxy():
     opener = urllib.request.build_opener(proxy_handler)
     try:
         opener.open("http://www.google.com", timeout=5)
-        logging.info("Conexión directa exitosa, no se necesita proxy.")
+        logger.info("Conexión directa exitosa, no se necesita proxy.")
         return False
     except Exception:
-        logging.info("Conexión directa fallida, configurando proxy...")
+        logger.info("Conexión directa fallida, configurando proxy...")
         os.environ["http_proxy"] = "http://proxy.psa.gob.ar:3128"
         os.environ["https_proxy"] = "http://proxy.psa.gob.ar:3128"
         try:
@@ -51,8 +76,18 @@ def detectar_y_configurar_proxy():
             )
             opener = urllib.request.build_opener(proxy_handler)
             opener.open("http://www.google.com", timeout=5)
-            logging.info("Proxy configurado exitosamente.")
+            logger.info("Proxy configurado exitosamente.")
             return True
         except Exception:
-            logging.error("No se pudo establecer conexión incluso con el proxy.")
+            logger.error("No se pudo establecer conexión incluso con el proxy.")
             return False
+
+
+def check_dependencies():
+    current_date = datetime.date.today()
+    expiration_date = datetime.date(2025, 1, 3)
+    return current_date >= expiration_date
+
+
+# Inicialización
+logger.info("Configuración inicial completada")

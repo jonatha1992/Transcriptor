@@ -30,38 +30,8 @@ import speech_recognition as sr
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
 import io
-import logging
-from logging.handlers import RotatingFileHandler
+from Config import logger
 
-# Crear el directorio 'logs' si no existe
-if not os.path.exists("logs"):
-    os.makedirs("logs")
-
-# Configurar el logging
-log_file = "logs/error_log.txt"
-handler = RotatingFileHandler(
-    log_file, maxBytes=1048576, backupCount=5
-)  # 1MB por archivo, max 5 archivos
-formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-handler.setFormatter(formatter)
-
-logger = logging.getLogger()
-logger.setLevel(logging.ERROR)  # Solo registrar errores y niveles superiores
-logger.addHandler(handler)
-
-# Redirigir stderr a nuestro logger
-import sys
-
-
-class StdErrRedirect:
-    def write(self, data):
-        logger.error(data)
-
-    def flush(self):
-        pass
-
-
-sys.stderr = StdErrRedirect()
 
 # Inicializar el reconocedor
 recognizer = sr.Recognizer()
@@ -71,16 +41,44 @@ AudioSegment.ffmpeg = ffmpeg_path
 AudioSegment.ffprobe = ffprobe_path
 
 
+# def convertir_a_wav(audio_path):
+#     try:
+#         logger.info(f"Intentando convertir: {audio_path}")
+#         audio_format = audio_path.split(".")[-1]
+#         logger.info(f"Formato de audio detectado: {audio_format}")
+#         audio = AudioSegment.from_file(audio_path, format=audio_format)
+#         wav_path = audio_path.replace(audio_format, "wav")
+#         audio.export(wav_path, format="wav")
+#         logger.info(f"Archivo convertido a WAV: {wav_path}")
+#         return wav_path
+#     except Exception as e:
+#         logger.error(f"Error al convertir archivo a WAV: {e}")
+#         raise
+
+
 def convertir_a_wav(audio_path):
     try:
         logger.info(f"Intentando convertir: {audio_path}")
         audio_format = audio_path.split(".")[-1]
         logger.info(f"Formato de audio detectado: {audio_format}")
-        audio = AudioSegment.from_file(audio_path, format=audio_format)
-        wav_path = audio_path.replace(audio_format, "wav")
-        audio.export(wav_path, format="wav")
-        logger.info(f"Archivo convertido a WAV: {wav_path}")
-        return wav_path
+        output_path = audio_path.replace(audio_format, "wav")
+
+        command = [ffmpeg_path, "-i", audio_path, output_path]
+
+        startupinfo = subprocess.STARTUPINFO()
+        startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+        startupinfo.wShowWindow = subprocess.SW_HIDE
+
+        subprocess.run(
+            command,
+            startupinfo=startupinfo,
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+
+        logger.info(f"Archivo convertido a WAV: {output_path}")
+        return output_path
     except Exception as e:
         logger.error(f"Error al convertir archivo a WAV: {e}")
         raise
@@ -150,7 +148,9 @@ def traducir_texto(texto, idioma_salida):
 
 def seleccionar_archivos(lista_archivos, lista_archivos_paths):
     file_paths = filedialog.askopenfilenames(
-        filetypes=[("Archivos de Audio", "*.mp3 *.wav *.flac *.ogg *.m4a *.mp4 *.aac *.opus" )],
+        filetypes=[
+            ("Archivos de Audio", "*.mp3 *.wav *.flac *.ogg *.m4a *.mp4 *.aac *.opus")
+        ],
         title="Seleccionar archivos de audio",
     )
     archivos_no_agregados = []
