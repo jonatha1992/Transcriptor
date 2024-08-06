@@ -72,3 +72,331 @@
 2024-07-19 09:12:10,364 - Config - INFO - Chunk 1 transcrito: Cómo funcionaba la...
 2024-07-19 09:12:10,596 - Config - INFO - Chunk 0 transcrito: No lo que pasa es que quería p...
 2024-07-19 09:12:11,040 - Config - INFO - Chunk 3 transcrito: Cuídense si Necesitaba hablar ...
+2024-08-05 20:59:41,754 - Config - INFO - Configuración inicial completada
+2024-08-05 20:59:45,531 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 21:04:00,044 - Config - INFO - Configuración inicial completada
+2024-08-05 21:04:01,146 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 21:04:47,694 - Config - INFO - Configuración inicial completada
+2024-08-05 21:04:48,999 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 21:07:05,713 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-08-05 21:07:30,959 - Config - INFO - Chunk 0 transcrito: hi my full name is Jonathan Correia but everyone calls Mission I am 2131 years old I want to listen to University I'm working at the airport police I did with my family my wife and my children...
+2024-08-05 21:25:09,392 - Config - INFO - Configuración inicial completada
+2024-08-05 21:25:10,459 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 21:25:17,545 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-08-05 21:25:26,447 - Config - INFO - Transcribiendo chunk 0 con duración 38.293 segundos
+2024-08-05 21:25:41,629 - Config - INFO - Chunk 0 transcrito: Hi my phone Jonathan Correa Baby One Cold millón allá en twenty one twenty One Direction Argentina living en Buenos Aires En qué continente árabes enseñar en español University and Walking The airport police and Deep with my family on my wife And My Children's and in a blinding family I am person... (Duración: 38.293 segundos)
+2024-08-05 21:30:27,901 - Config - INFO - Configuración inicial completada
+2024-08-05 21:30:29,411 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 21:30:37,749 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-08-05 21:30:47,509 - Config - INFO - Chunk 0 duración: 38.293 segundos
+2024-08-05 21:30:47,510 - Config - INFO - Transcribiendo chunk 0 con duración 38.293 segundos
+2024-08-05 21:31:03,690 - Config - INFO - Chunk 0 transcrito: Hi my phone Jonathan Correa Baby One Cold millón allá en twenty one twenty One Direction Argentina living en Buenos Aires En qué continente árabes enseñar en español University and Walking The airport police and Deep with my family on my wife And My Children's and in a blinding family I am person... (Duración: 38.293 segundos)
+2024-08-05 21:31:50,483 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (1).aac
+2024-08-05 21:31:50,487 - Config - INFO - Intentando convertir: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (1).aac
+2024-08-05 21:31:50,489 - Config - INFO - Formato de audio detectado: aac
+2024-08-05 21:34:49,073 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (1).wav
+2024-08-05 21:35:03,679 - Config - INFO - Chunk 0 duración: 1.438 segundos
+2024-08-05 21:35:03,680 - Config - INFO - Chunk 1 duración: 0.765 segundos
+2024-08-05 21:35:03,681 - Config - INFO - Chunk 2 duración: 1.396 segundos
+2024-08-05 21:35:03,681 - Config - INFO - Chunk 3 duración: 0.925 segundos
+2024-08-05 21:35:03,683 - Config - INFO - Chunk 4 duración: 1.968 segundos
+2024-08-05 21:35:03,684 - Config - INFO - Chunk 5 duración: 0.618 segundos
+2024-08-05 21:35:03,686 - Config - INFO - Chunk 6 duración: 1.808 segundos
+2024-08-05 21:35:03,687 - Config - INFO - Chunk 7 duración: 0.919 segundos
+2024-08-05 21:35:03,689 - Config - INFO - Chunk 8 duración: 1.87 segundos
+2024-08-05 21:35:03,690 - Config - INFO - Chunk 9 duración: 0.336 segundos
+2024-08-05 21:35:03,690 - Config - INFO - Chunk 10 duración: 3.074 segundos
+2024-08-05 21:35:03,692 - Config - INFO - Chunk 11 duración: 0.746 segundos
+2024-08-05 21:35:03,693 - Config - INFO - Chunk 12 duración: 1.109 segundos
+2024-08-05 21:35:03,694 - Config - INFO - Chunk 13 duración: 2.919 segundos
+2024-08-05 21:35:03,695 - Config - INFO - Chunk 14 duración: 1.627 segundos
+2024-08-05 21:35:03,698 - Config - INFO - Chunk 15 duración: 1.396 segundos
+2024-08-05 21:35:03,699 - Config - INFO - Chunk 16 duración: 4.327 segundos
+2024-08-05 21:35:03,700 - Config - INFO - Chunk 17 duración: 1.615 segundos
+2024-08-05 21:35:03,701 - Config - INFO - Chunk 18 duración: 0.928 segundos
+2024-08-05 21:35:03,703 - Config - INFO - Chunk 19 duración: 3.574 segundos
+2024-08-05 21:35:03,705 - Config - INFO - Chunk 20 duración: 4.953 segundos
+2024-08-05 21:35:03,706 - Config - INFO - Chunk 21 duración: 2.033 segundos
+2024-08-05 21:35:03,708 - Config - INFO - Chunk 22 duración: 4.762 segundos
+2024-08-05 21:35:03,709 - Config - INFO - Chunk 23 duración: 8.123 segundos
+2024-08-05 21:35:03,711 - Config - INFO - Chunk 24 duración: 6.475 segundos
+2024-08-05 21:35:03,712 - Config - INFO - Chunk 25 duración: 0.946 segundos
+2024-08-05 21:35:03,713 - Config - INFO - Chunk 26 duración: 12.618 segundos
+2024-08-05 21:35:03,714 - Config - INFO - Chunk 27 duración: 0.623 segundos
+2024-08-05 21:35:03,715 - Config - INFO - Chunk 28 duración: 5.539 segundos
+2024-08-05 21:35:03,716 - Config - INFO - Chunk 29 duración: 3.892 segundos
+2024-08-05 21:35:03,717 - Config - INFO - Chunk 30 duración: 1.573 segundos
+2024-08-05 21:35:03,719 - Config - INFO - Chunk 31 duración: 5.587 segundos
+2024-08-05 21:35:03,720 - Config - INFO - Chunk 32 duración: 2.088 segundos
+2024-08-05 21:35:03,723 - Config - INFO - Chunk 33 duración: 4.134 segundos
+2024-08-05 21:35:03,725 - Config - INFO - Chunk 34 duración: 3.881 segundos
+2024-08-05 21:35:03,726 - Config - INFO - Chunk 35 duración: 1.365 segundos
+2024-08-05 21:35:03,727 - Config - INFO - Chunk 36 duración: 3.752 segundos
+2024-08-05 21:35:03,729 - Config - INFO - Chunk 37 duración: 7.246 segundos
+2024-08-05 21:35:03,730 - Config - INFO - Chunk 38 duración: 3.573 segundos
+2024-08-05 21:35:03,731 - Config - INFO - Chunk 39 duración: 0.32 segundos
+2024-08-05 21:35:03,733 - Config - INFO - Chunk 40 duración: 0.798 segundos
+2024-08-05 21:35:03,733 - Config - INFO - Chunk 41 duración: 1.326 segundos
+2024-08-05 21:35:03,734 - Config - INFO - Chunk 42 duración: 1.483 segundos
+2024-08-05 21:35:03,736 - Config - INFO - Chunk 43 duración: 1.528 segundos
+2024-08-05 21:35:03,737 - Config - INFO - Chunk 44 duración: 7.813 segundos
+2024-08-05 21:35:03,738 - Config - INFO - Chunk 45 duración: 0.495 segundos
+2024-08-05 21:35:03,739 - Config - INFO - Chunk 46 duración: 0.99 segundos
+2024-08-05 21:35:03,741 - Config - INFO - Chunk 47 duración: 1.5 segundos
+2024-08-05 21:35:03,742 - Config - INFO - Chunk 48 duración: 13.457 segundos
+2024-08-05 21:35:03,743 - Config - INFO - Chunk 49 duración: 6.715 segundos
+2024-08-05 21:35:03,744 - Config - INFO - Chunk 50 duración: 2.205 segundos
+2024-08-05 21:35:03,746 - Config - INFO - Chunk 51 duración: 2.471 segundos
+2024-08-05 21:35:03,747 - Config - INFO - Chunk 52 duración: 0.284 segundos
+2024-08-05 21:35:03,748 - Config - INFO - Transcribiendo chunk 0 con duración 1.438 segundos
+2024-08-05 21:35:03,752 - Config - INFO - Transcribiendo chunk 1 con duración 0.765 segundos
+2024-08-05 21:35:03,758 - Config - INFO - Transcribiendo chunk 2 con duración 1.396 segundos
+2024-08-05 21:35:03,764 - Config - INFO - Transcribiendo chunk 3 con duración 0.925 segundos
+2024-08-05 21:35:03,773 - Config - INFO - Transcribiendo chunk 4 con duración 1.968 segundos
+2024-08-05 21:35:03,781 - Config - INFO - Transcribiendo chunk 5 con duración 0.618 segundos
+2024-08-05 21:35:03,787 - Config - INFO - Transcribiendo chunk 6 con duración 1.808 segundos
+2024-08-05 21:35:03,789 - Config - INFO - Transcribiendo chunk 7 con duración 0.919 segundos
+2024-08-05 21:35:03,793 - Config - INFO - Transcribiendo chunk 8 con duración 1.87 segundos
+2024-08-05 21:35:03,796 - Config - INFO - Transcribiendo chunk 9 con duración 0.336 segundos
+2024-08-05 21:35:03,799 - Config - INFO - Transcribiendo chunk 10 con duración 3.074 segundos
+2024-08-05 21:35:03,801 - Config - INFO - Transcribiendo chunk 11 con duración 0.746 segundos
+2024-08-05 21:35:03,804 - Config - INFO - Transcribiendo chunk 12 con duración 1.109 segundos
+2024-08-05 21:35:03,807 - Config - INFO - Transcribiendo chunk 13 con duración 2.919 segundos
+2024-08-05 21:35:03,808 - Config - INFO - Transcribiendo chunk 14 con duración 1.627 segundos
+2024-08-05 21:35:03,809 - Config - INFO - Transcribiendo chunk 15 con duración 1.396 segundos
+2024-08-05 21:35:03,810 - Config - INFO - Transcribiendo chunk 16 con duración 4.327 segundos
+2024-08-05 21:35:03,814 - Config - INFO - Transcribiendo chunk 17 con duración 1.615 segundos
+2024-08-05 21:35:03,817 - Config - INFO - Transcribiendo chunk 18 con duración 0.928 segundos
+2024-08-05 21:35:03,818 - Config - INFO - Transcribiendo chunk 19 con duración 3.574 segundos
+2024-08-05 21:35:03,820 - Config - INFO - Transcribiendo chunk 20 con duración 4.953 segundos
+2024-08-05 21:35:03,821 - Config - INFO - Transcribiendo chunk 21 con duración 2.033 segundos
+2024-08-05 21:35:03,822 - Config - INFO - Transcribiendo chunk 22 con duración 4.762 segundos
+2024-08-05 21:35:03,824 - Config - INFO - Transcribiendo chunk 23 con duración 8.123 segundos
+2024-08-05 21:35:03,827 - Config - INFO - Transcribiendo chunk 24 con duración 6.475 segundos
+2024-08-05 21:35:03,829 - Config - INFO - Transcribiendo chunk 25 con duración 0.946 segundos
+2024-08-05 21:35:03,830 - Config - INFO - Transcribiendo chunk 26 con duración 12.618 segundos
+2024-08-05 21:35:03,831 - Config - INFO - Transcribiendo chunk 27 con duración 0.623 segundos
+2024-08-05 21:35:03,832 - Config - INFO - Transcribiendo chunk 28 con duración 5.539 segundos
+2024-08-05 21:35:03,834 - Config - INFO - Transcribiendo chunk 29 con duración 3.892 segundos
+2024-08-05 21:35:03,835 - Config - INFO - Transcribiendo chunk 30 con duración 1.573 segundos
+2024-08-05 21:35:03,836 - Config - INFO - Transcribiendo chunk 31 con duración 5.587 segundos
+2024-08-05 21:35:03,838 - Config - INFO - Transcribiendo chunk 32 con duración 2.088 segundos
+2024-08-05 21:35:03,840 - Config - INFO - Transcribiendo chunk 33 con duración 4.134 segundos
+2024-08-05 21:35:03,841 - Config - INFO - Transcribiendo chunk 34 con duración 3.881 segundos
+2024-08-05 21:35:03,843 - Config - INFO - Transcribiendo chunk 35 con duración 1.365 segundos
+2024-08-05 21:35:03,845 - Config - INFO - Transcribiendo chunk 36 con duración 3.752 segundos
+2024-08-05 21:35:03,846 - Config - INFO - Transcribiendo chunk 37 con duración 7.246 segundos
+2024-08-05 21:35:03,847 - Config - INFO - Transcribiendo chunk 38 con duración 3.573 segundos
+2024-08-05 21:35:03,848 - Config - INFO - Transcribiendo chunk 39 con duración 0.32 segundos
+2024-08-05 21:35:03,850 - Config - INFO - Transcribiendo chunk 40 con duración 0.798 segundos
+2024-08-05 21:35:03,851 - Config - INFO - Transcribiendo chunk 41 con duración 1.326 segundos
+2024-08-05 21:35:03,852 - Config - INFO - Transcribiendo chunk 42 con duración 1.483 segundos
+2024-08-05 21:35:03,853 - Config - INFO - Transcribiendo chunk 43 con duración 1.528 segundos
+2024-08-05 21:35:03,854 - Config - INFO - Transcribiendo chunk 44 con duración 7.813 segundos
+2024-08-05 21:35:03,855 - Config - INFO - Transcribiendo chunk 45 con duración 0.495 segundos
+2024-08-05 21:35:03,856 - Config - INFO - Transcribiendo chunk 46 con duración 0.99 segundos
+2024-08-05 21:35:03,858 - Config - INFO - Transcribiendo chunk 47 con duración 1.5 segundos
+2024-08-05 21:35:03,860 - Config - INFO - Transcribiendo chunk 48 con duración 13.457 segundos
+2024-08-05 21:35:03,861 - Config - INFO - Transcribiendo chunk 49 con duración 6.715 segundos
+2024-08-05 21:35:03,863 - Config - INFO - Transcribiendo chunk 50 con duración 2.205 segundos
+2024-08-05 21:35:03,864 - Config - INFO - Transcribiendo chunk 51 con duración 2.471 segundos
+2024-08-05 21:35:03,865 - Config - INFO - Transcribiendo chunk 52 con duración 0.284 segundos
+2024-08-05 21:35:04,107 - Config - WARNING - Audio no reconocido en chunk 1 - Duración: 0.765 segundos
+2024-08-05 21:35:04,229 - Config - INFO - Chunk 3 transcrito: Hola... (Duración: 0.925 segundos)
+2024-08-05 21:35:04,367 - Config - INFO - Chunk 0 transcrito: mamá... (Duración: 1.438 segundos)
+2024-08-05 21:35:04,377 - Config - INFO - Chunk 2 transcrito: Hola me escucha... (Duración: 1.396 segundos)
+2024-08-05 21:35:04,397 - Config - WARNING - Audio no reconocido en chunk 5 - Duración: 0.618 segundos
+2024-08-05 21:35:04,477 - Config - WARNING - Audio no reconocido en chunk 4 - Duración: 1.968 segundos
+2024-08-05 21:35:04,617 - Config - WARNING - Audio no reconocido en chunk 9 - Duración: 0.336 segundos
+2024-08-05 21:35:04,795 - Config - INFO - Chunk 7 transcrito: Qué onda Qué pasó... (Duración: 0.919 segundos)
+2024-08-05 21:35:04,971 - Config - INFO - Chunk 11 transcrito: alfo... (Duración: 0.746 segundos)
+2024-08-05 21:35:05,222 - Config - INFO - Chunk 6 transcrito: no te iba a preguntar sobre el portón... (Duración: 1.808 segundos)
+2024-08-05 21:35:05,244 - Config - INFO - Chunk 8 transcrito: No sí ya arrancaron... (Duración: 1.87 segundos)
+2024-08-05 21:35:05,342 - Config - INFO - Chunk 12 transcrito: Ah hoy... (Duración: 1.109 segundos)
+2024-08-05 21:35:05,929 - Config - INFO - Chunk 13 transcrito: bueno el sábado capaz compró los... (Duración: 2.919 segundos)
+2024-08-05 21:35:06,033 - Config - INFO - Chunk 15 transcrito: él me escuchaba... (Duración: 1.396 segundos)
+2024-08-05 21:35:06,106 - Config - INFO - Chunk 14 transcrito: Pues sí escuché muy bajito... (Duración: 1.627 segundos)
+2024-08-05 21:35:06,276 - Config - INFO - Chunk 10 transcrito: Ah caray Discúlpame el martes entonces empezamos con... (Duración: 3.074 segundos)
+2024-08-05 21:35:06,388 - Config - INFO - Chunk 18 transcrito: Ah bueno... (Duración: 0.928 segundos)
+2024-08-05 21:35:06,662 - Config - INFO - Chunk 17 transcrito: Jaime dijo que el martes... (Duración: 1.615 segundos)
+2024-08-05 21:35:07,321 - Config - INFO - Chunk 21 transcrito: no no pues lo dejamos para la otra... (Duración: 2.033 segundos)
+2024-08-05 21:35:07,611 - Config - INFO - Chunk 19 transcrito: qué te iba a decir no el sábado capaz compró los caños hoy... (Duración: 3.574 segundos)
+2024-08-05 21:35:08,031 - Config - INFO - Chunk 16 transcrito: Ay todavía no no porque tengo que ponerle el altavoz porque anda mal... (Duración: 4.327 segundos)
+2024-08-05 21:35:08,294 - Config - INFO - Chunk 20 transcrito: así me lo deja ahí acordate que el domingo yo no voy a poder porque... (Duración: 4.953 segundos)
+2024-08-05 21:35:08,386 - Config - INFO - Chunk 25 transcrito: ah... (Duración: 0.946 segundos)
+2024-08-05 21:35:08,718 - Config - INFO - Chunk 27 transcrito: Cómo... (Duración: 0.623 segundos)
+2024-08-05 21:35:09,191 - Config - INFO - Chunk 22 transcrito: Ah pero lo va a comprar ya Carlos para que me dejen ahí vos decís que lo compré el mismo... (Duración: 4.762 segundos)
+2024-08-05 21:35:10,240 - Config - WARNING - Audio no reconocido en chunk 23 - Duración: 8.123 segundos
+2024-08-05 21:35:10,339 - Config - INFO - Chunk 24 transcrito: o sea te lo bajan ahí entendés no te bajas con un guinche seguro claro es por eso más que nada... (Duración: 6.475 segundos)
+2024-08-05 21:35:10,459 - Config - INFO - Chunk 28 transcrito: creo que no igual pero capaz te lo dejan Ahí vamos a hacer nosotros... (Duración: 5.539 segundos)
+2024-08-05 21:35:10,995 - Config - INFO - Chunk 30 transcrito: ya está bien está bien... (Duración: 1.573 segundos)
+2024-08-05 21:35:11,257 - Config - INFO - Chunk 32 transcrito: del lado que sería entre medio... (Duración: 2.088 segundos)
+2024-08-05 21:35:11,459 - Config - INFO - Chunk 29 transcrito: lo voy a comprar Sí sí desde el sábado voy mañana voy y veo... (Duración: 3.892 segundos)
+2024-08-05 21:35:11,971 - Config - WARNING - Audio no reconocido en chunk 35 - Duración: 1.365 segundos
+2024-08-05 21:35:12,968 - Config - INFO - Chunk 34 transcrito: ver... (Duración: 3.881 segundos)
+2024-08-05 21:35:13,267 - Config - INFO - Chunk 33 transcrito: Claro entre entre el portón entre el debate el portón y la está... (Duración: 4.134 segundos)
+2024-08-05 21:35:13,272 - Config - INFO - Chunk 36 transcrito: pero acá en la Vereda pero no de la calle... (Duración: 3.752 segundos)
+2024-08-05 21:35:13,553 - Config - INFO - Chunk 31 transcrito: Porque si ellos te lo bajan Y si te lo bajas que trabajen del otro lado de la zanja Y es que no llevan antes... (Duración: 5.587 segundos)
+2024-08-05 21:35:13,557 - Config - WARNING - Audio no reconocido en chunk 39 - Duración: 0.32 segundos
+2024-08-05 21:35:13,955 - Config - INFO - Chunk 40 transcrito: bueno... (Duración: 0.798 segundos)
+2024-08-05 21:35:14,446 - Config - WARNING - Audio no reconocido en chunk 42 - Duración: 1.483 segundos
+2024-08-05 21:35:14,606 - Config - INFO - Chunk 41 transcrito: O sino que lo dejen para... (Duración: 1.326 segundos)
+2024-08-05 21:35:14,791 - Config - INFO - Chunk 26 transcrito: y bueno capaz de hacer si le tirara que el domingo te lo va a llevar o el sábado no no es que el domingo no trabaja la misma no laburan ellos claro por eso por eso le va a preguntar si ellos capaz te dan una mano... (Duración: 12.618 segundos)
+2024-08-05 21:35:14,975 - Config - INFO - Chunk 45 transcrito: bueno... (Duración: 0.495 segundos)
+2024-08-05 21:35:14,992 - Config - INFO - Chunk 43 transcrito: o que lo dejen dentro del... (Duración: 1.528 segundos)
+2024-08-05 21:35:15,498 - Config - INFO - Chunk 46 transcrito: todo bien ahí entonces... (Duración: 0.99 segundos)
+2024-08-05 21:35:15,750 - Config - INFO - Chunk 37 transcrito: no en la calle que la verdad es que en la Vereda entre el portón y la entre el portón y la calle entendés Ah y pero no se va a caer porque también bajada... (Duración: 7.246 segundos)
+2024-08-05 21:35:15,762 - Config - INFO - Chunk 47 transcrito: Ah no todo viene... (Duración: 1.5 segundos)
+2024-08-05 21:35:16,109 - Config - INFO - Chunk 38 transcrito: y pero que si te crees Me acabo de leer la historia pues hay que levantarlo ahora qué... (Duración: 3.573 segundos)
+2024-08-05 21:35:16,716 - Config - INFO - Chunk 50 transcrito: cuando en cuanto tenga tiempo... (Duración: 2.205 segundos)
+2024-08-05 21:35:17,000 - Config - WARNING - Audio no reconocido en chunk 52 - Duración: 0.284 segundos
+2024-08-05 21:35:17,372 - Config - INFO - Chunk 51 transcrito: nos vemos... (Duración: 2.471 segundos)
+2024-08-05 21:35:19,373 - Config - INFO - Chunk 49 transcrito: es verdad porque lo vamos a hacer arriba ya te explique cómo está acá lo vieron que te dije para sacarme foto y para verte lo que necesito... (Duración: 6.715 segundos)
+2024-08-05 21:35:19,545 - Config - INFO - Chunk 44 transcrito: pero lo que pasa es que si lo dejan ahí yo tengo que hacer es cavar cavar un poco no va a joder para andar corriendo lo entendés... (Duración: 7.813 segundos)
+2024-08-05 21:35:21,727 - Config - INFO - Chunk 48 transcrito: sí escúchame eh te dije no que te hemos llevado dos baldes de tres baldes de esos de 20 y tres piedras para hacer eso de lo de me dijiste las de tu casa para hacerme acordás cuando vayamos que lleve los baldes... (Duración: 13.457 segundos)
+2024-08-05 21:41:17,245 - Config - INFO - Configuración inicial completada
+2024-08-05 21:41:18,515 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 21:41:40,034 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-08-05 21:41:49,103 - Config - INFO - Chunk 0 duración: 38.293 segundos
+2024-08-05 21:41:49,105 - Config - INFO - Transcribiendo chunk 0 con duración 38.293 segundos
+2024-08-05 21:42:03,776 - Config - INFO - Chunk 0 transcrito: Hi my phone Jonathan Correa Baby One Cold millón allá en twenty one twenty One Direction Argentina living en Buenos Aires En qué continente árabes enseñar en español University and Walking The airport police and Deep with my family on my wife And My Children's and in a blinding family I am person... (Duración: 38.293 segundos)
+2024-08-05 21:42:58,360 - Config - INFO - Configuración inicial completada
+2024-08-05 21:42:59,456 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 21:43:13,489 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-08-05 21:43:23,578 - Config - INFO - Chunk 0 duración: 38.293 segundos
+2024-08-05 21:43:23,580 - Config - INFO - Transcribiendo chunk 0 con duración 38.293 segundos
+2024-08-05 21:43:40,462 - Config - INFO - Chunk 0 transcrito: Hi my phone Jonathan Correa Baby One Cold millón allá en twenty one twenty One Direction Argentina living en Buenos Aires En qué continente árabes enseñar en español University and Walking The airport police and Deep with my family on my wife And My Children's and in a blinding family I am person... (Duración: 38.293 segundos)
+2024-08-05 21:47:16,832 - Config - INFO - Configuración inicial completada
+2024-08-05 21:47:18,144 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 21:47:26,140 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-08-05 21:47:35,691 - Config - INFO - Chunk 0 duración: 10.0 segundos
+2024-08-05 21:47:35,694 - Config - INFO - Chunk 1 duración: 10.0 segundos
+2024-08-05 21:47:35,695 - Config - INFO - Chunk 2 duración: 10.0 segundos
+2024-08-05 21:47:35,695 - Config - INFO - Chunk 3 duración: 8.293 segundos
+2024-08-05 21:47:35,697 - Config - INFO - Transcribiendo chunk 0 con duración 10.0 segundos
+2024-08-05 21:47:35,700 - Config - INFO - Transcribiendo chunk 1 con duración 10.0 segundos
+2024-08-05 21:47:35,715 - Config - INFO - Transcribiendo chunk 2 con duración 10.0 segundos
+2024-08-05 21:47:35,730 - Config - INFO - Transcribiendo chunk 3 con duración 8.293 segundos
+2024-08-05 21:47:37,885 - Config - INFO - Chunk 1 transcrito: ahí viene en Buenos Aires hay que cumplir... (Duración: 10.0 segundos)
+2024-08-05 21:47:39,399 - Config - INFO - Chunk 3 transcrito: I am parson and positive person but settings dependiendo de situation... (Duración: 8.293 segundos)
+2024-08-05 21:47:40,197 - Config - INFO - Chunk 0 transcrito: Hi my phone Jonathan Correa Baby One Cold millón allá en twenty one twenty One Direction Argentina... (Duración: 10.0 segundos)
+2024-08-05 21:47:40,874 - Config - INFO - Chunk 2 transcrito: en Walking The airport police with my family on my wife And My Children's and In A blinding fami... (Duración: 10.0 segundos)
+2024-08-05 21:49:20,054 - Config - INFO - Configuración inicial completada
+2024-08-05 21:49:21,167 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 21:49:46,325 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-08-05 21:49:55,267 - Config - INFO - Chunk 0 duración: 30.0 segundos
+2024-08-05 21:49:55,268 - Config - INFO - Chunk 1 duración: 8.293 segundos
+2024-08-05 21:49:55,269 - Config - INFO - Transcribiendo chunk 0 con duración 30.0 segundos
+2024-08-05 21:49:55,272 - Config - INFO - Transcribiendo chunk 1 con duración 8.293 segundos
+2024-08-05 21:49:58,453 - Config - INFO - Chunk 1 transcrito: I am person I'm positive person is attending on the situation... (Duración: 8.293 segundos)
+2024-08-05 21:50:07,338 - Config - INFO - Chunk 0 transcrito: hi my full name is Jonathan Correia but everyone calls Mission I am 2131 years old I want to listen to University I'm working at the airport police I did with my family my wife and my children... (Duración: 30.0 segundos)
+2024-08-05 21:50:28,805 - Config - INFO - Configuración inicial completada
+2024-08-05 21:50:29,712 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 21:50:40,067 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-08-05 21:50:49,474 - Config - INFO - Chunk 0 duración: 10.0 segundos
+2024-08-05 21:50:49,475 - Config - INFO - Chunk 1 duración: 10.0 segundos
+2024-08-05 21:50:49,476 - Config - INFO - Chunk 2 duración: 10.0 segundos
+2024-08-05 21:50:49,477 - Config - INFO - Chunk 3 duración: 8.293 segundos
+2024-08-05 21:50:49,478 - Config - INFO - Transcribiendo chunk 0 con duración 10.0 segundos
+2024-08-05 21:50:49,483 - Config - INFO - Transcribiendo chunk 1 con duración 10.0 segundos
+2024-08-05 21:50:49,498 - Config - INFO - Transcribiendo chunk 2 con duración 10.0 segundos
+2024-08-05 21:50:49,524 - Config - INFO - Transcribiendo chunk 3 con duración 8.293 segundos
+2024-08-05 21:50:51,703 - Config - INFO - Chunk 1 transcrito: ahí viene en Buenos Aires hay que cumplir... (Duración: 10.0 segundos)
+2024-08-05 21:50:52,797 - Config - INFO - Chunk 3 transcrito: I am parson and positive person but settings dependiendo de situation... (Duración: 8.293 segundos)
+2024-08-05 21:50:53,837 - Config - INFO - Chunk 0 transcrito: Hi my phone Jonathan Correa Baby One Cold millón allá en twenty one twenty One Direction Argentina... (Duración: 10.0 segundos)
+2024-08-05 21:50:55,019 - Config - INFO - Chunk 2 transcrito: en Walking The airport police with my family on my wife And My Children's and In A blinding fami... (Duración: 10.0 segundos)
+2024-08-05 21:51:23,432 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-08-05 21:51:32,656 - Config - INFO - Chunk 0 duración: 10.0 segundos
+2024-08-05 21:51:32,657 - Config - INFO - Chunk 1 duración: 10.0 segundos
+2024-08-05 21:51:32,658 - Config - INFO - Chunk 2 duración: 10.0 segundos
+2024-08-05 21:51:32,659 - Config - INFO - Chunk 3 duración: 8.293 segundos
+2024-08-05 21:51:32,660 - Config - INFO - Transcribiendo chunk 0 con duración 10.0 segundos
+2024-08-05 21:51:32,664 - Config - INFO - Transcribiendo chunk 1 con duración 10.0 segundos
+2024-08-05 21:51:32,678 - Config - INFO - Transcribiendo chunk 2 con duración 10.0 segundos
+2024-08-05 21:51:32,694 - Config - INFO - Transcribiendo chunk 3 con duración 8.293 segundos
+2024-08-05 21:51:36,627 - Config - INFO - Chunk 3 transcrito: I am person I'm positive person is attending on the situation... (Duración: 8.293 segundos)
+2024-08-05 21:51:37,478 - Config - INFO - Chunk 1 transcrito: play Benny Buenos Aires I can complete my degree and play 1196... (Duración: 10.0 segundos)
+2024-08-05 21:51:37,544 - Config - INFO - Chunk 0 transcrito: hi my full name is Jonathan Correia but everyone calls Mission I am 2131 years old I am from Washington... (Duración: 10.0 segundos)
+2024-08-05 21:51:37,947 - Config - INFO - Chunk 2 transcrito: I'm working at the airport police I did with my family my wife and my children and in a blended family... (Duración: 10.0 segundos)
+2024-08-05 21:52:31,177 - Config - INFO - Configuración inicial completada
+2024-08-05 21:52:32,188 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 21:52:57,584 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (1).aac
+2024-08-05 21:52:57,586 - Config - INFO - Intentando convertir: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (1).aac
+2024-08-05 21:52:57,587 - Config - INFO - Formato de audio detectado: aac
+2024-08-05 21:54:37,055 - Config - INFO - Intentando convertir: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (1).aac
+2024-08-05 21:54:37,057 - Config - INFO - Formato de audio detectado: aac
+2024-08-05 21:55:33,149 - Config - INFO - Configuración inicial completada
+2024-08-05 21:55:34,000 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 21:55:47,114 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (1).aac
+2024-08-05 21:55:47,116 - Config - INFO - Intentando convertir: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (1).aac
+2024-08-05 21:55:47,117 - Config - INFO - Formato de audio detectado: aac
+2024-08-05 22:02:20,963 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (1).aac
+2024-08-05 22:02:28,318 - Config - INFO - Intentando convertir: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (1).aac
+2024-08-05 22:02:30,987 - Config - INFO - Formato de audio detectado: aac
+2024-08-05 22:03:22,364 - Config - INFO - Configuración inicial completada
+2024-08-05 22:03:24,135 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 22:03:37,858 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-08-05 22:03:44,461 - Config - INFO - Intentando convertir: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-08-05 22:03:45,667 - Config - INFO - Formato de audio detectado: m4a
+2024-08-05 22:08:31,104 - Config - INFO - Configuración inicial completada
+2024-08-05 22:08:32,271 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 22:08:45,172 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-08-05 22:08:50,974 - Config - INFO - Intentando convertir: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-08-05 22:08:50,975 - Config - INFO - Formato de audio detectado: m4a
+2024-08-05 22:11:25,357 - Config - INFO - Configuración inicial completada
+2024-08-05 22:11:27,087 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 22:11:40,407 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-08-05 22:11:52,590 - Config - INFO - Chunk 0 duración: 10.0 segundos
+2024-08-05 22:11:52,591 - Config - INFO - Chunk 1 duración: 10.0 segundos
+2024-08-05 22:11:52,593 - Config - INFO - Chunk 2 duración: 10.0 segundos
+2024-08-05 22:11:52,594 - Config - INFO - Chunk 3 duración: 8.293 segundos
+2024-08-05 22:11:52,595 - Config - INFO - Transcribiendo chunk 0 con duración 10.0 segundos
+2024-08-05 22:11:52,600 - Config - INFO - Transcribiendo chunk 1 con duración 10.0 segundos
+2024-08-05 22:11:52,617 - Config - INFO - Transcribiendo chunk 2 con duración 10.0 segundos
+2024-08-05 22:11:52,634 - Config - INFO - Transcribiendo chunk 3 con duración 8.293 segundos
+2024-08-05 22:11:54,725 - Config - INFO - Chunk 1 transcrito: ahí viene en Buenos Aires hay que cumplir... (Duración: 10.0 segundos)
+2024-08-05 22:11:57,322 - Config - INFO - Chunk 2 transcrito: en Walking The airport police with my family on my wife And My Children's and In A blinding fami... (Duración: 10.0 segundos)
+2024-08-05 22:11:57,339 - Config - INFO - Chunk 3 transcrito: I am parson and positive person but settings dependiendo de situation... (Duración: 8.293 segundos)
+2024-08-05 22:11:58,610 - Config - INFO - Chunk 0 transcrito: Hi my phone Jonathan Correa Baby One Cold millón allá en twenty one twenty One Direction Argentina... (Duración: 10.0 segundos)
+2024-08-05 22:12:03,754 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-08-05 22:12:03,756 - Config - INFO - Intentando convertir: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-08-05 22:12:03,757 - Config - INFO - Formato de audio detectado: m4a
+2024-08-05 22:14:30,561 - Config - INFO - Configuración inicial completada
+2024-08-05 22:14:32,183 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 22:14:41,218 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-08-05 22:14:41,220 - Config - INFO - Intentando convertir: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-08-05 22:14:41,224 - Config - INFO - Formato de audio detectado: m4a
+2024-08-05 22:14:41,528 - Config - INFO - Archivo convertido a WAV: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-08-05 22:14:52,934 - Config - INFO - Chunk 0 duración: 10.0 segundos
+2024-08-05 22:14:52,935 - Config - INFO - Chunk 1 duración: 10.0 segundos
+2024-08-05 22:14:52,936 - Config - INFO - Chunk 2 duración: 10.0 segundos
+2024-08-05 22:14:52,937 - Config - INFO - Chunk 3 duración: 8.293 segundos
+2024-08-05 22:14:52,939 - Config - INFO - Transcribiendo chunk 0 con duración 10.0 segundos
+2024-08-05 22:14:52,942 - Config - INFO - Transcribiendo chunk 1 con duración 10.0 segundos
+2024-08-05 22:14:52,954 - Config - INFO - Transcribiendo chunk 2 con duración 10.0 segundos
+2024-08-05 22:14:52,967 - Config - INFO - Transcribiendo chunk 3 con duración 8.293 segundos
+2024-08-05 22:14:55,387 - Config - INFO - Chunk 1 transcrito: ahí viene en Buenos Aires hay que cumplir... (Duración: 10.0 segundos)
+2024-08-05 22:14:56,061 - Config - INFO - Chunk 3 transcrito: I am parson and positive person but settings dependiendo de situation... (Duración: 8.293 segundos)
+2024-08-05 22:14:58,095 - Config - INFO - Chunk 0 transcrito: Hi my phone Jonathan Correa Baby One Cold millón allá en twenty one twenty One Direction Argentina... (Duración: 10.0 segundos)
+2024-08-05 22:14:58,618 - Config - INFO - Chunk 2 transcrito: en Walking The airport police with my family on my wife And My Children's and In A blinding fami... (Duración: 10.0 segundos)
+2024-08-05 22:42:25,458 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-08-05 22:42:25,461 - Config - INFO - Intentando convertir: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-08-05 22:42:25,463 - Config - INFO - Formato de audio detectado: m4a
+2024-08-05 22:45:28,996 - Config - INFO - Configuración inicial completada
+2024-08-05 22:45:30,032 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-05 22:45:37,828 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-08-05 22:45:37,830 - Config - INFO - Intentando convertir: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-08-05 22:45:37,832 - Config - INFO - Formato de audio detectado: m4a
+2024-08-05 22:45:37,834 - Config - INFO - El archivo WAV ya existe: D:/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-08-05 22:45:47,416 - Config - INFO - Chunk 0 duración: 10.0 segundos
+2024-08-05 22:45:47,417 - Config - INFO - Chunk 1 duración: 10.0 segundos
+2024-08-05 22:45:47,418 - Config - INFO - Chunk 2 duración: 10.0 segundos
+2024-08-05 22:45:47,419 - Config - INFO - Chunk 3 duración: 8.293 segundos
+2024-08-05 22:45:47,420 - Config - INFO - Transcribiendo chunk 0 con duración 10.0 segundos
+2024-08-05 22:45:47,424 - Config - INFO - Transcribiendo chunk 1 con duración 10.0 segundos
+2024-08-05 22:45:47,439 - Config - INFO - Transcribiendo chunk 2 con duración 10.0 segundos
+2024-08-05 22:45:47,462 - Config - INFO - Transcribiendo chunk 3 con duración 8.293 segundos
+2024-08-05 22:45:49,659 - Config - INFO - Chunk 1 transcrito: ahí viene en Buenos Aires hay que cumplir... (Duración: 10.0 segundos)
+2024-08-05 22:45:50,265 - Config - INFO - Chunk 3 transcrito: I am parson and positive person but settings dependiendo de situation... (Duración: 8.293 segundos)
+2024-08-05 22:45:52,316 - Config - INFO - Chunk 0 transcrito: Hi my phone Jonathan Correa Baby One Cold millón allá en twenty one twenty One Direction Argentina... (Duración: 10.0 segundos)
+2024-08-05 22:45:52,475 - Config - INFO - Chunk 2 transcrito: en Walking The airport police with my family on my wife And My Children's and In A blinding fami... (Duración: 10.0 segundos)

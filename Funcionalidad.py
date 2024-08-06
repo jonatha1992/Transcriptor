@@ -36,24 +36,10 @@ from Config import logger
 # Inicializar el reconocedor
 recognizer = sr.Recognizer()
 
+# Configuración de AudioSegment
 AudioSegment.converter = ffmpeg_path
 AudioSegment.ffmpeg = ffmpeg_path
 AudioSegment.ffprobe = ffprobe_path
-
-
-# def convertir_a_wav(audio_path):
-#     try:
-#         logger.info(f"Intentando convertir: {audio_path}")
-#         audio_format = audio_path.split(".")[-1]
-#         logger.info(f"Formato de audio detectado: {audio_format}")
-#         audio = AudioSegment.from_file(audio_path, format=audio_format)
-#         wav_path = audio_path.replace(audio_format, "wav")
-#         audio.export(wav_path, format="wav")
-#         logger.info(f"Archivo convertido a WAV: {wav_path}")
-#         return wav_path
-#     except Exception as e:
-#         logger.error(f"Error al convertir archivo a WAV: {e}")
-#         raise
 
 
 def convertir_a_wav(audio_path):
@@ -63,24 +49,36 @@ def convertir_a_wav(audio_path):
         logger.info(f"Formato de audio detectado: {audio_format}")
         output_path = audio_path.replace(audio_format, "wav")
 
+        # Verificar si el archivo WAV ya existe
+        if os.path.exists(output_path):
+            logger.info(f"El archivo WAV ya existe: {output_path}")
+            return output_path
+
         command = [ffmpeg_path, "-i", audio_path, output_path]
 
         startupinfo = subprocess.STARTUPINFO()
-        startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-        startupinfo.wShowWindow = subprocess.SW_HIDE
+        if platform.system() == "Windows":
+            startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+            startupinfo.wShowWindow = subprocess.SW_HIDE
 
         subprocess.run(
             command,
             startupinfo=startupinfo,
             check=True,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
         )
 
         logger.info(f"Archivo convertido a WAV: {output_path}")
         return output_path
+    except subprocess.CalledProcessError as e:
+        logger.error(f"ffmpeg proceso devolvió un error: {e.stderr.decode('utf-8')}")
+        raise
+    except FileNotFoundError as e:
+        logger.error(f"ffmpeg no encontrado: {str(e)}")
+        raise
     except Exception as e:
-        logger.error(f"Error al convertir archivo a WAV: {e}")
+        logger.error(f"Error al convertir archivo a WAV: {str(e)}")
         raise
 
 
@@ -89,7 +87,7 @@ def obtener_duracion_audio(ruta_archivo):
         audio = File(ruta_archivo)
         if audio is not None:
             return int(audio.info.length)
-    except:
+    except Exception:
         pass
 
     if ruta_archivo.lower().endswith(".wav"):
@@ -99,7 +97,7 @@ def obtener_duracion_audio(ruta_archivo):
                 rate = f.getframerate()
                 duration = frames / float(rate)
                 return int(duration)
-        except:
+        except Exception:
             pass
 
     return 0
@@ -183,12 +181,11 @@ def ajustar_texto_sencillo(texto, max_ancho=90):
     longitud_actual = 0
 
     for palabra in palabras:
-        # Si la palabra es más larga que max_ancho, dividirla
         if len(palabra) > max_ancho:
             if linea_actual:
                 lineas.append(" ".join(linea_actual))
             for i in range(0, len(palabra), max_ancho):
-                lineas.append(palabra[i : i + max_ancho])
+                lineas.append(palabra[i: i + max_ancho])
             linea_actual = []
             longitud_actual = 0
         elif longitud_actual + len(palabra) + (1 if linea_actual else 0) <= max_ancho:
@@ -202,7 +199,6 @@ def ajustar_texto_sencillo(texto, max_ancho=90):
     if linea_actual:
         lineas.append(" ".join(linea_actual))
 
-    # Manejar la última línea si es muy corta
     if len(lineas) > 1 and len(lineas[-1]) < max_ancho // 2:
         penultima = lineas[-2].split()
         ultima = lineas[-1].split()
@@ -229,13 +225,12 @@ def exportar_transcripcion(transcripcion_resultado):
         messagebox.showinfo("Información", f"Transcripción guardada en {output_file}.")
         logger.info(f"Transcripción guardada en {output_file}.")
 
-        # Abrir el archivo
         try:
-            if platform.system() == "Darwin":  # macOS
+            if platform.system() == "Darwin":
                 subprocess.call(("open", output_file))
-            elif platform.system() == "Windows":  # Windows
+            elif platform.system() == "Windows":
                 os.startfile(output_file)
-            else:  # linux variants
+            else:
                 subprocess.call(("xdg-open", output_file))
 
             logger.info(f"Archivo abierto: {output_file}")
@@ -396,40 +391,17 @@ def mejorar_audio(audio):
         return audio
 
 
-def transcribir_chunk(recognizer, audio_chunk, idioma_entrada, indice):
-    try:
-        if len(audio_chunk) == 0:
-            return indice, "[chunk vacío]"
-
-        buffer = io.BytesIO()
-        audio_chunk.export(buffer, format="wav")
-        buffer.seek(0)
-
-        with sr.AudioFile(buffer) as source:
-            audio_data = recognizer.record(source)
-
-        if not audio_data or len(audio_data.frame_data) == 0:
-            return indice, "[datos de audio vacíos]"
-
-        texto = recognizer.recognize_google(audio_data, language=idioma_entrada)
-        logger.info(f"Chunk {indice} transcrito: {texto[:30]}...")
-        return indice, texto
-    except sr.UnknownValueError:
-        logger.warning(
-            f"Audio no reconocido en chunk {indice} - Duración: {len(audio_chunk) / 1000} segundos"
-        )
-        return indice, "[inaudible]"
-    except sr.RequestError as e:
-        logger.error(f"Error en el servicio de reconocimiento para chunk {indice}: {e}")
-        return indice, "[error de reconocimiento]"
-    except Exception as e:
-        logger.error(f"Error inesperado al procesar chunk {indice}: {e}")
-        return indice, f"[error: {str(e)}]"
+def dividir_fragmento_largo(chunks, max_length):
+    nuevos_chunks = []
+    for chunk in chunks:
+        if len(chunk) > max_length:
+            nuevos_chunks.extend([chunk[i:i + max_length] for i in range(0, len(chunk), max_length)])
+        else:
+            nuevos_chunks.append(chunk)
+    return nuevos_chunks
 
 
-def transcribir_archivo_grande(
-    audio_path, idioma_entrada, progress_bar, ventana, transcripcion_activa
-):
+def transcribir_archivo_grande(audio_path, idioma_entrada, progress_bar, ventana, transcripcion_activa):
     transcripcion_completa = []
     progreso_actual = 0
 
@@ -444,6 +416,7 @@ def transcribir_archivo_grande(
         duracion_total = len(audio)
         audio = mejorar_audio(audio)
 
+        # Dividir el audio en fragmentos basados en silencio
         chunks = split_on_silence(
             audio,
             min_silence_len=500,
@@ -451,10 +424,17 @@ def transcribir_archivo_grande(
             keep_silence=100,
         )
 
+        # Dividir cualquier fragmento que sea mayor a 10 segundos
+        max_chunk_length = 10000  # 10 segundos en milisegundos
+        chunks = dividir_fragmento_largo(chunks, max_chunk_length)
+
+        # Log the duration of each chunk
+        for i, chunk in enumerate(chunks):
+            duracion_chunk = len(chunk) / 1000  # Duración en segundos
+            logger.info(f"Chunk {i} duración: {duracion_chunk} segundos")
+
         if not chunks:
-            logger.warning(
-                "No se pudieron crear chunks de audio. Procesando el archivo completo."
-            )
+            logger.warning("No se pudieron crear chunks de audio. Procesando el archivo completo.")
             chunks = [audio]
 
         recognizer = sr.Recognizer()
@@ -467,11 +447,8 @@ def transcribir_archivo_grande(
             for i, chunk in chunks_numerados:
                 if not transcripcion_activa:
                     break
-                futures.append(
-                    executor.submit(
-                        transcribir_chunk, recognizer, chunk, idioma_entrada, i
-                    )
-                )
+                logger.info(f"Transcribiendo chunk {i} con duración {len(chunk) / 1000} segundos")
+                futures.append(executor.submit(transcribir_chunk, recognizer, chunk, idioma_entrada, i))
 
             resultados = []
             for future in as_completed(futures):
@@ -513,3 +490,35 @@ def transcribir_archivo_grande(
     except Exception as e:
         logger.error(f"Error al procesar el archivo: {e}")
         return f"Error al procesar el archivo: {e}"
+
+
+def transcribir_chunk(recognizer, audio_chunk, idioma_entrada, indice):
+    try:
+        if len(audio_chunk) == 0:
+            return indice, "[chunk vacío]"
+
+        buffer = io.BytesIO()
+        audio_chunk.export(buffer, format="wav")
+        buffer.seek(0)
+
+        with sr.AudioFile(buffer) as source:
+            audio_data = recognizer.record(source)
+
+        if not audio_data or len(audio_data.frame_data) == 0:
+            return indice, "[datos de audio vacíos]"
+
+        texto = recognizer.recognize_google(audio_data, language=idioma_entrada)
+        duracion_chunk = len(audio_chunk) / 1000  # Duración en segundos
+        logger.info(f"Chunk {indice} transcrito: {texto}... (Duración: {duracion_chunk} segundos)")
+        return indice, texto
+    except sr.UnknownValueError:
+        logger.warning(
+            f"Audio no reconocido en chunk {indice} - Duración: {len(audio_chunk) / 1000} segundos"
+        )
+        return indice, "[inaudible]"
+    except sr.RequestError as e:
+        logger.error(f"Error en el servicio de reconocimiento para chunk {indice}: {e}")
+        return indice, "[error de reconocimiento]"
+    except Exception as e:
+        logger.error(f"Error inesperado al procesar chunk {indice}: {e}")
+        return indice, f"[error: {str(e)}]"
