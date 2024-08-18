@@ -400,3 +400,1050 @@
 2024-08-05 22:45:50,265 - Config - INFO - Chunk 3 transcrito: I am parson and positive person but settings dependiendo de situation... (Duración: 8.293 segundos)
 2024-08-05 22:45:52,316 - Config - INFO - Chunk 0 transcrito: Hi my phone Jonathan Correa Baby One Cold millón allá en twenty one twenty One Direction Argentina... (Duración: 10.0 segundos)
 2024-08-05 22:45:52,475 - Config - INFO - Chunk 2 transcrito: en Walking The airport police with my family on my wife And My Children's and In A blinding fami... (Duración: 10.0 segundos)
+2024-08-16 15:16:15,508 - Config - INFO - Configuración inicial completada
+2024-08-16 15:16:16,382 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-16 15:16:23,298 - Config - INFO - Procesando archivo: C:/Users/jgcorrea/Desktop/output/Audios/LP41335566.wav
+2024-08-16 15:16:28,404 - Config - INFO - Chunk 0 duración: 1.259 segundos
+2024-08-16 15:16:28,405 - Config - INFO - Chunk 1 duración: 4.733 segundos
+2024-08-16 15:16:28,406 - Config - INFO - Chunk 2 duración: 4.303 segundos
+2024-08-16 15:16:28,407 - Config - INFO - Chunk 3 duración: 2.814 segundos
+2024-08-16 15:16:28,407 - Config - INFO - Chunk 4 duración: 10.0 segundos
+2024-08-16 15:16:28,408 - Config - INFO - Chunk 5 duración: 5.015 segundos
+2024-08-16 15:16:28,408 - Config - INFO - Chunk 6 duración: 2.294 segundos
+2024-08-16 15:16:28,409 - Config - INFO - Chunk 7 duración: 8.681 segundos
+2024-08-16 15:16:28,409 - Config - INFO - Chunk 8 duración: 1.403 segundos
+2024-08-16 15:16:28,410 - Config - INFO - Chunk 9 duración: 5.448 segundos
+2024-08-16 15:16:28,410 - Config - INFO - Chunk 10 duración: 1.799 segundos
+2024-08-16 15:16:28,411 - Config - INFO - Chunk 11 duración: 7.421 segundos
+2024-08-16 15:16:28,412 - Config - INFO - Chunk 12 duración: 2.177 segundos
+2024-08-16 15:16:28,412 - Config - INFO - Chunk 13 duración: 5.011 segundos
+2024-08-16 15:16:28,413 - Config - INFO - Chunk 14 duración: 4.483 segundos
+2024-08-16 15:16:28,413 - Config - INFO - Chunk 15 duración: 1.431 segundos
+2024-08-16 15:16:28,414 - Config - INFO - Chunk 16 duración: 1.549 segundos
+2024-08-16 15:16:28,415 - Config - INFO - Chunk 17 duración: 0.886 segundos
+2024-08-16 15:16:28,415 - Config - INFO - Chunk 18 duración: 2.18 segundos
+2024-08-16 15:16:28,416 - Config - INFO - Chunk 19 duración: 2.745 segundos
+2024-08-16 15:16:28,416 - Config - INFO - Transcribiendo chunk 0 con duración 1.259 segundos
+2024-08-16 15:16:28,419 - Config - INFO - Transcribiendo chunk 1 con duración 4.733 segundos
+2024-08-16 15:16:28,422 - Config - INFO - Transcribiendo chunk 2 con duración 4.303 segundos
+2024-08-16 15:16:28,426 - Config - INFO - Transcribiendo chunk 3 con duración 2.814 segundos
+2024-08-16 15:16:28,429 - Config - INFO - Transcribiendo chunk 4 con duración 10.0 segundos
+2024-08-16 15:16:28,433 - Config - INFO - Transcribiendo chunk 5 con duración 5.015 segundos
+2024-08-16 15:16:28,437 - Config - INFO - Transcribiendo chunk 6 con duración 2.294 segundos
+2024-08-16 15:16:28,438 - Config - INFO - Transcribiendo chunk 7 con duración 8.681 segundos
+2024-08-16 15:16:28,440 - Config - INFO - Transcribiendo chunk 8 con duración 1.403 segundos
+2024-08-16 15:16:28,442 - Config - INFO - Transcribiendo chunk 9 con duración 5.448 segundos
+2024-08-16 15:16:28,443 - Config - INFO - Transcribiendo chunk 10 con duración 1.799 segundos
+2024-08-16 15:16:28,444 - Config - INFO - Transcribiendo chunk 11 con duración 7.421 segundos
+2024-08-16 15:16:28,445 - Config - INFO - Transcribiendo chunk 12 con duración 2.177 segundos
+2024-08-16 15:16:28,445 - Config - INFO - Transcribiendo chunk 13 con duración 5.011 segundos
+2024-08-16 15:16:28,446 - Config - INFO - Transcribiendo chunk 14 con duración 4.483 segundos
+2024-08-16 15:16:28,446 - Config - INFO - Transcribiendo chunk 15 con duración 1.431 segundos
+2024-08-16 15:16:28,447 - Config - INFO - Transcribiendo chunk 16 con duración 1.549 segundos
+2024-08-16 15:16:28,447 - Config - INFO - Transcribiendo chunk 17 con duración 0.886 segundos
+2024-08-16 15:16:28,448 - Config - INFO - Transcribiendo chunk 18 con duración 2.18 segundos
+2024-08-16 15:16:28,448 - Config - INFO - Transcribiendo chunk 19 con duración 2.745 segundos
+2024-08-16 15:16:31,980 - Config - INFO - Chunk 0 transcrito: 911... (Duración: 1.259 segundos)
+2024-08-16 15:16:32,352 - Config - INFO - Chunk 3 transcrito: y tenías el proyecto auditivo... (Duración: 2.814 segundos)
+2024-08-16 15:16:32,357 - Config - WARNING - Audio no reconocido en chunk 1 - Duración: 4.733 segundos
+2024-08-16 15:16:32,614 - Config - WARNING - Audio no reconocido en chunk 2 - Duración: 4.303 segundos
+2024-08-16 15:16:32,987 - Config - INFO - Chunk 8 transcrito: cuándo... (Duración: 1.403 segundos)
+2024-08-16 15:16:33,156 - Config - INFO - Chunk 5 transcrito: si van a poner porque el proyecto de depresión es militar... (Duración: 5.015 segundos)
+2024-08-16 15:16:33,233 - Config - WARNING - Audio no reconocido en chunk 6 - Duración: 2.294 segundos
+2024-08-16 15:16:33,615 - Config - INFO - Chunk 4 transcrito: desde los 70 tiene alguna emergencia policial en este momento hay una emergencia de... (Duración: 10.0 segundos)
+2024-08-16 15:16:33,745 - Config - INFO - Chunk 10 transcrito: el proyecto de d... (Duración: 1.799 segundos)
+2024-08-16 15:16:34,193 - Config - INFO - Chunk 7 transcrito: te pido por favor que le comuniques al gobierno a través de eso yo te dejo el favor porque yo no lo voy a hacer pero cuándo es eso... (Duración: 8.681 segundos)
+2024-08-16 15:16:34,285 - Config - INFO - Chunk 9 transcrito: de La amenaza de bomba bomba... (Duración: 5.448 segundos)
+2024-08-16 15:16:34,368 - Config - INFO - Chunk 12 transcrito: bueno denuncia que dónde van a poner una bomba... (Duración: 2.177 segundos)
+2024-08-16 15:16:34,722 - Config - INFO - Chunk 15 transcrito: y esto cuándo sería... (Duración: 1.431 segundos)
+2024-08-16 15:16:34,805 - Config - WARNING - Audio no reconocido en chunk 16 - Duración: 1.549 segundos
+2024-08-16 15:16:34,810 - Config - WARNING - Audio no reconocido en chunk 11 - Duración: 7.421 segundos
+2024-08-16 15:16:35,103 - Config - INFO - Chunk 17 transcrito: Cómo es su... (Duración: 0.886 segundos)
+2024-08-16 15:16:35,349 - Config - INFO - Chunk 14 transcrito: y Avísale al presidente que la policía avise a gobernación... (Duración: 4.483 segundos)
+2024-08-16 15:16:35,545 - Config - INFO - Chunk 13 transcrito: en ezeiza donde pasan los aviones en un avión van a poner la bomba... (Duración: 5.011 segundos)
+2024-08-16 15:16:35,593 - Config - INFO - Chunk 19 transcrito: bueno corto con usted lo vamos a informar... (Duración: 2.745 segundos)
+2024-08-16 15:16:35,725 - Config - INFO - Chunk 18 transcrito: Mariana huracán tenía la circu... (Duración: 2.18 segundos)
+2024-08-16 15:22:14,228 - Config - INFO - Configuración inicial completada
+2024-08-16 15:22:17,517 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-16 15:23:48,193 - Config - INFO - Procesando archivo: C:/Users/jgcorrea/Desktop/output/Audios/LP41335566.wav
+2024-08-16 15:24:04,719 - Config - INFO - Chunk 0 duración: 10.0 segundos
+2024-08-16 15:24:04,720 - Config - INFO - Chunk 1 duración: 10.0 segundos
+2024-08-16 15:24:04,721 - Config - INFO - Chunk 2 duración: 10.0 segundos
+2024-08-16 15:24:04,721 - Config - INFO - Chunk 3 duración: 10.0 segundos
+2024-08-16 15:24:04,722 - Config - INFO - Chunk 4 duración: 10.0 segundos
+2024-08-16 15:24:04,723 - Config - INFO - Chunk 5 duración: 10.0 segundos
+2024-08-16 15:24:04,723 - Config - INFO - Chunk 6 duración: 10.0 segundos
+2024-08-16 15:24:04,724 - Config - INFO - Chunk 7 duración: 10.0 segundos
+2024-08-16 15:24:04,725 - Config - INFO - Chunk 8 duración: 10.0 segundos
+2024-08-16 15:24:04,725 - Config - INFO - Chunk 9 duración: 10.0 segundos
+2024-08-16 15:24:04,726 - Config - INFO - Chunk 10 duración: 10.0 segundos
+2024-08-16 15:24:04,727 - Config - INFO - Chunk 11 duración: 10.0 segundos
+2024-08-16 15:24:04,727 - Config - INFO - Chunk 12 duración: 10.0 segundos
+2024-08-16 15:24:04,727 - Config - INFO - Chunk 13 duración: 10.0 segundos
+2024-08-16 15:24:04,728 - Config - INFO - Chunk 14 duración: 10.0 segundos
+2024-08-16 15:24:04,729 - Config - INFO - Chunk 15 duración: 10.0 segundos
+2024-08-16 15:24:04,730 - Config - INFO - Chunk 16 duración: 10.0 segundos
+2024-08-16 15:24:04,730 - Config - INFO - Chunk 17 duración: 10.0 segundos
+2024-08-16 15:24:04,731 - Config - INFO - Chunk 18 duración: 10.0 segundos
+2024-08-16 15:24:04,731 - Config - INFO - Chunk 19 duración: 10.0 segundos
+2024-08-16 15:24:04,732 - Config - INFO - Chunk 20 duración: 10.0 segundos
+2024-08-16 15:24:04,732 - Config - INFO - Chunk 21 duración: 10.0 segundos
+2024-08-16 15:24:04,733 - Config - INFO - Chunk 22 duración: 10.0 segundos
+2024-08-16 15:24:04,733 - Config - INFO - Chunk 23 duración: 10.0 segundos
+2024-08-16 15:24:04,734 - Config - INFO - Chunk 24 duración: 10.0 segundos
+2024-08-16 15:24:04,734 - Config - INFO - Chunk 25 duración: 10.0 segundos
+2024-08-16 15:24:04,734 - Config - INFO - Chunk 26 duración: 10.0 segundos
+2024-08-16 15:24:04,734 - Config - INFO - Chunk 27 duración: 10.0 segundos
+2024-08-16 15:24:04,736 - Config - INFO - Chunk 28 duración: 10.0 segundos
+2024-08-16 15:24:04,736 - Config - INFO - Chunk 29 duración: 10.0 segundos
+2024-08-16 15:24:04,736 - Config - INFO - Chunk 30 duración: 10.0 segundos
+2024-08-16 15:24:04,737 - Config - INFO - Chunk 31 duración: 10.0 segundos
+2024-08-16 15:24:04,737 - Config - INFO - Chunk 32 duración: 10.0 segundos
+2024-08-16 15:24:04,737 - Config - INFO - Chunk 33 duración: 10.0 segundos
+2024-08-16 15:24:04,738 - Config - INFO - Chunk 34 duración: 10.0 segundos
+2024-08-16 15:24:04,739 - Config - INFO - Chunk 35 duración: 10.0 segundos
+2024-08-16 15:24:04,739 - Config - INFO - Chunk 36 duración: 10.0 segundos
+2024-08-16 15:24:04,740 - Config - INFO - Chunk 37 duración: 10.0 segundos
+2024-08-16 15:24:04,740 - Config - INFO - Chunk 38 duración: 10.0 segundos
+2024-08-16 15:24:04,741 - Config - INFO - Chunk 39 duración: 10.0 segundos
+2024-08-16 15:24:04,742 - Config - INFO - Chunk 40 duración: 10.0 segundos
+2024-08-16 15:24:04,745 - Config - INFO - Chunk 41 duración: 10.0 segundos
+2024-08-16 15:24:04,746 - Config - INFO - Chunk 42 duración: 10.0 segundos
+2024-08-16 15:24:04,747 - Config - INFO - Chunk 43 duración: 10.0 segundos
+2024-08-16 15:24:04,748 - Config - INFO - Chunk 44 duración: 10.0 segundos
+2024-08-16 15:24:04,748 - Config - INFO - Chunk 45 duración: 10.0 segundos
+2024-08-16 15:24:04,748 - Config - INFO - Chunk 46 duración: 10.0 segundos
+2024-08-16 15:24:04,749 - Config - INFO - Chunk 47 duración: 10.0 segundos
+2024-08-16 15:24:04,749 - Config - INFO - Chunk 48 duración: 10.0 segundos
+2024-08-16 15:24:04,749 - Config - INFO - Chunk 49 duración: 10.0 segundos
+2024-08-16 15:24:04,750 - Config - INFO - Chunk 50 duración: 10.0 segundos
+2024-08-16 15:24:04,750 - Config - INFO - Chunk 51 duración: 10.0 segundos
+2024-08-16 15:24:04,751 - Config - INFO - Chunk 52 duración: 10.0 segundos
+2024-08-16 15:24:04,751 - Config - INFO - Chunk 53 duración: 10.0 segundos
+2024-08-16 15:24:04,752 - Config - INFO - Chunk 54 duración: 10.0 segundos
+2024-08-16 15:24:04,752 - Config - INFO - Chunk 55 duración: 10.0 segundos
+2024-08-16 15:24:04,752 - Config - INFO - Chunk 56 duración: 10.0 segundos
+2024-08-16 15:24:04,753 - Config - INFO - Chunk 57 duración: 10.0 segundos
+2024-08-16 15:24:04,753 - Config - INFO - Chunk 58 duración: 10.0 segundos
+2024-08-16 15:24:04,754 - Config - INFO - Chunk 59 duración: 10.0 segundos
+2024-08-16 15:24:04,755 - Config - INFO - Chunk 60 duración: 10.0 segundos
+2024-08-16 15:24:04,755 - Config - INFO - Chunk 61 duración: 10.0 segundos
+2024-08-16 15:24:04,756 - Config - INFO - Chunk 62 duración: 10.0 segundos
+2024-08-16 15:24:04,757 - Config - INFO - Chunk 63 duración: 10.0 segundos
+2024-08-16 15:24:04,757 - Config - INFO - Chunk 64 duración: 10.0 segundos
+2024-08-16 15:24:04,758 - Config - INFO - Chunk 65 duración: 10.0 segundos
+2024-08-16 15:24:04,758 - Config - INFO - Chunk 66 duración: 10.0 segundos
+2024-08-16 15:24:04,759 - Config - INFO - Chunk 67 duración: 10.0 segundos
+2024-08-16 15:24:04,759 - Config - INFO - Chunk 68 duración: 5.76 segundos
+2024-08-16 15:24:04,760 - Config - INFO - Transcribiendo chunk 0 con duración 10.0 segundos
+2024-08-16 15:24:04,762 - Config - INFO - Transcribiendo chunk 1 con duración 10.0 segundos
+2024-08-16 15:24:04,766 - Config - INFO - Transcribiendo chunk 2 con duración 10.0 segundos
+2024-08-16 15:24:04,769 - Config - INFO - Transcribiendo chunk 3 con duración 10.0 segundos
+2024-08-16 15:24:04,781 - Config - INFO - Transcribiendo chunk 4 con duración 10.0 segundos
+2024-08-16 15:24:04,785 - Config - INFO - Transcribiendo chunk 5 con duración 10.0 segundos
+2024-08-16 15:24:04,789 - Config - INFO - Transcribiendo chunk 6 con duración 10.0 segundos
+2024-08-16 15:24:04,790 - Config - INFO - Transcribiendo chunk 7 con duración 10.0 segundos
+2024-08-16 15:24:04,791 - Config - INFO - Transcribiendo chunk 8 con duración 10.0 segundos
+2024-08-16 15:24:04,792 - Config - INFO - Transcribiendo chunk 9 con duración 10.0 segundos
+2024-08-16 15:24:04,793 - Config - INFO - Transcribiendo chunk 10 con duración 10.0 segundos
+2024-08-16 15:24:04,794 - Config - INFO - Transcribiendo chunk 11 con duración 10.0 segundos
+2024-08-16 15:24:04,795 - Config - INFO - Transcribiendo chunk 12 con duración 10.0 segundos
+2024-08-16 15:24:04,795 - Config - INFO - Transcribiendo chunk 13 con duración 10.0 segundos
+2024-08-16 15:24:04,796 - Config - INFO - Transcribiendo chunk 14 con duración 10.0 segundos
+2024-08-16 15:24:04,796 - Config - INFO - Transcribiendo chunk 15 con duración 10.0 segundos
+2024-08-16 15:24:04,797 - Config - INFO - Transcribiendo chunk 16 con duración 10.0 segundos
+2024-08-16 15:24:04,797 - Config - INFO - Transcribiendo chunk 17 con duración 10.0 segundos
+2024-08-16 15:24:04,798 - Config - INFO - Transcribiendo chunk 18 con duración 10.0 segundos
+2024-08-16 15:24:04,798 - Config - INFO - Transcribiendo chunk 19 con duración 10.0 segundos
+2024-08-16 15:24:04,799 - Config - INFO - Transcribiendo chunk 20 con duración 10.0 segundos
+2024-08-16 15:24:04,799 - Config - INFO - Transcribiendo chunk 21 con duración 10.0 segundos
+2024-08-16 15:24:04,800 - Config - INFO - Transcribiendo chunk 22 con duración 10.0 segundos
+2024-08-16 15:24:04,800 - Config - INFO - Transcribiendo chunk 23 con duración 10.0 segundos
+2024-08-16 15:24:04,801 - Config - INFO - Transcribiendo chunk 24 con duración 10.0 segundos
+2024-08-16 15:24:04,801 - Config - INFO - Transcribiendo chunk 25 con duración 10.0 segundos
+2024-08-16 15:24:04,802 - Config - INFO - Transcribiendo chunk 26 con duración 10.0 segundos
+2024-08-16 15:24:04,802 - Config - INFO - Transcribiendo chunk 27 con duración 10.0 segundos
+2024-08-16 15:24:04,803 - Config - INFO - Transcribiendo chunk 28 con duración 10.0 segundos
+2024-08-16 15:24:04,803 - Config - INFO - Transcribiendo chunk 29 con duración 10.0 segundos
+2024-08-16 15:24:04,804 - Config - INFO - Transcribiendo chunk 30 con duración 10.0 segundos
+2024-08-16 15:24:04,804 - Config - INFO - Transcribiendo chunk 31 con duración 10.0 segundos
+2024-08-16 15:24:04,804 - Config - INFO - Transcribiendo chunk 32 con duración 10.0 segundos
+2024-08-16 15:24:04,805 - Config - INFO - Transcribiendo chunk 33 con duración 10.0 segundos
+2024-08-16 15:24:04,806 - Config - INFO - Transcribiendo chunk 34 con duración 10.0 segundos
+2024-08-16 15:24:04,809 - Config - INFO - Transcribiendo chunk 35 con duración 10.0 segundos
+2024-08-16 15:24:04,809 - Config - INFO - Transcribiendo chunk 36 con duración 10.0 segundos
+2024-08-16 15:24:04,810 - Config - INFO - Transcribiendo chunk 37 con duración 10.0 segundos
+2024-08-16 15:24:04,810 - Config - INFO - Transcribiendo chunk 38 con duración 10.0 segundos
+2024-08-16 15:24:04,811 - Config - INFO - Transcribiendo chunk 39 con duración 10.0 segundos
+2024-08-16 15:24:04,811 - Config - INFO - Transcribiendo chunk 40 con duración 10.0 segundos
+2024-08-16 15:24:04,812 - Config - INFO - Transcribiendo chunk 41 con duración 10.0 segundos
+2024-08-16 15:24:04,812 - Config - INFO - Transcribiendo chunk 42 con duración 10.0 segundos
+2024-08-16 15:24:04,812 - Config - INFO - Transcribiendo chunk 43 con duración 10.0 segundos
+2024-08-16 15:24:04,813 - Config - INFO - Transcribiendo chunk 44 con duración 10.0 segundos
+2024-08-16 15:24:04,813 - Config - INFO - Transcribiendo chunk 45 con duración 10.0 segundos
+2024-08-16 15:24:04,814 - Config - INFO - Transcribiendo chunk 46 con duración 10.0 segundos
+2024-08-16 15:24:04,814 - Config - INFO - Transcribiendo chunk 47 con duración 10.0 segundos
+2024-08-16 15:24:04,815 - Config - INFO - Transcribiendo chunk 48 con duración 10.0 segundos
+2024-08-16 15:24:04,815 - Config - INFO - Transcribiendo chunk 49 con duración 10.0 segundos
+2024-08-16 15:24:04,816 - Config - INFO - Transcribiendo chunk 50 con duración 10.0 segundos
+2024-08-16 15:24:04,816 - Config - INFO - Transcribiendo chunk 51 con duración 10.0 segundos
+2024-08-16 15:24:04,817 - Config - INFO - Transcribiendo chunk 52 con duración 10.0 segundos
+2024-08-16 15:24:04,818 - Config - INFO - Transcribiendo chunk 53 con duración 10.0 segundos
+2024-08-16 15:24:04,819 - Config - INFO - Transcribiendo chunk 54 con duración 10.0 segundos
+2024-08-16 15:24:04,819 - Config - INFO - Transcribiendo chunk 55 con duración 10.0 segundos
+2024-08-16 15:24:04,820 - Config - INFO - Transcribiendo chunk 56 con duración 10.0 segundos
+2024-08-16 15:24:04,820 - Config - INFO - Transcribiendo chunk 57 con duración 10.0 segundos
+2024-08-16 15:24:04,821 - Config - INFO - Transcribiendo chunk 58 con duración 10.0 segundos
+2024-08-16 15:24:04,822 - Config - INFO - Transcribiendo chunk 59 con duración 10.0 segundos
+2024-08-16 15:24:04,822 - Config - INFO - Transcribiendo chunk 60 con duración 10.0 segundos
+2024-08-16 15:24:04,823 - Config - INFO - Transcribiendo chunk 61 con duración 10.0 segundos
+2024-08-16 15:24:04,823 - Config - INFO - Transcribiendo chunk 62 con duración 10.0 segundos
+2024-08-16 15:24:04,824 - Config - INFO - Transcribiendo chunk 63 con duración 10.0 segundos
+2024-08-16 15:24:04,824 - Config - INFO - Transcribiendo chunk 64 con duración 10.0 segundos
+2024-08-16 15:24:04,825 - Config - INFO - Transcribiendo chunk 65 con duración 10.0 segundos
+2024-08-16 15:24:04,825 - Config - INFO - Transcribiendo chunk 66 con duración 10.0 segundos
+2024-08-16 15:24:04,825 - Config - INFO - Transcribiendo chunk 67 con duración 10.0 segundos
+2024-08-16 15:24:04,826 - Config - INFO - Transcribiendo chunk 68 con duración 5.76 segundos
+2024-08-16 15:24:05,471 - Config - WARNING - Audio no reconocido en chunk 0 - Duración: 10.0 segundos
+2024-08-16 15:24:05,488 - Config - WARNING - Audio no reconocido en chunk 4 - Duración: 10.0 segundos
+2024-08-16 15:24:05,493 - Config - WARNING - Audio no reconocido en chunk 1 - Duración: 10.0 segundos
+2024-08-16 15:24:05,499 - Config - WARNING - Audio no reconocido en chunk 3 - Duración: 10.0 segundos
+2024-08-16 15:24:05,755 - Config - WARNING - Audio no reconocido en chunk 8 - Duración: 10.0 segundos
+2024-08-16 15:24:05,797 - Config - WARNING - Audio no reconocido en chunk 5 - Duración: 10.0 segundos
+2024-08-16 15:24:05,798 - Config - WARNING - Audio no reconocido en chunk 7 - Duración: 10.0 segundos
+2024-08-16 15:24:05,862 - Config - WARNING - Audio no reconocido en chunk 6 - Duración: 10.0 segundos
+2024-08-16 15:24:05,981 - Config - WARNING - Audio no reconocido en chunk 2 - Duración: 10.0 segundos
+2024-08-16 15:24:06,063 - Config - WARNING - Audio no reconocido en chunk 9 - Duración: 10.0 segundos
+2024-08-16 15:24:06,126 - Config - WARNING - Audio no reconocido en chunk 10 - Duración: 10.0 segundos
+2024-08-16 15:24:06,173 - Config - WARNING - Audio no reconocido en chunk 12 - Duración: 10.0 segundos
+2024-08-16 15:24:06,176 - Config - WARNING - Audio no reconocido en chunk 11 - Duración: 10.0 segundos
+2024-08-16 15:24:06,249 - Config - WARNING - Audio no reconocido en chunk 13 - Duración: 10.0 segundos
+2024-08-16 15:24:06,368 - Config - WARNING - Audio no reconocido en chunk 14 - Duración: 10.0 segundos
+2024-08-16 15:24:06,486 - Config - WARNING - Audio no reconocido en chunk 15 - Duración: 10.0 segundos
+2024-08-16 15:24:06,488 - Config - WARNING - Audio no reconocido en chunk 16 - Duración: 10.0 segundos
+2024-08-16 15:24:06,551 - Config - WARNING - Audio no reconocido en chunk 17 - Duración: 10.0 segundos
+2024-08-16 15:24:06,571 - Config - WARNING - Audio no reconocido en chunk 18 - Duración: 10.0 segundos
+2024-08-16 15:24:06,672 - Config - WARNING - Audio no reconocido en chunk 19 - Duración: 10.0 segundos
+2024-08-16 15:24:06,815 - Config - WARNING - Audio no reconocido en chunk 20 - Duración: 10.0 segundos
+2024-08-16 15:24:06,815 - Config - WARNING - Audio no reconocido en chunk 21 - Duración: 10.0 segundos
+2024-08-16 15:24:06,933 - Config - WARNING - Audio no reconocido en chunk 22 - Duración: 10.0 segundos
+2024-08-16 15:24:07,017 - Config - WARNING - Audio no reconocido en chunk 24 - Duración: 10.0 segundos
+2024-08-16 15:24:07,155 - Config - WARNING - Audio no reconocido en chunk 26 - Duración: 10.0 segundos
+2024-08-16 15:24:07,178 - Config - WARNING - Audio no reconocido en chunk 25 - Duración: 10.0 segundos
+2024-08-16 15:24:07,306 - Config - WARNING - Audio no reconocido en chunk 27 - Duración: 10.0 segundos
+2024-08-16 15:24:07,311 - Config - WARNING - Audio no reconocido en chunk 23 - Duración: 10.0 segundos
+2024-08-16 15:24:07,332 - Config - WARNING - Audio no reconocido en chunk 28 - Duración: 10.0 segundos
+2024-08-16 15:24:07,439 - Config - WARNING - Audio no reconocido en chunk 29 - Duración: 10.0 segundos
+2024-08-16 15:24:07,509 - Config - WARNING - Audio no reconocido en chunk 30 - Duración: 10.0 segundos
+2024-08-16 15:24:07,650 - Config - WARNING - Audio no reconocido en chunk 32 - Duración: 10.0 segundos
+2024-08-16 15:24:07,650 - Config - WARNING - Audio no reconocido en chunk 31 - Duración: 10.0 segundos
+2024-08-16 15:24:07,665 - Config - WARNING - Audio no reconocido en chunk 33 - Duración: 10.0 segundos
+2024-08-16 15:24:07,757 - Config - WARNING - Audio no reconocido en chunk 34 - Duración: 10.0 segundos
+2024-08-16 15:24:07,895 - Config - WARNING - Audio no reconocido en chunk 35 - Duración: 10.0 segundos
+2024-08-16 15:24:07,961 - Config - WARNING - Audio no reconocido en chunk 36 - Duración: 10.0 segundos
+2024-08-16 15:24:07,972 - Config - WARNING - Audio no reconocido en chunk 38 - Duración: 10.0 segundos
+2024-08-16 15:24:07,981 - Config - WARNING - Audio no reconocido en chunk 37 - Duración: 10.0 segundos
+2024-08-16 15:24:08,075 - Config - WARNING - Audio no reconocido en chunk 39 - Duración: 10.0 segundos
+2024-08-16 15:24:08,204 - Config - WARNING - Audio no reconocido en chunk 40 - Duración: 10.0 segundos
+2024-08-16 15:24:08,288 - Config - WARNING - Audio no reconocido en chunk 43 - Duración: 10.0 segundos
+2024-08-16 15:24:08,303 - Config - WARNING - Audio no reconocido en chunk 42 - Duración: 10.0 segundos
+2024-08-16 15:24:08,310 - Config - WARNING - Audio no reconocido en chunk 41 - Duración: 10.0 segundos
+2024-08-16 15:24:08,404 - Config - WARNING - Audio no reconocido en chunk 44 - Duración: 10.0 segundos
+2024-08-16 15:24:08,485 - Config - WARNING - Audio no reconocido en chunk 45 - Duración: 10.0 segundos
+2024-08-16 15:24:08,596 - Config - WARNING - Audio no reconocido en chunk 48 - Duración: 10.0 segundos
+2024-08-16 15:24:08,598 - Config - WARNING - Audio no reconocido en chunk 46 - Duración: 10.0 segundos
+2024-08-16 15:24:08,624 - Config - WARNING - Audio no reconocido en chunk 47 - Duración: 10.0 segundos
+2024-08-16 15:24:08,929 - Config - WARNING - Audio no reconocido en chunk 52 - Duración: 10.0 segundos
+2024-08-16 15:24:08,932 - Config - WARNING - Audio no reconocido en chunk 51 - Duración: 10.0 segundos
+2024-08-16 15:24:08,936 - Config - WARNING - Audio no reconocido en chunk 53 - Duración: 10.0 segundos
+2024-08-16 15:24:09,130 - Config - WARNING - Audio no reconocido en chunk 50 - Duración: 10.0 segundos
+2024-08-16 15:24:09,170 - Config - WARNING - Audio no reconocido en chunk 49 - Duración: 10.0 segundos
+2024-08-16 15:24:09,226 - Config - WARNING - Audio no reconocido en chunk 56 - Duración: 10.0 segundos
+2024-08-16 15:24:09,244 - Config - WARNING - Audio no reconocido en chunk 55 - Duración: 10.0 segundos
+2024-08-16 15:24:09,258 - Config - WARNING - Audio no reconocido en chunk 54 - Duración: 10.0 segundos
+2024-08-16 15:24:09,476 - Config - WARNING - Audio no reconocido en chunk 57 - Duración: 10.0 segundos
+2024-08-16 15:24:09,553 - Config - WARNING - Audio no reconocido en chunk 58 - Duración: 10.0 segundos
+2024-08-16 15:24:09,554 - Config - WARNING - Audio no reconocido en chunk 59 - Duración: 10.0 segundos
+2024-08-16 15:24:09,561 - Config - WARNING - Audio no reconocido en chunk 61 - Duración: 10.0 segundos
+2024-08-16 15:24:09,568 - Config - WARNING - Audio no reconocido en chunk 60 - Duración: 10.0 segundos
+2024-08-16 15:24:09,774 - Config - WARNING - Audio no reconocido en chunk 62 - Duración: 10.0 segundos
+2024-08-16 15:24:09,861 - Config - WARNING - Audio no reconocido en chunk 66 - Duración: 10.0 segundos
+2024-08-16 15:24:09,864 - Config - WARNING - Audio no reconocido en chunk 65 - Duración: 10.0 segundos
+2024-08-16 15:24:09,870 - Config - WARNING - Audio no reconocido en chunk 63 - Duración: 10.0 segundos
+2024-08-16 15:24:09,871 - Config - WARNING - Audio no reconocido en chunk 64 - Duración: 10.0 segundos
+2024-08-16 15:24:10,068 - Config - WARNING - Audio no reconocido en chunk 67 - Duración: 10.0 segundos
+2024-08-16 15:24:10,150 - Config - WARNING - Audio no reconocido en chunk 68 - Duración: 5.76 segundos
+2024-08-16 15:26:08,604 - Config - INFO - Configuración inicial completada
+2024-08-16 15:26:14,276 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-16 15:26:21,476 - Config - INFO - Procesando archivo: C:/Users/jgcorrea/Desktop/output/Audios/LP41335566.wav
+2024-08-16 15:26:26,350 - Config - INFO - Chunk 0 duración: 1.259 segundos
+2024-08-16 15:26:26,352 - Config - INFO - Chunk 1 duración: 4.733 segundos
+2024-08-16 15:26:26,352 - Config - INFO - Chunk 2 duración: 4.303 segundos
+2024-08-16 15:26:26,353 - Config - INFO - Chunk 3 duración: 2.814 segundos
+2024-08-16 15:26:26,353 - Config - INFO - Chunk 4 duración: 10.0 segundos
+2024-08-16 15:26:26,354 - Config - INFO - Chunk 5 duración: 5.015 segundos
+2024-08-16 15:26:26,355 - Config - INFO - Chunk 6 duración: 2.294 segundos
+2024-08-16 15:26:26,355 - Config - INFO - Chunk 7 duración: 8.681 segundos
+2024-08-16 15:26:26,356 - Config - INFO - Chunk 8 duración: 1.403 segundos
+2024-08-16 15:26:26,357 - Config - INFO - Chunk 9 duración: 5.448 segundos
+2024-08-16 15:26:26,357 - Config - INFO - Chunk 10 duración: 1.799 segundos
+2024-08-16 15:26:26,358 - Config - INFO - Chunk 11 duración: 7.421 segundos
+2024-08-16 15:26:26,358 - Config - INFO - Chunk 12 duración: 2.177 segundos
+2024-08-16 15:26:26,359 - Config - INFO - Chunk 13 duración: 5.011 segundos
+2024-08-16 15:26:26,359 - Config - INFO - Chunk 14 duración: 4.483 segundos
+2024-08-16 15:26:26,360 - Config - INFO - Chunk 15 duración: 1.431 segundos
+2024-08-16 15:26:26,361 - Config - INFO - Chunk 16 duración: 1.549 segundos
+2024-08-16 15:26:26,362 - Config - INFO - Chunk 17 duración: 0.886 segundos
+2024-08-16 15:26:26,363 - Config - INFO - Chunk 18 duración: 2.18 segundos
+2024-08-16 15:26:26,364 - Config - INFO - Chunk 19 duración: 2.745 segundos
+2024-08-16 15:26:26,364 - Config - INFO - Transcribiendo chunk 0 con duración 1.259 segundos
+2024-08-16 15:26:26,367 - Config - INFO - Transcribiendo chunk 1 con duración 4.733 segundos
+2024-08-16 15:26:26,371 - Config - INFO - Transcribiendo chunk 2 con duración 4.303 segundos
+2024-08-16 15:26:26,376 - Config - INFO - Transcribiendo chunk 3 con duración 2.814 segundos
+2024-08-16 15:26:26,379 - Config - INFO - Transcribiendo chunk 4 con duración 10.0 segundos
+2024-08-16 15:26:26,383 - Config - INFO - Transcribiendo chunk 5 con duración 5.015 segundos
+2024-08-16 15:26:26,385 - Config - INFO - Transcribiendo chunk 6 con duración 2.294 segundos
+2024-08-16 15:26:26,392 - Config - INFO - Transcribiendo chunk 7 con duración 8.681 segundos
+2024-08-16 15:26:26,392 - Config - INFO - Transcribiendo chunk 8 con duración 1.403 segundos
+2024-08-16 15:26:26,393 - Config - INFO - Transcribiendo chunk 9 con duración 5.448 segundos
+2024-08-16 15:26:26,394 - Config - INFO - Transcribiendo chunk 10 con duración 1.799 segundos
+2024-08-16 15:26:26,394 - Config - INFO - Transcribiendo chunk 11 con duración 7.421 segundos
+2024-08-16 15:26:26,395 - Config - INFO - Transcribiendo chunk 12 con duración 2.177 segundos
+2024-08-16 15:26:26,395 - Config - INFO - Transcribiendo chunk 13 con duración 5.011 segundos
+2024-08-16 15:26:26,396 - Config - INFO - Transcribiendo chunk 14 con duración 4.483 segundos
+2024-08-16 15:26:26,396 - Config - INFO - Transcribiendo chunk 15 con duración 1.431 segundos
+2024-08-16 15:26:26,397 - Config - INFO - Transcribiendo chunk 16 con duración 1.549 segundos
+2024-08-16 15:26:26,397 - Config - INFO - Transcribiendo chunk 17 con duración 0.886 segundos
+2024-08-16 15:26:26,398 - Config - INFO - Transcribiendo chunk 18 con duración 2.18 segundos
+2024-08-16 15:26:26,399 - Config - INFO - Transcribiendo chunk 19 con duración 2.745 segundos
+2024-08-16 15:26:26,970 - Config - INFO - Chunk 0 transcrito: 911... (Duración: 1.259 segundos)
+2024-08-16 15:26:27,324 - Config - WARNING - Audio no reconocido en chunk 1 - Duración: 4.733 segundos
+2024-08-16 15:26:27,474 - Config - WARNING - Audio no reconocido en chunk 2 - Duración: 4.303 segundos
+2024-08-16 15:26:27,608 - Config - INFO - Chunk 3 transcrito: y tenías el proyecto auditivo... (Duración: 2.814 segundos)
+2024-08-16 15:26:27,967 - Config - INFO - Chunk 8 transcrito: cuándo... (Duración: 1.403 segundos)
+2024-08-16 15:26:28,067 - Config - WARNING - Audio no reconocido en chunk 6 - Duración: 2.294 segundos
+2024-08-16 15:26:28,345 - Config - INFO - Chunk 5 transcrito: si van a poner porque el proyecto de depresión es militar... (Duración: 5.015 segundos)
+2024-08-16 15:26:28,586 - Config - INFO - Chunk 10 transcrito: el proyecto de d... (Duración: 1.799 segundos)
+2024-08-16 15:26:28,712 - Config - INFO - Chunk 4 transcrito: desde los 70 tiene alguna emergencia policial en este momento hay una emergencia de... (Duración: 10.0 segundos)
+2024-08-16 15:26:29,350 - Config - INFO - Chunk 12 transcrito: bueno denuncia que dónde van a poner una bomba... (Duración: 2.177 segundos)
+2024-08-16 15:26:29,423 - Config - INFO - Chunk 9 transcrito: de La amenaza de bomba bomba... (Duración: 5.448 segundos)
+2024-08-16 15:26:29,495 - Config - INFO - Chunk 7 transcrito: te pido por favor que le comuniques al gobierno a través de eso yo te dejo el favor porque yo no lo voy a hacer pero cuándo es eso... (Duración: 8.681 segundos)
+2024-08-16 15:26:29,708 - Config - WARNING - Audio no reconocido en chunk 11 - Duración: 7.421 segundos
+2024-08-16 15:26:29,929 - Config - INFO - Chunk 15 transcrito: y esto cuándo sería... (Duración: 1.431 segundos)
+2024-08-16 15:26:29,945 - Config - WARNING - Audio no reconocido en chunk 16 - Duración: 1.549 segundos
+2024-08-16 15:26:30,096 - Config - INFO - Chunk 17 transcrito: Cómo es su... (Duración: 0.886 segundos)
+2024-08-16 15:26:30,184 - Config - INFO - Chunk 13 transcrito: en ezeiza donde pasan los aviones en un avión van a poner la bomba... (Duración: 5.011 segundos)
+2024-08-16 15:26:30,371 - Config - INFO - Chunk 14 transcrito: y Avísale al presidente que la policía avise a gobernación... (Duración: 4.483 segundos)
+2024-08-16 15:26:30,642 - Config - INFO - Chunk 19 transcrito: bueno corto con usted lo vamos a informar... (Duración: 2.745 segundos)
+2024-08-16 15:26:30,947 - Config - INFO - Chunk 18 transcrito: Mariana huracán tenía la circu... (Duración: 2.18 segundos)
+2024-08-16 15:29:24,147 - Config - INFO - Configuración inicial completada
+2024-08-16 15:29:27,106 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-16 15:29:33,124 - Config - INFO - Procesando archivo: C:/Users/jgcorrea/Desktop/output/Audios/LP41335566.wav
+2024-08-16 15:29:50,921 - Config - INFO - Chunk 0 duración: 10.0 segundos
+2024-08-16 15:29:50,922 - Config - INFO - Chunk 1 duración: 10.0 segundos
+2024-08-16 15:29:50,923 - Config - INFO - Chunk 2 duración: 10.0 segundos
+2024-08-16 15:29:50,924 - Config - INFO - Chunk 3 duración: 10.0 segundos
+2024-08-16 15:29:50,924 - Config - INFO - Chunk 4 duración: 10.0 segundos
+2024-08-16 15:29:50,925 - Config - INFO - Chunk 5 duración: 10.0 segundos
+2024-08-16 15:29:50,925 - Config - INFO - Chunk 6 duración: 10.0 segundos
+2024-08-16 15:29:50,926 - Config - INFO - Chunk 7 duración: 10.0 segundos
+2024-08-16 15:29:50,926 - Config - INFO - Chunk 8 duración: 10.0 segundos
+2024-08-16 15:29:50,927 - Config - INFO - Chunk 9 duración: 10.0 segundos
+2024-08-16 15:29:50,927 - Config - INFO - Chunk 10 duración: 10.0 segundos
+2024-08-16 15:29:50,928 - Config - INFO - Chunk 11 duración: 10.0 segundos
+2024-08-16 15:29:50,929 - Config - INFO - Chunk 12 duración: 10.0 segundos
+2024-08-16 15:29:50,929 - Config - INFO - Chunk 13 duración: 10.0 segundos
+2024-08-16 15:29:50,930 - Config - INFO - Chunk 14 duración: 10.0 segundos
+2024-08-16 15:29:50,930 - Config - INFO - Chunk 15 duración: 10.0 segundos
+2024-08-16 15:29:50,931 - Config - INFO - Chunk 16 duración: 10.0 segundos
+2024-08-16 15:29:50,932 - Config - INFO - Chunk 17 duración: 10.0 segundos
+2024-08-16 15:29:50,932 - Config - INFO - Chunk 18 duración: 10.0 segundos
+2024-08-16 15:29:50,933 - Config - INFO - Chunk 19 duración: 10.0 segundos
+2024-08-16 15:29:50,933 - Config - INFO - Chunk 20 duración: 10.0 segundos
+2024-08-16 15:29:50,934 - Config - INFO - Chunk 21 duración: 10.0 segundos
+2024-08-16 15:29:50,934 - Config - INFO - Chunk 22 duración: 10.0 segundos
+2024-08-16 15:29:50,935 - Config - INFO - Chunk 23 duración: 10.0 segundos
+2024-08-16 15:29:50,935 - Config - INFO - Chunk 24 duración: 10.0 segundos
+2024-08-16 15:29:50,936 - Config - INFO - Chunk 25 duración: 10.0 segundos
+2024-08-16 15:29:50,936 - Config - INFO - Chunk 26 duración: 10.0 segundos
+2024-08-16 15:29:50,937 - Config - INFO - Chunk 27 duración: 10.0 segundos
+2024-08-16 15:29:50,937 - Config - INFO - Chunk 28 duración: 10.0 segundos
+2024-08-16 15:29:50,938 - Config - INFO - Chunk 29 duración: 10.0 segundos
+2024-08-16 15:29:50,938 - Config - INFO - Chunk 30 duración: 10.0 segundos
+2024-08-16 15:29:50,939 - Config - INFO - Chunk 31 duración: 10.0 segundos
+2024-08-16 15:29:50,939 - Config - INFO - Chunk 32 duración: 10.0 segundos
+2024-08-16 15:29:50,940 - Config - INFO - Chunk 33 duración: 10.0 segundos
+2024-08-16 15:29:50,940 - Config - INFO - Chunk 34 duración: 10.0 segundos
+2024-08-16 15:29:50,941 - Config - INFO - Chunk 35 duración: 10.0 segundos
+2024-08-16 15:29:50,942 - Config - INFO - Chunk 36 duración: 10.0 segundos
+2024-08-16 15:29:50,942 - Config - INFO - Chunk 37 duración: 10.0 segundos
+2024-08-16 15:29:50,943 - Config - INFO - Chunk 38 duración: 10.0 segundos
+2024-08-16 15:29:50,943 - Config - INFO - Chunk 39 duración: 10.0 segundos
+2024-08-16 15:29:50,944 - Config - INFO - Chunk 40 duración: 10.0 segundos
+2024-08-16 15:29:50,945 - Config - INFO - Chunk 41 duración: 10.0 segundos
+2024-08-16 15:29:50,945 - Config - INFO - Chunk 42 duración: 10.0 segundos
+2024-08-16 15:29:50,946 - Config - INFO - Chunk 43 duración: 10.0 segundos
+2024-08-16 15:29:50,952 - Config - INFO - Chunk 44 duración: 10.0 segundos
+2024-08-16 15:29:50,953 - Config - INFO - Chunk 45 duración: 10.0 segundos
+2024-08-16 15:29:50,954 - Config - INFO - Chunk 46 duración: 10.0 segundos
+2024-08-16 15:29:50,954 - Config - INFO - Chunk 47 duración: 10.0 segundos
+2024-08-16 15:29:50,955 - Config - INFO - Chunk 48 duración: 10.0 segundos
+2024-08-16 15:29:50,955 - Config - INFO - Chunk 49 duración: 10.0 segundos
+2024-08-16 15:29:50,956 - Config - INFO - Chunk 50 duración: 10.0 segundos
+2024-08-16 15:29:50,956 - Config - INFO - Chunk 51 duración: 10.0 segundos
+2024-08-16 15:29:50,957 - Config - INFO - Chunk 52 duración: 10.0 segundos
+2024-08-16 15:29:50,957 - Config - INFO - Chunk 53 duración: 10.0 segundos
+2024-08-16 15:29:50,958 - Config - INFO - Chunk 54 duración: 10.0 segundos
+2024-08-16 15:29:50,958 - Config - INFO - Chunk 55 duración: 10.0 segundos
+2024-08-16 15:29:50,959 - Config - INFO - Chunk 56 duración: 10.0 segundos
+2024-08-16 15:29:50,960 - Config - INFO - Chunk 57 duración: 10.0 segundos
+2024-08-16 15:29:50,960 - Config - INFO - Chunk 58 duración: 10.0 segundos
+2024-08-16 15:29:50,961 - Config - INFO - Chunk 59 duración: 10.0 segundos
+2024-08-16 15:29:50,961 - Config - INFO - Chunk 60 duración: 10.0 segundos
+2024-08-16 15:29:50,962 - Config - INFO - Chunk 61 duración: 10.0 segundos
+2024-08-16 15:29:50,963 - Config - INFO - Chunk 62 duración: 10.0 segundos
+2024-08-16 15:29:50,963 - Config - INFO - Chunk 63 duración: 10.0 segundos
+2024-08-16 15:29:50,964 - Config - INFO - Chunk 64 duración: 10.0 segundos
+2024-08-16 15:29:50,964 - Config - INFO - Chunk 65 duración: 10.0 segundos
+2024-08-16 15:29:50,965 - Config - INFO - Chunk 66 duración: 10.0 segundos
+2024-08-16 15:29:50,965 - Config - INFO - Chunk 67 duración: 10.0 segundos
+2024-08-16 15:29:50,966 - Config - INFO - Chunk 68 duración: 5.76 segundos
+2024-08-16 15:29:50,966 - Config - INFO - Transcribiendo chunk 0 con duración 10.0 segundos
+2024-08-16 15:29:50,969 - Config - INFO - Transcribiendo chunk 1 con duración 10.0 segundos
+2024-08-16 15:29:50,973 - Config - INFO - Transcribiendo chunk 2 con duración 10.0 segundos
+2024-08-16 15:29:50,977 - Config - INFO - Transcribiendo chunk 3 con duración 10.0 segundos
+2024-08-16 15:29:50,981 - Config - INFO - Transcribiendo chunk 4 con duración 10.0 segundos
+2024-08-16 15:29:50,986 - Config - INFO - Transcribiendo chunk 5 con duración 10.0 segundos
+2024-08-16 15:29:50,989 - Config - INFO - Transcribiendo chunk 6 con duración 10.0 segundos
+2024-08-16 15:29:50,991 - Config - INFO - Transcribiendo chunk 7 con duración 10.0 segundos
+2024-08-16 15:29:50,993 - Config - INFO - Transcribiendo chunk 8 con duración 10.0 segundos
+2024-08-16 15:29:50,994 - Config - INFO - Transcribiendo chunk 9 con duración 10.0 segundos
+2024-08-16 15:29:50,995 - Config - INFO - Transcribiendo chunk 10 con duración 10.0 segundos
+2024-08-16 15:29:50,997 - Config - INFO - Transcribiendo chunk 11 con duración 10.0 segundos
+2024-08-16 15:29:50,997 - Config - INFO - Transcribiendo chunk 12 con duración 10.0 segundos
+2024-08-16 15:29:50,998 - Config - INFO - Transcribiendo chunk 13 con duración 10.0 segundos
+2024-08-16 15:29:51,001 - Config - INFO - Transcribiendo chunk 14 con duración 10.0 segundos
+2024-08-16 15:29:51,004 - Config - INFO - Transcribiendo chunk 15 con duración 10.0 segundos
+2024-08-16 15:29:51,006 - Config - INFO - Transcribiendo chunk 16 con duración 10.0 segundos
+2024-08-16 15:29:51,012 - Config - INFO - Transcribiendo chunk 17 con duración 10.0 segundos
+2024-08-16 15:29:51,012 - Config - INFO - Transcribiendo chunk 18 con duración 10.0 segundos
+2024-08-16 15:29:51,013 - Config - INFO - Transcribiendo chunk 19 con duración 10.0 segundos
+2024-08-16 15:29:51,013 - Config - INFO - Transcribiendo chunk 20 con duración 10.0 segundos
+2024-08-16 15:29:51,013 - Config - INFO - Transcribiendo chunk 21 con duración 10.0 segundos
+2024-08-16 15:29:51,014 - Config - INFO - Transcribiendo chunk 22 con duración 10.0 segundos
+2024-08-16 15:29:51,016 - Config - INFO - Transcribiendo chunk 23 con duración 10.0 segundos
+2024-08-16 15:29:51,016 - Config - INFO - Transcribiendo chunk 24 con duración 10.0 segundos
+2024-08-16 15:29:51,016 - Config - INFO - Transcribiendo chunk 25 con duración 10.0 segundos
+2024-08-16 15:29:51,016 - Config - INFO - Transcribiendo chunk 26 con duración 10.0 segundos
+2024-08-16 15:29:51,018 - Config - INFO - Transcribiendo chunk 27 con duración 10.0 segundos
+2024-08-16 15:29:51,018 - Config - INFO - Transcribiendo chunk 28 con duración 10.0 segundos
+2024-08-16 15:29:51,018 - Config - INFO - Transcribiendo chunk 29 con duración 10.0 segundos
+2024-08-16 15:29:51,018 - Config - INFO - Transcribiendo chunk 30 con duración 10.0 segundos
+2024-08-16 15:29:51,020 - Config - INFO - Transcribiendo chunk 31 con duración 10.0 segundos
+2024-08-16 15:29:51,020 - Config - INFO - Transcribiendo chunk 32 con duración 10.0 segundos
+2024-08-16 15:29:51,020 - Config - INFO - Transcribiendo chunk 33 con duración 10.0 segundos
+2024-08-16 15:29:51,022 - Config - INFO - Transcribiendo chunk 34 con duración 10.0 segundos
+2024-08-16 15:29:51,022 - Config - INFO - Transcribiendo chunk 35 con duración 10.0 segundos
+2024-08-16 15:29:51,023 - Config - INFO - Transcribiendo chunk 36 con duración 10.0 segundos
+2024-08-16 15:29:51,023 - Config - INFO - Transcribiendo chunk 37 con duración 10.0 segundos
+2024-08-16 15:29:51,024 - Config - INFO - Transcribiendo chunk 38 con duración 10.0 segundos
+2024-08-16 15:29:51,025 - Config - INFO - Transcribiendo chunk 39 con duración 10.0 segundos
+2024-08-16 15:29:51,025 - Config - INFO - Transcribiendo chunk 40 con duración 10.0 segundos
+2024-08-16 15:29:51,026 - Config - INFO - Transcribiendo chunk 41 con duración 10.0 segundos
+2024-08-16 15:29:51,026 - Config - INFO - Transcribiendo chunk 42 con duración 10.0 segundos
+2024-08-16 15:29:51,028 - Config - INFO - Transcribiendo chunk 43 con duración 10.0 segundos
+2024-08-16 15:29:51,028 - Config - INFO - Transcribiendo chunk 44 con duración 10.0 segundos
+2024-08-16 15:29:51,028 - Config - INFO - Transcribiendo chunk 45 con duración 10.0 segundos
+2024-08-16 15:29:51,028 - Config - INFO - Transcribiendo chunk 46 con duración 10.0 segundos
+2024-08-16 15:29:51,029 - Config - INFO - Transcribiendo chunk 47 con duración 10.0 segundos
+2024-08-16 15:29:51,029 - Config - INFO - Transcribiendo chunk 48 con duración 10.0 segundos
+2024-08-16 15:29:51,030 - Config - INFO - Transcribiendo chunk 49 con duración 10.0 segundos
+2024-08-16 15:29:51,030 - Config - INFO - Transcribiendo chunk 50 con duración 10.0 segundos
+2024-08-16 15:29:51,031 - Config - INFO - Transcribiendo chunk 51 con duración 10.0 segundos
+2024-08-16 15:29:51,031 - Config - INFO - Transcribiendo chunk 52 con duración 10.0 segundos
+2024-08-16 15:29:51,032 - Config - INFO - Transcribiendo chunk 53 con duración 10.0 segundos
+2024-08-16 15:29:51,034 - Config - INFO - Transcribiendo chunk 54 con duración 10.0 segundos
+2024-08-16 15:29:51,034 - Config - INFO - Transcribiendo chunk 55 con duración 10.0 segundos
+2024-08-16 15:29:51,034 - Config - INFO - Transcribiendo chunk 56 con duración 10.0 segundos
+2024-08-16 15:29:51,035 - Config - INFO - Transcribiendo chunk 57 con duración 10.0 segundos
+2024-08-16 15:29:51,035 - Config - INFO - Transcribiendo chunk 58 con duración 10.0 segundos
+2024-08-16 15:29:51,036 - Config - INFO - Transcribiendo chunk 59 con duración 10.0 segundos
+2024-08-16 15:29:51,037 - Config - INFO - Transcribiendo chunk 60 con duración 10.0 segundos
+2024-08-16 15:29:51,037 - Config - INFO - Transcribiendo chunk 61 con duración 10.0 segundos
+2024-08-16 15:29:51,038 - Config - INFO - Transcribiendo chunk 62 con duración 10.0 segundos
+2024-08-16 15:29:51,039 - Config - INFO - Transcribiendo chunk 63 con duración 10.0 segundos
+2024-08-16 15:29:51,045 - Config - INFO - Transcribiendo chunk 64 con duración 10.0 segundos
+2024-08-16 15:29:51,045 - Config - INFO - Transcribiendo chunk 65 con duración 10.0 segundos
+2024-08-16 15:29:51,046 - Config - INFO - Transcribiendo chunk 66 con duración 10.0 segundos
+2024-08-16 15:29:51,047 - Config - INFO - Transcribiendo chunk 67 con duración 10.0 segundos
+2024-08-16 15:29:51,047 - Config - INFO - Transcribiendo chunk 68 con duración 5.76 segundos
+2024-08-16 15:29:54,483 - Config - WARNING - Audio no reconocido en chunk 1 - Duración: 10.0 segundos
+2024-08-16 15:29:54,522 - Config - WARNING - Audio no reconocido en chunk 4 - Duración: 10.0 segundos
+2024-08-16 15:29:54,547 - Config - WARNING - Audio no reconocido en chunk 2 - Duración: 10.0 segundos
+2024-08-16 15:29:54,548 - Config - WARNING - Audio no reconocido en chunk 0 - Duración: 10.0 segundos
+2024-08-16 15:29:54,574 - Config - WARNING - Audio no reconocido en chunk 3 - Duración: 10.0 segundos
+2024-08-16 15:29:54,838 - Config - WARNING - Audio no reconocido en chunk 5 - Duración: 10.0 segundos
+2024-08-16 15:29:54,877 - Config - WARNING - Audio no reconocido en chunk 6 - Duración: 10.0 segundos
+2024-08-16 15:29:54,890 - Config - WARNING - Audio no reconocido en chunk 8 - Duración: 10.0 segundos
+2024-08-16 15:29:54,897 - Config - WARNING - Audio no reconocido en chunk 9 - Duración: 10.0 segundos
+2024-08-16 15:29:54,929 - Config - WARNING - Audio no reconocido en chunk 7 - Duración: 10.0 segundos
+2024-08-16 15:29:55,084 - Config - WARNING - Audio no reconocido en chunk 10 - Duración: 10.0 segundos
+2024-08-16 15:29:55,180 - Config - WARNING - Audio no reconocido en chunk 11 - Duración: 10.0 segundos
+2024-08-16 15:29:55,216 - Config - WARNING - Audio no reconocido en chunk 12 - Duración: 10.0 segundos
+2024-08-16 15:29:55,220 - Config - WARNING - Audio no reconocido en chunk 13 - Duración: 10.0 segundos
+2024-08-16 15:29:55,253 - Config - WARNING - Audio no reconocido en chunk 14 - Duración: 10.0 segundos
+2024-08-16 15:29:55,417 - Config - WARNING - Audio no reconocido en chunk 15 - Duración: 10.0 segundos
+2024-08-16 15:29:55,498 - Config - WARNING - Audio no reconocido en chunk 16 - Duración: 10.0 segundos
+2024-08-16 15:29:55,514 - Config - WARNING - Audio no reconocido en chunk 18 - Duración: 10.0 segundos
+2024-08-16 15:29:55,568 - Config - WARNING - Audio no reconocido en chunk 17 - Duración: 10.0 segundos
+2024-08-16 15:29:55,591 - Config - WARNING - Audio no reconocido en chunk 19 - Duración: 10.0 segundos
+2024-08-16 15:29:55,733 - Config - WARNING - Audio no reconocido en chunk 20 - Duración: 10.0 segundos
+2024-08-16 15:29:55,855 - Config - WARNING - Audio no reconocido en chunk 21 - Duración: 10.0 segundos
+2024-08-16 15:29:55,906 - Config - WARNING - Audio no reconocido en chunk 22 - Duración: 10.0 segundos
+2024-08-16 15:29:56,024 - Config - WARNING - Audio no reconocido en chunk 24 - Duración: 10.0 segundos
+2024-08-16 15:29:56,071 - Config - WARNING - Audio no reconocido en chunk 25 - Duración: 10.0 segundos
+2024-08-16 15:29:56,219 - Config - WARNING - Audio no reconocido en chunk 26 - Duración: 10.0 segundos
+2024-08-16 15:29:56,220 - Config - WARNING - Audio no reconocido en chunk 27 - Duración: 10.0 segundos
+2024-08-16 15:29:56,347 - Config - WARNING - Audio no reconocido en chunk 28 - Duración: 10.0 segundos
+2024-08-16 15:29:56,357 - Config - WARNING - Audio no reconocido en chunk 23 - Duración: 10.0 segundos
+2024-08-16 15:29:56,417 - Config - WARNING - Audio no reconocido en chunk 29 - Duración: 10.0 segundos
+2024-08-16 15:29:56,543 - Config - WARNING - Audio no reconocido en chunk 30 - Duración: 10.0 segundos
+2024-08-16 15:29:56,562 - Config - WARNING - Audio no reconocido en chunk 31 - Duración: 10.0 segundos
+2024-08-16 15:29:56,660 - Config - WARNING - Audio no reconocido en chunk 32 - Duración: 10.0 segundos
+2024-08-16 15:29:56,712 - Config - WARNING - Audio no reconocido en chunk 33 - Duración: 10.0 segundos
+2024-08-16 15:29:56,780 - Config - WARNING - Audio no reconocido en chunk 34 - Duración: 10.0 segundos
+2024-08-16 15:29:56,884 - Config - WARNING - Audio no reconocido en chunk 35 - Duración: 10.0 segundos
+2024-08-16 15:29:56,910 - Config - WARNING - Audio no reconocido en chunk 36 - Duración: 10.0 segundos
+2024-08-16 15:29:56,993 - Config - WARNING - Audio no reconocido en chunk 37 - Duración: 10.0 segundos
+2024-08-16 15:29:57,116 - Config - WARNING - Audio no reconocido en chunk 38 - Duración: 10.0 segundos
+2024-08-16 15:29:57,117 - Config - WARNING - Audio no reconocido en chunk 39 - Duración: 10.0 segundos
+2024-08-16 15:29:57,356 - Config - WARNING - Audio no reconocido en chunk 40 - Duración: 10.0 segundos
+2024-08-16 15:29:57,436 - Config - WARNING - Audio no reconocido en chunk 41 - Duración: 10.0 segundos
+2024-08-16 15:29:57,641 - Config - WARNING - Audio no reconocido en chunk 43 - Duración: 10.0 segundos
+2024-08-16 15:29:57,698 - Config - WARNING - Audio no reconocido en chunk 44 - Duración: 10.0 segundos
+2024-08-16 15:29:57,698 - Config - WARNING - Audio no reconocido en chunk 42 - Duración: 10.0 segundos
+2024-08-16 15:29:57,767 - Config - WARNING - Audio no reconocido en chunk 45 - Duración: 10.0 segundos
+2024-08-16 15:29:57,809 - Config - WARNING - Audio no reconocido en chunk 46 - Duración: 10.0 segundos
+2024-08-16 15:29:58,022 - Config - WARNING - Audio no reconocido en chunk 47 - Duración: 10.0 segundos
+2024-08-16 15:29:58,022 - Config - WARNING - Audio no reconocido en chunk 49 - Duración: 10.0 segundos
+2024-08-16 15:29:58,022 - Config - WARNING - Audio no reconocido en chunk 48 - Duración: 10.0 segundos
+2024-08-16 15:29:58,119 - Config - WARNING - Audio no reconocido en chunk 50 - Duración: 10.0 segundos
+2024-08-16 15:29:58,123 - Config - WARNING - Audio no reconocido en chunk 51 - Duración: 10.0 segundos
+2024-08-16 15:29:58,367 - Config - WARNING - Audio no reconocido en chunk 54 - Duración: 10.0 segundos
+2024-08-16 15:29:58,411 - Config - WARNING - Audio no reconocido en chunk 52 - Duración: 10.0 segundos
+2024-08-16 15:29:58,440 - Config - WARNING - Audio no reconocido en chunk 53 - Duración: 10.0 segundos
+2024-08-16 15:29:58,472 - Config - WARNING - Audio no reconocido en chunk 55 - Duración: 10.0 segundos
+2024-08-16 15:29:58,509 - Config - WARNING - Audio no reconocido en chunk 56 - Duración: 10.0 segundos
+2024-08-16 15:29:58,698 - Config - WARNING - Audio no reconocido en chunk 57 - Duración: 10.0 segundos
+2024-08-16 15:29:58,705 - Config - WARNING - Audio no reconocido en chunk 58 - Duración: 10.0 segundos
+2024-08-16 15:29:58,790 - Config - WARNING - Audio no reconocido en chunk 59 - Duración: 10.0 segundos
+2024-08-16 15:29:58,828 - Config - WARNING - Audio no reconocido en chunk 60 - Duración: 10.0 segundos
+2024-08-16 15:29:58,893 - Config - WARNING - Audio no reconocido en chunk 61 - Duración: 10.0 segundos
+2024-08-16 15:29:59,026 - Config - WARNING - Audio no reconocido en chunk 62 - Duración: 10.0 segundos
+2024-08-16 15:29:59,049 - Config - WARNING - Audio no reconocido en chunk 64 - Duración: 10.0 segundos
+2024-08-16 15:29:59,145 - Config - WARNING - Audio no reconocido en chunk 65 - Duración: 10.0 segundos
+2024-08-16 15:29:59,266 - Config - WARNING - Audio no reconocido en chunk 66 - Duración: 10.0 segundos
+2024-08-16 15:29:59,301 - Config - WARNING - Audio no reconocido en chunk 68 - Duración: 5.76 segundos
+2024-08-16 15:29:59,361 - Config - WARNING - Audio no reconocido en chunk 67 - Duración: 10.0 segundos
+2024-08-16 15:29:59,479 - Config - WARNING - Audio no reconocido en chunk 63 - Duración: 10.0 segundos
+2024-08-16 15:44:10,817 - Config - INFO - Configuración inicial completada
+2024-08-16 15:44:19,523 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-16 15:44:59,564 - Config - INFO - Procesando archivo: C:/Users/jgcorrea/Desktop/output/Audios/LP41335566.wav
+2024-08-16 15:45:06,822 - Config - INFO - Chunk 0 duración: 1.259 segundos
+2024-08-16 15:45:06,823 - Config - INFO - Chunk 1 duración: 4.733 segundos
+2024-08-16 15:45:06,824 - Config - INFO - Chunk 2 duración: 4.303 segundos
+2024-08-16 15:45:06,824 - Config - INFO - Chunk 3 duración: 2.814 segundos
+2024-08-16 15:45:06,826 - Config - INFO - Chunk 4 duración: 10.0 segundos
+2024-08-16 15:45:06,826 - Config - INFO - Chunk 5 duración: 5.015 segundos
+2024-08-16 15:45:06,827 - Config - INFO - Chunk 6 duración: 2.294 segundos
+2024-08-16 15:45:06,827 - Config - INFO - Chunk 7 duración: 8.681 segundos
+2024-08-16 15:45:06,828 - Config - INFO - Chunk 8 duración: 1.403 segundos
+2024-08-16 15:45:06,829 - Config - INFO - Chunk 9 duración: 5.448 segundos
+2024-08-16 15:45:06,829 - Config - INFO - Chunk 10 duración: 1.799 segundos
+2024-08-16 15:45:06,830 - Config - INFO - Chunk 11 duración: 7.421 segundos
+2024-08-16 15:45:06,831 - Config - INFO - Chunk 12 duración: 2.177 segundos
+2024-08-16 15:45:06,831 - Config - INFO - Chunk 13 duración: 5.011 segundos
+2024-08-16 15:45:06,832 - Config - INFO - Chunk 14 duración: 4.483 segundos
+2024-08-16 15:45:06,832 - Config - INFO - Chunk 15 duración: 1.431 segundos
+2024-08-16 15:45:06,833 - Config - INFO - Chunk 16 duración: 1.549 segundos
+2024-08-16 15:45:06,834 - Config - INFO - Chunk 17 duración: 0.886 segundos
+2024-08-16 15:45:06,834 - Config - INFO - Chunk 18 duración: 2.18 segundos
+2024-08-16 15:45:06,835 - Config - INFO - Chunk 19 duración: 2.745 segundos
+2024-08-16 15:45:06,838 - Config - INFO - Transcribiendo chunk 0 con duración 1.259 segundos
+2024-08-16 15:45:06,841 - Config - INFO - Transcribiendo chunk 1 con duración 4.733 segundos
+2024-08-16 15:45:06,844 - Config - INFO - Transcribiendo chunk 2 con duración 4.303 segundos
+2024-08-16 15:45:06,848 - Config - INFO - Transcribiendo chunk 3 con duración 2.814 segundos
+2024-08-16 15:45:06,852 - Config - INFO - Transcribiendo chunk 4 con duración 10.0 segundos
+2024-08-16 15:45:06,856 - Config - INFO - Transcribiendo chunk 5 con duración 5.015 segundos
+2024-08-16 15:45:06,858 - Config - INFO - Transcribiendo chunk 6 con duración 2.294 segundos
+2024-08-16 15:45:06,859 - Config - INFO - Transcribiendo chunk 7 con duración 8.681 segundos
+2024-08-16 15:45:06,862 - Config - INFO - Transcribiendo chunk 8 con duración 1.403 segundos
+2024-08-16 15:45:06,862 - Config - INFO - Transcribiendo chunk 9 con duración 5.448 segundos
+2024-08-16 15:45:06,864 - Config - INFO - Transcribiendo chunk 10 con duración 1.799 segundos
+2024-08-16 15:45:06,864 - Config - INFO - Transcribiendo chunk 11 con duración 7.421 segundos
+2024-08-16 15:45:06,875 - Config - INFO - Transcribiendo chunk 12 con duración 2.177 segundos
+2024-08-16 15:45:06,876 - Config - INFO - Transcribiendo chunk 13 con duración 5.011 segundos
+2024-08-16 15:45:06,877 - Config - INFO - Transcribiendo chunk 14 con duración 4.483 segundos
+2024-08-16 15:45:06,878 - Config - INFO - Transcribiendo chunk 15 con duración 1.431 segundos
+2024-08-16 15:45:06,878 - Config - INFO - Transcribiendo chunk 16 con duración 1.549 segundos
+2024-08-16 15:45:06,879 - Config - INFO - Transcribiendo chunk 17 con duración 0.886 segundos
+2024-08-16 15:45:06,879 - Config - INFO - Transcribiendo chunk 18 con duración 2.18 segundos
+2024-08-16 15:45:06,880 - Config - INFO - Transcribiendo chunk 19 con duración 2.745 segundos
+2024-08-16 15:45:10,513 - Config - INFO - Chunk 0 transcrito: 911... (Duración: 1.259 segundos)
+2024-08-16 15:45:10,653 - Config - WARNING - Audio no reconocido en chunk 1 - Duración: 4.733 segundos
+2024-08-16 15:45:11,021 - Config - WARNING - Audio no reconocido en chunk 2 - Duración: 4.303 segundos
+2024-08-16 15:45:11,061 - Config - INFO - Chunk 3 transcrito: y tenías el proyecto auditivo... (Duración: 2.814 segundos)
+2024-08-16 15:45:11,417 - Config - WARNING - Audio no reconocido en chunk 6 - Duración: 2.294 segundos
+2024-08-16 15:45:11,421 - Config - INFO - Chunk 8 transcrito: cuándo... (Duración: 1.403 segundos)
+2024-08-16 15:45:11,810 - Config - INFO - Chunk 5 transcrito: si van a poner porque el proyecto de depresión es militar... (Duración: 5.015 segundos)
+2024-08-16 15:45:11,974 - Config - INFO - Chunk 4 transcrito: desde los 70 tiene alguna emergencia policial en este momento hay una emergencia de... (Duración: 10.0 segundos)
+2024-08-16 15:45:12,018 - Config - INFO - Chunk 10 transcrito: el proyecto de d... (Duración: 1.799 segundos)
+2024-08-16 15:45:12,750 - Config - INFO - Chunk 12 transcrito: bueno denuncia que dónde van a poner una bomba... (Duración: 2.177 segundos)
+2024-08-16 15:45:13,033 - Config - INFO - Chunk 9 transcrito: de La amenaza de bomba bomba... (Duración: 5.448 segundos)
+2024-08-16 15:45:13,507 - Config - INFO - Chunk 15 transcrito: y esto cuándo sería... (Duración: 1.431 segundos)
+2024-08-16 15:45:13,564 - Config - WARNING - Audio no reconocido en chunk 11 - Duración: 7.421 segundos
+2024-08-16 15:45:13,663 - Config - INFO - Chunk 7 transcrito: te pido por favor que le comuniques al gobierno a través de eso yo te dejo el favor porque yo no lo voy a hacer pero cuándo es eso... (Duración: 8.681 segundos)
+2024-08-16 15:45:13,794 - Config - INFO - Chunk 13 transcrito: en ezeiza donde pasan los aviones en un avión van a poner la bomba... (Duración: 5.011 segundos)
+2024-08-16 15:45:13,923 - Config - INFO - Chunk 14 transcrito: y Avísale al presidente que la policía avise a gobernación... (Duración: 4.483 segundos)
+2024-08-16 15:45:13,971 - Config - WARNING - Audio no reconocido en chunk 16 - Duración: 1.549 segundos
+2024-08-16 15:45:13,984 - Config - INFO - Chunk 17 transcrito: Cómo es su... (Duración: 0.886 segundos)
+2024-08-16 15:45:14,501 - Config - INFO - Chunk 19 transcrito: bueno corto con usted lo vamos a informar... (Duración: 2.745 segundos)
+2024-08-16 15:45:14,818 - Config - INFO - Chunk 18 transcrito: Mariana huracán tenía la circu... (Duración: 2.18 segundos)
+2024-08-16 15:50:19,385 - Config - INFO - Configuración inicial completada
+2024-08-16 15:50:42,170 - Config - INFO - Configuración inicial completada
+2024-08-16 15:51:07,783 - Config - INFO - Configuración inicial completada
+2024-08-16 15:51:12,458 - Config - INFO - Configuración inicial completada
+2024-08-16 15:51:14,329 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-16 15:51:30,670 - Config - INFO - Procesando archivo: C:/Users/jgcorrea/Desktop/output/Audios/LP41335566.wav
+2024-08-16 15:51:35,756 - Config - INFO - Chunk 0 duración: 1.258 segundos
+2024-08-16 15:51:35,756 - Config - INFO - Chunk 1 duración: 4.727 segundos
+2024-08-16 15:51:35,757 - Config - INFO - Chunk 2 duración: 4.3 segundos
+2024-08-16 15:51:35,758 - Config - INFO - Chunk 3 duración: 2.803 segundos
+2024-08-16 15:51:35,758 - Config - INFO - Chunk 4 duración: 7.911 segundos
+2024-08-16 15:51:35,759 - Config - INFO - Chunk 5 duración: 6.779 segundos
+2024-08-16 15:51:35,760 - Config - INFO - Chunk 6 duración: 2.287 segundos
+2024-08-16 15:51:35,760 - Config - INFO - Chunk 7 duración: 8.678 segundos
+2024-08-16 15:51:35,761 - Config - INFO - Chunk 8 duración: 1.393 segundos
+2024-08-16 15:51:35,761 - Config - INFO - Chunk 9 duración: 5.424 segundos
+2024-08-16 15:51:35,762 - Config - INFO - Chunk 10 duración: 1.76 segundos
+2024-08-16 15:51:35,763 - Config - INFO - Chunk 11 duración: 7.404 segundos
+2024-08-16 15:51:35,763 - Config - INFO - Chunk 12 duración: 2.165 segundos
+2024-08-16 15:51:35,764 - Config - INFO - Chunk 13 duración: 5.008 segundos
+2024-08-16 15:51:35,764 - Config - INFO - Chunk 14 duración: 4.444 segundos
+2024-08-16 15:51:35,765 - Config - INFO - Chunk 15 duración: 1.423 segundos
+2024-08-16 15:51:35,765 - Config - INFO - Chunk 16 duración: 1.525 segundos
+2024-08-16 15:51:35,766 - Config - INFO - Chunk 17 duración: 0.884 segundos
+2024-08-16 15:51:35,770 - Config - INFO - Chunk 18 duración: 2.146 segundos
+2024-08-16 15:51:35,770 - Config - INFO - Chunk 19 duración: 2.741 segundos
+2024-08-16 15:51:35,771 - Config - INFO - Transcribiendo chunk 0 con duración 1.258 segundos
+2024-08-16 15:51:35,774 - Config - INFO - Transcribiendo chunk 1 con duración 4.727 segundos
+2024-08-16 15:51:35,778 - Config - INFO - Transcribiendo chunk 2 con duración 4.3 segundos
+2024-08-16 15:51:35,783 - Config - INFO - Transcribiendo chunk 3 con duración 2.803 segundos
+2024-08-16 15:51:35,787 - Config - INFO - Transcribiendo chunk 4 con duración 7.911 segundos
+2024-08-16 15:51:35,792 - Config - INFO - Transcribiendo chunk 5 con duración 6.779 segundos
+2024-08-16 15:51:35,794 - Config - INFO - Transcribiendo chunk 6 con duración 2.287 segundos
+2024-08-16 15:51:35,796 - Config - INFO - Transcribiendo chunk 7 con duración 8.678 segundos
+2024-08-16 15:51:35,798 - Config - INFO - Transcribiendo chunk 8 con duración 1.393 segundos
+2024-08-16 15:51:35,799 - Config - INFO - Transcribiendo chunk 9 con duración 5.424 segundos
+2024-08-16 15:51:35,801 - Config - INFO - Transcribiendo chunk 10 con duración 1.76 segundos
+2024-08-16 15:51:35,802 - Config - INFO - Transcribiendo chunk 11 con duración 7.404 segundos
+2024-08-16 15:51:35,802 - Config - INFO - Transcribiendo chunk 12 con duración 2.165 segundos
+2024-08-16 15:51:35,803 - Config - INFO - Transcribiendo chunk 13 con duración 5.008 segundos
+2024-08-16 15:51:35,804 - Config - INFO - Transcribiendo chunk 14 con duración 4.444 segundos
+2024-08-16 15:51:35,804 - Config - INFO - Transcribiendo chunk 15 con duración 1.423 segundos
+2024-08-16 15:51:35,805 - Config - INFO - Transcribiendo chunk 16 con duración 1.525 segundos
+2024-08-16 15:51:35,806 - Config - INFO - Transcribiendo chunk 17 con duración 0.884 segundos
+2024-08-16 15:51:35,807 - Config - INFO - Transcribiendo chunk 18 con duración 2.146 segundos
+2024-08-16 15:51:35,808 - Config - INFO - Transcribiendo chunk 19 con duración 2.741 segundos
+2024-08-16 15:51:36,659 - Config - WARNING - Audio no reconocido en chunk 0 - Duración: 1.258 segundos
+2024-08-16 15:51:36,715 - Config - WARNING - Audio no reconocido en chunk 3 - Duración: 2.803 segundos
+2024-08-16 15:51:36,951 - Config - WARNING - Audio no reconocido en chunk 2 - Duración: 4.3 segundos
+2024-08-16 15:51:37,123 - Config - WARNING - Audio no reconocido en chunk 1 - Duración: 4.727 segundos
+2024-08-16 15:51:37,351 - Config - WARNING - Audio no reconocido en chunk 6 - Duración: 2.287 segundos
+2024-08-16 15:51:37,435 - Config - WARNING - Audio no reconocido en chunk 4 - Duración: 7.911 segundos
+2024-08-16 15:51:37,806 - Config - WARNING - Audio no reconocido en chunk 10 - Duración: 1.76 segundos
+2024-08-16 15:51:37,838 - Config - WARNING - Audio no reconocido en chunk 8 - Duración: 1.393 segundos
+2024-08-16 15:51:38,046 - Config - WARNING - Audio no reconocido en chunk 5 - Duración: 6.779 segundos
+2024-08-16 15:51:38,461 - Config - WARNING - Audio no reconocido en chunk 9 - Duración: 5.424 segundos
+2024-08-16 15:51:38,483 - Config - WARNING - Audio no reconocido en chunk 7 - Duración: 8.678 segundos
+2024-08-16 15:51:38,611 - Config - WARNING - Audio no reconocido en chunk 12 - Duración: 2.165 segundos
+2024-08-16 15:51:38,985 - Config - WARNING - Audio no reconocido en chunk 15 - Duración: 1.423 segundos
+2024-08-16 15:51:39,015 - Config - WARNING - Audio no reconocido en chunk 13 - Duración: 5.008 segundos
+2024-08-16 15:51:39,028 - Config - WARNING - Audio no reconocido en chunk 16 - Duración: 1.525 segundos
+2024-08-16 15:51:39,102 - Config - WARNING - Audio no reconocido en chunk 11 - Duración: 7.404 segundos
+2024-08-16 15:51:39,368 - Config - WARNING - Audio no reconocido en chunk 14 - Duración: 4.444 segundos
+2024-08-16 15:51:39,543 - Config - WARNING - Audio no reconocido en chunk 17 - Duración: 0.884 segundos
+2024-08-16 15:51:39,722 - Config - WARNING - Audio no reconocido en chunk 18 - Duración: 2.146 segundos
+2024-08-16 15:51:40,536 - Config - INFO - Chunk 19 transcrito: mono corto con un globo conformado... (Duración: 2.741 segundos)
+2024-08-16 15:53:30,897 - Config - INFO - Configuración inicial completada
+2024-08-16 15:53:50,724 - Config - INFO - Configuración inicial completada
+2024-08-16 15:53:52,565 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-16 15:53:58,394 - Config - INFO - Procesando archivo: C:/Users/jgcorrea/Desktop/output/Audios/LP41335566.wav
+2024-08-16 15:54:01,696 - Config - ERROR - Error en mejorar_audio: numpy.core.multiarray failed to import (auto-generated because you didn't call 'numpy.import_array()' after cimporting numpy; use '<void>numpy._import_array' to disable if you are certain you don't need it).
+2024-08-16 15:54:03,301 - Config - INFO - Chunk 0 duración: 1.259 segundos
+2024-08-16 15:54:03,301 - Config - INFO - Chunk 1 duración: 4.731 segundos
+2024-08-16 15:54:03,302 - Config - INFO - Chunk 2 duración: 4.302 segundos
+2024-08-16 15:54:03,303 - Config - INFO - Chunk 3 duración: 2.815 segundos
+2024-08-16 15:54:03,304 - Config - INFO - Chunk 4 duración: 10.0 segundos
+2024-08-16 15:54:03,305 - Config - INFO - Chunk 5 duración: 5.015 segundos
+2024-08-16 15:54:03,305 - Config - INFO - Chunk 6 duración: 2.293 segundos
+2024-08-16 15:54:03,306 - Config - INFO - Chunk 7 duración: 8.687 segundos
+2024-08-16 15:54:03,307 - Config - INFO - Chunk 8 duración: 1.402 segundos
+2024-08-16 15:54:03,308 - Config - INFO - Chunk 9 duración: 5.45 segundos
+2024-08-16 15:54:03,309 - Config - INFO - Chunk 10 duración: 1.798 segundos
+2024-08-16 15:54:03,309 - Config - INFO - Chunk 11 duración: 7.42 segundos
+2024-08-16 15:54:03,309 - Config - INFO - Chunk 12 duración: 2.175 segundos
+2024-08-16 15:54:03,310 - Config - INFO - Chunk 13 duración: 5.008 segundos
+2024-08-16 15:54:03,311 - Config - INFO - Chunk 14 duración: 4.484 segundos
+2024-08-16 15:54:03,311 - Config - INFO - Chunk 15 duración: 1.43 segundos
+2024-08-16 15:54:03,312 - Config - INFO - Chunk 16 duración: 1.547 segundos
+2024-08-16 15:54:03,312 - Config - INFO - Chunk 17 duración: 0.899 segundos
+2024-08-16 15:54:03,313 - Config - INFO - Chunk 18 duración: 2.18 segundos
+2024-08-16 15:54:03,314 - Config - INFO - Chunk 19 duración: 2.745 segundos
+2024-08-16 15:54:03,314 - Config - INFO - Transcribiendo chunk 0 con duración 1.259 segundos
+2024-08-16 15:54:03,317 - Config - INFO - Transcribiendo chunk 1 con duración 4.731 segundos
+2024-08-16 15:54:03,325 - Config - INFO - Transcribiendo chunk 2 con duración 4.302 segundos
+2024-08-16 15:54:03,328 - Config - INFO - Transcribiendo chunk 3 con duración 2.815 segundos
+2024-08-16 15:54:03,332 - Config - INFO - Transcribiendo chunk 4 con duración 10.0 segundos
+2024-08-16 15:54:03,339 - Config - INFO - Transcribiendo chunk 5 con duración 5.015 segundos
+2024-08-16 15:54:03,343 - Config - INFO - Transcribiendo chunk 6 con duración 2.293 segundos
+2024-08-16 15:54:03,345 - Config - INFO - Transcribiendo chunk 7 con duración 8.687 segundos
+2024-08-16 15:54:03,347 - Config - INFO - Transcribiendo chunk 8 con duración 1.402 segundos
+2024-08-16 15:54:03,348 - Config - INFO - Transcribiendo chunk 9 con duración 5.45 segundos
+2024-08-16 15:54:03,350 - Config - INFO - Transcribiendo chunk 10 con duración 1.798 segundos
+2024-08-16 15:54:03,354 - Config - INFO - Transcribiendo chunk 11 con duración 7.42 segundos
+2024-08-16 15:54:03,356 - Config - INFO - Transcribiendo chunk 12 con duración 2.175 segundos
+2024-08-16 15:54:03,357 - Config - INFO - Transcribiendo chunk 13 con duración 5.008 segundos
+2024-08-16 15:54:03,360 - Config - INFO - Transcribiendo chunk 14 con duración 4.484 segundos
+2024-08-16 15:54:03,362 - Config - INFO - Transcribiendo chunk 15 con duración 1.43 segundos
+2024-08-16 15:54:03,364 - Config - INFO - Transcribiendo chunk 16 con duración 1.547 segundos
+2024-08-16 15:54:03,364 - Config - INFO - Transcribiendo chunk 17 con duración 0.899 segundos
+2024-08-16 15:54:03,367 - Config - INFO - Transcribiendo chunk 18 con duración 2.18 segundos
+2024-08-16 15:54:03,367 - Config - INFO - Transcribiendo chunk 19 con duración 2.745 segundos
+2024-08-16 15:54:03,821 - Config - INFO - Chunk 0 transcrito: 911 emer... (Duración: 1.259 segundos)
+2024-08-16 15:54:04,243 - Config - INFO - Chunk 3 transcrito: y tenías el proyecto auditivo... (Duración: 2.815 segundos)
+2024-08-16 15:54:04,278 - Config - INFO - Chunk 2 transcrito: lo tenía en el oído y en los ojos eran dos lentes delic... (Duración: 4.302 segundos)
+2024-08-16 15:54:04,931 - Config - INFO - Chunk 1 transcrito: qué tal si yo ya me voy porque yo tengo un proyecto de depresión que finalizó... (Duración: 4.731 segundos)
+2024-08-16 15:54:05,006 - Config - INFO - Chunk 6 transcrito: Y con todo lo que está pasando en los medios... (Duración: 2.293 segundos)
+2024-08-16 15:54:05,053 - Config - INFO - Chunk 5 transcrito: se van a poner porque el proyecto de depresión es militar... (Duración: 5.015 segundos)
+2024-08-16 15:54:05,226 - Config - INFO - Chunk 4 transcrito: desde los 70 era una emergencia policial en este momento hay una emergencia de... (Duración: 10.0 segundos)
+2024-08-16 15:54:05,332 - Config - INFO - Chunk 8 transcrito: cuándo... (Duración: 1.402 segundos)
+2024-08-16 15:54:05,551 - Config - INFO - Chunk 10 transcrito: el proceso de depresión... (Duración: 1.798 segundos)
+2024-08-16 15:54:06,078 - Config - INFO - Chunk 12 transcrito: bueno denuncia que dónde van a poner una bomba... (Duración: 2.175 segundos)
+2024-08-16 15:54:06,498 - Config - INFO - Chunk 7 transcrito: te pido por favor que le comuniques al gobierno a través de eso yo te dejo esto a vos porque yo no lo voy a hacer pero cuándo es eso... (Duración: 8.687 segundos)
+2024-08-16 15:54:06,677 - Config - INFO - Chunk 9 transcrito: es más recién porque fui avisada de La amenaza de bomba... (Duración: 5.45 segundos)
+2024-08-16 15:54:06,915 - Config - INFO - Chunk 15 transcrito: y esto cuándo sería... (Duración: 1.43 segundos)
+2024-08-16 15:54:07,055 - Config - INFO - Chunk 13 transcrito: En ezeiza dónde va a estar los aviones en un avión van a poner la bomba... (Duración: 5.008 segundos)
+2024-08-16 15:54:07,059 - Config - INFO - Chunk 11 transcrito: toda la policía... (Duración: 7.42 segundos)
+2024-08-16 15:54:07,145 - Config - INFO - Chunk 14 transcrito: Sí y Avísale al presidente que la policía avise a gobernación... (Duración: 4.484 segundos)
+2024-08-16 15:54:07,207 - Config - INFO - Chunk 16 transcrito: Y eso ahora en media... (Duración: 1.547 segundos)
+2024-08-16 15:54:07,312 - Config - INFO - Chunk 17 transcrito: Cómo es su... (Duración: 0.899 segundos)
+2024-08-16 15:54:07,840 - Config - INFO - Chunk 19 transcrito: bueno corto con usted le vamos a informar... (Duración: 2.745 segundos)
+2024-08-16 15:54:07,890 - Config - INFO - Chunk 18 transcrito: María Laura sátira la circu... (Duración: 2.18 segundos)
+2024-08-16 16:15:08,722 - Config - INFO - Configuración inicial completada
+2024-08-16 16:15:14,376 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-16 16:15:36,026 - Config - INFO - Procesando archivo: C:/Users/jgcorrea/Desktop/output/Audios/LP41335566.wav
+2024-08-16 16:15:37,825 - Config - ERROR - Error en mejorar_audio: numpy.core.multiarray failed to import (auto-generated because you didn't call 'numpy.import_array()' after cimporting numpy; use '<void>numpy._import_array' to disable if you are certain you don't need it).
+2024-08-16 16:15:39,472 - Config - INFO - Chunk 0 duración: 1.259 segundos
+2024-08-16 16:15:39,472 - Config - INFO - Chunk 1 duración: 4.731 segundos
+2024-08-16 16:15:39,473 - Config - INFO - Chunk 2 duración: 4.302 segundos
+2024-08-16 16:15:39,473 - Config - INFO - Chunk 3 duración: 2.815 segundos
+2024-08-16 16:15:39,474 - Config - INFO - Chunk 4 duración: 10.0 segundos
+2024-08-16 16:15:39,474 - Config - INFO - Chunk 5 duración: 5.015 segundos
+2024-08-16 16:15:39,475 - Config - INFO - Chunk 6 duración: 2.293 segundos
+2024-08-16 16:15:39,475 - Config - INFO - Chunk 7 duración: 8.687 segundos
+2024-08-16 16:15:39,476 - Config - INFO - Chunk 8 duración: 1.402 segundos
+2024-08-16 16:15:39,476 - Config - INFO - Chunk 9 duración: 5.45 segundos
+2024-08-16 16:15:39,476 - Config - INFO - Chunk 10 duración: 1.798 segundos
+2024-08-16 16:15:39,477 - Config - INFO - Chunk 11 duración: 7.42 segundos
+2024-08-16 16:15:39,477 - Config - INFO - Chunk 12 duración: 2.175 segundos
+2024-08-16 16:15:39,478 - Config - INFO - Chunk 13 duración: 5.008 segundos
+2024-08-16 16:15:39,478 - Config - INFO - Chunk 14 duración: 4.484 segundos
+2024-08-16 16:15:39,479 - Config - INFO - Chunk 15 duración: 1.43 segundos
+2024-08-16 16:15:39,480 - Config - INFO - Chunk 16 duración: 1.547 segundos
+2024-08-16 16:15:39,480 - Config - INFO - Chunk 17 duración: 0.899 segundos
+2024-08-16 16:15:39,480 - Config - INFO - Chunk 18 duración: 2.18 segundos
+2024-08-16 16:15:39,481 - Config - INFO - Chunk 19 duración: 2.745 segundos
+2024-08-16 16:15:39,481 - Config - INFO - Transcribiendo chunk 0 con duración 1.259 segundos
+2024-08-16 16:15:39,484 - Config - INFO - Transcribiendo chunk 1 con duración 4.731 segundos
+2024-08-16 16:15:39,487 - Config - INFO - Transcribiendo chunk 2 con duración 4.302 segundos
+2024-08-16 16:15:39,491 - Config - INFO - Transcribiendo chunk 3 con duración 2.815 segundos
+2024-08-16 16:15:39,496 - Config - INFO - Transcribiendo chunk 4 con duración 10.0 segundos
+2024-08-16 16:15:39,503 - Config - INFO - Transcribiendo chunk 5 con duración 5.015 segundos
+2024-08-16 16:15:39,507 - Config - INFO - Transcribiendo chunk 6 con duración 2.293 segundos
+2024-08-16 16:15:39,509 - Config - INFO - Transcribiendo chunk 7 con duración 8.687 segundos
+2024-08-16 16:15:39,513 - Config - INFO - Transcribiendo chunk 8 con duración 1.402 segundos
+2024-08-16 16:15:39,515 - Config - INFO - Transcribiendo chunk 9 con duración 5.45 segundos
+2024-08-16 16:15:39,516 - Config - INFO - Transcribiendo chunk 10 con duración 1.798 segundos
+2024-08-16 16:15:39,518 - Config - INFO - Transcribiendo chunk 11 con duración 7.42 segundos
+2024-08-16 16:15:39,521 - Config - INFO - Transcribiendo chunk 12 con duración 2.175 segundos
+2024-08-16 16:15:39,522 - Config - INFO - Transcribiendo chunk 13 con duración 5.008 segundos
+2024-08-16 16:15:39,525 - Config - INFO - Transcribiendo chunk 14 con duración 4.484 segundos
+2024-08-16 16:15:39,527 - Config - INFO - Transcribiendo chunk 15 con duración 1.43 segundos
+2024-08-16 16:15:39,529 - Config - INFO - Transcribiendo chunk 16 con duración 1.547 segundos
+2024-08-16 16:15:39,531 - Config - INFO - Transcribiendo chunk 17 con duración 0.899 segundos
+2024-08-16 16:15:39,532 - Config - INFO - Transcribiendo chunk 18 con duración 2.18 segundos
+2024-08-16 16:15:39,535 - Config - INFO - Transcribiendo chunk 19 con duración 2.745 segundos
+2024-08-16 16:15:39,991 - Config - INFO - Chunk 0 transcrito: 911 emer... (Duración: 1.259 segundos)
+2024-08-16 16:15:40,493 - Config - INFO - Chunk 3 transcrito: y tenías el proyecto auditivo... (Duración: 2.815 segundos)
+2024-08-16 16:15:40,603 - Config - INFO - Chunk 2 transcrito: lo tenía en el oído y en los ojos eran dos lentes delic... (Duración: 4.302 segundos)
+2024-08-16 16:15:40,955 - Config - INFO - Chunk 4 transcrito: desde los 70 era una emergencia policial en este momento hay una emergencia de... (Duración: 10.0 segundos)
+2024-08-16 16:15:41,167 - Config - INFO - Chunk 6 transcrito: Y con todo lo que está pasando en los medios... (Duración: 2.293 segundos)
+2024-08-16 16:15:41,317 - Config - INFO - Chunk 1 transcrito: qué tal si yo ya me voy porque yo tengo un proyecto de depresión que finalizó... (Duración: 4.731 segundos)
+2024-08-16 16:15:41,385 - Config - INFO - Chunk 8 transcrito: cuándo... (Duración: 1.402 segundos)
+2024-08-16 16:15:41,588 - Config - INFO - Chunk 5 transcrito: se van a poner porque el proyecto de depresión es militar... (Duración: 5.015 segundos)
+2024-08-16 16:15:41,841 - Config - INFO - Chunk 10 transcrito: el proceso de depresión... (Duración: 1.798 segundos)
+2024-08-16 16:15:42,347 - Config - INFO - Chunk 12 transcrito: bueno denuncia que dónde van a poner una bomba... (Duración: 2.175 segundos)
+2024-08-16 16:15:42,672 - Config - INFO - Chunk 7 transcrito: te pido por favor que le comuniques al gobierno a través de eso yo te dejo esto a vos porque yo no lo voy a hacer pero cuándo es eso... (Duración: 8.687 segundos)
+2024-08-16 16:15:43,102 - Config - INFO - Chunk 11 transcrito: toda la policía... (Duración: 7.42 segundos)
+2024-08-16 16:15:43,286 - Config - INFO - Chunk 13 transcrito: En ezeiza dónde va a estar los aviones en un avión van a poner la bomba... (Duración: 5.008 segundos)
+2024-08-16 16:15:43,356 - Config - INFO - Chunk 15 transcrito: y esto cuándo sería... (Duración: 1.43 segundos)
+2024-08-16 16:15:43,408 - Config - INFO - Chunk 14 transcrito: Sí y Avísale al presidente que la policía avise a gobernación... (Duración: 4.484 segundos)
+2024-08-16 16:15:43,416 - Config - INFO - Chunk 9 transcrito: es más recién porque fui avisada de La amenaza de bomba... (Duración: 5.45 segundos)
+2024-08-16 16:15:43,633 - Config - INFO - Chunk 16 transcrito: Y eso ahora en media... (Duración: 1.547 segundos)
+2024-08-16 16:15:43,665 - Config - INFO - Chunk 17 transcrito: Cómo es su... (Duración: 0.899 segundos)
+2024-08-16 16:15:44,178 - Config - INFO - Chunk 18 transcrito: María Laura sátira la circu... (Duración: 2.18 segundos)
+2024-08-16 16:15:44,232 - Config - INFO - Chunk 19 transcrito: bueno corto con usted le vamos a informar... (Duración: 2.745 segundos)
+2024-08-16 16:18:44,727 - Config - INFO - Procesando archivo: C:/Users/jgcorrea/Desktop/output/Audios/B-11016-2020-05-22-162737-3.wav
+2024-08-16 16:18:45,183 - Config - ERROR - Error en mejorar_audio: numpy.core.multiarray failed to import (auto-generated because you didn't call 'numpy.import_array()' after cimporting numpy; use '<void>numpy._import_array' to disable if you are certain you don't need it).
+2024-08-16 16:18:51,854 - Config - INFO - Chunk 0 duración: 1.213 segundos
+2024-08-16 16:18:51,856 - Config - INFO - Chunk 1 duración: 10.0 segundos
+2024-08-16 16:18:51,856 - Config - INFO - Chunk 2 duración: 10.0 segundos
+2024-08-16 16:18:51,857 - Config - INFO - Chunk 3 duración: 10.0 segundos
+2024-08-16 16:18:51,858 - Config - INFO - Chunk 4 duración: 10.0 segundos
+2024-08-16 16:18:51,859 - Config - INFO - Chunk 5 duración: 10.0 segundos
+2024-08-16 16:18:51,859 - Config - INFO - Chunk 6 duración: 10.0 segundos
+2024-08-16 16:18:51,859 - Config - INFO - Chunk 7 duración: 10.0 segundos
+2024-08-16 16:18:51,861 - Config - INFO - Chunk 8 duración: 10.0 segundos
+2024-08-16 16:18:51,861 - Config - INFO - Chunk 9 duración: 10.0 segundos
+2024-08-16 16:18:51,861 - Config - INFO - Chunk 10 duración: 10.0 segundos
+2024-08-16 16:18:51,862 - Config - INFO - Chunk 11 duración: 10.0 segundos
+2024-08-16 16:18:51,862 - Config - INFO - Chunk 12 duración: 10.0 segundos
+2024-08-16 16:18:51,864 - Config - INFO - Chunk 13 duración: 10.0 segundos
+2024-08-16 16:18:51,864 - Config - INFO - Chunk 14 duración: 10.0 segundos
+2024-08-16 16:18:51,864 - Config - INFO - Chunk 15 duración: 10.0 segundos
+2024-08-16 16:18:51,865 - Config - INFO - Chunk 16 duración: 10.0 segundos
+2024-08-16 16:18:51,866 - Config - INFO - Chunk 17 duración: 10.0 segundos
+2024-08-16 16:18:51,866 - Config - INFO - Chunk 18 duración: 10.0 segundos
+2024-08-16 16:18:51,867 - Config - INFO - Chunk 19 duración: 10.0 segundos
+2024-08-16 16:18:51,868 - Config - INFO - Chunk 20 duración: 10.0 segundos
+2024-08-16 16:18:51,868 - Config - INFO - Chunk 21 duración: 10.0 segundos
+2024-08-16 16:18:51,869 - Config - INFO - Chunk 22 duración: 10.0 segundos
+2024-08-16 16:18:51,869 - Config - INFO - Chunk 23 duración: 10.0 segundos
+2024-08-16 16:18:51,870 - Config - INFO - Chunk 24 duración: 10.0 segundos
+2024-08-16 16:18:51,870 - Config - INFO - Chunk 25 duración: 10.0 segundos
+2024-08-16 16:18:51,871 - Config - INFO - Chunk 26 duración: 10.0 segundos
+2024-08-16 16:18:51,871 - Config - INFO - Chunk 27 duración: 10.0 segundos
+2024-08-16 16:18:51,871 - Config - INFO - Chunk 28 duración: 10.0 segundos
+2024-08-16 16:18:51,872 - Config - INFO - Chunk 29 duración: 10.0 segundos
+2024-08-16 16:18:51,872 - Config - INFO - Chunk 30 duración: 10.0 segundos
+2024-08-16 16:18:51,873 - Config - INFO - Chunk 31 duración: 10.0 segundos
+2024-08-16 16:18:51,873 - Config - INFO - Chunk 32 duración: 10.0 segundos
+2024-08-16 16:18:51,874 - Config - INFO - Chunk 33 duración: 10.0 segundos
+2024-08-16 16:18:51,874 - Config - INFO - Chunk 34 duración: 10.0 segundos
+2024-08-16 16:18:51,875 - Config - INFO - Chunk 35 duración: 1.372 segundos
+2024-08-16 16:18:51,876 - Config - INFO - Transcribiendo chunk 0 con duración 1.213 segundos
+2024-08-16 16:18:51,878 - Config - INFO - Transcribiendo chunk 1 con duración 10.0 segundos
+2024-08-16 16:18:51,881 - Config - INFO - Transcribiendo chunk 2 con duración 10.0 segundos
+2024-08-16 16:18:51,886 - Config - INFO - Transcribiendo chunk 3 con duración 10.0 segundos
+2024-08-16 16:18:51,894 - Config - INFO - Transcribiendo chunk 4 con duración 10.0 segundos
+2024-08-16 16:18:51,898 - Config - INFO - Transcribiendo chunk 5 con duración 10.0 segundos
+2024-08-16 16:18:51,901 - Config - INFO - Transcribiendo chunk 6 con duración 10.0 segundos
+2024-08-16 16:18:51,903 - Config - INFO - Transcribiendo chunk 7 con duración 10.0 segundos
+2024-08-16 16:18:51,906 - Config - INFO - Transcribiendo chunk 8 con duración 10.0 segundos
+2024-08-16 16:18:51,908 - Config - INFO - Transcribiendo chunk 9 con duración 10.0 segundos
+2024-08-16 16:18:51,908 - Config - INFO - Transcribiendo chunk 10 con duración 10.0 segundos
+2024-08-16 16:18:51,909 - Config - INFO - Transcribiendo chunk 11 con duración 10.0 segundos
+2024-08-16 16:18:51,910 - Config - INFO - Transcribiendo chunk 12 con duración 10.0 segundos
+2024-08-16 16:18:51,910 - Config - INFO - Transcribiendo chunk 13 con duración 10.0 segundos
+2024-08-16 16:18:51,912 - Config - INFO - Transcribiendo chunk 14 con duración 10.0 segundos
+2024-08-16 16:18:51,914 - Config - INFO - Transcribiendo chunk 15 con duración 10.0 segundos
+2024-08-16 16:18:51,915 - Config - INFO - Transcribiendo chunk 16 con duración 10.0 segundos
+2024-08-16 16:18:51,916 - Config - INFO - Transcribiendo chunk 17 con duración 10.0 segundos
+2024-08-16 16:18:51,917 - Config - INFO - Transcribiendo chunk 18 con duración 10.0 segundos
+2024-08-16 16:18:51,918 - Config - INFO - Transcribiendo chunk 19 con duración 10.0 segundos
+2024-08-16 16:18:51,921 - Config - INFO - Transcribiendo chunk 20 con duración 10.0 segundos
+2024-08-16 16:18:51,923 - Config - INFO - Transcribiendo chunk 21 con duración 10.0 segundos
+2024-08-16 16:18:51,924 - Config - INFO - Transcribiendo chunk 22 con duración 10.0 segundos
+2024-08-16 16:18:51,926 - Config - INFO - Transcribiendo chunk 23 con duración 10.0 segundos
+2024-08-16 16:18:51,927 - Config - INFO - Transcribiendo chunk 24 con duración 10.0 segundos
+2024-08-16 16:18:51,928 - Config - INFO - Transcribiendo chunk 25 con duración 10.0 segundos
+2024-08-16 16:18:51,929 - Config - INFO - Transcribiendo chunk 26 con duración 10.0 segundos
+2024-08-16 16:18:51,931 - Config - INFO - Transcribiendo chunk 27 con duración 10.0 segundos
+2024-08-16 16:18:51,932 - Config - INFO - Transcribiendo chunk 28 con duración 10.0 segundos
+2024-08-16 16:18:51,933 - Config - INFO - Transcribiendo chunk 29 con duración 10.0 segundos
+2024-08-16 16:18:51,935 - Config - INFO - Transcribiendo chunk 30 con duración 10.0 segundos
+2024-08-16 16:18:51,937 - Config - INFO - Transcribiendo chunk 31 con duración 10.0 segundos
+2024-08-16 16:18:51,938 - Config - INFO - Transcribiendo chunk 32 con duración 10.0 segundos
+2024-08-16 16:18:51,939 - Config - INFO - Transcribiendo chunk 33 con duración 10.0 segundos
+2024-08-16 16:18:51,940 - Config - INFO - Transcribiendo chunk 34 con duración 10.0 segundos
+2024-08-16 16:18:51,941 - Config - INFO - Transcribiendo chunk 35 con duración 1.372 segundos
+2024-08-16 16:18:52,190 - Config - WARNING - Audio no reconocido en chunk 0 - Duración: 1.213 segundos
+2024-08-16 16:18:52,816 - Config - INFO - Chunk 1 transcrito: Hola bebé... (Duración: 10.0 segundos)
+2024-08-16 16:18:53,099 - Config - WARNING - Audio no reconocido en chunk 2 - Duración: 10.0 segundos
+2024-08-16 16:18:53,217 - Config - INFO - Chunk 4 transcrito: Hay cosas muchas cosas que... (Duración: 10.0 segundos)
+2024-08-16 16:18:53,712 - Config - WARNING - Audio no reconocido en chunk 5 - Duración: 10.0 segundos
+2024-08-16 16:18:53,875 - Config - INFO - Chunk 6 transcrito: Me escuchas para que lo compremos es bueno... (Duración: 10.0 segundos)
+2024-08-16 16:18:54,042 - Config - INFO - Chunk 3 transcrito: 1690 entonces barato es barato sembrar... (Duración: 10.0 segundos)
+2024-08-16 16:18:54,083 - Config - WARNING - Audio no reconocido en chunk 7 - Duración: 10.0 segundos
+2024-08-16 16:18:55,104 - Config - WARNING - Audio no reconocido en chunk 12 - Duración: 10.0 segundos
+2024-08-16 16:18:55,386 - Config - WARNING - Audio no reconocido en chunk 11 - Duración: 10.0 segundos
+2024-08-16 16:18:55,423 - Config - INFO - Chunk 10 transcrito: plazas en ese negocio... (Duración: 10.0 segundos)
+2024-08-16 16:18:55,557 - Config - INFO - Chunk 9 transcrito: tenés miedo vos de perder plata... (Duración: 10.0 segundos)
+2024-08-16 16:18:56,357 - Config - INFO - Chunk 8 transcrito: Bueno eso es una cosa de modalidad para poder venderlo Cómo no sé la verdad... (Duración: 10.0 segundos)
+2024-08-16 16:18:56,509 - Config - INFO - Chunk 14 transcrito: $8000... (Duración: 10.0 segundos)
+2024-08-16 16:18:57,235 - Config - INFO - Chunk 13 transcrito: si hay 5000 prendas 5000 son $1 000 000 de pesos un millón de pesos... (Duración: 10.0 segundos)
+2024-08-16 16:18:57,343 - Config - WARNING - Audio no reconocido en chunk 16 - Duración: 10.0 segundos
+2024-08-16 16:18:57,994 - Config - INFO - Chunk 15 transcrito: estoy seguro 65 es barato aviso de 80 Si lo compramos $65 acá 120 lo podrían vender... (Duración: 10.0 segundos)
+2024-08-16 16:18:58,375 - Config - WARNING - Audio no reconocido en chunk 18 - Duración: 10.0 segundos
+2024-08-16 16:18:58,408 - Config - INFO - Chunk 17 transcrito: pero bueno... (Duración: 10.0 segundos)
+2024-08-16 16:18:59,156 - Config - WARNING - Audio no reconocido en chunk 21 - Duración: 10.0 segundos
+2024-08-16 16:18:59,444 - Config - WARNING - Audio no reconocido en chunk 23 - Duración: 10.0 segundos
+2024-08-16 16:18:59,799 - Config - WARNING - Audio no reconocido en chunk 22 - Duración: 10.0 segundos
+2024-08-16 16:18:59,864 - Config - INFO - Chunk 20 transcrito: Santander cuando fui con vos ya lo saco de ahí ya empezamos Y si yo ayer lo compré no lo... (Duración: 10.0 segundos)
+2024-08-16 16:18:59,867 - Config - INFO - Chunk 19 transcrito: Dirígeme otro día que fui este chistoso otro día... (Duración: 10.0 segundos)
+2024-08-16 16:19:00,287 - Config - INFO - Chunk 24 transcrito: la billetera... (Duración: 10.0 segundos)
+2024-08-16 16:19:00,896 - Config - WARNING - Audio no reconocido en chunk 25 - Duración: 10.0 segundos
+2024-08-16 16:19:01,248 - Config - INFO - Chunk 26 transcrito: vine... (Duración: 10.0 segundos)
+2024-08-16 16:19:01,372 - Config - WARNING - Audio no reconocido en chunk 27 - Duración: 10.0 segundos
+2024-08-16 16:19:01,791 - Config - WARNING - Audio no reconocido en chunk 28 - Duración: 10.0 segundos
+2024-08-16 16:19:02,127 - Config - WARNING - Audio no reconocido en chunk 30 - Duración: 10.0 segundos
+2024-08-16 16:19:02,488 - Config - WARNING - Audio no reconocido en chunk 32 - Duración: 10.0 segundos
+2024-08-16 16:19:02,742 - Config - WARNING - Audio no reconocido en chunk 35 - Duración: 1.372 segundos
+2024-08-16 16:19:02,945 - Config - WARNING - Audio no reconocido en chunk 34 - Duración: 10.0 segundos
+2024-08-16 16:19:02,983 - Config - INFO - Chunk 31 transcrito: 88.5... (Duración: 10.0 segundos)
+2024-08-16 16:19:03,004 - Config - INFO - Chunk 29 transcrito: y lo traemos mañana mismo no se lo cerramos allá... (Duración: 10.0 segundos)
+2024-08-16 16:19:03,213 - Config - WARNING - Audio no reconocido en chunk 33 - Duración: 10.0 segundos
+2024-08-16 16:32:46,219 - Config - INFO - Procesando archivo: C:/Users/jgcorrea/Desktop/output/Audios/B-11016-2020-05-22-162737-3.wav
+2024-08-16 16:32:49,527 - Config - ERROR - Error en mejorar_audio: numpy.core.multiarray failed to import (auto-generated because you didn't call 'numpy.import_array()' after cimporting numpy; use '<void>numpy._import_array' to disable if you are certain you don't need it).
+2024-08-16 16:32:56,493 - Config - INFO - Chunk 0 duración: 1.213 segundos
+2024-08-16 16:32:56,495 - Config - INFO - Chunk 1 duración: 10.0 segundos
+2024-08-16 16:32:56,495 - Config - INFO - Chunk 2 duración: 10.0 segundos
+2024-08-16 16:32:56,496 - Config - INFO - Chunk 3 duración: 10.0 segundos
+2024-08-16 16:32:56,497 - Config - INFO - Chunk 4 duración: 10.0 segundos
+2024-08-16 16:32:56,498 - Config - INFO - Chunk 5 duración: 10.0 segundos
+2024-08-16 16:32:56,498 - Config - INFO - Chunk 6 duración: 10.0 segundos
+2024-08-16 16:32:56,499 - Config - INFO - Chunk 7 duración: 10.0 segundos
+2024-08-16 16:32:56,499 - Config - INFO - Chunk 8 duración: 10.0 segundos
+2024-08-16 16:32:56,500 - Config - INFO - Chunk 9 duración: 10.0 segundos
+2024-08-16 16:32:56,500 - Config - INFO - Chunk 10 duración: 10.0 segundos
+2024-08-16 16:32:56,501 - Config - INFO - Chunk 11 duración: 10.0 segundos
+2024-08-16 16:32:56,501 - Config - INFO - Chunk 12 duración: 10.0 segundos
+2024-08-16 16:32:56,502 - Config - INFO - Chunk 13 duración: 10.0 segundos
+2024-08-16 16:32:56,503 - Config - INFO - Chunk 14 duración: 10.0 segundos
+2024-08-16 16:32:56,503 - Config - INFO - Chunk 15 duración: 10.0 segundos
+2024-08-16 16:32:56,504 - Config - INFO - Chunk 16 duración: 10.0 segundos
+2024-08-16 16:32:56,504 - Config - INFO - Chunk 17 duración: 10.0 segundos
+2024-08-16 16:32:56,505 - Config - INFO - Chunk 18 duración: 10.0 segundos
+2024-08-16 16:32:56,505 - Config - INFO - Chunk 19 duración: 10.0 segundos
+2024-08-16 16:32:56,506 - Config - INFO - Chunk 20 duración: 10.0 segundos
+2024-08-16 16:32:56,506 - Config - INFO - Chunk 21 duración: 10.0 segundos
+2024-08-16 16:32:56,507 - Config - INFO - Chunk 22 duración: 10.0 segundos
+2024-08-16 16:32:56,508 - Config - INFO - Chunk 23 duración: 10.0 segundos
+2024-08-16 16:32:56,508 - Config - INFO - Chunk 24 duración: 10.0 segundos
+2024-08-16 16:32:56,509 - Config - INFO - Chunk 25 duración: 10.0 segundos
+2024-08-16 16:32:56,509 - Config - INFO - Chunk 26 duración: 10.0 segundos
+2024-08-16 16:32:56,510 - Config - INFO - Chunk 27 duración: 10.0 segundos
+2024-08-16 16:32:56,510 - Config - INFO - Chunk 28 duración: 10.0 segundos
+2024-08-16 16:32:56,511 - Config - INFO - Chunk 29 duración: 10.0 segundos
+2024-08-16 16:32:56,512 - Config - INFO - Chunk 30 duración: 10.0 segundos
+2024-08-16 16:32:56,512 - Config - INFO - Chunk 31 duración: 10.0 segundos
+2024-08-16 16:32:56,512 - Config - INFO - Chunk 32 duración: 10.0 segundos
+2024-08-16 16:32:56,513 - Config - INFO - Chunk 33 duración: 10.0 segundos
+2024-08-16 16:32:56,513 - Config - INFO - Chunk 34 duración: 10.0 segundos
+2024-08-16 16:32:56,514 - Config - INFO - Chunk 35 duración: 1.372 segundos
+2024-08-16 16:32:56,514 - Config - INFO - Transcribiendo chunk 0 con duración 1.213 segundos
+2024-08-16 16:32:56,517 - Config - INFO - Transcribiendo chunk 1 con duración 10.0 segundos
+2024-08-16 16:32:56,521 - Config - INFO - Transcribiendo chunk 2 con duración 10.0 segundos
+2024-08-16 16:32:56,524 - Config - INFO - Transcribiendo chunk 3 con duración 10.0 segundos
+2024-08-16 16:32:56,528 - Config - INFO - Transcribiendo chunk 4 con duración 10.0 segundos
+2024-08-16 16:32:56,536 - Config - INFO - Transcribiendo chunk 5 con duración 10.0 segundos
+2024-08-16 16:32:56,540 - Config - INFO - Transcribiendo chunk 6 con duración 10.0 segundos
+2024-08-16 16:32:56,543 - Config - INFO - Transcribiendo chunk 7 con duración 10.0 segundos
+2024-08-16 16:32:56,546 - Config - INFO - Transcribiendo chunk 8 con duración 10.0 segundos
+2024-08-16 16:32:56,548 - Config - INFO - Transcribiendo chunk 9 con duración 10.0 segundos
+2024-08-16 16:32:56,551 - Config - INFO - Transcribiendo chunk 10 con duración 10.0 segundos
+2024-08-16 16:32:56,553 - Config - INFO - Transcribiendo chunk 11 con duración 10.0 segundos
+2024-08-16 16:32:56,556 - Config - INFO - Transcribiendo chunk 12 con duración 10.0 segundos
+2024-08-16 16:32:56,558 - Config - INFO - Transcribiendo chunk 13 con duración 10.0 segundos
+2024-08-16 16:32:56,561 - Config - INFO - Transcribiendo chunk 14 con duración 10.0 segundos
+2024-08-16 16:32:56,563 - Config - INFO - Transcribiendo chunk 15 con duración 10.0 segundos
+2024-08-16 16:32:56,565 - Config - INFO - Transcribiendo chunk 16 con duración 10.0 segundos
+2024-08-16 16:32:56,566 - Config - INFO - Transcribiendo chunk 17 con duración 10.0 segundos
+2024-08-16 16:32:56,567 - Config - INFO - Transcribiendo chunk 18 con duración 10.0 segundos
+2024-08-16 16:32:56,569 - Config - INFO - Transcribiendo chunk 19 con duración 10.0 segundos
+2024-08-16 16:32:56,572 - Config - INFO - Transcribiendo chunk 20 con duración 10.0 segundos
+2024-08-16 16:32:56,574 - Config - INFO - Transcribiendo chunk 21 con duración 10.0 segundos
+2024-08-16 16:32:56,577 - Config - INFO - Transcribiendo chunk 22 con duración 10.0 segundos
+2024-08-16 16:32:56,580 - Config - INFO - Transcribiendo chunk 23 con duración 10.0 segundos
+2024-08-16 16:32:56,582 - Config - INFO - Transcribiendo chunk 24 con duración 10.0 segundos
+2024-08-16 16:32:56,583 - Config - INFO - Transcribiendo chunk 25 con duración 10.0 segundos
+2024-08-16 16:32:56,584 - Config - INFO - Transcribiendo chunk 26 con duración 10.0 segundos
+2024-08-16 16:32:56,584 - Config - INFO - Transcribiendo chunk 27 con duración 10.0 segundos
+2024-08-16 16:32:56,586 - Config - INFO - Transcribiendo chunk 28 con duración 10.0 segundos
+2024-08-16 16:32:56,586 - Config - INFO - Transcribiendo chunk 29 con duración 10.0 segundos
+2024-08-16 16:32:56,587 - Config - INFO - Transcribiendo chunk 30 con duración 10.0 segundos
+2024-08-16 16:32:56,589 - Config - INFO - Transcribiendo chunk 31 con duración 10.0 segundos
+2024-08-16 16:32:56,590 - Config - INFO - Transcribiendo chunk 32 con duración 10.0 segundos
+2024-08-16 16:32:56,591 - Config - INFO - Transcribiendo chunk 33 con duración 10.0 segundos
+2024-08-16 16:32:56,593 - Config - INFO - Transcribiendo chunk 34 con duración 10.0 segundos
+2024-08-16 16:32:56,594 - Config - INFO - Transcribiendo chunk 35 con duración 1.372 segundos
+2024-08-16 16:32:56,767 - Config - WARNING - Audio no reconocido en chunk 0 - Duración: 1.213 segundos
+2024-08-16 16:32:57,442 - Config - INFO - Chunk 1 transcrito: Hola bebé... (Duración: 10.0 segundos)
+2024-08-16 16:32:57,742 - Config - INFO - Chunk 4 transcrito: Hay cosas muchas cosas que... (Duración: 10.0 segundos)
+2024-08-16 16:32:57,995 - Config - WARNING - Audio no reconocido en chunk 2 - Duración: 10.0 segundos
+2024-08-16 16:32:58,465 - Config - INFO - Chunk 6 transcrito: Me escuchas para que lo compremos es bueno... (Duración: 10.0 segundos)
+2024-08-16 16:32:58,545 - Config - WARNING - Audio no reconocido en chunk 5 - Duración: 10.0 segundos
+2024-08-16 16:32:58,777 - Config - WARNING - Audio no reconocido en chunk 7 - Duración: 10.0 segundos
+2024-08-16 16:32:58,859 - Config - INFO - Chunk 3 transcrito: 1690 entonces barato es barato sembrar... (Duración: 10.0 segundos)
+2024-08-16 16:32:59,859 - Config - WARNING - Audio no reconocido en chunk 12 - Duración: 10.0 segundos
+2024-08-16 16:32:59,996 - Config - INFO - Chunk 10 transcrito: plazas en ese negocio... (Duración: 10.0 segundos)
+2024-08-16 16:33:00,147 - Config - INFO - Chunk 9 transcrito: tenés miedo vos de perder plata... (Duración: 10.0 segundos)
+2024-08-16 16:33:00,228 - Config - WARNING - Audio no reconocido en chunk 11 - Duración: 10.0 segundos
+2024-08-16 16:33:00,589 - Config - INFO - Chunk 8 transcrito: Bueno eso es una cosa de modalidad para poder venderlo Cómo no sé la verdad... (Duración: 10.0 segundos)
+2024-08-16 16:33:01,150 - Config - INFO - Chunk 14 transcrito: $8000... (Duración: 10.0 segundos)
+2024-08-16 16:33:01,682 - Config - WARNING - Audio no reconocido en chunk 16 - Duración: 10.0 segundos
+2024-08-16 16:33:01,814 - Config - INFO - Chunk 13 transcrito: si hay 5000 prendas 5000 son $1 000 000 de pesos un millón de pesos... (Duración: 10.0 segundos)
+2024-08-16 16:33:02,379 - Config - INFO - Chunk 15 transcrito: estoy seguro 65 es barato aviso de 80 Si lo compramos $65 acá 120 lo podrían vender... (Duración: 10.0 segundos)
+2024-08-16 16:33:03,167 - Config - WARNING - Audio no reconocido en chunk 18 - Duración: 10.0 segundos
+2024-08-16 16:33:03,403 - Config - WARNING - Audio no reconocido en chunk 21 - Duración: 10.0 segundos
+2024-08-16 16:33:03,705 - Config - INFO - Chunk 17 transcrito: pero bueno... (Duración: 10.0 segundos)
+2024-08-16 16:33:04,447 - Config - WARNING - Audio no reconocido en chunk 23 - Duración: 10.0 segundos
+2024-08-16 16:33:04,486 - Config - INFO - Chunk 19 transcrito: Dirígeme otro día que fui este chistoso otro día... (Duración: 10.0 segundos)
+2024-08-16 16:33:04,506 - Config - WARNING - Audio no reconocido en chunk 22 - Duración: 10.0 segundos
+2024-08-16 16:33:04,935 - Config - INFO - Chunk 24 transcrito: la billetera... (Duración: 10.0 segundos)
+2024-08-16 16:33:05,036 - Config - INFO - Chunk 20 transcrito: Santander cuando fui con vos ya lo saco de ahí ya empezamos Y si yo ayer lo compré no lo... (Duración: 10.0 segundos)
+2024-08-16 16:33:05,495 - Config - WARNING - Audio no reconocido en chunk 27 - Duración: 10.0 segundos
+2024-08-16 16:33:05,932 - Config - WARNING - Audio no reconocido en chunk 25 - Duración: 10.0 segundos
+2024-08-16 16:33:05,951 - Config - INFO - Chunk 26 transcrito: vine... (Duración: 10.0 segundos)
+2024-08-16 16:33:06,702 - Config - WARNING - Audio no reconocido en chunk 28 - Duración: 10.0 segundos
+2024-08-16 16:33:06,747 - Config - WARNING - Audio no reconocido en chunk 30 - Duración: 10.0 segundos
+2024-08-16 16:33:07,072 - Config - WARNING - Audio no reconocido en chunk 32 - Duración: 10.0 segundos
+2024-08-16 16:33:07,304 - Config - WARNING - Audio no reconocido en chunk 35 - Duración: 1.372 segundos
+2024-08-16 16:33:07,380 - Config - INFO - Chunk 29 transcrito: y lo traemos mañana mismo no se lo cerramos allá... (Duración: 10.0 segundos)
+2024-08-16 16:33:07,567 - Config - WARNING - Audio no reconocido en chunk 34 - Duración: 10.0 segundos
+2024-08-16 16:33:07,584 - Config - INFO - Chunk 31 transcrito: 88.5... (Duración: 10.0 segundos)
+2024-08-16 16:33:08,086 - Config - WARNING - Audio no reconocido en chunk 33 - Duración: 10.0 segundos
+2024-08-16 16:33:13,828 - Config - INFO - Procesando archivo: C:/Users/jgcorrea/Downloads/Locomotora del sabor.wav
+2024-08-16 16:33:13,931 - Config - ERROR - Error en mejorar_audio: numpy.core.multiarray failed to import (auto-generated because you didn't call 'numpy.import_array()' after cimporting numpy; use '<void>numpy._import_array' to disable if you are certain you don't need it).
+2024-08-16 16:33:16,306 - Config - INFO - Chunk 0 duración: 10.0 segundos
+2024-08-16 16:33:16,306 - Config - INFO - Chunk 1 duración: 8.431 segundos
+2024-08-16 16:33:16,307 - Config - INFO - Chunk 2 duración: 10.0 segundos
+2024-08-16 16:33:16,308 - Config - INFO - Chunk 3 duración: 10.0 segundos
+2024-08-16 16:33:16,308 - Config - INFO - Chunk 4 duración: 10.0 segundos
+2024-08-16 16:33:16,309 - Config - INFO - Chunk 5 duración: 10.0 segundos
+2024-08-16 16:33:16,309 - Config - INFO - Chunk 6 duración: 0.512 segundos
+2024-08-16 16:33:16,310 - Config - INFO - Transcribiendo chunk 0 con duración 10.0 segundos
+2024-08-16 16:33:16,313 - Config - INFO - Transcribiendo chunk 1 con duración 8.431 segundos
+2024-08-16 16:33:16,319 - Config - INFO - Transcribiendo chunk 2 con duración 10.0 segundos
+2024-08-16 16:33:16,326 - Config - INFO - Transcribiendo chunk 3 con duración 10.0 segundos
+2024-08-16 16:33:16,333 - Config - INFO - Transcribiendo chunk 4 con duración 10.0 segundos
+2024-08-16 16:33:16,342 - Config - INFO - Transcribiendo chunk 5 con duración 10.0 segundos
+2024-08-16 16:33:16,349 - Config - INFO - Transcribiendo chunk 6 con duración 0.512 segundos
+2024-08-16 16:33:19,008 - Config - INFO - Chunk 3 transcrito: timo el Napo pero mal estoy re duro todavía sin dormir estoy desarmado compañero y no sabes y cortita... (Duración: 10.0 segundos)
+2024-08-16 16:33:19,179 - Config - INFO - Chunk 1 transcrito: salió la foto no sé qué Y va a bañar y compramos como cinco bolsas de cinco... (Duración: 8.431 segundos)
+2024-08-16 16:33:19,487 - Config - WARNING - Audio no reconocido en chunk 6 - Duración: 0.512 segundos
+2024-08-16 16:33:20,603 - Config - INFO - Chunk 2 transcrito: está amasando en los chiquitos nos miramos así bueno sale y sale la foto sale y sale No pero chica No pues está el tema que salió en la foto... (Duración: 10.0 segundos)
+2024-08-16 16:33:20,918 - Config - INFO - Chunk 0 transcrito: amor no alcancé no sabes lo que pasó ayer ojo pariente nos juntamos con los pibes vacío un asado de fin de año no sé qué oh vamos a juntarnos sí... (Duración: 10.0 segundos)
+2024-08-16 16:33:21,442 - Config - INFO - Chunk 4 transcrito: toma el trauma toma un saque solo no sé qué pasa nos pegamos un mensaje no pero para para el otro Napo pa no pero para... (Duración: 10.0 segundos)
+2024-08-16 16:33:23,383 - Config - INFO - Chunk 5 transcrito: una niñita ya está pim pum y ahí arrancó la locomotora del sabor y no paró mañana y no sabe pa no re duro estamos todo el asado... (Duración: 10.0 segundos)
