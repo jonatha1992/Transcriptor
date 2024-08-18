@@ -2,5 +2,6 @@
 /dist
 /build
 /instalador
-/env
+/.venv
 /output
+/__pycache__

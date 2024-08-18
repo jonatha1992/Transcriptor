@@ -3,12 +3,13 @@ from tkinter import messagebox
 from Interfaz import crear_interfaz, centrar_ventana
 from Config import detectar_y_configurar_proxy, check_dependencies, logger
 from Reproductor import pygame
-import os, sys
+import os
+import sys
 
 
 def resource_path(relative_path):
     try:
-        base_path = sys._MEIPASS # type: ignore
+        base_path = sys._MEIPASS  # type: ignore
     except Exception:
         base_path = os.path.abspath(".")
 
@@ -18,7 +19,7 @@ def resource_path(relative_path):
 def main():
     try:
         # Configurar el proxy automáticamente al inicio
-        proxy_configurado = detectar_y_configurar_proxy()
+        detectar_y_configurar_proxy()
 
         # Inicializar pygame mixer
         pygame.mixer.init()
@@ -31,8 +32,6 @@ def main():
 
         # Centrar la ventana en la pantalla
         centrar_ventana(ventana)
-
-    
 
         # Ejecutar la aplicación
         ventana.mainloop()

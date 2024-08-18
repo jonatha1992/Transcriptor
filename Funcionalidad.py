@@ -31,6 +31,7 @@ from pydub import AudioSegment
 from pydub.silence import split_on_silence
 import io
 from Config import logger
+from scipy.signal import butter, lfilter
 
 
 # Inicializar el reconocedor
@@ -380,12 +381,66 @@ def iniciar_transcripcion(
     transcripcion_en_curso = False
 
 
+# def mejorar_audio(audio):
+#     try:
+#         audio = audio.set_channels(1)  # Convertir a mono
+#         audio = audio.high_pass_filter(80)
+#         audio = audio.normalize()
+#         return audio
+#     except Exception as e:
+#         logger.error(f"Error en mejorar_audio: {e}")
+#         return audio
+
+
 def mejorar_audio(audio):
     try:
-        audio = audio.set_channels(1)  # Convertir a mono
-        audio = audio.high_pass_filter(80)
+        # Convertir a mono
+        audio = audio.set_channels(1)
+        
+        # Normalizar
         audio = audio.normalize()
-        return audio
+        
+        # Convertir a numpy array
+        samples = np.array(audio.get_array_of_samples()).astype(np.float32)
+        
+        # Aplicar filtro de paso alto para reducir ruido de baja frecuencia
+        def butter_highpass(cutoff, fs, order=5):
+            nyq = 0.5 * fs
+            normal_cutoff = cutoff / nyq
+            b, a = butter(order, normal_cutoff, btype='high', analog=False)
+            return b, a
+
+        def highpass_filter(data, cutoff, fs, order=5):
+            b, a = butter_highpass(cutoff, fs, order=order)
+            y = lfilter(b, a, data)
+            return y
+
+        filtered_samples = highpass_filter(samples, cutoff=300, fs=audio.frame_rate)
+        
+        # Reducción de ruido espectral
+        S = librosa.stft(filtered_samples)
+        S_filtered = librosa.decompose.nn_filter(np.abs(S), 
+                                                 aggregate=np.median, 
+                                                 metric='cosine',
+                                                 width=int(librosa.time_to_frames(1, sr=audio.frame_rate)))
+        S_filtered = np.minimum(np.abs(S), S_filtered)
+        margin_i, margin_v = 2, 10
+        power = 2
+        mask = librosa.util.softmask(S_filtered, 
+                                     margin_i * (np.abs(S) - S_filtered), 
+                                     power=power)
+        S_filtered = S_filtered * mask
+        filtered_samples = librosa.istft(S_filtered * np.exp(1.j * np.angle(S)))
+        
+        # Convertir de nuevo a AudioSegment
+        filtered_audio = AudioSegment(
+            filtered_samples.tobytes(),
+            frame_rate=audio.frame_rate,
+            sample_width=audio.sample_width,
+            channels=1
+        )
+        
+        return filtered_audio
     except Exception as e:
         logger.error(f"Error en mejorar_audio: {e}")
         return audio
