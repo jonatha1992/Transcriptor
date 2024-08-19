@@ -4,3 +4,4 @@
 /instalador
 /.venv
 /output
+/__pycache__
