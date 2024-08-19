@@ -1,13 +1,10 @@
-from tkinter import messagebox
-from tkinter import filedialog
-from tkinter import ttk
+import tkinter as tk
+from tkinter import messagebox, filedialog, ttk
 import csv
 import os
 import speech_recognition as sr
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
-import tkinter as tk
-from tkinter import messagebox, filedialog, ttk
 import io
 from Config import logger, ffmpeg_path, ffprobe_path
 
@@ -74,9 +71,9 @@ def evaluar_parametros(audio_file, idioma_entrada, text_area, progress_bar, vent
     resultados = []
 
     # Definir rangos de parámetros para evaluar
-    highpass_cutoff_values = [80, 150, 300]
-    min_silence_len_values = [200, 500, 800]
-    silence_thresh_values = [-20, -25, -30]  # Estos valores se ajustarán a audio.dBFS
+    highpass_cutoff_values = [80, 150, 300, 500, 1000]
+    min_silence_len_values = [200, 500, 800, 1000, 1500, 2000]
+    silence_thresh_values = [-20, -25, -30, -35]  # Estos valores se ajustarán a audio.dBFS
 
     audio = AudioSegment.from_file(audio_file)
     silence_thresh_base = audio.dBFS
@@ -107,6 +104,7 @@ def evaluar_parametros(audio_file, idioma_entrada, text_area, progress_bar, vent
 
                 # Guardar el resultado y parámetros
                 resultados.append({
+                    "archivo": audio_file,
                     "highpass_cutoff": highpass_cutoff,
                     "min_silence_len": min_silence_len,
                     "silence_thresh": silence_thresh,
@@ -131,29 +129,87 @@ def evaluar_parametros(audio_file, idioma_entrada, text_area, progress_bar, vent
     return resultados
 
 
-def guardar_resultados_csv(resultados, filename="resultados_evaluacion.csv"):
+def guardar_resultados_csv(resultados, filename):
     keys = resultados[0].keys()
-    with open(filename, 'w', newline='') as output_file:
+    with open(filename, 'w', newline='', encoding='utf-8') as output_file:
         dict_writer = csv.DictWriter(output_file, fieldnames=keys)
         dict_writer.writeheader()
         dict_writer.writerows(resultados)
 
 
+def evaluar_parametros_multiples(audio_files, idioma_entrada, text_area, progress_bar, ventana):
+    todos_resultados = []
+
+    for audio_file in audio_files:
+        text_area.insert(tk.END, f"\nProcesando archivo: {os.path.basename(audio_file)}\n")
+        text_area.see(tk.END)
+        resultados = evaluar_parametros(audio_file, idioma_entrada, text_area, progress_bar, ventana)
+        todos_resultados.extend(resultados)
+
+    return todos_resultados
+
+
+def encontrar_mejores_parametros(resultados):
+    mejor = max(resultados, key=lambda x: x['palabras_sin_inaudibles'])
+    return mejor
+
+
 def on_click_evaluar():
-    audio_file = filedialog.askopenfilename(filetypes=[("Audio Files", "*.wav *.mp3 *.ogg *.flac")])
-    if not audio_file:
+    audio_files = filedialog.askopenfilenames(filetypes=[("Audio Files", "*.wav *.mp3 *.ogg *.flac")])
+    if not audio_files:
         return
 
-    progress_bar["maximum"] = 27  # Número de combinaciones de parámetros a evaluar
+    idioma_entrada = idiomas[combobox_idioma.get()]
+
+    # Calcular el número exacto de combinaciones
+    num_highpass_cutoff = len([80, 150, 300, 500, 1000])
+    num_min_silence_len = len([200, 500, 800, 1000, 1500, 2000])
+    num_silence_thresh = len([-20, -25, -30, -35])
+    combinations_per_file = num_highpass_cutoff * num_min_silence_len * num_silence_thresh
+
+    total_combinations = combinations_per_file * len(audio_files)
+    progress_bar["maximum"] = total_combinations
     text_area.delete("1.0", tk.END)
-    resultados = evaluar_parametros(audio_file, "es-ES", text_area, progress_bar, ventana)
-    guardar_resultados_csv(resultados)
-    messagebox.showinfo("Evaluación Completa", "La evaluación de parámetros ha finalizado.")
+
+    resultados = evaluar_parametros_multiples(audio_files, idioma_entrada, text_area, progress_bar, ventana)
+
+    # Guardar resultados
+    output_file = filedialog.asksaveasfilename(defaultextension=".csv", filetypes=[("CSV Files", "*.csv")])
+    if output_file:
+        guardar_resultados_csv(resultados, output_file)
+
+    # Mostrar resumen de mejores parámetros
+    text_area.insert(tk.END, "\n\nResumen de mejores parámetros:\n")
+    for audio_file in audio_files:
+        resultados_archivo = [r for r in resultados if r['archivo'] == audio_file]
+        mejor = encontrar_mejores_parametros(resultados_archivo)
+        text_area.insert(tk.END, f"\nArchivo: {os.path.basename(audio_file)}\n")
+        text_area.insert(tk.END, f"Mejores parámetros: highpass_cutoff={mejor['highpass_cutoff']}, "
+                                 f"min_silence_len={mejor['min_silence_len']}, "
+                                 f"silence_thresh={mejor['silence_thresh']}\n")
+        text_area.insert(tk.END, f"Palabras reconocidas: {mejor['palabras_sin_inaudibles']}\n")
+    text_area.see(tk.END)
+
+    messagebox.showinfo("Evaluación Completa", f"La evaluación de parámetros ha finalizado para {len(audio_files)} archivos.")
 
 
 # Crear ventana principal
 ventana = tk.Tk()
-ventana.title("Evaluación de Parámetros de Transcripción")
+ventana.title("Evaluación de Parámetros de Transcripción (Múltiples Archivos)")
+
+# Crear combobox para selección de idioma
+idiomas = {
+    "Español": "es-ES",
+    "Inglés": "en-US",
+    "Francés": "fr-FR",
+    "Alemán": "de-DE",
+    "Italiano": "it-IT"
+}
+label_idioma = tk.Label(ventana, text="Seleccione el idioma:")
+label_idioma.pack()
+combobox_idioma = ttk.Combobox(ventana, values=list(idiomas.keys()))
+combobox_idioma.set("Español")
+combobox_idioma.pack()
 
 # Crear área de texto para mostrar resultados
 text_area = tk.Text(ventana, wrap="word", height=20, width=80)
@@ -164,7 +220,7 @@ progress_bar = ttk.Progressbar(ventana, orient="horizontal", mode="determinate")
 progress_bar.pack(fill=tk.X, padx=10, pady=5)
 
 # Crear botón para iniciar la evaluación de parámetros
-boton_evaluar = tk.Button(ventana, text="Evaluar Parámetros", command=on_click_evaluar)
+boton_evaluar = tk.Button(ventana, text="Evaluar Parámetros (Múltiples Archivos)", command=on_click_evaluar)
 boton_evaluar.pack(pady=10)
 
 # Ejecutar el bucle principal de la interfaz

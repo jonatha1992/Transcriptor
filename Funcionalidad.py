@@ -381,10 +381,20 @@ def iniciar_transcripcion(
     transcripcion_en_curso = False
 
 
-# def mejorar_audio(audio):
+# def dividir_fragmento_largo(chunks, max_length):
+#     nuevos_chunks = []
+#     for chunk in chunks:
+#         if len(chunk) > max_length:
+#             nuevos_chunks.extend([chunk[i:i + max_length] for i in range(0, len(chunk), max_length)])
+#         else:
+#             nuevos_chunks.append(chunk)
+#     return nuevos_chunks
+
+
+# def mejorar_audio(audio, highpass_cutoff=500):
 #     try:
 #         audio = audio.set_channels(1)  # Convertir a mono
-#         audio = audio.high_pass_filter(80)
+#         audio = audio.high_pass_filter(highpass_cutoff)
 #         audio = audio.normalize()
 #         return audio
 #     except Exception as e:
@@ -392,159 +402,95 @@ def iniciar_transcripcion(
 #         return audio
 
 
-def mejorar_audio(audio):
-    try:
-        # Convertir a mono
-        audio = audio.set_channels(1)
-        
-        # Normalizar
-        audio = audio.normalize()
-        
-        # Convertir a numpy array
-        samples = np.array(audio.get_array_of_samples()).astype(np.float32)
-        
-        # Aplicar filtro de paso alto para reducir ruido de baja frecuencia
-        def butter_highpass(cutoff, fs, order=5):
-            nyq = 0.5 * fs
-            normal_cutoff = cutoff / nyq
-            b, a = butter(order, normal_cutoff, btype='high', analog=False)
-            return b, a
+# def transcribir_archivo_grande(audio_path, idioma_entrada, progress_bar, ventana, transcripcion_activa):
+#     transcripcion_completa = []
+#     progreso_actual = 0
 
-        def highpass_filter(data, cutoff, fs, order=5):
-            b, a = butter_highpass(cutoff, fs, order=order)
-            y = lfilter(b, a, data)
-            return y
+#     try:
+#         if not os.path.exists(audio_path):
+#             raise FileNotFoundError(f"El archivo {audio_path} no existe")
 
-        filtered_samples = highpass_filter(samples, cutoff=300, fs=audio.frame_rate)
-        
-        # Reducción de ruido espectral
-        S = librosa.stft(filtered_samples)
-        S_filtered = librosa.decompose.nn_filter(np.abs(S), 
-                                                 aggregate=np.median, 
-                                                 metric='cosine',
-                                                 width=int(librosa.time_to_frames(1, sr=audio.frame_rate)))
-        S_filtered = np.minimum(np.abs(S), S_filtered)
-        margin_i, margin_v = 2, 10
-        power = 2
-        mask = librosa.util.softmask(S_filtered, 
-                                     margin_i * (np.abs(S) - S_filtered), 
-                                     power=power)
-        S_filtered = S_filtered * mask
-        filtered_samples = librosa.istft(S_filtered * np.exp(1.j * np.angle(S)))
-        
-        # Convertir de nuevo a AudioSegment
-        filtered_audio = AudioSegment(
-            filtered_samples.tobytes(),
-            frame_rate=audio.frame_rate,
-            sample_width=audio.sample_width,
-            channels=1
-        )
-        
-        return filtered_audio
-    except Exception as e:
-        logger.error(f"Error en mejorar_audio: {e}")
-        return audio
+#         audio = AudioSegment.from_file(audio_path)
+#         if len(audio) == 0:
+#             raise ValueError("El archivo de audio está vacío")
 
+#         duracion_total = len(audio)
+#         audio = mejorar_audio(audio)
 
-def dividir_fragmento_largo(chunks, max_length):
-    nuevos_chunks = []
-    for chunk in chunks:
-        if len(chunk) > max_length:
-            nuevos_chunks.extend([chunk[i:i + max_length] for i in range(0, len(chunk), max_length)])
-        else:
-            nuevos_chunks.append(chunk)
-    return nuevos_chunks
+#         # Dividir el audio en fragmentos basados en silencio
+#         chunks = split_on_silence(
+#             audio,
+#             min_silence_len=1000,
+#             silence_thresh=audio.dBFS - 30,
+#             keep_silence=100,
+#         )
 
+#         # Dividir cualquier fragmento que sea mayor a 10 segundos
+#         max_chunk_length = 10000  # 10 segundos en milisegundos
+#         chunks = dividir_fragmento_largo(chunks, max_chunk_length)
 
-def transcribir_archivo_grande(audio_path, idioma_entrada, progress_bar, ventana, transcripcion_activa):
-    transcripcion_completa = []
-    progreso_actual = 0
+#         # Log the duration of each chunk
+#         for i, chunk in enumerate(chunks):
+#             duracion_chunk = len(chunk) / 1000  # Duración en segundos
+#             logger.info(f"Chunk {i} duración: {duracion_chunk} segundos")
 
-    try:
-        if not os.path.exists(audio_path):
-            raise FileNotFoundError(f"El archivo {audio_path} no existe")
+#         if not chunks:
+#             logger.warning("No se pudieron crear chunks de audio. Procesando el archivo completo.")
+#             chunks = [audio]
 
-        audio = AudioSegment.from_file(audio_path)
-        if len(audio) == 0:
-            raise ValueError("El archivo de audio está vacío")
+#         recognizer = sr.Recognizer()
+#         recognizer.energy_threshold = 300
+#         recognizer.dynamic_energy_threshold = True
 
-        duracion_total = len(audio)
-        audio = mejorar_audio(audio)
+#         chunks_numerados = list(enumerate(chunks))
+#         with ThreadPoolExecutor(max_workers=5) as executor:
+#             futures = []
+#             for i, chunk in chunks_numerados:
+#                 if not transcripcion_activa:
+#                     break
+#                 logger.info(f"Transcribiendo chunk {i} con duración {len(chunk) / 1000} segundos")
+#                 futures.append(executor.submit(transcribir_chunk, recognizer, chunk, idioma_entrada, i))
 
-        # Dividir el audio en fragmentos basados en silencio
-        chunks = split_on_silence(
-            audio,
-            min_silence_len=500,
-            silence_thresh=audio.dBFS - 25,
-            keep_silence=100,
-        )
+#             resultados = []
+#             for future in as_completed(futures):
+#                 if not transcripcion_activa:
+#                     break
+#                 i, texto = future.result()
+#                 if texto and not texto.startswith("[error:"):
+#                     resultados.append((i, texto))
 
-        # Dividir cualquier fragmento que sea mayor a 10 segundos
-        max_chunk_length = 10000  # 10 segundos en milisegundos
-        chunks = dividir_fragmento_largo(chunks, max_chunk_length)
+#                 progreso_actual += len(chunks[i])
+#                 progress_bar["value"] = min(progreso_actual, duracion_total)
+#                 ventana.update_idletasks()
 
-        # Log the duration of each chunk
-        for i, chunk in enumerate(chunks):
-            duracion_chunk = len(chunk) / 1000  # Duración en segundos
-            logger.info(f"Chunk {i} duración: {duracion_chunk} segundos")
+#             # Ordenar los resultados por el índice original
+#             resultados.sort(key=lambda x: x[0])
+#             transcripcion_completa = [texto for i, texto in resultados]
 
-        if not chunks:
-            logger.warning("No se pudieron crear chunks de audio. Procesando el archivo completo.")
-            chunks = [audio]
+#         # Si no se reconoció nada, intentar con el archivo completo
+#         if not transcripcion_completa:
+#             logger.warning("Intentando transcribir el archivo completo...")
+#             _, texto_completo = transcribir_chunk(recognizer, audio, idioma_entrada, 0)
+#             if texto_completo and not texto_completo.startswith("[error:"):
+#                 transcripcion_completa.append(texto_completo)
 
-        recognizer = sr.Recognizer()
-        recognizer.energy_threshold = 300
-        recognizer.dynamic_energy_threshold = True
+#         transcripcion_final = " ".join(transcripcion_completa).strip()
+#         transcripcion_final = transcripcion_final.capitalize()
 
-        chunks_numerados = list(enumerate(chunks))
-        with ThreadPoolExecutor(max_workers=5) as executor:
-            futures = []
-            for i, chunk in chunks_numerados:
-                if not transcripcion_activa:
-                    break
-                logger.info(f"Transcribiendo chunk {i} con duración {len(chunk) / 1000} segundos")
-                futures.append(executor.submit(transcribir_chunk, recognizer, chunk, idioma_entrada, i))
+#         if not transcripcion_final:
+#             return "No se pudo transcribir ninguna parte del audio."
 
-            resultados = []
-            for future in as_completed(futures):
-                if not transcripcion_activa:
-                    break
-                i, texto = future.result()
-                if texto and not texto.startswith("[error:"):
-                    resultados.append((i, texto))
+#         return transcripcion_final
 
-                progreso_actual += len(chunks[i])
-                progress_bar["value"] = min(progreso_actual, duracion_total)
-                ventana.update_idletasks()
-
-            # Ordenar los resultados por el índice original
-            resultados.sort(key=lambda x: x[0])
-            transcripcion_completa = [texto for i, texto in resultados]
-
-        # Si no se reconoció nada, intentar con el archivo completo
-        if not transcripcion_completa:
-            logger.warning("Intentando transcribir el archivo completo...")
-            _, texto_completo = transcribir_chunk(recognizer, audio, idioma_entrada, 0)
-            if texto_completo and not texto_completo.startswith("[error:"):
-                transcripcion_completa.append(texto_completo)
-
-        transcripcion_final = " ".join(transcripcion_completa).strip()
-        transcripcion_final = transcripcion_final.capitalize()
-
-        if not transcripcion_final:
-            return "No se pudo transcribir ninguna parte del audio."
-
-        return transcripcion_final
-
-    except FileNotFoundError as e:
-        logger.error(f"Error de archivo: {e}")
-        return f"Error: {str(e)}"
-    except ValueError as e:
-        logger.error(f"Error de valor: {e}")
-        return f"Error: {str(e)}"
-    except Exception as e:
-        logger.error(f"Error al procesar el archivo: {e}")
-        return f"Error al procesar el archivo: {e}"
+#     except FileNotFoundError as e:
+#         logger.error(f"Error de archivo: {e}")
+#         return f"Error: {str(e)}"
+#     except ValueError as e:
+#         logger.error(f"Error de valor: {e}")
+#         return f"Error: {str(e)}"
+#     except Exception as e:
+#         logger.error(f"Error al procesar el archivo: {e}")
+#         return f"Error al procesar el archivo: {e}"
 
 
 def transcribir_chunk(recognizer, audio_chunk, idioma_entrada, indice):
@@ -577,3 +523,104 @@ def transcribir_chunk(recognizer, audio_chunk, idioma_entrada, indice):
     except Exception as e:
         logger.error(f"Error inesperado al procesar chunk {indice}: {e}")
         return indice, f"[error: {str(e)}]"
+
+
+def transcribir_archivo_grande(audio_path, idioma_entrada, progress_bar, ventana, transcripcion_activa):
+    transcripcion_completa = []
+    progreso_actual = 0
+
+    try:
+        if not os.path.exists(audio_path):
+            raise FileNotFoundError(f"El archivo {audio_path} no existe")
+
+        audio = AudioSegment.from_file(audio_path)
+        if len(audio) == 0:
+            raise ValueError("El archivo de audio está vacío")
+
+        duracion_total = len(audio)
+
+        # Parámetros optimizados
+        highpass_cutoff = 500
+        min_silence_len = 1000
+        silence_thresh = -30
+        keep_silence = 100
+
+        audio = mejorar_audio(audio, highpass_cutoff)
+
+        # Dividir el audio en fragmentos basados en silencio
+        chunks = split_on_silence(
+            audio,
+            min_silence_len=min_silence_len,
+            silence_thresh=audio.dBFS + silence_thresh,
+            keep_silence=keep_silence
+        )
+
+        if not chunks:
+            logger.warning("No se pudieron crear chunks de audio. Procesando el archivo completo.")
+            chunks = [audio]
+
+        recognizer = sr.Recognizer()
+        recognizer.energy_threshold = 300
+        recognizer.dynamic_energy_threshold = True
+
+        chunks_numerados = list(enumerate(chunks))
+        with ThreadPoolExecutor(max_workers=5) as executor:
+            futures = []
+            for i, chunk in chunks_numerados:
+                if not transcripcion_activa:
+                    break
+                futures.append(executor.submit(transcribir_chunk, recognizer, chunk, idioma_entrada, i))
+
+            resultados = []
+            for future in as_completed(futures):
+                if not transcripcion_activa:
+                    break
+                i, texto = future.result()
+                if texto and not texto.startswith("[error:"):
+                    resultados.append((i, texto))
+
+                progreso_actual += len(chunks[i])
+                progress_bar["value"] = min(progreso_actual, duracion_total)
+                ventana.update_idletasks()
+
+            resultados.sort(key=lambda x: x[0])
+            transcripcion_completa = [texto for i, texto in resultados]
+
+        if not transcripcion_completa:
+            logger.warning("Intentando transcribir el archivo completo...")
+            _, texto_completo = transcribir_chunk(recognizer, audio, idioma_entrada, 0)
+            if texto_completo and not texto_completo.startswith("[error:"):
+                transcripcion_completa.append(texto_completo)
+
+        transcripcion_final = " ".join(transcripcion_completa).strip()
+        transcripcion_final = transcripcion_final.capitalize()
+
+        if not transcripcion_final:
+            return "No se pudo transcribir ninguna parte del audio."
+
+        palabras_sin_inaudibles, inaudibles = contar_palabras_y_inaudibles(transcripcion_final)
+        logger.info(f"Palabras reconocidas: {palabras_sin_inaudibles}, Inaudibles: {inaudibles}")
+
+        return transcripcion_final
+
+    except Exception as e:
+        logger.error(f"Error al procesar el archivo: {e}")
+        return f"Error al procesar el archivo: {e}"
+
+
+def mejorar_audio(audio, highpass_cutoff):
+    try:
+        audio = audio.set_channels(1)  # Convertir a mono
+        audio = audio.high_pass_filter(highpass_cutoff)
+        audio = audio.normalize()
+        return audio
+    except Exception as e:
+        logger.error(f"Error en mejorar_audio: {e}")
+        return audio
+
+
+def contar_palabras_y_inaudibles(texto):
+    palabras = texto.split()
+    inaudibles = palabras.count("[inaudible]")
+    palabras_sin_inaudibles = len(palabras) - inaudibles
+    return palabras_sin_inaudibles, inaudibles
