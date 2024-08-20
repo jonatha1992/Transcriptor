@@ -348,3 +348,15 @@
 2024-08-20 13:38:23,519 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
 2024-08-20 14:43:28,313 - Config - INFO - Configuración inicial completada
 2024-08-20 14:47:59,982 - Config - INFO - Configuración inicial completada
+2024-08-20 15:19:57,169 - Config - INFO - Configuración inicial completada
+2024-08-20 15:20:02,643 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-08-20 15:20:22,497 - Config - INFO - Procesando archivo: C:/Users/jgcorrea/Desktop/Repositorio/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.ogg
+2024-08-20 15:20:36,359 - Config - INFO - Chunk 0 transcrito: mejoran lo que quieren Gabi ahora eh voy a reclamar y me quieren dar en tres cuotas pero 3 meses tengo que juntar A menos tres cuotas o tres boletas y... (Duración: 9.543 segundos)
+2024-08-20 15:20:43,184 - Config - INFO - Chunk 1 transcrito: y me cobran después de todo con intereses o sea van a aumentar el interés nada saber cuánto voy a pagar si pago está de... (Duración: 23.499 segundos)
+2024-08-20 15:21:00,633 - Config - INFO - Chunk 2 transcrito: Qué evento qué te pasa le digo qué esperas que la gente vaya caminando y se caiga eso está esperando como el estúpido este presidente que dijo lo mismo la gente no se muere de hambre y la gente está esperando que vaya caminando a la gente se cae de hambre digo Beto yo te voy a decir Lucas de luz yo no puedo pagar y le digo me tengo privado de cosas por qué por qué me dice no pero viste la la la me dice viste la imagen que tiene que mirar la tele vos qué milagro vos sos tarado y meto la verdad me enojé mal Y me tuve que venir porque digo esto tenía 65 años... (Duración: 29.439 segundos)
+2024-08-20 15:21:03,834 - Config - INFO - Chunk 3 transcrito: qué está mirando qué qué estás viendo Qué bueno Te estás dando hambre vos cuando te apaga la luz a mí me aumentaron 60 y que estás contento... (Duración: 6.183 segundos)
+2024-08-20 15:21:09,642 - Config - INFO - Chunk 4 transcrito: pero me dice pero yo puedo pagar así vos sí yo no yo no tengo trabajo le digo qué entonces yo te chupa un huevo lo que le pasa a los demás no Qué va a ver si son nada si mi hermano piensa eso La verdad que estamos pero en el horno... (Duración: 14.266 segundos)
+2024-08-20 16:15:21,025 - Config - INFO - Configuración inicial completada
+2024-08-20 16:15:30,414 - Config - INFO - Configuración inicial completada
+2024-08-20 16:17:02,201 - Config - INFO - Configuración inicial completada
+2024-08-20 16:17:32,471 - Config - INFO - Configuración inicial completada
