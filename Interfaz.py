@@ -26,11 +26,12 @@ def crear_interfaz(ventana):
     scrollbar_listbox = tk.Scrollbar(frame_listbox, orient=tk.VERTICAL)
     lista_archivos = tk.Listbox(
         frame_listbox,
-        selectmode=tk.SINGLE,
+        selectmode=tk.EXTENDED,
         width=50,
         height=20,
         yscrollcommand=scrollbar_listbox.set,
     )
+
     lista_archivos.pack(side=tk.LEFT, fill=tk.BOTH)
     scrollbar_listbox.pack(side=tk.RIGHT, fill=tk.Y)
     scrollbar_listbox.config(command=lista_archivos.yview)
