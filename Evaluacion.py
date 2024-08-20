@@ -71,12 +71,13 @@ def evaluar_parametros(audio_file, idioma_entrada, text_area, progress_bar, vent
     resultados = []
 
     # Definir rangos de parámetros para evaluar
-    highpass_cutoff_values = [80, 150, 300, 500, 1000]
-    min_silence_len_values = [200, 500, 800, 1000, 1500, 2000]
+    highpass_cutoff_values = [300, 500, 1000]
+    min_silence_len_values = [500, 800, 1000]
     silence_thresh_values = [-20, -25, -30, -35]  # Estos valores se ajustarán a audio.dBFS
 
     audio = AudioSegment.from_file(audio_file)
     silence_thresh_base = audio.dBFS
+    filename = os.path.basename(audio_file)  # Obtener el nombre del archivo
 
     for highpass_cutoff in highpass_cutoff_values:
         for min_silence_len in min_silence_len_values:
@@ -104,6 +105,7 @@ def evaluar_parametros(audio_file, idioma_entrada, text_area, progress_bar, vent
 
                 # Guardar el resultado y parámetros
                 resultados.append({
+                    "filename": filename,  # Añadir el nombre del archivo
                     "archivo": audio_file,
                     "highpass_cutoff": highpass_cutoff,
                     "min_silence_len": min_silence_len,
@@ -115,6 +117,7 @@ def evaluar_parametros(audio_file, idioma_entrada, text_area, progress_bar, vent
                 })
 
                 # Mostrar resultados parciales
+                text_area.insert(tk.END, f"Archivo: {filename}\n")  # Mostrar nombre del archivo
                 text_area.insert(tk.END, f"Evaluación con: highpass_cutoff={highpass_cutoff}, "
                                          f"min_silence_len={min_silence_len}, "
                                          f"silence_thresh={silence_thresh_base + silence_thresh}\n")
@@ -162,8 +165,8 @@ def on_click_evaluar():
     idioma_entrada = idiomas[combobox_idioma.get()]
 
     # Calcular el número exacto de combinaciones
-    num_highpass_cutoff = len([80, 150, 300, 500, 1000])
-    num_min_silence_len = len([200, 500, 800, 1000, 1500, 2000])
+    num_highpass_cutoff = len([300, 500, 1000])
+    num_min_silence_len = len([500, 800, 1000])
     num_silence_thresh = len([-20, -25, -30, -35])
     combinations_per_file = num_highpass_cutoff * num_min_silence_len * num_silence_thresh
 
