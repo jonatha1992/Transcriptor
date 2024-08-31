@@ -1,16 +1,16 @@
 {
-
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8",
         "editor.formatOnSave": true,
-        "editor.rulers": [140],
-      },
-      "autopep8.args": [
+        "editor.rulers": [
+            140
+        ],
+    },
+    "autopep8.args": [
         "--max-line-length=140",
         "--aggressive",
         "--aggressive"
     ],
-
     "peacock.color": "#42b883",
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#65c89b",
@@ -30,5 +30,6 @@
         "titleBar.activeForeground": "#15202b",
         "titleBar.inactiveBackground": "#42b88399",
         "titleBar.inactiveForeground": "#15202b99"
-    }
+    },
+    "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }

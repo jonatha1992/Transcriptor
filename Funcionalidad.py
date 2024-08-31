@@ -491,7 +491,13 @@ def transcribir_chunk(recognizer, audio_chunk, idioma_entrada, indice):
 
 
 def procesar_audio(audio_file, idioma_entrada, text_area, progress_bar, ventana):
-    audio = AudioSegment.from_file(audio_file)
+    # audio = AudioSegment.from_file(audio_file)
+    # Convertir a WAV
+    wav_file = convertir_a_wav(audio_file)
+
+    # Procesar el archivo WAV
+    audio = AudioSegment.from_file(wav_file)
+
     filename = os.path.basename(audio_file)
 
     # Mejorar audio
