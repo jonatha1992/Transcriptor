@@ -1,4 +1,7 @@
-from Config import logger, ffmpeg_path
+from tqdm import tqdm
+from Config import logger, idiomas, resource_path, transcripcion_activa, transcripcion_en_curso
+from tkinter import messagebox
+import whisper
 import os
 import speech_recognition as sr
 from pydub import AudioSegment
@@ -11,14 +14,7 @@ from mutagen import File
 import wave
 import contextlib
 import time
-from Config import (
-    ffmpeg_path,
-    ffprobe_path,
-    idiomas,
-    transcripcion_activa,
-    transcripcion_en_curso,
-    check_proxy,
-)
+from Config import *
 import numpy as np
 import io
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -32,16 +28,17 @@ import speech_recognition as sr
 from pydub import AudioSegment
 from pydub.silence import detect_nonsilent
 import numpy as np
-from scipy.signal import butter, lfilter
 import io
+
 
 # Inicializar el reconocedor
 recognizer = sr.Recognizer()
-
 # Configuración de AudioSegment
 AudioSegment.converter = ffmpeg_path
 AudioSegment.ffmpeg = ffmpeg_path
 AudioSegment.ffprobe = ffprobe_path
+
+print(whisper.__file__)
 
 
 def convertir_a_wav(audio_path):
@@ -293,6 +290,7 @@ def iniciar_transcripcion_thread(
         boton_transcribir.config(text="Transcribir")
         progress_bar["value"] = 0
         progress_bar.pack_forget()
+
     else:
         transcripcion_activa = True
         transcripcion_en_curso = True
@@ -490,8 +488,7 @@ def transcribir_chunk(recognizer, audio_chunk, idioma_entrada, indice):
         return indice, f"[error: {str(e)}]"
 
 
-def procesar_audio(audio_file, idioma_entrada, text_area, progress_bar, ventana):
-    # audio = AudioSegment.from_file(audio_file)
+def procesar_audio_recognizer(audio_file, idioma_entrada, text_area, progress_bar, ventana):
     # Convertir a WAV
     wav_file = convertir_a_wav(audio_file)
 
@@ -530,6 +527,62 @@ def procesar_audio(audio_file, idioma_entrada, text_area, progress_bar, ventana)
     }
 
 
+def transcribir_archivo_whisper(audio_path, idioma_entrada):
+    try:
+        result = model.transcribe(audio_path, language=idioma_entrada)
+        texto = result["text"]
+        logger.info(f"Transcripción inicial con Whisper: {texto}")
+        return texto
+    except Exception as e:
+        logger.error(f"Error al procesar el archivo con Whisper: {e}")
+        return f"Error al procesar el archivo: {e}"
+
+
+def actualizar_progreso(progress_bar, ventana, duracion_total, stop_event):
+    start_time = time.time()
+    while not stop_event.is_set():
+        elapsed_time = time.time() - start_time
+        progress = min(100, (elapsed_time / duracion_total) * 100)
+        progress_bar["value"] = progress
+        ventana.update_idletasks()
+        time.sleep(0.1)
+    progress_bar["value"] = 100
+    ventana.update_idletasks()
+
+
+def procesar_audio_wisper(audio_file, idioma_entrada, text_area, progress_bar, ventana):
+    filename = os.path.basename(audio_file)
+
+    # Obtener la duración total del audio
+    audio = AudioSegment.from_file(audio_file)
+    duracion_total = len(audio) / 1000  # Duración en segundos
+
+    stop_event = threading.Event()
+    progress_thread = threading.Thread(
+        target=actualizar_progreso,
+        args=(progress_bar, ventana, duracion_total, stop_event)
+    )
+    progress_thread.start()
+
+    try:
+        # Usar Whisper para transcribir
+        result = model.transcribe(audio_file, language=idioma_entrada)
+        transcripcion = result["text"]
+    finally:
+        stop_event.set()
+        progress_thread.join()
+
+    palabras, inaudibles = contar_palabras_y_inaudibles(transcripcion)
+    return {
+        "filename": filename,
+        "archivo": audio_file,
+        "transcripcion": transcripcion,
+        "num_chunks": 1,  # Whisper procesa el archivo completo
+        "inaudibles": inaudibles,
+        "palabras": palabras,
+    }
+
+
 def iniciar_transcripcion(
     lista_archivos,
     text_area,
@@ -558,6 +611,7 @@ def iniciar_transcripcion(
     transcripcion_activa = True
     transcripcion_en_curso = True
     boton_transcribir.config(text="Detener Transcripción")
+    progress_bar.pack(pady=5, padx=60, fill=tk.X)  # Asegurarse de que la barra de progreso esté visible
 
     for index, archivo in enumerate(archivos_seleccionados):
         if not transcripcion_activa:
@@ -569,14 +623,18 @@ def iniciar_transcripcion(
         logger.info(f"Procesando archivo: {audio_file}")
 
         try:
-            resultado = procesar_audio(audio_file, idioma_entrada, text_area, progress_bar, ventana)
+            progress_bar["value"] = 0
+            ventana.update_idletasks()
+
+            resultado_wisper = procesar_audio_wisper(audio_file, idioma_entrada, text_area, progress_bar, ventana)
 
             if transcripcion_activa and idioma_entrada != idioma_salida:
-                resultado['transcripcion'] = traducir_texto(resultado['transcripcion'], idioma_salida)
+                resultado_wisper['transcripcion'] = traducir_texto(resultado_wisper['transcripcion'], idioma_salida)
 
             if transcripcion_activa:
-                texto_transcrito = ajustar_texto_sencillo(resultado['transcripcion'])
-                nuevo_texto = f"Transcripción de {archivo}: \n{texto_transcrito} \n\nPalabras: {resultado['palabras']} \nInaudibles: {resultado['inaudibles']}\n\n"
+                texto_transcrito = ajustar_texto_sencillo(resultado_wisper['transcripcion'])
+                nuevo_texto = f"Transcripción de {archivo}: \n{texto_transcrito} \n\nPalabras: {resultado_wisper['palabras']} \nInaudibles: {resultado_wisper['inaudibles']}\n\n"
+
                 text_area.insert(tk.END, nuevo_texto)
                 text_area.see(tk.END)
 
@@ -601,3 +659,37 @@ def iniciar_transcripcion(
     progress_bar.pack_forget()
     progress_bar["value"] = 0
     transcripcion_en_curso = False
+
+
+def cargar_modelo_whisper():
+    try:
+
+        # Ruta al directorio de modelos de Whisper en el ejecutable
+        whisper_root = resource_path("whisper")
+        os.makedirs(whisper_root, exist_ok=True)
+
+        # Ruta a los assets de Whisper dentro de la carpeta whisper
+        whisper_assets_path = os.path.join(whisper_root, "assets")
+        os.makedirs(whisper_assets_path, exist_ok=True)
+
+        # Copiar archivos necesarios
+        for file in ['mel_filters.npz', 'gpt2.tiktoken', 'multilingual.tiktoken']:
+            src = os.path.join(whisper_root, file)
+            dst = os.path.join(whisper_assets_path, file)
+            if os.path.exists(src):
+                shutil.copy(src, dst)
+
+        # Configurar Whisper para usar la nueva ubicación
+        os.environ['WHISPER_HOME'] = whisper_root
+        model = whisper.load_model("large", download_root=whisper_root)
+
+        # Imprimir información de depuración
+        print(f"Whisper file location: {whisper.__file__}")
+        print(f"Model download location: {whisper_root}")
+        print(f"Current working directory: {os.getcwd()}")
+        print(f"Files in whisper_root: {os.listdir(whisper_root)}")
+        print(f"Files in whisper assets: {os.listdir(whisper_assets_path)}")
+
+    except Exception as e:
+        logger.error(f"Error al cargar el modelo Whisper: {e}")
+        messagebox.showerror("Error", f"No se pudo cargar el modelo Whisper: {e}")
