@@ -4,15 +4,12 @@ from Interfaz import crear_interfaz, centrar_ventana
 from Config import detectar_y_configurar_proxy, check_dependencies, logger, resource_path
 from Funcionalidad import cargar_modelo_whisper
 from Reproductor import pygame
-import os
-import sys
 
 
 def main():
     try:
         detectar_y_configurar_proxy()
         cargar_modelo_whisper()
-        # Inicializar pygame mixer
         pygame.mixer.init()
 
         ventana = tk.Tk()

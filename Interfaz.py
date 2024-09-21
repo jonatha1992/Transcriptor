@@ -82,8 +82,8 @@ def crear_interfaz(ventana):
             progress_bar,
             ventana,
             boton_transcribir,
-            combobox_idioma_entrada,
             combobox_idioma_salida,
+            check_idioma_salida_var
         ),
     )
     boton_transcribir.pack(side=tk.LEFT, padx=5)
@@ -115,23 +115,24 @@ def crear_interfaz(ventana):
     )
     progress_bar.pack_forget()
 
-    frame_idioma_entrada = tk.Frame(ventana)
-    frame_idioma_entrada.pack(side=tk.TOP, pady=5)
+    # frame_idioma_entrada = tk.Frame(ventana)
+    # frame_idioma_entrada.pack(side=tk.TOP, pady=5)
 
-    label_idioma_entrada = tk.Label(frame_idioma_entrada, text=" Idioma de Entrada:")
-    label_idioma_entrada.pack(side=tk.LEFT, padx=10)
+    # label_idioma_entrada = tk.Label(frame_idioma_entrada, text=" Idioma de Entrada:")
+    # label_idioma_entrada.pack(side=tk.LEFT, padx=10)
 
-    combobox_idioma_entrada = ttk.Combobox(
-        frame_idioma_entrada, values=list(idiomas.keys()), state="readonly"
-    )
-    combobox_idioma_entrada.set("Spanish")
-    combobox_idioma_entrada.pack(side=tk.LEFT, padx=10)
+    # combobox_idioma_entrada = ttk.Combobox(
+    #     frame_idioma_entrada, values=list(idiomas.keys()), state="readonly"
+    # )
+    # combobox_idioma_entrada.set("Spanish")
+    # combobox_idioma_entrada.pack(side=tk.LEFT, padx=10)
 
     frame_idioma_salida = tk.Frame(ventana)
     frame_idioma_salida.pack(side=tk.TOP, pady=5)
 
-    label_idioma_salida = tk.Label(frame_idioma_salida, text="Idioma de Salida:")
-    label_idioma_salida.pack(side=tk.LEFT, padx=10)
+    check_idioma_salida_var = tk.BooleanVar()
+    check_idioma_salida = tk.Checkbutton(frame_idioma_salida, text="Idioma de Salida:", variable=check_idioma_salida_var)
+    check_idioma_salida.pack(side=tk.LEFT, padx=10)
 
     combobox_idioma_salida = ttk.Combobox(
         frame_idioma_salida, values=list(idiomas.keys()), state="readonly"
@@ -213,23 +214,6 @@ def crear_interfaz(ventana):
         font=("Arial", 10, "bold"),
     )
     label_creditos.pack()
-
-    return {
-        "lista_archivos": lista_archivos,
-        "text_area": text_area,
-        "progress_bar": progress_bar,
-        "combobox_idioma_entrada": combobox_idioma_entrada,
-        "combobox_idioma_salida": combobox_idioma_salida,
-        "boton_transcribir": boton_transcribir,
-        "archivo_procesando": archivo_procesando,
-        "lista_archivos_paths": lista_archivos_paths,
-        "transcripcion_resultado": transcripcion_resultado,
-        "boton_reproducir": boton_reproducir,
-        "boton_pausar_renaudar": boton_pausar_reanudar,
-        "boton_detener": boton_detener,
-        "label_reproduccion": label_reproduccion,
-        "label_tiempo": label_tiempo,
-    }
 
 
 def centrar_ventana(ventana):

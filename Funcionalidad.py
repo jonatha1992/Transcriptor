@@ -1,4 +1,6 @@
-from tqdm import tqdm
+from concurrent.futures import ThreadPoolExecutor
+from whisper.audio import load_audio, pad_or_trim
+import torch
 from Config import logger, idiomas, resource_path, transcripcion_activa, transcripcion_en_curso
 from tkinter import messagebox
 import whisper
@@ -263,8 +265,8 @@ def iniciar_transcripcion_thread(
     progress_bar,
     ventana,
     boton_transcribir,
-    combobox_idioma_entrada,
     combobox_idioma_salida,
+    checkBox
 ):
     global transcripcion_activa, transcripcion_en_curso
     from Reproductor import reproductor
@@ -308,93 +310,11 @@ def iniciar_transcripcion_thread(
                 progress_bar,
                 ventana,
                 boton_transcribir,
-                combobox_idioma_entrada,
                 combobox_idioma_salida,
+                checkBox
             ),
             daemon=True,
         ).start()
-
-
-def transcribir_archivo_grande(audio_path, idioma_entrada, progress_bar, ventana, transcripcion_activa):
-    transcripcion_completa = []
-    progreso_actual = 0
-
-    try:
-        if not os.path.exists(audio_path):
-            raise FileNotFoundError(f"El archivo {audio_path} no existe")
-
-        audio = AudioSegment.from_file(audio_path)
-        if len(audio) == 0:
-            raise ValueError("El archivo de audio está vacío")
-
-        duracion_total = len(audio)
-
-        # Mejorar el audio
-        audio = mejorar_audio(audio)
-
-        # Dividir el audio en fragmentos basados en silencio usando VAD
-        chunks = vad_segmentacion(audio)
-
-        if not chunks:
-            logger.warning("No se pudieron crear chunks de audio. Procesando el archivo completo.")
-            chunks = [audio]
-
-        recognizer = sr.Recognizer()
-        recognizer.energy_threshold = 300
-        recognizer.dynamic_energy_threshold = True
-
-        chunks_numerados = list(enumerate(chunks))
-        with ThreadPoolExecutor(max_workers=5) as executor:
-            futures = []
-            for i, chunk in chunks_numerados:
-                if not transcripcion_activa:
-                    break
-                logger.info(f"Transcribiendo chunk {i} con duración {len(chunk) / 1000} segundos")
-                futures.append(executor.submit(transcribir_chunk, recognizer, chunk, idioma_entrada, i))
-
-            resultados = []
-            for future in as_completed(futures):
-                if not transcripcion_activa:
-                    break
-                i, texto = future.result()
-                if texto and not texto.startswith("[error:"):
-                    resultados.append((i, texto))
-
-                progreso_actual += len(chunks[i])
-                progress_bar["value"] = min(progreso_actual, duracion_total)
-                ventana.update_idletasks()
-
-            # Ordenar los resultados por el índice original
-            resultados.sort(key=lambda x: x[0])
-            transcripcion_completa = [texto for i, texto in resultados]
-
-        # Si no se reconoció nada, intentar con el archivo completo
-        if not transcripcion_completa:
-            logger.warning("Intentando transcribir el archivo completo...")
-            _, texto_completo = transcribir_chunk(recognizer, audio, idioma_entrada, 0)
-            if texto_completo and not texto_completo.startswith("[error:"):
-                transcripcion_completa.append(texto_completo)
-
-        transcripcion_final = " ".join(transcripcion_completa).strip()
-        transcripcion_final = transcripcion_final.capitalize()
-
-        if not transcripcion_final:
-            return "No se pudo transcribir ninguna parte del audio."
-
-        palabras_sin_inaudibles, inaudibles = contar_palabras_y_inaudibles(transcripcion_final)
-        logger.info(f"Palabras reconocidas: {palabras_sin_inaudibles}, Inaudibles: {inaudibles}")
-
-        return transcripcion_final
-
-    except FileNotFoundError as e:
-        logger.error(f"Error de archivo: {e}")
-        return f"Error: {str(e)}"
-    except ValueError as e:
-        logger.error(f"Error de valor: {e}")
-        return f"Error: {str(e)}"
-    except Exception as e:
-        logger.error(f"Error al procesar el archivo: {e}")
-        return f"Error al procesar el archivo: {e}"
 
 
 def contar_palabras_y_inaudibles(texto):
@@ -488,56 +408,6 @@ def transcribir_chunk(recognizer, audio_chunk, idioma_entrada, indice):
         return indice, f"[error: {str(e)}]"
 
 
-def procesar_audio_recognizer(audio_file, idioma_entrada, text_area, progress_bar, ventana):
-    # Convertir a WAV
-    wav_file = convertir_a_wav(audio_file)
-
-    # Procesar el archivo WAV
-    audio = AudioSegment.from_file(wav_file)
-
-    filename = os.path.basename(audio_file)
-
-    # Mejorar audio
-    audio_mejorado = mejorar_audio(audio)
-
-    # Segmentación usando VAD mejorado
-    chunks = vad_segmentacion(audio_mejorado)
-
-    # Transcribir los chunks
-    transcripcion_completa = []
-    for i, chunk in enumerate(chunks):
-        if len(chunk) < 1000:  # Ignorar chunks menores a 1 segundo
-            continue
-        _, texto = transcribir_chunk(recognizer, chunk, idioma_entrada, i)
-        transcripcion_completa.append(texto)
-
-        # Actualizar progreso
-        progress_bar["value"] = (i + 1) / len(chunks) * 100
-        ventana.update_idletasks()
-
-    transcripcion_final = " ".join(transcripcion_completa).strip()
-    palabras, inaudibles = contar_palabras_y_inaudibles(transcripcion_final)
-    return {
-        "filename": filename,
-        "archivo": audio_file,
-        "transcripcion": transcripcion_final,
-        "num_chunks": len(chunks),
-        "inaudibles": inaudibles,
-        "palabras": palabras,
-    }
-
-
-def transcribir_archivo_whisper(audio_path, idioma_entrada):
-    try:
-        result = model.transcribe(audio_path, language=idioma_entrada)
-        texto = result["text"]
-        logger.info(f"Transcripción inicial con Whisper: {texto}")
-        return texto
-    except Exception as e:
-        logger.error(f"Error al procesar el archivo con Whisper: {e}")
-        return f"Error al procesar el archivo: {e}"
-
-
 def actualizar_progreso(progress_bar, ventana, duracion_total, stop_event):
     start_time = time.time()
     while not stop_event.is_set():
@@ -550,12 +420,16 @@ def actualizar_progreso(progress_bar, ventana, duracion_total, stop_event):
     ventana.update_idletasks()
 
 
-def procesar_audio_wisper(audio_file, idioma_entrada, text_area, progress_bar, ventana):
+def procesar_audio_wisper(audio_file, model, progress_bar, ventana):
     filename = os.path.basename(audio_file)
 
     # Obtener la duración total del audio
     audio = AudioSegment.from_file(audio_file)
     duracion_total = len(audio) / 1000  # Duración en segundos
+    # Mejorar el audio
+    audio = mejorar_audio(audio)
+
+    # Dividir el audio en fragmentos basados en silencio usando VAD
 
     stop_event = threading.Event()
     progress_thread = threading.Thread(
@@ -566,7 +440,7 @@ def procesar_audio_wisper(audio_file, idioma_entrada, text_area, progress_bar, v
 
     try:
         # Usar Whisper para transcribir
-        result = model.transcribe(audio_file, language=idioma_entrada)
+        result = model.transcribe(audio_file)
         transcripcion = result["text"]
     finally:
         stop_event.set()
@@ -577,9 +451,9 @@ def procesar_audio_wisper(audio_file, idioma_entrada, text_area, progress_bar, v
         "filename": filename,
         "archivo": audio_file,
         "transcripcion": transcripcion,
-        "num_chunks": 1,  # Whisper procesa el archivo completo
+        "num_chunk s": 1,  # Whisper procesa el archivo completo
         "inaudibles": inaudibles,
-        "palabras": palabras,
+        "palabras": palabras
     }
 
 
@@ -592,8 +466,8 @@ def iniciar_transcripcion(
     progress_bar,
     ventana,
     boton_transcribir,
-    combobox_idioma_entrada,
     combobox_idioma_salida,
+    checkBox
 ):
     global transcripcion_activa, transcripcion_en_curso
 
@@ -605,7 +479,6 @@ def iniciar_transcripcion(
     archivos_seleccionados = [lista_archivos.get(i) for i in seleccion]
     total_archivos = len(archivos_seleccionados)
 
-    idioma_entrada = idiomas[combobox_idioma_entrada.get()]
     idioma_salida = idiomas[combobox_idioma_salida.get()]
 
     transcripcion_activa = True
@@ -626,15 +499,14 @@ def iniciar_transcripcion(
             progress_bar["value"] = 0
             ventana.update_idletasks()
 
-            resultado_wisper = procesar_audio_wisper(audio_file, idioma_entrada, text_area, progress_bar, ventana)
-
-            if transcripcion_activa and idioma_entrada != idioma_salida:
-                resultado_wisper['transcripcion'] = traducir_texto(resultado_wisper['transcripcion'], idioma_salida)
-
+            resultado_wisper_M = procesar_audio_wisper(audio_file, model_M, progress_bar, ventana)
+            checkBox_value = checkBox.get()
+            if checkBox_value:
+                resultado_wisper_M['transcripcion'] = traducir_texto(resultado_wisper_M['transcripcion'], idioma_salida)
             if transcripcion_activa:
-                texto_transcrito = ajustar_texto_sencillo(resultado_wisper['transcripcion'])
-                nuevo_texto = f"Transcripción de {archivo}: \n{texto_transcrito} \n\nPalabras: {resultado_wisper['palabras']} \nInaudibles: {resultado_wisper['inaudibles']}\n\n"
 
+                texto_transcrito = ajustar_texto_sencillo(resultado_wisper_M['transcripcion'])
+                nuevo_texto = f"Transcripción de Modelo M {archivo}: \n{texto_transcrito} \n\nPalabras: {resultado_wisper_M['palabras']} \nInaudibles: {resultado_wisper_M['inaudibles']}\n\n"
                 text_area.insert(tk.END, nuevo_texto)
                 text_area.see(tk.END)
 
@@ -678,10 +550,10 @@ def cargar_modelo_whisper():
             dst = os.path.join(whisper_assets_path, file)
             if os.path.exists(src):
                 shutil.copy(src, dst)
-
+        global model_M
         # Configurar Whisper para usar la nueva ubicación
         os.environ['WHISPER_HOME'] = whisper_root
-        model = whisper.load_model("large", download_root=whisper_root)
+        model_M = whisper.load_model("medium", download_root=whisper_root)
 
         # Imprimir información de depuración
         print(f"Whisper file location: {whisper.__file__}")
