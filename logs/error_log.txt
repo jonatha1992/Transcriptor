@@ -577,3 +577,23 @@
 2024-09-21 12:24:04,987 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
 2024-09-21 12:24:30,065 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
 2024-09-21 12:29:18,395 - Config - INFO - Configuración inicial completada
+2024-09-21 21:33:56,351 - Config - INFO - Configuración inicial completada
+2024-09-21 21:34:00,547 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-21 21:37:13,134 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA1.wav
+2024-09-21 21:37:30,933 - Config - ERROR - Error al procesar el archivo PRUEBA1.wav (00:10): DecodingOptions.__init__() got an unexpected keyword argument 'callback'
+2024-09-21 21:41:14,894 - Config - INFO - Configuración inicial completada
+2024-09-21 21:41:16,175 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-21 21:41:29,332 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA1.wav
+2024-09-21 21:41:46,322 - Config - ERROR - Error al procesar el archivo PRUEBA1.wav (00:10): expected np.ndarray (got _io.BytesIO)
+2024-09-21 21:43:27,851 - Config - INFO - Configuración inicial completada
+2024-09-21 21:43:29,065 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-21 21:43:41,870 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA1.wav
+2024-09-21 21:44:18,906 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
+2024-09-21 21:52:34,360 - Config - INFO - Configuración inicial completada
+2024-09-21 21:52:48,817 - Config - INFO - Configuración inicial completada
+2024-09-21 21:52:50,037 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-21 21:55:21,874 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA2.wav
+2024-09-21 21:57:00,596 - Config - INFO - Configuración inicial completada
+2024-09-21 21:57:01,814 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-21 21:57:45,837 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
+2024-09-21 21:59:32,418 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (1).wav

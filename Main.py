@@ -11,7 +11,6 @@ def main():
         detectar_y_configurar_proxy()
         cargar_modelo_whisper()
         pygame.mixer.init()
-
         ventana = tk.Tk()
         ventana.title("AudioText")
         icon_path = resource_path("icons/icono.ico")

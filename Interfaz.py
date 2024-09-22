@@ -131,7 +131,7 @@ def crear_interfaz(ventana):
     frame_idioma_salida.pack(side=tk.TOP, pady=5)
 
     check_idioma_salida_var = tk.BooleanVar()
-    check_idioma_salida = tk.Checkbutton(frame_idioma_salida, text="Idioma de Salida:", variable=check_idioma_salida_var)
+    check_idioma_salida = tk.Checkbutton(frame_idioma_salida, text="Traducir:", variable=check_idioma_salida_var)
     check_idioma_salida.pack(side=tk.LEFT, padx=10)
 
     combobox_idioma_salida = ttk.Combobox(

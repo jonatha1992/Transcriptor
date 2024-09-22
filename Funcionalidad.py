@@ -1,6 +1,4 @@
-from concurrent.futures import ThreadPoolExecutor
-from whisper.audio import load_audio, pad_or_trim
-import torch
+from pydub import effects
 from Config import logger, idiomas, resource_path, transcripcion_activa, transcripcion_en_curso
 from tkinter import messagebox
 import whisper
@@ -33,8 +31,6 @@ import numpy as np
 import io
 
 
-# Inicializar el reconocedor
-recognizer = sr.Recognizer()
 # Configuración de AudioSegment
 AudioSegment.converter = ffmpeg_path
 AudioSegment.ffmpeg = ffmpeg_path
@@ -102,24 +98,6 @@ def obtener_duracion_audio(ruta_archivo):
             pass
 
     return 0
-
-
-def transcribir_archivo(audio_path, idioma_entrada):
-    try:
-        with sr.AudioFile(audio_path) as source:
-            audio = recognizer.record(source)
-            text = recognizer.recognize_google(audio, language=idioma_entrada)
-            logger.info(f"Transcripción inicial: {text}")
-            return text
-    except sr.UnknownValueError:
-        logger.warning("Audio no claro / inaudible.")
-        return "Audio no claro / inaudible."
-    except sr.RequestError as e:
-        logger.error(f"Error en el servicio de reconocimiento: {e}")
-        return f"Error en el servicio de reconocimiento: {e}"
-    except Exception as e:
-        logger.error(f"Error al procesar el archivo: {e}")
-        return f"Error al procesar el archivo: {e}"
 
 
 def traducir_texto(texto, idioma_salida):
@@ -364,97 +342,41 @@ def mejorar_audio(audio, lowcut=300, highcut=3000):
         return audio
 
 
-def vad_segmentacion(audio, min_silence_len=1000, silence_thresh=-40, keep_silence=300):
-    not_silence_ranges = detect_nonsilent(audio, min_silence_len=min_silence_len, silence_thresh=silence_thresh)
+# def procesar_audio_wisper(audio_file, model, progress_bar, ventana):
+#     filename = os.path.basename(audio_file)
 
-    chunks = []
-    for start_i, end_i in not_silence_ranges:
-        start_i = max(0, start_i - keep_silence)
-        end_i = min(len(audio), end_i + keep_silence)
-        chunks.append(audio[start_i:end_i])
+#     # Obtener la duración total del audio
+#     audio = AudioSegment.from_file(audio_file)
+#     duracion_total = len(audio) / 1000  # Duración en segundos
+#     # Mejorar el audio
+#     audio = mejorar_audio(audio)
 
-    return chunks
+#     # Dividir el audio en fragmentos basados en silencio usando VAD
 
+#     stop_event = threading.Event()
+#     progress_thread = threading.Thread(
+#         target=actualizar_progreso,
+#         args=(progress_bar, ventana, duracion_total, stop_event)
+#     )
+#     progress_thread.start()
 
-def transcribir_chunk(recognizer, audio_chunk, idioma_entrada, indice):
-    try:
-        if len(audio_chunk) == 0:
-            return indice, "[chunk vacío]"
+#     try:
+#         # Usar Whisper para transcribir
+#         result = model.transcribe(audio_file)
+#         transcripcion = result["text"]
+#     finally:
+#         stop_event.set()
+#         progress_thread.join()
 
-        buffer = io.BytesIO()
-        audio_chunk.export(buffer, format="wav")
-        buffer.seek(0)
-
-        with sr.AudioFile(buffer) as source:
-            audio_data = recognizer.record(source)
-
-        if not audio_data or len(audio_data.frame_data) == 0:
-            return indice, "[datos de audio vacíos]"
-
-        texto = recognizer.recognize_google(audio_data, language=idioma_entrada)
-        duracion_chunk = len(audio_chunk) / 1000  # Duración en segundos
-        logger.info(f"Chunk {indice} transcrito: {texto}... (Duración: {duracion_chunk} segundos)")
-        return indice, texto
-    except sr.UnknownValueError:
-        logger.warning(
-            f"Audio no reconocido en chunk {indice} - Duración: {len(audio_chunk) / 1000} segundos"
-        )
-        return indice, "[inaudible]"
-    except sr.RequestError as e:
-        logger.error(f"Error en el servicio de reconocimiento para chunk {indice}: {e}")
-        return indice, "[error de reconocimiento]"
-    except Exception as e:
-        logger.error(f"Error inesperado al procesar chunk {indice}: {e}")
-        return indice, f"[error: {str(e)}]"
-
-
-def actualizar_progreso(progress_bar, ventana, duracion_total, stop_event):
-    start_time = time.time()
-    while not stop_event.is_set():
-        elapsed_time = time.time() - start_time
-        progress = min(100, (elapsed_time / duracion_total) * 100)
-        progress_bar["value"] = progress
-        ventana.update_idletasks()
-        time.sleep(0.1)
-    progress_bar["value"] = 100
-    ventana.update_idletasks()
-
-
-def procesar_audio_wisper(audio_file, model, progress_bar, ventana):
-    filename = os.path.basename(audio_file)
-
-    # Obtener la duración total del audio
-    audio = AudioSegment.from_file(audio_file)
-    duracion_total = len(audio) / 1000  # Duración en segundos
-    # Mejorar el audio
-    audio = mejorar_audio(audio)
-
-    # Dividir el audio en fragmentos basados en silencio usando VAD
-
-    stop_event = threading.Event()
-    progress_thread = threading.Thread(
-        target=actualizar_progreso,
-        args=(progress_bar, ventana, duracion_total, stop_event)
-    )
-    progress_thread.start()
-
-    try:
-        # Usar Whisper para transcribir
-        result = model.transcribe(audio_file)
-        transcripcion = result["text"]
-    finally:
-        stop_event.set()
-        progress_thread.join()
-
-    palabras, inaudibles = contar_palabras_y_inaudibles(transcripcion)
-    return {
-        "filename": filename,
-        "archivo": audio_file,
-        "transcripcion": transcripcion,
-        "num_chunk s": 1,  # Whisper procesa el archivo completo
-        "inaudibles": inaudibles,
-        "palabras": palabras
-    }
+#     palabras, inaudibles = contar_palabras_y_inaudibles(transcripcion)
+#     return {
+#         "filename": filename,
+#         "archivo": audio_file,
+#         "transcripcion": transcripcion,
+#         "num_chunk s": 1,  # Whisper procesa el archivo completo
+#         "inaudibles": inaudibles,
+#         "palabras": palabras
+#     }
 
 
 def iniciar_transcripcion(
@@ -499,14 +421,17 @@ def iniciar_transcripcion(
             progress_bar["value"] = 0
             ventana.update_idletasks()
 
-            resultado_wisper_M = procesar_audio_wisper(audio_file, model_M, progress_bar, ventana)
+            # resultado_wisper_M = procesar_audio_wisper(audio_file, model_M, progress_bar, ventana)
+
+            resultado_wisper_M = procesar_audio_whisper_por_fragmentos(audio_file, model_M, progress_bar, ventana)
+
             checkBox_value = checkBox.get()
             if checkBox_value:
                 resultado_wisper_M['transcripcion'] = traducir_texto(resultado_wisper_M['transcripcion'], idioma_salida)
-            if transcripcion_activa:
 
+            if transcripcion_activa:
                 texto_transcrito = ajustar_texto_sencillo(resultado_wisper_M['transcripcion'])
-                nuevo_texto = f"Transcripción de Modelo M {archivo}: \n{texto_transcrito} \n\nPalabras: {resultado_wisper_M['palabras']} \nInaudibles: {resultado_wisper_M['inaudibles']}\n\n"
+                nuevo_texto = f"Transcripción  {archivo}: \n{texto_transcrito} \n\nPalabras: {resultado_wisper_M['palabras']} \nInaudibles: {resultado_wisper_M['inaudibles']}\n\n"
                 text_area.insert(tk.END, nuevo_texto)
                 text_area.see(tk.END)
 
@@ -565,3 +490,56 @@ def cargar_modelo_whisper():
     except Exception as e:
         logger.error(f"Error al cargar el modelo Whisper: {e}")
         messagebox.showerror("Error", f"No se pudo cargar el modelo Whisper: {e}")
+
+
+def procesar_audio_whisper_por_fragmentos(audio_file, model, progress_bar, ventana):
+    filename = os.path.basename(audio_file)
+
+    # Cargar el audio completo
+    audio = AudioSegment.from_file(audio_file)
+
+    # Dividir el audio en fragmentos de duración fija (por ejemplo, 30 segundos)
+    chunk_duration_ms = 30 * 1000  # 30 segundos en milisegundos
+    chunks = [audio[i:i + chunk_duration_ms] for i in range(0, len(audio), chunk_duration_ms)]
+    num_chunks = len(chunks)
+
+    transcripcion_completa = ""
+    palabras_totales, inaudibles_totales = 0, 0
+
+    for idx, chunk in enumerate(chunks):
+        # Asegurarse de que el fragmento tenga una tasa de muestreo de 16000 Hz y sea mono
+        chunk = chunk.set_frame_rate(16000)
+        chunk = chunk.set_channels(1)
+
+        # Normalizar el audio
+        chunk = effects.normalize(chunk)
+
+        # Obtener los datos de audio del fragmento como un arreglo de NumPy
+        samples = chunk.get_array_of_samples()
+        audio_np = np.array(samples).astype(np.float32) / 32768.0  # Convertir a float32 en el rango [-1.0, 1.0]
+
+        # Transcribir el fragmento
+        result = model.transcribe(audio_np)
+        transcribed_text = result['text']
+
+        # Actualizar la transcripción completa
+        transcripcion_completa += transcribed_text + "\n"
+
+        # Actualizar la barra de progreso
+        progress = ((idx + 1) / num_chunks) * 100
+        progress_bar["value"] = progress
+        ventana.update_idletasks()
+
+    # Calcular estadísticas si lo deseas
+    palabras_totales = len(transcripcion_completa.split())
+    inaudibles_totales = transcripcion_completa.count('[inaudible]')
+
+    # Retornar resultados
+    return {
+        "filename": filename,
+        "archivo": audio_file,
+        "transcripcion": transcripcion_completa,
+        "num_chunks": num_chunks,
+        "inaudibles": inaudibles_totales,
+        "palabras": palabras_totales
+    }
