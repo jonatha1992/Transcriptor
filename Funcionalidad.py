@@ -1,10 +1,7 @@
 from pydub import effects
 from Config import logger, idiomas, resource_path, transcripcion_activa, transcripcion_en_curso
-from tkinter import messagebox
 import whisper
 import os
-import speech_recognition as sr
-from pydub import AudioSegment
 from googletrans import Translator
 import subprocess
 import platform
@@ -15,20 +12,12 @@ import wave
 import contextlib
 import time
 from Config import *
-import numpy as np
-import io
-from concurrent.futures import ThreadPoolExecutor, as_completed
-import speech_recognition as sr
 from pydub import AudioSegment
-import io
 from Config import logger
 from scipy.signal import butter, lfilter
 from tkinter import messagebox, filedialog
-import speech_recognition as sr
 from pydub import AudioSegment
-from pydub.silence import detect_nonsilent
 import numpy as np
-import io
 
 
 # Configuración de AudioSegment
