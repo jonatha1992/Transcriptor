@@ -8,6 +8,8 @@ import socket
 import sys
 from googletrans import LANGUAGES
 import datetime
+from pydub import AudioSegment
+
 # Configuración básica de logging
 log_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs")
 if not os.path.exists(log_directory):
@@ -45,6 +47,11 @@ ffprobe_path = os.path.join(script_dir, "ffmpeg", "bin", "ffprobe.exe")
 ffmpeg_bin_path = os.path.join(script_dir, "ffmpeg", "bin")
 os.environ["PATH"] = ffmpeg_bin_path + os.pathsep + os.environ["PATH"]
 
+
+# Configuración de AudioSegment
+AudioSegment.converter = ffmpeg_path
+AudioSegment.ffmpeg = ffmpeg_path
+AudioSegment.ffprobe = ffprobe_path
 # Variables globales
 transcripcion_activa = False
 transcripcion_en_curso = False
@@ -81,6 +88,7 @@ def verificar_conexion_internet(timeout=5):
     except Exception as e:
         logger.error(f"Error al verificar la conexión a internet: {e}")
         return False
+
 
 # def check_proxy():
 #     http_proxy = os.environ.get("http_proxy")

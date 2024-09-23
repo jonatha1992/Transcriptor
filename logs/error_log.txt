@@ -824,3 +824,4 @@ Error opening input files: Invalid data found when processing input
 2024-09-23 17:15:44,912 - Config - INFO - Modelo Whisper 'tiny' cargado correctamente.
 2024-09-23 17:15:44,933 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
 2024-09-23 17:16:41,398 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335566.wav
+2024-09-23 18:15:07,276 - Config - INFO - Configuración inicial completada

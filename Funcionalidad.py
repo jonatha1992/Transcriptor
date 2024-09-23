@@ -1,8 +1,6 @@
 import io
 import shutil  # Asegúrate de importar io al inicio de tu script
-from pydub import AudioSegment, effects
 from tkinter import messagebox
-from pydub import effects
 import whisper
 import os
 from googletrans import Translator
@@ -18,16 +16,7 @@ from Config import *
 from pydub import AudioSegment
 from Config import logger
 from tkinter import messagebox, filedialog
-from pydub import AudioSegment
 import numpy as np
-
-
-# Configuración de AudioSegment
-AudioSegment.converter = ffmpeg_path
-AudioSegment.ffmpeg = ffmpeg_path
-AudioSegment.ffprobe = ffprobe_path
-
-print(whisper.__file__)
 
 
 def convertir_a_wav(audio_path):
@@ -117,6 +106,7 @@ def obtener_duracion_audio(ruta_archivo):
 def traducir_texto(texto, idioma_salida):
     try:
         proxy = obtener_configuracion_proxy_windows()
+        print(proxy)
         if proxy:
             os.environ['http_proxy'] = f"http://{proxy}"
             os.environ['https_proxy'] = f"http://{proxy}"
@@ -124,10 +114,26 @@ def traducir_texto(texto, idioma_salida):
         else:
             translator = Translator()
 
+        logger.info(f"Intentando traducir texto de longitud {len(texto)} a {idioma_salida}")
+
+        # Verificar si el idioma de salida es válido
+        if idioma_salida not in LANGUAGES.values():
+            logger.error(f"Idioma de salida no válido: {idioma_salida}")
+            return f"Error: Idioma de salida no válido ({idioma_salida})"
+
         traduccion = translator.translate(texto, dest=idioma_salida)
-        return traduccion.text if traduccion else "Error: No se pudo obtener una traducción."
+        if traduccion and traduccion.text:
+            logger.info("Traducción exitosa")
+            return traduccion.text
+        else:
+            logger.error("La traducción devolvió un resultado vacío")
+            return "Error: No se pudo obtener una traducción."
+    except AttributeError as e:
+        logger.error(f"Error de atributo al traducir: {str(e)}")
+        return f"Error de configuración en la traducción: {str(e)}"
     except Exception as e:
-        return f"Error al traducir texto: {e}"
+        logger.error(f"Error detallado al traducir texto: {str(e)}")
+        return f"Error al traducir texto: {str(e)}"
 
 
 def seleccionar_archivos(lista_archivos, lista_archivos_paths):
@@ -307,8 +313,6 @@ def iniciar_transcripcion(
                     nuevo_texto = f"Transcripción {archivo}: \n{texto_transcrito} \n\nPalabras: {resultado_wisper_M['palabras']} \nInaudibles: {resultado_wisper_M['inaudibles']}\n\n"
                     text_area.insert(tk.END, nuevo_texto)
                     text_area.see(tk.END)
-                    
-                
 
                 progress_bar["value"] = ((index + 1) / total_archivos) * 100
                 ventana.update_idletasks()
