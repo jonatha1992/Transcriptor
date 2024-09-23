@@ -597,3 +597,119 @@
 2024-09-21 21:57:01,814 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
 2024-09-21 21:57:45,837 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
 2024-09-21 21:59:32,418 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (1).wav
+2024-09-21 22:27:46,912 - Config - INFO - Configuración inicial completada
+2024-09-21 22:27:48,098 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-21 22:28:09,853 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
+2024-09-21 22:30:03,159 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
+2024-09-21 22:32:49,037 - Config - INFO - Configuración inicial completada
+2024-09-21 22:32:50,022 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-21 22:33:09,540 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
+2024-09-21 22:35:59,039 - Config - INFO - Configuración inicial completada
+2024-09-21 22:36:00,037 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-21 22:38:58,829 - Config - INFO - Configuración inicial completada
+2024-09-21 22:39:02,081 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-21 22:39:19,943 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
+2024-09-21 22:43:48,952 - Config - INFO - Configuración inicial completada
+2024-09-21 22:43:49,901 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-21 22:44:01,367 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
+2024-09-21 22:44:58,766 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA1.wav
+2024-09-21 22:45:14,127 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA1.wav
+2024-09-21 22:45:49,215 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
+2024-09-21 22:50:47,954 - Config - INFO - Configuración inicial completada
+2024-09-21 22:51:09,567 - Config - INFO - Configuración inicial completada
+2024-09-21 22:51:10,562 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-21 22:51:25,757 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
+2024-09-21 22:52:51,946 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
+2024-09-21 22:53:49,691 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
+2024-09-21 22:58:05,515 - Config - INFO - Configuración inicial completada
+2024-09-21 22:58:06,495 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-21 22:58:29,843 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA LLAMADA2.wav
+2024-09-22 12:34:55,305 - Config - INFO - Configuración inicial completada
+2024-09-22 12:34:59,182 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-22 12:36:03,862 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
+2024-09-22 12:44:53,155 - Config - INFO - Configuración inicial completada
+2024-09-22 12:44:54,143 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-22 12:45:10,346 - Config - INFO - Configuración inicial completada
+2024-09-22 12:56:10,003 - Config - INFO - Configuración inicial completada
+2024-09-22 12:56:10,998 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-22 12:56:22,988 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
+2024-09-22 13:00:39,121 - Config - INFO - Configuración inicial completada
+2024-09-22 13:00:40,084 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-22 13:00:55,329 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
+2024-09-22 13:01:32,794 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA1.wav
+2024-09-22 13:02:06,274 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA1.wav
+2024-09-22 13:02:33,547 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/WhatsApp Ptt 2024-08-07 at 10.13.42.wav
+2024-09-22 13:04:43,452 - Config - INFO - Configuración inicial completada
+2024-09-22 13:04:44,419 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-22 13:04:59,016 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA2.wav
+2024-09-22 13:07:10,515 - Config - INFO - Configuración inicial completada
+2024-09-22 13:07:11,497 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-22 13:07:30,668 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA2.wav
+2024-09-22 13:08:14,385 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA1.wav
+2024-09-22 13:08:49,570 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA1.wav
+2024-09-22 13:09:44,993 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA2.wav
+2024-09-22 13:41:29,037 - Config - INFO - Configuración inicial completada
+2024-09-22 13:41:29,445 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-22 13:42:26,129 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA2.wav
+2024-09-22 13:43:53,743 - Config - INFO - Configuración inicial completada
+2024-09-22 13:43:54,161 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-22 13:45:15,058 - Config - INFO - Configuración inicial completada
+2024-09-22 13:45:15,395 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-22 13:45:58,891 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA2.wav
+2024-09-22 13:49:34,554 - Config - INFO - Configuración inicial completada
+2024-09-22 13:49:34,954 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-22 13:50:18,419 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (6).wav
+2024-09-22 13:53:35,691 - Config - INFO - Configuración inicial completada
+2024-09-22 13:53:36,043 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-22 13:53:52,180 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (6).wav
+2024-09-22 13:54:25,224 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (6).wav
+2024-09-23 04:52:05,789 - Config - INFO - Configuración inicial completada
+2024-09-23 04:52:06,822 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-23 04:52:56,038 - Config - INFO - Configuración inicial completada
+2024-09-23 04:52:56,397 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-23 04:53:51,218 - Config - INFO - Configuración inicial completada
+2024-09-23 04:53:51,596 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-23 04:57:18,283 - Config - INFO - Configuración inicial completada
+2024-09-23 04:57:18,653 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-23 04:57:49,631 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA2.wav
+2024-09-23 04:58:15,394 - Config - INFO - Texto traducido: No, the thing is that I wanted to test how the application worked and I needed to talk to the team
+ Thank you.
+2024-09-23 04:58:29,258 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA2.wav
+2024-09-23 05:13:01,321 - Config - INFO - Configuración inicial completada
+2024-09-23 05:13:01,626 - Config - INFO - Conexión directa fallida, configurando proxy...
+2024-09-23 05:13:01,627 - Config - ERROR - No se pudo establecer conexión incluso con el proxy.
+2024-09-23 05:13:29,971 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA2.wav
+2024-09-23 05:13:56,324 - Config - ERROR - Error al traducir texto offline: [Errno 11001] getaddrinfo failed
+2024-09-23 05:17:50,451 - Config - INFO - Configuración inicial completada
+2024-09-23 05:17:51,245 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-23 05:19:33,077 - Config - INFO - Configuración inicial completada
+2024-09-23 05:19:33,378 - Config - INFO - Conexión directa fallida, configurando proxy...
+2024-09-23 05:19:33,380 - Config - ERROR - No se pudo establecer conexión incluso con el proxy.
+2024-09-23 05:19:59,022 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA1.wav
+2024-09-23 05:20:37,915 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA1.wav
+2024-09-23 05:21:26,663 - Config - INFO - Configuración inicial completada
+2024-09-23 05:21:26,954 - Config - INFO - Conexión directa fallida, configurando proxy...
+2024-09-23 05:21:26,956 - Config - ERROR - No se pudo establecer conexión incluso con el proxy.
+2024-09-23 05:23:24,755 - Config - INFO - Configuración inicial completada
+2024-09-23 05:23:25,039 - Config - INFO - Conexión directa fallida, configurando proxy...
+2024-09-23 05:23:25,041 - Config - ERROR - No se pudo establecer conexión incluso con el proxy.
+2024-09-23 05:24:15,979 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA2.wav
+2024-09-23 05:26:16,806 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA2.wav
+2024-09-23 05:27:03,229 - Config - ERROR - Error al traducir texto offline: HTTPConnectionPool(host='proxy.psa.gob.ar', port=3128): Max retries exceeded with url: http://api.mymemory.translated.net/get?q=+No%2C+lo+que+pasa+es+que+quer%C3%ADa+probar+c%C3%B3mo+funcionaba+la+aplicaci%C3%B3n+y+necesitaba+hablar+con+la+equipa%0A+Thank+you.&langpair=en%7Csq (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("<urllib3.connection.HTTPConnection object at 0x000001FD5CAAD4D0>: Failed to resolve 'proxy.psa.gob.ar' ([Errno 11001] getaddrinfo failed)")))
+2024-09-23 05:37:22,065 - Config - INFO - Configuración inicial completada
+2024-09-23 05:37:22,332 - Config - INFO - Intentando detectar y configurar proxy automáticamente...
+2024-09-23 05:37:22,426 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-23 05:42:35,428 - Config - INFO - Configuración inicial completada
+2024-09-23 05:42:35,694 - Config - INFO - Intentando detectar y configurar proxy automáticamente...
+2024-09-23 05:42:35,780 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-23 05:46:03,029 - Config - INFO - Configuración inicial completada
+2024-09-23 05:46:21,314 - Config - INFO - Configuración inicial completada
+2024-09-23 05:46:21,582 - Config - INFO - Intentando detectar y configurar proxy automáticamente...
+2024-09-23 05:46:21,672 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-23 05:46:40,239 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA2.wav
+2024-09-23 05:47:25,623 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA1.wav
+2024-09-23 05:47:48,306 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (6).wav
+2024-09-23 05:48:14,012 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (5).wav
+2024-09-23 05:59:16,275 - Config - INFO - Configuración inicial completada
+2024-09-23 05:59:36,301 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA2.wav
+2024-09-23 06:00:01,572 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA1.wav

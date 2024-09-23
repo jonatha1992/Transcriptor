@@ -1,5 +1,8 @@
+import io
+import shutil  # Asegúrate de importar io al inicio de tu script
+from pydub import AudioSegment, effects
+from tkinter import messagebox
 from pydub import effects
-from Config import logger, idiomas, resource_path, transcripcion_activa, transcripcion_en_curso
 import whisper
 import os
 from googletrans import Translator
@@ -14,7 +17,6 @@ import time
 from Config import *
 from pydub import AudioSegment
 from Config import logger
-from scipy.signal import butter, lfilter
 from tkinter import messagebox, filedialog
 from pydub import AudioSegment
 import numpy as np
@@ -89,26 +91,42 @@ def obtener_duracion_audio(ruta_archivo):
     return 0
 
 
+# def traducir_texto(texto, idioma_salida):
+#     try:
+#         if check_proxy() == "Proxy configurado:":
+#             proxy_config = {
+#                 "http": "http://proxy.psa.gob.ar:3128",
+#                 "https": "http://proxy.psa.gob.ar:3128",
+#             }
+#             translator = Translator(proxies=proxy_config)
+#         else:
+#             translator = Translator()
+
+#         traduccion = translator.translate(texto, dest=idioma_salida)
+#         if traduccion:
+#             logger.info(f"Texto traducido: {traduccion.text}")
+#             return traduccion.text
+#         else:
+#             logger.error("La traducción devolvió un resultado vacío.")
+#             return f"Error al traducir el texto."
+#     except Exception as e:
+#         logger.error(f"Error al traducir texto: {e}")
+#         return f"Error al traducir texto: {e}"
+
+
 def traducir_texto(texto, idioma_salida):
     try:
-        if check_proxy() == "Proxy configurado:":
-            proxy_config = {
-                "http": "http://proxy.psa.gob.ar:3128",
-                "https": "http://proxy.psa.gob.ar:3128",
-            }
-            translator = Translator(proxies=proxy_config)
+        proxy = obtener_configuracion_proxy_windows()
+        if proxy:
+            os.environ['http_proxy'] = f"http://{proxy}"
+            os.environ['https_proxy'] = f"http://{proxy}"
+            translator = Translator(proxies={'http': f"http://{proxy}", 'https': f"http://{proxy}"})
         else:
             translator = Translator()
 
         traduccion = translator.translate(texto, dest=idioma_salida)
-        if traduccion:
-            logger.info(f"Texto traducido: {traduccion.text}")
-            return traduccion.text
-        else:
-            logger.error("La traducción devolvió un resultado vacío.")
-            return f"Error al traducir el texto."
+        return traduccion.text if traduccion else "Error: No se pudo obtener una traducción."
     except Exception as e:
-        logger.error(f"Error al traducir texto: {e}")
         return f"Error al traducir texto: {e}"
 
 
@@ -223,112 +241,11 @@ def borrar_archivo(lista_archivos, lista_archivos_paths):
     return False
 
 
-def iniciar_transcripcion_thread(
-    lista_archivos,
-    text_area,
-    archivo_procesando,
-    lista_archivos_paths,
-    transcripcion_resultado,
-    progress_bar,
-    ventana,
-    boton_transcribir,
-    combobox_idioma_salida,
-    checkBox
-):
-    global transcripcion_activa, transcripcion_en_curso
-    from Reproductor import reproductor
-
-    if reproductor.reproduciendo:
-        messagebox.showwarning(
-            "Advertencia",
-            "Hay una reproducción en curso. Por favor, detenga la reproducción antes de transcribir.",
-        )
-        return
-
-    seleccion = lista_archivos.curselection()
-    if not seleccion:
-        messagebox.showwarning(
-            "Advertencia", "Seleccione un archivo de audio para transcribir."
-        )
-        transcripcion_en_curso = False
-        return
-
-    if transcripcion_activa:
-        transcripcion_activa = False
-        transcripcion_en_curso = False
-        boton_transcribir.config(text="Transcribir")
-        progress_bar["value"] = 0
-        progress_bar.pack_forget()
-
-    else:
-        transcripcion_activa = True
-        transcripcion_en_curso = True
-        boton_transcribir.config(text="Detener Transcripción")
-        progress_bar["value"] = 0
-        progress_bar.pack(pady=5, padx=60, fill=tk.X)
-        threading.Thread(
-            target=iniciar_transcripcion,
-            args=(
-                lista_archivos,
-                text_area,
-                archivo_procesando,
-                lista_archivos_paths,
-                transcripcion_resultado,
-                progress_bar,
-                ventana,
-                boton_transcribir,
-                combobox_idioma_salida,
-                checkBox
-            ),
-            daemon=True,
-        ).start()
-
-
 def contar_palabras_y_inaudibles(texto):
     palabras = texto.split()
     inaudibles = palabras.count("[inaudible]")
     palabras_sin_inaudibles = len(palabras) - inaudibles
     return palabras_sin_inaudibles, inaudibles
-
-
-def butter_bandpass(lowcut, highcut, fs, order=5):
-    nyq = 0.5 * fs
-    low = lowcut / nyq
-    high = highcut / nyq
-    b, a = butter(order, [low, high], btype='band')
-    return b, a
-
-
-def butter_bandpass_filter(data, lowcut, highcut, fs, order=5):
-    b, a = butter_bandpass(lowcut, highcut, fs, order=order)
-    y = lfilter(b, a, data)
-    return y
-
-
-def mejorar_audio(audio, lowcut=300, highcut=3000):
-    try:
-        # Convertir a mono
-        audio = audio.set_channels(1)
-
-        # Aplicar filtro paso banda
-        samples = np.array(audio.get_array_of_samples())
-        filtered = butter_bandpass_filter(samples, lowcut, highcut, audio.frame_rate)
-
-        # Normalizar
-        filtered = np.int16(filtered / np.max(np.abs(filtered)) * 32767)
-
-        # Crear nuevo AudioSegment
-        mejorado = AudioSegment(
-            filtered.tobytes(),
-            frame_rate=audio.frame_rate,
-            sample_width=2,
-            channels=1
-        )
-
-        return mejorado
-    except Exception as e:
-        logger.error(f"Error en mejorar_audio: {e}")
-        return audio
 
 
 # def procesar_audio_wisper(audio_file, model, progress_bar, ventana):
@@ -368,6 +285,66 @@ def mejorar_audio(audio, lowcut=300, highcut=3000):
 #     }
 
 
+def iniciar_transcripcion_thread(
+    lista_archivos,
+    text_area,
+    archivo_procesando,
+    lista_archivos_paths,
+    transcripcion_resultado,
+    progress_bar,
+    ventana,
+    boton_transcribir,
+    combobox_idioma_salida,
+    checkBox
+):
+    global transcripcion_activa, transcripcion_en_curso
+    from Reproductor import reproductor
+
+    if reproductor.reproduciendo:
+        messagebox.showwarning(
+            "Advertencia",
+            "Hay una reproducción en curso. Por favor, detenga la reproducción antes de transcribir.",
+        )
+        return
+
+    seleccion = lista_archivos.curselection()
+    if not seleccion:
+        messagebox.showwarning("Advertencia", "Seleccione un archivo de audio para transcribir.")
+        transcripcion_en_curso = False
+        return
+
+    if transcripcion_activa:
+        transcripcion_activa = False
+        transcripcion_en_curso = False
+        boton_transcribir.config(text="Transcribir")
+        progress_bar["value"] = 0
+        progress_bar.pack_forget()
+        archivo_procesando.set("")
+
+    else:
+        transcripcion_activa = True
+        transcripcion_en_curso = True
+        boton_transcribir.config(text="Detener Transcripción")
+        progress_bar["value"] = 0
+        progress_bar.pack(pady=5, padx=60, fill=tk.X)
+        threading.Thread(
+            target=iniciar_transcripcion,
+            args=(
+                lista_archivos,
+                text_area,
+                archivo_procesando,
+                lista_archivos_paths,
+                transcripcion_resultado,
+                progress_bar,
+                ventana,
+                boton_transcribir,
+                combobox_idioma_salida,
+                checkBox
+            ),
+            daemon=True,
+        ).start()
+
+
 def iniciar_transcripcion(
     lista_archivos,
     text_area,
@@ -399,7 +376,7 @@ def iniciar_transcripcion(
 
     for index, archivo in enumerate(archivos_seleccionados):
         if not transcripcion_activa:
-            break
+            return None
 
         audio_file = next(key for key, value in lista_archivos_paths.items() if value == archivo)
 
@@ -410,12 +387,14 @@ def iniciar_transcripcion(
             progress_bar["value"] = 0
             ventana.update_idletasks()
 
-            # resultado_wisper_M = procesar_audio_wisper(audio_file, model_M, progress_bar, ventana)
-
             resultado_wisper_M = procesar_audio_whisper_por_fragmentos(audio_file, model_M, progress_bar, ventana)
 
-            checkBox_value = checkBox.get()
-            if checkBox_value:
+            if resultado_wisper_M is None:
+                messagebox.showwarning("Advertencia", "Se detuvo la transcripción .")
+                return
+
+            Traducir = checkBox.get()
+            if Traducir:
                 resultado_wisper_M['transcripcion'] = traducir_texto(resultado_wisper_M['transcripcion'], idioma_salida)
 
             if transcripcion_activa:
@@ -481,14 +460,82 @@ def cargar_modelo_whisper():
         messagebox.showerror("Error", f"No se pudo cargar el modelo Whisper: {e}")
 
 
+# def procesar_audio_whisper_por_fragmentos(audio_file, model, progress_bar, ventana):
+#     filename = os.path.basename(audio_file)
+
+#     # Cargar el audio completo
+#     audio = AudioSegment.from_file(audio_file)
+
+#     # Dividir el audio en fragmentos de duración fija (por ejemplo, 30 segundos)
+#     chunk_duration_ms = 10 * 1000  # 10 segundos en milisegundos
+#     chunks = [audio[i:i + chunk_duration_ms] for i in range(0, len(audio), chunk_duration_ms)]
+#     num_chunks = len(chunks)
+
+#     transcripcion_completa = ""
+#     palabras_totales, inaudibles_totales = 0, 0
+
+#     for idx, chunk in enumerate(chunks):
+
+#         if not transcripcion_activa:
+#             return None
+
+#         # Asegurarse de que el fragmento tenga una tasa de muestreo de 16000 Hz y sea mono
+#         chunk = chunk.set_frame_rate(16000)
+#         chunk = chunk.set_channels(1)
+
+#         # Normalizar el audio
+#         chunk = effects.normalize(chunk)
+
+#         # Obtener los datos de audio del fragmento como un arreglo de NumPy
+#         samples = chunk.get_array_of_samples()
+#         audio_np = np.array(samples).astype(np.float32) / 32768.0  # Convertir a float32 en el rango [-1.0, 1.0]
+
+#         result = model.transcribe(audio_np)
+#         transcribed_text = result['text']
+
+#         # Actualizar la transcripción completa
+#         transcripcion_completa += transcribed_text + "\n"
+
+#         # Actualizar la barra de progreso
+#         progress = ((idx + 1) / num_chunks) * 100
+#         progress_bar["value"] = progress
+#         ventana.update_idletasks()
+
+#     # Calcular estadísticas si lo deseas
+#     palabras_totales = len(transcripcion_completa.split())
+#     inaudibles_totales = transcripcion_completa.count('[inaudible]')
+
+#     # Retornar resultados
+#     return {
+#         "filename": filename,
+#         "archivo": audio_file,
+#         "transcripcion": transcripcion_completa,
+#         "num_chunks": num_chunks,
+#         "inaudibles": inaudibles_totales,
+#         "palabras": palabras_totales
+#     }
+
+
 def procesar_audio_whisper_por_fragmentos(audio_file, model, progress_bar, ventana):
+    global transcripcion_activa
+
     filename = os.path.basename(audio_file)
 
-    # Cargar el audio completo
-    audio = AudioSegment.from_file(audio_file)
+    try:
+        # Leer el archivo de audio en memoria y cerrarlo inmediatamente
+        with open(audio_file, 'rb') as f:
+            audio_bytes = f.read()
+    except Exception as e:
+        logger.error(f"Error al cargar el archivo de audio {audio_file}: {e}")
+        return None
 
-    # Dividir el audio en fragmentos de duración fija (por ejemplo, 30 segundos)
-    chunk_duration_ms = 30 * 1000  # 30 segundos en milisegundos
+    # Crear un AudioSegment desde los bytes en memoria
+    audio = AudioSegment.from_file(io.BytesIO(audio_bytes))
+
+    # Ahora el archivo está cerrado y el audio está en memoria
+
+    # Dividir el audio en fragmentos de duración fija (por ejemplo, 10 segundos)
+    chunk_duration_ms = 10 * 1000  # 10 segundos en milisegundos
     chunks = [audio[i:i + chunk_duration_ms] for i in range(0, len(audio), chunk_duration_ms)]
     num_chunks = len(chunks)
 
@@ -496,30 +543,44 @@ def procesar_audio_whisper_por_fragmentos(audio_file, model, progress_bar, venta
     palabras_totales, inaudibles_totales = 0, 0
 
     for idx, chunk in enumerate(chunks):
-        # Asegurarse de que el fragmento tenga una tasa de muestreo de 16000 Hz y sea mono
-        chunk = chunk.set_frame_rate(16000)
-        chunk = chunk.set_channels(1)
+        if not transcripcion_activa:
+            logger.info("Transcripción detenida por el usuario.")
+            break
 
-        # Normalizar el audio
-        chunk = effects.normalize(chunk)
+        # Procesar el fragmento
+        try:
+            # Preparar el fragmento
+            chunk = chunk.set_frame_rate(16000)
+            chunk = chunk.set_channels(1)
+            chunk = effects.normalize(chunk)
 
-        # Obtener los datos de audio del fragmento como un arreglo de NumPy
-        samples = chunk.get_array_of_samples()
-        audio_np = np.array(samples).astype(np.float32) / 32768.0  # Convertir a float32 en el rango [-1.0, 1.0]
+            # Convertir el fragmento a un arreglo de NumPy
+            samples = chunk.get_array_of_samples()
+            audio_np = np.array(samples).astype(np.float32) / 32768.0  # Convertir a float32 en [-1.0, 1.0]
 
-        # Transcribir el fragmento
-        result = model.transcribe(audio_np)
-        transcribed_text = result['text']
+            # Transcribir el fragmento
+            result = model.transcribe(audio_np)
+            transcribed_text = result['text']
 
-        # Actualizar la transcripción completa
-        transcripcion_completa += transcribed_text + "\n"
+            transcripcion_completa += transcribed_text + "\n"
 
-        # Actualizar la barra de progreso
-        progress = ((idx + 1) / num_chunks) * 100
-        progress_bar["value"] = progress
-        ventana.update_idletasks()
+            # Actualizar la barra de progreso
+            progress = ((idx + 1) / num_chunks) * 100
+            progress_bar["value"] = progress
+            ventana.update_idletasks()
 
-    # Calcular estadísticas si lo deseas
+        except Exception as e:
+            logger.error(f"Error al procesar el fragmento {idx + 1}: {e}")
+            break
+
+    # Liberar referencias
+    del audio
+    del chunks
+
+    if not transcripcion_activa:
+        return None
+
+    # Calcular estadísticas
     palabras_totales = len(transcripcion_completa.split())
     inaudibles_totales = transcripcion_completa.count('[inaudible]')
 

@@ -1,14 +1,14 @@
 import tkinter as tk
 from tkinter import messagebox
 from Interfaz import crear_interfaz, centrar_ventana
-from Config import detectar_y_configurar_proxy, check_dependencies, logger, resource_path
+from Config import *
 from Funcionalidad import cargar_modelo_whisper
 from Reproductor import pygame
 
 
 def main():
     try:
-        detectar_y_configurar_proxy()
+        obtener_configuracion_proxy_windows()
         cargar_modelo_whisper()
         pygame.mixer.init()
         ventana = tk.Tk()
