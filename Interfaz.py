@@ -83,8 +83,8 @@ def crear_interfaz(ventana):
             ventana,
             boton_transcribir,
             combobox_idioma_salida,
-            check_idioma_salida_var
-        ),
+            check_idioma_salida_var,
+            combobox_modelo),
     )
     boton_transcribir.pack(side=tk.LEFT, padx=5)
 
@@ -115,30 +115,53 @@ def crear_interfaz(ventana):
     )
     progress_bar.pack_forget()
 
-    # frame_idioma_entrada = tk.Frame(ventana)
-    # frame_idioma_entrada.pack(side=tk.TOP, pady=5)
+    MODELOS_WHISPER = ["tiny", "base", "small", "medium"]
 
-    # label_idioma_entrada = tk.Label(frame_idioma_entrada, text=" Idioma de Entrada:")
-    # label_idioma_entrada.pack(side=tk.LEFT, padx=10)
+    frame_modelo = tk.Frame(ventana)
+    frame_modelo.pack(side=tk.TOP, pady=5)
+    label_modelo_entrada = tk.Label(frame_modelo, text="Modelo:")
+    label_modelo_entrada.pack(side=tk.LEFT, padx=5)
 
-    # combobox_idioma_entrada = ttk.Combobox(
-    #     frame_idioma_entrada, values=list(idiomas.keys()), state="readonly"
+    combobox_modelo = ttk.Combobox(
+        frame_modelo,
+        values=MODELOS_WHISPER,
+        state="readonly"
+    )
+    combobox_modelo.set("small")
+    combobox_modelo.pack(side=tk.LEFT, padx=5)
+
+    # frame_idioma_salida = tk.Frame(ventana)
+    # frame_idioma_salida.pack(side=tk.TOP, pady=5)
+
+    # check_idioma_salida_var = tk.BooleanVar()
+    # check_idioma_salida = tk.Checkbutton(frame_idioma_salida, text="Traducir:", variable=check_idioma_salida_var)
+    # check_idioma_salida.pack(side=tk.LEFT, padx=5)
+
+    # combobox_idioma_salida = ttk.Combobox(
+    #     frame_idioma_salida, values=list(idiomas.keys()), state="readonly",
     # )
-    # combobox_idioma_entrada.set("Spanish")
-    # combobox_idioma_entrada.pack(side=tk.LEFT, padx=10)
+    # combobox_idioma_salida.set("Spanish")
+    # combobox_idioma_salida.pack(side=tk.LEFT, padx=5)
 
     frame_idioma_salida = tk.Frame(ventana)
     frame_idioma_salida.pack(side=tk.TOP, pady=5)
 
     check_idioma_salida_var = tk.BooleanVar()
-    check_idioma_salida = tk.Checkbutton(frame_idioma_salida, text="Traducir:", variable=check_idioma_salida_var)
-    check_idioma_salida.pack(side=tk.LEFT, padx=10)
+    check_idioma_salida = tk.Checkbutton(
+        frame_idioma_salida,
+        text="Traducir:",
+        variable=check_idioma_salida_var,
+        command=lambda: toggle_traduccion(check_idioma_salida_var, combobox_idioma_salida)
+    )
+    check_idioma_salida.pack(side=tk.LEFT, padx=5)
 
     combobox_idioma_salida = ttk.Combobox(
-        frame_idioma_salida, values=list(idiomas.keys()), state="readonly"
+        frame_idioma_salida,
+        values=list(idiomas.keys()),
+        state="disabled"  # Inicialmente deshabilitado
     )
     combobox_idioma_salida.set("Spanish")
-    combobox_idioma_salida.pack(side=tk.LEFT, padx=10)
+    combobox_idioma_salida.pack(side=tk.LEFT, padx=5)
 
     frame_reproduccion = tk.Frame(ventana)
     frame_reproduccion.pack(side=tk.TOP, pady=5)
@@ -237,3 +260,10 @@ def activar_boton_borrar(event, boton_borrar):
 def borrar_y_actualizar(lista_archivos, lista_archivos_paths, boton_borrar):
     if borrar_archivo(lista_archivos, lista_archivos_paths):
         boton_borrar.config(state="disabled")
+
+
+def toggle_traduccion(check_var, combobox):
+    if check_var.get():
+        combobox.config(state="readonly")
+    else:
+        combobox.config(state="disabled")

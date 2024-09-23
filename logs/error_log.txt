@@ -713,3 +713,114 @@
 2024-09-23 05:59:16,275 - Config - INFO - Configuración inicial completada
 2024-09-23 05:59:36,301 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA2.wav
 2024-09-23 06:00:01,572 - Config - INFO - Procesando archivo: D:/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA1.wav
+2024-09-23 12:33:31,115 - Config - INFO - Configuración inicial completada
+2024-09-23 12:34:33,640 - Config - INFO - Configuración inicial completada
+2024-09-23 12:35:27,293 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA (1).aac
+2024-09-23 13:06:31,773 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 13:16:38,128 - Config - INFO - Configuración inicial completada
+2024-09-23 13:19:31,476 - Config - INFO - Configuración inicial completada
+2024-09-23 13:20:11,438 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 13:22:16,003 - Config - INFO - Configuración inicial completada
+2024-09-23 13:22:36,216 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 13:25:18,135 - Config - INFO - Configuración inicial completada
+2024-09-23 13:25:38,002 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 13:31:53,978 - Config - INFO - Configuración inicial completada
+2024-09-23 13:33:29,414 - Config - ERROR - Error al procesar el archivo C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav: Decoding failed. ffmpeg returned error code: 3199971767
+
+Output from ffmpeg/avlib:
+
+ffmpeg version 2024-06-13-git-0060a368b1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 13.2.0 (Rev5, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      59. 21.100 / 59. 21.100
+  libavcodec     61.  7.100 / 61.  7.100
+  libavformat    61.  3.104 / 61.  3.104
+  libavdevice    61.  2.100 / 61.  2.100
+  libavfilter    10.  2.102 / 10.  2.102
+  libswscale      8.  2.100 /  8.  2.100
+  libswresample   5.  2.100 /  5.  2.100
+  libpostproc    58.  2.100 / 58.  2.100
+[in#0 @ 0000012ce1264440] Error opening input: Invalid data found when processing input
+Error opening input file -.
+Error opening input files: Invalid data found when processing input
+
+2024-09-23 13:45:22,770 - Config - INFO - Configuración inicial completada
+2024-09-23 13:49:45,155 - Config - INFO - Configuración inicial completada
+2024-09-23 13:53:38,193 - Config - INFO - Configuración inicial completada
+2024-09-23 13:54:06,808 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 14:05:39,197 - Config - INFO - Configuración inicial completada
+2024-09-23 14:06:02,888 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 15:17:16,986 - Config - INFO - Configuración inicial completada
+2024-09-23 15:17:50,806 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 15:30:10,913 - Config - INFO - Configuración inicial completada
+2024-09-23 15:30:25,722 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 15:34:09,343 - Config - INFO - Configuración inicial completada
+2024-09-23 15:34:42,452 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 15:34:42,494 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 15:46:06,063 - Config - INFO - Configuración inicial completada
+2024-09-23 15:46:19,283 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 15:46:19,307 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 15:48:15,112 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 15:48:15,121 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 15:50:02,045 - Config - INFO - Configuración inicial completada
+2024-09-23 15:50:26,270 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 15:50:26,285 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 15:57:40,043 - Config - INFO - Configuración inicial completada
+2024-09-23 16:01:13,526 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:01:13,556 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 16:02:10,619 - Config - INFO - Configuración inicial completada
+2024-09-23 16:03:11,255 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:03:11,273 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 16:04:32,911 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:04:32,927 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-23 16:08:31,841 - Config - INFO - Configuración inicial completada
+2024-09-23 16:11:20,052 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:11:20,072 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 16:13:05,150 - Config - INFO - Configuración inicial completada
+2024-09-23 16:13:17,239 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:13:17,256 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 16:13:43,268 - Config - INFO - Configuración inicial completada
+2024-09-23 16:14:21,427 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:14:21,450 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 16:15:28,847 - Config - INFO - Configuración inicial completada
+2024-09-23 16:16:30,315 - Config - INFO - Configuración inicial completada
+2024-09-23 16:16:43,821 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:16:43,842 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 16:17:27,173 - Config - INFO - Configuración inicial completada
+2024-09-23 16:17:58,826 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:17:58,839 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 16:20:15,419 - Config - INFO - Configuración inicial completada
+2024-09-23 16:20:53,246 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:20:53,265 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 16:22:08,622 - Config - INFO - Configuración inicial completada
+2024-09-23 16:23:08,919 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:23:08,935 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 16:25:31,654 - Config - INFO - Configuración inicial completada
+2024-09-23 16:25:50,816 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:25:50,844 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 16:29:05,017 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:29:05,036 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 16:36:01,662 - Config - INFO - Configuración inicial completada
+2024-09-23 16:37:53,763 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:37:53,781 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 16:43:01,170 - Config - INFO - Configuración inicial completada
+2024-09-23 16:43:33,317 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:43:33,333 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 16:44:31,861 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335566.wav
+2024-09-23 16:47:41,468 - Config - INFO - Configuración inicial completada
+2024-09-23 16:48:28,189 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:48:28,221 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 16:49:07,164 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335566.wav
+2024-09-23 16:56:57,338 - Config - INFO - Configuración inicial completada
+2024-09-23 16:57:16,895 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 16:57:16,922 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 16:57:58,121 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335566.wav
+2024-09-23 17:10:00,420 - Config - INFO - Configuración inicial completada
+2024-09-23 17:10:57,006 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-23 17:10:57,030 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 17:11:53,455 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335566.wav
+2024-09-23 17:14:35,449 - Config - INFO - Configuración inicial completada
+2024-09-23 17:14:49,615 - Config - INFO - Configuración inicial completada
+2024-09-23 17:15:44,912 - Config - INFO - Modelo Whisper 'tiny' cargado correctamente.
+2024-09-23 17:15:44,933 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-23 17:16:41,398 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335566.wav
