@@ -14,9 +14,10 @@ import contextlib
 import time
 from Config import *
 from pydub import AudioSegment
-from Config import logger
 from tkinter import messagebox, filedialog
 import numpy as np
+
+idiomas_alrevez = {v.capitalize(): k for k, v in LANGUAGES.items()}
 
 
 def convertir_a_wav(audio_path):
@@ -80,60 +81,27 @@ def obtener_duracion_audio(ruta_archivo):
     return 0
 
 
-# def traducir_texto(texto, idioma_salida):
-#     try:
-#         if check_proxy() == "Proxy configurado:":
-#             proxy_config = {
-#                 "http": "http://proxy.psa.gob.ar:3128",
-#                 "https": "http://proxy.psa.gob.ar:3128",
-#             }
-#             translator = Translator(proxies=proxy_config)
-#         else:
-#             translator = Translator()
-
-#         traduccion = translator.translate(texto, dest=idioma_salida)
-#         if traduccion:
-#             logger.info(f"Texto traducido: {traduccion.text}")
-#             return traduccion.text
-#         else:
-#             logger.error("La traducción devolvió un resultado vacío.")
-#             return f"Error al traducir el texto."
-#     except Exception as e:
-#         logger.error(f"Error al traducir texto: {e}")
-#         return f"Error al traducir texto: {e}"
-
-
 def traducir_texto(texto, idioma_salida):
     try:
-        proxy = obtener_configuracion_proxy_windows()
-        print(proxy)
-        if proxy:
-            os.environ['http_proxy'] = f"http://{proxy}"
-            os.environ['https_proxy'] = f"http://{proxy}"
-            translator = Translator(proxies={'http': f"http://{proxy}", 'https': f"http://{proxy}"})
+        if check_proxy() == "Proxy configurado:":
+            proxy_config = {
+                "http": "http://proxy.psa.gob.ar:3128",
+                "https": "http://proxy.psa.gob.ar:3128",
+            }
+            translator = Translator(proxies=proxy_config)
         else:
             translator = Translator()
 
-        logger.info(f"Intentando traducir texto de longitud {len(texto)} a {idioma_salida}")
-
-        # Verificar si el idioma de salida es válido
-        if idioma_salida not in LANGUAGES.values():
-            logger.error(f"Idioma de salida no válido: {idioma_salida}")
-            return f"Error: Idioma de salida no válido ({idioma_salida})"
-
         traduccion = translator.translate(texto, dest=idioma_salida)
-        if traduccion and traduccion.text:
-            logger.info("Traducción exitosa")
+        if traduccion:
+            logger.info(f"Texto traducido: {traduccion.text}")
             return traduccion.text
         else:
-            logger.error("La traducción devolvió un resultado vacío")
-            return "Error: No se pudo obtener una traducción."
-    except AttributeError as e:
-        logger.error(f"Error de atributo al traducir: {str(e)}")
-        return f"Error de configuración en la traducción: {str(e)}"
+            logger.error("La traducción devolvió un resultado vacío.")
+            return f"Error al traducir el texto."
     except Exception as e:
-        logger.error(f"Error detallado al traducir texto: {str(e)}")
-        return f"Error al traducir texto: {str(e)}"
+        logger.error(f"Error al traducir texto: {e}")
+        return f"Error al traducir texto: {e}"
 
 
 def seleccionar_archivos(lista_archivos, lista_archivos_paths):
@@ -254,90 +222,6 @@ def contar_palabras_y_inaudibles(texto):
     return palabras_sin_inaudibles, inaudibles
 
 
-def iniciar_transcripcion(
-    lista_archivos,
-    text_area,
-    archivo_procesando,
-    lista_archivos_paths,
-    transcripcion_resultado,
-    progress_bar,
-    ventana,
-    boton_transcribir,
-    combobox_idioma_salida,
-    checkBox,
-):
-
-    global transcripcion_en_curso
-
-    try:
-        seleccion = lista_archivos.curselection()
-        if not seleccion:
-            messagebox.showwarning("Advertencia", "Por favor, seleccione al menos un archivo para transcribir.")
-            return
-
-        archivos_seleccionados = [lista_archivos.get(i) for i in seleccion]
-        total_archivos = len(archivos_seleccionados)
-
-        idioma_salida = idiomas[combobox_idioma_salida.get()]
-
-        transcripcion_en_curso = True
-        boton_transcribir.config(text="Detener Transcripción")
-        progress_bar.pack(pady=5, padx=60, fill=tk.X)
-
-        for index, archivo in enumerate(archivos_seleccionados):
-
-            if not transcripcion_en_curso:
-                break
-            audio_file = next(key for key, value in lista_archivos_paths.items() if value == archivo)
-
-            archivo_procesando.set(f"Procesando: {archivo} ({index + 1}/{total_archivos})")
-            logger.info(f"Procesando archivo: {audio_file}")
-
-            try:
-                progress_bar["value"] = 0
-                ventana.update_idletasks()
-
-                resultado_wisper_M = procesar_audio_whisper_por_fragmentos(
-                    audio_file, model_whisper, progress_bar, ventana, archivo_procesando)
-
-                if resultado_wisper_M is None:
-                    messagebox.showwarning("Advertencia", "Se detuvo la transcripción.")
-                    break
-
-                Traducir = checkBox.get()
-                if Traducir:
-                    resultado_wisper_M['transcripcion'] = traducir_texto(resultado_wisper_M['transcripcion'], idioma_salida)
-
-                if transcripcion_en_curso:
-                    texto_transcrito = ajustar_texto_sencillo(resultado_wisper_M['transcripcion'])
-                    nuevo_texto = f"Transcripción {archivo}: \n{texto_transcrito} \n\nPalabras: {resultado_wisper_M['palabras']} \nInaudibles: {resultado_wisper_M['inaudibles']}\n\n"
-                    text_area.insert(tk.END, nuevo_texto)
-                    text_area.see(tk.END)
-
-                progress_bar["value"] = ((index + 1) / total_archivos) * 100
-                ventana.update_idletasks()
-
-            except Exception as e:
-                logger.error(f"Error al procesar el archivo {archivo}: {e}")
-                messagebox.showerror("Error", f"Error al procesar el archivo {archivo}: {e}")
-
-        archivo_procesando.set("")
-
-        if transcripcion_en_curso:
-            messagebox.showinfo("Información", f"Transcripción completa para {total_archivos} archivo(s).")
-
-    except Exception as e:
-        logger.error(f"Error durante la transcripción: {e}")
-        messagebox.showerror("Error", f"Ocurrió un error durante la transcripción: {e}")
-
-    finally:
-        transcripcion_en_curso = False
-        boton_transcribir.config(text="Transcribir")
-        progress_bar.pack_forget()
-        progress_bar["value"] = 0
-        archivo_procesando.set("")
-
-
 def cargar_modelo_whisper(modelo_seleccionado):
     try:
         whisper_root = resource_path("whisper")
@@ -371,6 +255,7 @@ def iniciar_transcripcion_thread(
     progress_bar,
     ventana,
     boton_transcribir,
+    combobox_idioma_entrada,
     combobox_idioma_salida,
     checkBox,
     combobox_modelo
@@ -420,6 +305,7 @@ def iniciar_transcripcion_thread(
                 progress_bar,
                 ventana,
                 boton_transcribir,
+                combobox_idioma_entrada,
                 combobox_idioma_salida,
                 checkBox,
             ),
@@ -488,3 +374,191 @@ def procesar_audio_whisper_por_fragmentos(audio_file, model, progress_bar, venta
     except Exception as e:
         logger.error(f"Error al procesar el archivo de audio {audio_file}: {e}")
         return None
+
+
+def dividir_audio_por_fragmentos(audio_path, duracion_fragmento_s=30):
+    """
+    Divide un archivo de audio en fragmentos de la duración especificada.
+
+    :param audio_path: Ruta al archivo de audio
+    :param duracion_fragmento_s: Duración de cada fragmento en segundos (por defecto 30 segundos)
+    :return: Lista de fragmentos de audio y sus tiempos de inicio
+    """
+    audio = AudioSegment.from_file(audio_path)
+    fragmentos = []
+    tiempos_inicio = []
+
+    duracion_fragmento_ms = duracion_fragmento_s * 1000  # Convertir segundos a milisegundos
+
+    for i in range(0, len(audio), duracion_fragmento_ms):
+        fragmento = audio[i:i + duracion_fragmento_ms]
+        fragmentos.append(fragmento)
+        tiempos_inicio.append(i / 1000.0)  # Ya está en segundos
+
+    return fragmentos, tiempos_inicio
+
+
+def procesar_audio_por_fragmentos_whisper(audio_file, model, progress_bar, ventana, archivo_procesando, idioma_entrada):
+    """
+    Procesa el archivo de audio en fragmentos, transcribiendo cada fragmento y detectando el idioma automáticamente.
+
+    :param audio_file: Ruta al archivo de audio
+    :param model: Modelo Whisper cargado
+    :return: Transcripción completa uniendo los fragmentos y los idiomas detectados
+    """
+    fragmentos, tiempos_inicio = dividir_audio_por_fragmentos(audio_file)
+    transcripcion_completa = ""
+    segmentos_totales = []
+
+    for idx, (fragmento, inicio_fragmento) in enumerate(zip(fragmentos, tiempos_inicio)):
+        fragmento_filename = f"temp_fragmento_{idx}.wav"
+        try:
+            fragmento.export(fragmento_filename, format="wav")  # Exportamos el fragmento a un archivo temporal
+
+            # Transcribir sin especificar 'language' para detección automática
+            result = model.transcribe(fragmento_filename, fp16=False, language=idioma_entrada)
+
+            # Iterar sobre los segmentos transcritos
+            for segment in result['segments']:
+                # Ajustar los tiempos de inicio y fin al tiempo global del audio
+                segment_start = segment['start'] + inicio_fragmento
+                segment_end = segment['end'] + inicio_fragmento
+                segment_text = segment['text']
+
+                # Agregar el segmento a la lista total de segmentos
+                segmentos_totales.append({
+                    'start': segment_start,
+                    'end': segment_end,
+                    'text': segment_text,
+                })
+
+                transcripcion_completa += segment_text + " "
+
+        except Exception as e:
+            logger.error(f"Error al procesar el fragmento {idx}: {e}")
+        finally:
+            if os.path.exists(fragmento_filename):
+                os.remove(fragmento_filename)  # Asegurar la eliminación del archivo temporal
+
+        # Actualizar la barra de progreso
+        progress = ((idx + 1) / len(fragmentos)) * 100
+        progress_bar["value"] = progress
+        ventana.update_idletasks()
+
+    # Calcular estadísticas
+    palabras_totales = len(transcripcion_completa.split())
+    inaudibles_totales = transcripcion_completa.count('[inaudible]')
+
+    return {
+        "filename": os.path.basename(audio_file),
+        "archivo": audio_file,
+        "transcripcion": transcripcion_completa,
+        "num_chunks": len(fragmentos),
+        "inaudibles": inaudibles_totales,
+        "palabras": palabras_totales,
+        "segmentos": segmentos_totales
+    }
+
+
+def format_time(seconds):
+    return time.strftime('%H:%M:%S', time.gmtime(seconds))
+
+
+def iniciar_transcripcion(
+    lista_archivos,
+    text_area,
+    archivo_procesando,
+    lista_archivos_paths,
+    transcripcion_resultado,
+    progress_bar,
+    ventana,
+    boton_transcribir,
+    combobox_idioma_entrada,
+    combobox_idioma_salida,
+    checkBox,
+):
+    """
+    Función principal para manejar la transcripción de audio usando Whisper.
+    Procesa los archivos de audio seleccionados en la interfaz, actualiza la barra de progreso
+    y muestra la transcripción con los idiomas detectados.
+    """
+
+    global transcripcion_en_curso
+    seleccion = lista_archivos.curselection()
+
+    if not seleccion:
+        messagebox.showwarning("Advertencia", "Por favor, seleccione al menos un archivo para transcribir.")
+        return
+
+    archivos_seleccionados = [lista_archivos.get(i) for i in seleccion]
+    total_archivos = len(archivos_seleccionados)
+
+    transcripcion_en_curso = True
+    boton_transcribir.config(text="Detener Transcripción")
+    progress_bar.pack(pady=5, padx=60, fill=tk.X)
+    idioma_entrada = idiomas.get(combobox_idioma_entrada.get())
+
+    for index, archivo in enumerate(archivos_seleccionados):
+
+        if not transcripcion_en_curso:
+            break
+        audio_file = next(key for key, value in lista_archivos_paths.items() if value == archivo)
+
+        archivo_procesando.set(f"Procesando: {archivo} ({index + 1}/{total_archivos})")
+        logger.info(f"Procesando archivo: {audio_file}")
+
+        try:
+            progress_bar["value"] = 0
+            ventana.update_idletasks()
+
+            # Procesar el archivo por fragmentos y obtener la transcripción y los idiomas detectados
+            resultado_wisper_M = procesar_audio_por_fragmentos_whisper(
+                audio_file, model_whisper, progress_bar, ventana, archivo_procesando, idioma_entrada)
+
+            if resultado_wisper_M is None:
+                messagebox.showwarning("Advertencia", "Se detuvo la transcripción.")
+                break
+
+            Traducir = checkBox.get()
+            if Traducir:
+                idioma_salida = idiomas.get(combobox_idioma_salida.get())
+                resultado_wisper_M['transcripcion'] = traducir_texto(resultado_wisper_M['transcripcion'], idioma_salida)
+
+            # Usar el diccionario para obtener nombres de idiomas
+            # idiomas_detectados = [idiomas_alrevez.get(codigo, codigo) for codigo in resultado_wisper_M['idiomas_detectados']]
+            # idiomas_str = ', '.join(idiomas_detectados)
+
+            # Construir el texto transcrito con tiempos
+            texto_transcrito_con_tiempos = ""
+            for segment in resultado_wisper_M['segmentos']:
+                start_time = format_time(segment['start'])
+                end_time = format_time(segment['end'])
+                # language_name = idiomas_alrevez.get(segment['language'], segment['language'])
+                texto_transcrito_con_tiempos += f"[{start_time}-{end_time}]: {segment['text']}\n"
+
+            # Agregar información de idiomas detectados al texto transcrito
+            nuevo_texto = f"Transcripción {archivo}:\n\n{texto_transcrito_con_tiempos}\nPalabras: {resultado_wisper_M['palabras']}\nInaudibles: {resultado_wisper_M['inaudibles']}\n\n"
+
+            text_area.insert(tk.END, nuevo_texto)
+            text_area.see(tk.END)
+
+            # Actualizar barra de progreso para cada archivo
+            progress_bar["value"] = ((index + 1) / total_archivos) * 100
+            ventana.update_idletasks()
+
+        except Exception as e:
+            logger.error(f"Error al procesar el archivo {archivo}: {e}")
+            messagebox.showerror("Error", f"Error al procesar el archivo {archivo}: {e}")
+
+    # Limpiar el estado de la interfaz una vez finalizada la transcripción
+    archivo_procesando.set("")
+
+    if transcripcion_en_curso:
+        messagebox.showinfo("Información", f"Transcripción completa para {total_archivos} archivo(s).")
+
+    # Restaurar el estado inicial de los botones y la barra de progreso
+    transcripcion_en_curso = False
+    boton_transcribir.config(text="Transcribir")
+    progress_bar.pack_forget()
+    progress_bar["value"] = 0
+    archivo_procesando.set("")

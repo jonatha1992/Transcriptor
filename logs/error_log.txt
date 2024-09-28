@@ -825,3 +825,306 @@ Error opening input files: Invalid data found when processing input
 2024-09-23 17:15:44,933 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
 2024-09-23 17:16:41,398 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335566.wav
 2024-09-23 18:15:07,276 - Config - INFO - Configuración inicial completada
+2024-09-24 08:26:24,294 - Config - INFO - Configuración inicial completada
+2024-09-24 11:52:03,474 - Config - INFO - Configuración inicial completada
+2024-09-24 11:52:04,124 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 11:53:00,004 - Config - INFO - Configuración inicial completada
+2024-09-24 11:53:00,729 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 11:53:41,895 - Config - INFO - Configuración inicial completada
+2024-09-24 11:53:42,566 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 11:54:18,345 - Config - INFO - Configuración inicial completada
+2024-09-24 11:54:19,015 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 12:25:02,490 - Config - INFO - Configuración inicial completada
+2024-09-24 12:25:03,200 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 13:22:25,221 - Config - INFO - Configuración inicial completada
+2024-09-24 13:22:25,874 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 13:23:55,507 - Config - INFO - Configuración inicial completada
+2024-09-24 13:23:56,177 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 13:32:40,190 - Config - INFO - Configuración inicial completada
+2024-09-24 13:32:40,900 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 13:34:37,008 - Config - INFO - Configuración inicial completada
+2024-09-24 13:34:37,647 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 13:35:54,358 - Config - INFO - Configuración inicial completada
+2024-09-24 13:35:55,161 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 13:38:02,738 - Config - INFO - Configuración inicial completada
+2024-09-24 13:38:03,398 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 13:50:53,005 - Config - INFO - Configuración inicial completada
+2024-09-24 13:51:05,713 - Config - INFO - Configuración inicial completada
+2024-09-24 13:51:06,390 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 13:52:24,356 - Config - INFO - Configuración inicial completada
+2024-09-24 13:52:25,224 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 13:53:09,294 - Config - INFO - Configuración inicial completada
+2024-09-24 13:53:10,054 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 13:53:45,868 - Config - INFO - Configuración inicial completada
+2024-09-24 13:53:46,576 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 13:54:06,055 - Config - INFO - Configuración inicial completada
+2024-09-24 13:54:06,732 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 14:00:19,976 - Config - INFO - Configuración inicial completada
+2024-09-24 14:00:20,694 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 14:01:15,318 - Config - INFO - Configuración inicial completada
+2024-09-24 14:01:15,923 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 14:02:33,632 - Config - INFO - Configuración inicial completada
+2024-09-24 14:02:34,484 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-24 14:03:55,194 - Config - INFO - Configuración inicial completada
+2024-09-24 14:03:55,805 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-25 16:31:35,955 - Config - INFO - Configuración inicial completada
+2024-09-25 16:31:37,720 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-25 16:35:11,600 - Config - INFO - Modelo Whisper 'medium' cargado correctamente.
+2024-09-25 16:35:11,608 - Config - INFO - Procesando archivo: E:/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-26 08:50:44,428 - Config - INFO - Configuración inicial completada
+2024-09-26 08:50:46,528 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 08:52:43,543 - Config - INFO - Configuración inicial completada
+2024-09-26 08:52:44,149 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 08:57:07,933 - Config - INFO - Configuración inicial completada
+2024-09-26 09:00:18,312 - Config - INFO - Configuración inicial completada
+2024-09-26 09:00:19,252 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 09:05:42,449 - Config - INFO - Configuración inicial completada
+2024-09-26 09:05:43,268 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 09:26:00,476 - Config - INFO - Configuración inicial completada
+2024-09-26 09:26:01,190 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 09:29:03,519 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 09:31:06,185 - Config - INFO - Configuración inicial completada
+2024-09-26 09:31:06,945 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 09:31:20,024 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 09:39:07,568 - Config - INFO - Configuración inicial completada
+2024-09-26 09:39:08,298 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 09:39:39,149 - Config - INFO - Configuración inicial completada
+2024-09-26 09:39:40,068 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 09:39:54,681 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 09:39:54,705 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-26 09:43:48,798 - Config - INFO - Configuración inicial completada
+2024-09-26 09:43:49,500 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 09:43:59,982 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 09:44:09,524 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-26 11:47:34,856 - Config - INFO - Configuración inicial completada
+2024-09-26 11:48:16,669 - Config - INFO - Configuración inicial completada
+2024-09-26 11:48:18,531 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 11:48:32,890 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 11:48:32,917 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-26 11:52:06,809 - Config - INFO - Configuración inicial completada
+2024-09-26 11:52:07,164 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 11:53:36,118 - Config - INFO - Configuración inicial completada
+2024-09-26 11:53:37,160 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 11:53:49,920 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 11:53:49,933 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-26 11:54:46,295 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 11:54:46,310 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-26 12:14:46,824 - Config - ERROR - Error al procesar el archivo B-11016-2020-05-22-162737-3.wav (05:48): cannot access local variable 'idiomas' where it is not associated with a value
+2024-09-26 12:15:48,647 - Config - ERROR - Error al procesar el archivo B-11016-2020-05-22-162737-3.wav (05:48): cannot access local variable 'idiomas' where it is not associated with a value
+2024-09-26 12:19:33,701 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 12:19:33,722 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-09-26 12:20:29,791 - Config - ERROR - Error al procesar el archivo INGLES_PRESENTACION.m4a (00:38): cannot access local variable 'idiomas' where it is not associated with a value
+2024-09-26 12:21:33,008 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 12:21:33,031 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-09-26 12:27:52,759 - Config - INFO - Configuración inicial completada
+2024-09-26 12:27:53,930 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 12:28:11,704 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 12:28:17,707 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-09-26 12:29:21,616 - Config - ERROR - Error al procesar el archivo INGLES_PRESENTACION.m4a (00:38): cannot access local variable 'idiomas' where it is not associated with a value
+2024-09-26 12:35:28,397 - Config - INFO - Configuración inicial completada
+2024-09-26 12:35:29,003 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 12:36:38,921 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 12:36:43,060 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-09-26 13:15:22,286 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 13:15:22,293 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-26 14:59:09,666 - Config - INFO - Configuración inicial completada
+2024-09-26 14:59:10,300 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 14:59:34,508 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 14:59:34,532 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-26 14:59:43,228 - Config - ERROR - Error al procesar el fragmento 0: DecodingOptions.__init__() got an unexpected keyword argument 'return_segments'
+2024-09-26 14:59:51,033 - Config - ERROR - Error al procesar el fragmento 1: DecodingOptions.__init__() got an unexpected keyword argument 'return_segments'
+2024-09-26 14:59:58,859 - Config - ERROR - Error al procesar el fragmento 2: DecodingOptions.__init__() got an unexpected keyword argument 'return_segments'
+2024-09-26 15:00:05,868 - Config - ERROR - Error al procesar el fragmento 3: DecodingOptions.__init__() got an unexpected keyword argument 'return_segments'
+2024-09-26 15:00:12,902 - Config - ERROR - Error al procesar el fragmento 4: DecodingOptions.__init__() got an unexpected keyword argument 'return_segments'
+2024-09-26 15:00:20,021 - Config - ERROR - Error al procesar el fragmento 5: DecodingOptions.__init__() got an unexpected keyword argument 'return_segments'
+2024-09-26 15:00:28,756 - Config - ERROR - Error al procesar el fragmento 6: DecodingOptions.__init__() got an unexpected keyword argument 'return_segments'
+2024-09-26 15:00:36,165 - Config - ERROR - Error al procesar el fragmento 7: DecodingOptions.__init__() got an unexpected keyword argument 'return_segments'
+2024-09-26 15:00:43,870 - Config - ERROR - Error al procesar el fragmento 8: DecodingOptions.__init__() got an unexpected keyword argument 'return_segments'
+2024-09-26 15:00:50,900 - Config - ERROR - Error al procesar el fragmento 9: DecodingOptions.__init__() got an unexpected keyword argument 'return_segments'
+2024-09-26 15:00:58,250 - Config - ERROR - Error al procesar el fragmento 10: DecodingOptions.__init__() got an unexpected keyword argument 'return_segments'
+2024-09-26 15:01:06,201 - Config - ERROR - Error al procesar el fragmento 11: DecodingOptions.__init__() got an unexpected keyword argument 'return_segments'
+2024-09-26 15:12:11,630 - Config - INFO - Configuración inicial completada
+2024-09-26 15:12:12,280 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 15:12:22,695 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 15:12:22,718 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-26 15:12:57,274 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:12:57,276 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:12:57,277 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:12:57,277 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:12:57,278 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:12:57,279 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:12:57,280 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:12:57,281 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:12:57,282 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:12:57,283 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:13:33,092 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'None' en fragmento 1
+2024-09-26 15:13:33,093 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'None' en fragmento 1
+2024-09-26 15:13:33,095 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'None' en fragmento 1
+2024-09-26 15:13:33,096 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'None' en fragmento 1
+2024-09-26 15:13:33,097 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'None' en fragmento 1
+2024-09-26 15:13:33,099 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'None' en fragmento 1
+2024-09-26 15:13:33,100 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'None' en fragmento 1
+2024-09-26 15:13:33,101 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'None' en fragmento 1
+2024-09-26 15:13:33,102 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'None' en fragmento 1
+2024-09-26 15:16:28,905 - Config - INFO - Configuración inicial completada
+2024-09-26 15:16:29,501 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 15:16:55,925 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 15:16:55,945 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-26 15:17:31,386 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:17:31,387 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:17:31,388 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:17:31,389 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:17:31,391 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:17:31,392 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:17:31,392 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:17:31,393 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:17:31,395 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:17:31,396 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'None' en fragmento 0
+2024-09-26 15:18:47,588 - Config - INFO - Configuración inicial completada
+2024-09-26 15:18:48,144 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 15:19:08,813 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 15:19:11,229 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-26 15:20:01,439 - Config - INFO - Configuración inicial completada
+2024-09-26 15:20:01,988 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 15:20:12,307 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 15:20:12,335 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-26 15:20:53,245 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:20:53,246 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:20:53,247 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:20:53,248 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:20:53,249 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:20:53,250 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:20:53,250 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:20:53,252 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:20:53,253 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:20:53,254 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:21:24,686 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:21:24,687 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:21:24,688 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:21:24,689 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:21:24,691 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:21:24,692 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:21:24,693 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:21:24,694 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:21:24,695 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:26:22,864 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 4
+2024-09-26 15:26:22,867 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 4
+2024-09-26 15:26:22,868 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 4
+2024-09-26 15:26:22,869 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 4
+2024-09-26 15:26:22,870 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 4
+2024-09-26 15:26:22,872 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 4
+2024-09-26 15:26:22,873 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 4
+2024-09-26 15:26:22,875 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 4
+2024-09-26 15:26:22,876 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 4
+2024-09-26 15:26:22,877 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 4
+2024-09-26 15:26:22,878 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 4
+2024-09-26 15:26:22,881 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 4
+2024-09-26 15:38:39,625 - Config - INFO - Configuración inicial completada
+2024-09-26 15:38:40,258 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 15:39:05,736 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 15:39:05,781 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-26 15:39:44,069 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:39:44,070 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:39:44,071 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:39:44,072 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:39:44,072 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:39:44,073 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:39:44,074 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:39:44,075 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:39:44,076 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:39:44,078 - Config - WARNING - Idioma detectado 'ar' es diferente al idioma esperado 'es' en fragmento 0
+2024-09-26 15:40:13,182 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:40:13,184 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:40:13,185 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:40:13,186 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:40:13,186 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:40:13,188 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:40:13,189 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:40:13,190 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:40:13,191 - Config - WARNING - Idioma detectado 'it' es diferente al idioma esperado 'es' en fragmento 1
+2024-09-26 15:51:27,624 - Config - INFO - Configuración inicial completada
+2024-09-26 15:51:28,422 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 15:51:47,035 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 15:51:47,066 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-26 15:51:56,366 - Config - ERROR - Error al procesar el fragmento 0: DecodingOptions.__init__() got an unexpected keyword argument 'lenguaje'
+2024-09-26 15:52:06,037 - Config - ERROR - Error al procesar el fragmento 1: DecodingOptions.__init__() got an unexpected keyword argument 'lenguaje'
+2024-09-26 15:52:14,303 - Config - ERROR - Error al procesar el fragmento 2: DecodingOptions.__init__() got an unexpected keyword argument 'lenguaje'
+2024-09-26 15:52:48,102 - Config - INFO - Configuración inicial completada
+2024-09-26 15:52:52,473 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 15:53:06,278 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 15:53:06,296 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-26 15:53:14,364 - Config - ERROR - Error al procesar el fragmento 0: DecodingOptions.__init__() got an unexpected keyword argument 'lenguaje'
+2024-09-26 15:53:21,764 - Config - ERROR - Error al procesar el fragmento 1: DecodingOptions.__init__() got an unexpected keyword argument 'lenguaje'
+2024-09-26 15:53:31,141 - Config - ERROR - Error al procesar el fragmento 2: DecodingOptions.__init__() got an unexpected keyword argument 'lenguaje'
+2024-09-26 15:53:41,960 - Config - ERROR - Error al procesar el fragmento 3: DecodingOptions.__init__() got an unexpected keyword argument 'lenguaje'
+2024-09-26 15:55:08,283 - Config - INFO - Configuración inicial completada
+2024-09-26 15:55:12,526 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-26 15:55:25,643 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-26 15:55:25,681 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-26 16:06:13,927 - Config - ERROR - Error al procesar el archivo B-11016-2020-05-22-162737-3.wav (05:48): 'language'
+2024-09-28 07:34:11,239 - Config - INFO - Configuración inicial completada
+2024-09-28 07:34:13,290 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-28 07:35:25,786 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 07:36:38,597 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-09-28 07:37:34,395 - Config - ERROR - Error al procesar el archivo INGLES_PRESENTACION.m4a (00:38): 'idiomas_detectados'
+2024-09-28 07:38:49,544 - Config - INFO - Configuración inicial completada
+2024-09-28 07:39:53,164 - Config - INFO - Configuración inicial completada
+2024-09-28 07:39:55,459 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-28 07:40:25,785 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 07:40:31,648 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-28 07:42:17,113 - Config - INFO - Configuración inicial completada
+2024-09-28 07:42:17,631 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-28 07:42:32,367 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 07:42:32,386 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-09-28 07:44:31,002 - Config - INFO - Configuración inicial completada
+2024-09-28 07:44:31,728 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-28 07:45:00,792 - Config - INFO - Modelo Whisper 'medium' cargado correctamente.
+2024-09-28 07:45:00,804 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-09-28 07:47:32,567 - Config - INFO - Modelo Whisper 'medium' cargado correctamente.
+2024-09-28 07:47:32,577 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-09-28 07:59:39,902 - Config - INFO - Configuración inicial completada
+2024-09-28 07:59:40,515 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-28 08:00:20,185 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 08:00:20,203 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-09-28 08:04:00,807 - Config - INFO - Configuración inicial completada
+2024-09-28 08:04:01,386 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-28 08:04:19,466 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 08:04:19,476 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-09-28 08:04:24,613 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 08:04:24,624 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-09-28 08:04:30,076 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 08:04:30,087 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-09-28 08:04:34,959 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 08:04:34,981 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-09-28 08:08:02,014 - Config - INFO - Configuración inicial completada
+2024-09-28 08:08:02,647 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-28 08:08:36,347 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 08:08:36,365 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-09-28 08:08:51,782 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 08:08:51,794 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-09-28 08:11:00,968 - Config - INFO - Configuración inicial completada
+2024-09-28 08:11:01,498 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-28 08:11:21,763 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 08:11:21,794 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-09-28 08:15:47,346 - Config - INFO - Configuración inicial completada
+2024-09-28 08:15:47,928 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-28 08:16:02,126 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 08:16:02,144 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-09-28 08:21:37,985 - Config - INFO - Configuración inicial completada
+2024-09-28 08:21:38,534 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-28 08:22:47,482 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 08:22:47,499 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-09-28 09:44:07,707 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 09:44:07,726 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-09-28 09:48:47,290 - Config - INFO - Configuración inicial completada
+2024-09-28 09:48:47,953 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-28 09:54:27,312 - Config - INFO - Configuración inicial completada
+2024-09-28 09:54:28,061 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-28 09:54:43,245 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 09:54:43,265 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-09-28 09:57:01,157 - Config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-28 09:57:01,177 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-28 16:29:25,479 - Config - INFO - Configuración inicial completada
+2024-09-28 16:29:27,437 - Config - INFO - Conexión directa exitosa, no se necesita proxy.
+2024-09-28 16:30:11,193 - Config - INFO - Modelo Whisper 'medium' cargado correctamente.
+2024-09-28 16:30:11,206 - Config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav

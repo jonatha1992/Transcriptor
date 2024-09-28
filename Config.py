@@ -1,3 +1,5 @@
+import platform
+import subprocess
 import winreg
 import urllib.error
 import urllib.request
@@ -76,56 +78,42 @@ def resource_path(relative_path):
     return full_path
 
 
-def verificar_conexion_internet(timeout=5):
-    proxy = obtener_configuracion_proxy_windows()
-    if proxy:
-        os.environ['http_proxy'] = f"http://{proxy}"
-        os.environ['https_proxy'] = f"http://{proxy}"
+def check_proxy():
+    http_proxy = os.environ.get("http_proxy")
+    https_proxy = os.environ.get("https_proxy")
+    if http_proxy or https_proxy:
+        return f"Proxy configurado:\nHTTP: {http_proxy}\nHTTPS: {https_proxy}"
+    else:
+        return "No se detectó ningún proxy configurado"
 
+
+def detectar_y_configurar_proxy():
+    import urllib.request
+
+    proxy_handler = urllib.request.ProxyHandler()
+    opener = urllib.request.build_opener(proxy_handler)
     try:
-        urllib.request.urlopen("http://www.google.com", timeout=timeout)
-        return True
-    except Exception as e:
-        logger.error(f"Error al verificar la conexión a internet: {e}")
+        opener.open("http://www.google.com", timeout=5)
+        logger.info("Conexión directa exitosa, no se necesita proxy.")
         return False
-
-
-# def check_proxy():
-#     http_proxy = os.environ.get("http_proxy")
-#     https_proxy = os.environ.get("https_proxy")
-#     if http_proxy or https_proxy:
-#         return f"Proxy configurado:\nHTTP: {http_proxy}\nHTTPS: {https_proxy}"
-#     else:
-#         return "No se detectó ningún proxy configurado"
-
-
-# def detectar_y_configurar_proxy():
-#     import urllib.request
-
-#     proxy_handler = urllib.request.ProxyHandler()
-#     opener = urllib.request.build_opener(proxy_handler)
-#     try:
-#         opener.open("http://www.google.com", timeout=5)
-#         logger.info("Conexión directa exitosa, no se necesita proxy.")
-#         return False
-#     except Exception:
-#         logger.info("Conexión directa fallida, configurando proxy...")
-#         os.environ["http_proxy"] = "http://proxy.psa.gob.ar:3128"
-#         os.environ["https_proxy"] = "http://proxy.psa.gob.ar:3128"
-#         try:
-#             proxy_handler = urllib.request.ProxyHandler(
-#                 {
-#                     "http": "http://proxy.psa.gob.ar:3128",
-#                     "https": "http://proxy.psa.gob.ar:3128",
-#                 }
-#             )
-#             opener = urllib.request.build_opener(proxy_handler)
-#             opener.open("http://www.google.com", timeout=5)
-#             logger.info("Proxy configurado exitosamente.")
-#             return True
-#         except Exception:
-#             logger.error("No se pudo establecer conexión incluso con el proxy.")
-#             return False
+    except Exception:
+        logger.info("Conexión directa fallida, configurando proxy...")
+        os.environ["http_proxy"] = "http://proxy.psa.gob.ar:3128"
+        os.environ["https_proxy"] = "http://proxy.psa.gob.ar:3128"
+        try:
+            proxy_handler = urllib.request.ProxyHandler(
+                {
+                    "http": "http://proxy.psa.gob.ar:3128",
+                    "https": "http://proxy.psa.gob.ar:3128",
+                }
+            )
+            opener = urllib.request.build_opener(proxy_handler)
+            opener.open("http://www.google.com", timeout=5)
+            logger.info("Proxy configurado exitosamente.")
+            return True
+        except Exception:
+            logger.error("No se pudo establecer conexión incluso con el proxy.")
+            return False
 
 
 def check_dependencies():
@@ -133,19 +121,6 @@ def check_dependencies():
     current_date = datetime.date.today()
     expiration_date = datetime.date(2025, 1, 3)
     return current_date >= expiration_date
-
-
-def obtener_configuracion_proxy_windows():
-    try:
-        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, r'Software\Microsoft\Windows\CurrentVersion\Internet Settings') as key:
-            proxy_enable, _ = winreg.QueryValueEx(key, 'ProxyEnable')
-            if proxy_enable:
-                proxy_server, _ = winreg.QueryValueEx(key, 'ProxyServer')
-                return proxy_server
-            else:
-                return None
-    except WindowsError:
-        return None
 
 
 # Inicialización
