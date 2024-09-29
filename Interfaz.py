@@ -114,7 +114,7 @@ def crear_interfaz(ventana):
     )
     progress_bar.pack_forget()
 
-    MODELOS_WHISPER = ["base", "small", "medium", "large"]
+    MODELOS_WHISPER = ["base", "small", "medium"]
 
     frame_modelo = tk.Frame(ventana)
     frame_modelo.pack(side=tk.TOP, pady=5)
@@ -132,7 +132,7 @@ def crear_interfaz(ventana):
     frame_idioma = tk.Frame(ventana)
     frame_idioma.pack(side=tk.TOP, pady=5)
 
-    label_idioma_salida = tk.Label(frame_idioma, text="Idioma de entrada:")
+    label_idioma_salida = tk.Label(frame_idioma, text="Idioma:")
     label_idioma_salida.pack(side=tk.LEFT, padx=5)
 
     combobox_idioma_entrada = ttk.Combobox(

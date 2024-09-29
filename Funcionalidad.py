@@ -1,8 +1,9 @@
-import shutil  # Asegúrate de importar io al inicio de tu script
+import random
+import shutil
+import tempfile
 from tkinter import messagebox
 import whisper
 import os
-from googletrans import Translator
 import subprocess
 import platform
 import threading
@@ -14,10 +15,29 @@ import time
 from config import *
 from pydub import AudioSegment
 from tkinter import messagebox, filedialog
-import numpy as np
-
+import io
+from contextlib import redirect_stdout, redirect_stderr
+import sys
 
 idiomas_alrevez = {v.capitalize(): k for k, v in LANGUAGES.items()}
+
+
+def redirect_ffmpeg_output():
+    if sys.platform == 'win32':
+        si = subprocess.STARTUPINFO()
+        si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+        return {'startupinfo': si, 'creationflags': subprocess.CREATE_NO_WINDOW}
+    return {}
+
+# Sobrescribir la función _run de whisper.audio
+
+
+def custom_run(cmd, **kwargs):
+    kwargs.update(redirect_ffmpeg_output())
+    return subprocess.run(cmd, **kwargs)
+
+
+whisper.audio._run = custom_run
 
 
 def convertir_a_wav(audio_path):
@@ -27,33 +47,32 @@ def convertir_a_wav(audio_path):
         logger.info(f"Formato de audio detectado: {audio_format}")
         output_path = audio_path.replace(audio_format, "wav")
 
-        # Verificar si el archivo WAV ya existe
         if os.path.exists(output_path):
             logger.info(f"El archivo WAV ya existe: {output_path}")
             return output_path
 
         command = [ffmpeg_path, "-i", audio_path, output_path]
 
-        startupinfo = subprocess.STARTUPINFO()
-        if platform.system() == "Windows":
-            startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-            startupinfo.wShowWindow = subprocess.SW_HIDE
-
-        subprocess.run(
+        process = subprocess.Popen(
             command,
-            startupinfo=startupinfo,
-            check=True,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
+            **redirect_ffmpeg_output()
         )
+
+        stdout, stderr = process.communicate()
+
+        if process.returncode != 0:
+            logger.error(f"FFmpeg error: {stderr.decode('utf-8')}")
+            raise subprocess.CalledProcessError(process.returncode, command, stderr)
 
         logger.info(f"Archivo convertido a WAV: {output_path}")
         return output_path
     except subprocess.CalledProcessError as e:
-        logger.error(f"ffmpeg proceso devolvió un error: {e.stderr.decode('utf-8')}")
+        logger.error(f"FFmpeg proceso devolvió un error: {e.stderr.decode('utf-8')}")
         raise
     except FileNotFoundError as e:
-        logger.error(f"ffmpeg no encontrado: {str(e)}")
+        logger.error(f"FFmpeg no encontrado: {str(e)}")
         raise
     except Exception as e:
         logger.error(f"Error al convertir archivo a WAV: {str(e)}")
@@ -63,7 +82,7 @@ def convertir_a_wav(audio_path):
 def obtener_duracion_audio(ruta_archivo):
     try:
         audio = File(ruta_archivo)
-        if audio is not None:
+        if audio is not None and hasattr(audio.info, 'length'):
             return int(audio.info.length)
     except Exception:
         pass
@@ -77,6 +96,18 @@ def obtener_duracion_audio(ruta_archivo):
                 return int(duration)
         except Exception:
             pass
+
+    try:
+        result = subprocess.run(
+            [ffprobe_path, "-v", "error", "-show_entries", "format=duration", "-of", "default=noprint_wrappers=1:nokey=1", ruta_archivo],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            **redirect_ffmpeg_output()
+        )
+        return int(float(result.stdout))
+    except Exception:
+        pass
 
     return 0
 
@@ -194,7 +225,7 @@ def borrar_archivo(lista_archivos, lista_archivos_paths):
 
 def contar_palabras_y_inaudibles(texto):
     palabras = texto.split()
-    inaudibles = palabras.count("[inaudible]")
+    inaudibles = palabras.count('[inaudible]')
     palabras_sin_inaudibles = len(palabras) - inaudibles
     return palabras_sin_inaudibles, inaudibles
 
@@ -215,7 +246,9 @@ def cargar_modelo_whisper(modelo_seleccionado):
 
         global model_whisper
         os.environ['WHISPER_HOME'] = whisper_root
-        model_whisper = whisper.load_model(modelo_seleccionado, download_root=whisper_root)
+
+        with io.StringIO() as buf, redirect_stdout(buf), redirect_stderr(buf):
+            model_whisper = whisper.load_model(modelo_seleccionado, download_root=whisper_root)
 
         logger.info(f"Modelo Whisper '{modelo_seleccionado}' cargado correctamente.")
     except Exception as e:
@@ -235,7 +268,6 @@ def iniciar_transcripcion_thread(
     combobox_idioma_entrada,
     combobox_modelo
 ):
-
     global transcripcion_activa, transcripcion_en_curso, model_whisper
     from reproductor import reproductor
     if reproductor.reproduciendo:
@@ -265,7 +297,6 @@ def iniciar_transcripcion_thread(
         progress_bar["value"] = 0
         progress_bar.pack(pady=5, padx=60, fill=tk.X)
 
-        # Cargar el modelo seleccionado
         modelo_seleccionado = combobox_modelo.get()
         cargar_modelo_whisper(modelo_seleccionado)
 
@@ -288,8 +319,8 @@ def iniciar_transcripcion_thread(
 def actualizar_progreso_simple(progress_bar, ventana, archivo_procesando, audio_file, filename):
     global transcripcion_activa
     duracion = obtener_duracion_audio(audio_file)
-    tiempo_estimado = duracion * 1.2  # Asumimos que la transcripción toma 1.2 veces la duración del audio
-    intervalo = tiempo_estimado / 100  # Dividimos el tiempo estimado en 100 partes
+    tiempo_estimado = duracion * 1.2
+    intervalo = tiempo_estimado / 100
 
     tiempo_inicio = time.time()
     for progreso in range(1, 101):
@@ -306,10 +337,8 @@ def actualizar_progreso_simple(progress_bar, ventana, archivo_procesando, audio_
 
 
 def procesar_audio_whisper_por_fragmentos(audio_file, model, progress_bar, ventana, archivo_procesando):
-
     filename = os.path.basename(audio_file)
 
-    # Iniciar la actualización de progreso en un hilo separado
     hilo_progreso = threading.Thread(
         target=actualizar_progreso_simple,
         args=(
@@ -321,25 +350,24 @@ def procesar_audio_whisper_por_fragmentos(audio_file, model, progress_bar, venta
     hilo_progreso.start()
 
     try:
-        # Usar Whisper para transcribir directamente el archivo de audio completo
-        result = model.transcribe(audio_file, fp16=False)
+        with io.StringIO() as buf, redirect_stdout(buf), redirect_stderr(buf):
+            result = model.transcribe(audio_file, fp16=False)
+
         transcripcion_completa = result['text']
 
-        # Asegurar que la barra de progreso llegue al 100%
         hilo_progreso.join()
         ventana.after(0, lambda: progress_bar.config(value=100))
         ventana.after(0, lambda f=filename: archivo_procesando.set(f"Completado: {f}"))
 
-        # Calcular estadísticas
         palabras_totales = len(transcripcion_completa.split())
-        inaudibles_totales = transcripcion_completa.count('[inaudible]')
+        # inaudibles_totales = transcripcion_completa.count('[inaudible]')
 
         return {
             "filename": filename,
             "archivo": audio_file,
             "transcripcion": transcripcion_completa,
             "num_chunks": 1,
-            "inaudibles": inaudibles_totales,
+            # "duracion de transcripción": inaudibles_totales,
             "palabras": palabras_totales
         }
 
@@ -349,91 +377,85 @@ def procesar_audio_whisper_por_fragmentos(audio_file, model, progress_bar, venta
 
 
 def dividir_audio_por_fragmentos(audio_path, duracion_fragmento_s=30):
-    """
-    Divide un archivo de audio en fragmentos de la duración especificada.
-
-    :param audio_path: Ruta al archivo de audio
-    :param duracion_fragmento_s: Duración de cada fragmento en segundos (por defecto 30 segundos)
-    :return: Lista de fragmentos de audio y sus tiempos de inicio
-    """
     audio = AudioSegment.from_file(audio_path)
     fragmentos = []
     tiempos_inicio = []
 
-    duracion_fragmento_ms = duracion_fragmento_s * 1000  # Convertir segundos a milisegundos
+    duracion_fragmento_ms = duracion_fragmento_s * 1000
 
     for i in range(0, len(audio), duracion_fragmento_ms):
         fragmento = audio[i:i + duracion_fragmento_ms]
         fragmentos.append(fragmento)
-        tiempos_inicio.append(i / 1000.0)  # Ya está en segundos
+        tiempos_inicio.append(i / 1000.0)
 
     return fragmentos, tiempos_inicio
 
 
-def procesar_audio_por_fragmentos_whisper(audio_file, model, progress_bar, ventana, archivo_procesando, idioma_entrada):
-    """
-    Procesa el archivo de audio en fragmentos, transcribiendo cada fragmento y detectando el idioma automáticamente.
+def format_time(seconds):
+    return time.strftime('%H:%M:%S', time.gmtime(seconds))
 
-    :param audio_file: Ruta al archivo de audio
-    :param model: Modelo Whisper cargado
-    :return: Transcripción completa uniendo los fragmentos y los idiomas detectados
-    """
+
+def eliminar_archivo_con_reintento(ruta_archivo, max_intentos=5, retraso_base=0.1):
+    for intento in range(max_intentos):
+        try:
+            os.unlink(ruta_archivo)
+            return True
+        except PermissionError:
+            if intento < max_intentos - 1:
+                time.sleep(retraso_base * (2 ** intento) + random.uniform(0, 0.1))
+            else:
+                logger.warning(f"No se pudo eliminar el archivo temporal: {ruta_archivo}")
+                return False
+
+
+def procesar_audio_por_fragmentos_whisper(audio_file, model, progress_bar, ventana, archivo_procesando, idioma_entrada):
     fragmentos, tiempos_inicio = dividir_audio_por_fragmentos(audio_file)
     transcripcion_completa = ""
     segmentos_totales = []
+    filename = os.path.basename(audio_file)
 
     for idx, (fragmento, inicio_fragmento) in enumerate(zip(fragmentos, tiempos_inicio)):
-        fragmento_filename = f"temp_fragmento_{idx}.wav"
-        try:
-            fragmento.export(fragmento_filename, format="wav")  # Exportamos el fragmento a un archivo temporal
+        with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as temp_file:
+            temp_file_path = temp_file.name
+            try:
+                fragmento.export(temp_file_path, format="wav")
 
-            # Transcribir sin especificar 'language' para detección automática
-            result = model.transcribe(fragmento_filename, fp16=False, language=idioma_entrada)
+                with io.StringIO() as buf, redirect_stdout(buf), redirect_stderr(buf):
+                    result = model.transcribe(temp_file_path, fp16=False, language=idioma_entrada)
 
-            # Iterar sobre los segmentos transcritos
-            for segment in result['segments']:
-                # Ajustar los tiempos de inicio y fin al tiempo global del audio
-                segment_start = segment['start'] + inicio_fragmento
-                segment_end = segment['end'] + inicio_fragmento
-                segment_text = segment['text']
+                for segment in result['segments']:
+                    segment_start = segment['start'] + inicio_fragmento
+                    segment_end = segment['end'] + inicio_fragmento
+                    segment_text = segment['text']
 
-                # Agregar el segmento a la lista total de segmentos
-                segmentos_totales.append({
-                    'start': segment_start,
-                    'end': segment_end,
-                    'text': segment_text,
-                })
+                    segmentos_totales.append({
+                        'start': segment_start,
+                        'end': segment_end,
+                        'text': segment_text,
+                    })
 
-                transcripcion_completa += segment_text + " "
+                    transcripcion_completa += segment_text + " "
 
-        except Exception as e:
-            logger.error(f"Error al procesar el fragmento {idx}: {e}")
-        finally:
-            if os.path.exists(fragmento_filename):
-                os.remove(fragmento_filename)  # Asegurar la eliminación del archivo temporal
+            except Exception as e:
+                logger.error(f"Error al procesar el fragmento {idx} de {filename}: {e}")
+            finally:
+                if not eliminar_archivo_con_reintento(temp_file_path):
+                    logger.warning(f"No se pudo eliminar el archivo temporal: {temp_file_path}")
 
-        # Actualizar la barra de progreso
         progress = ((idx + 1) / len(fragmentos)) * 100
-        progress_bar["value"] = progress
-        ventana.update_idletasks()
+        ventana.after(0, lambda p=progress: progress_bar.config(value=p))
+        ventana.after(0, lambda f=filename, p=int(progress): archivo_procesando.set(f"Procesando: {f} - {p}% completado"))
 
-    # Calcular estadísticas
     palabras_totales = len(transcripcion_completa.split())
-    inaudibles_totales = transcripcion_completa.count('[inaudible]')
 
     return {
-        "filename": os.path.basename(audio_file),
+        "filename": filename,
         "archivo": audio_file,
         "transcripcion": transcripcion_completa,
         "num_chunks": len(fragmentos),
-        "inaudibles": inaudibles_totales,
         "palabras": palabras_totales,
         "segmentos": segmentos_totales
     }
-
-
-def format_time(seconds):
-    return time.strftime('%H:%M:%S', time.gmtime(seconds))
 
 
 def iniciar_transcripcion(
@@ -446,12 +468,6 @@ def iniciar_transcripcion(
     boton_transcribir,
     combobox_idioma_entrada,
 ):
-    """
-    Función principal para manejar la transcripción de audio usando Whisper.
-    Procesa los archivos de audio seleccionados en la interfaz, actualiza la barra de progreso
-    y muestra la transcripción con los idiomas detectados.
-    """
-
     global transcripcion_en_curso
     seleccion = lista_archivos.curselection()
 
@@ -467,8 +483,9 @@ def iniciar_transcripcion(
     progress_bar.pack(pady=5, padx=60, fill=tk.X)
     idioma_entrada = idiomas.get(combobox_idioma_entrada.get())
 
-    for index, archivo in enumerate(archivos_seleccionados):
+    tiempo_inicio_total = time.time()
 
+    for index, archivo in enumerate(archivos_seleccionados):
         if not transcripcion_en_curso:
             break
         audio_file = next(key for key, value in lista_archivos_paths.items() if value == archivo)
@@ -480,42 +497,45 @@ def iniciar_transcripcion(
             progress_bar["value"] = 0
             ventana.update_idletasks()
 
-            # Procesar el archivo por fragmentos y obtener la transcripción y los idiomas detectados
+            iniciar_transcripcion_whisper = time.time()
             resultado_wisper_M = procesar_audio_por_fragmentos_whisper(
                 audio_file, model_whisper, progress_bar, ventana, archivo_procesando, idioma_entrada)
+            tiempo_transcripcion = time.time() - iniciar_transcripcion_whisper
 
             if resultado_wisper_M is None:
                 messagebox.showwarning("Advertencia", "Se detuvo la transcripción.")
                 break
 
-            # Construir el texto transcrito con tiempos
             texto_transcrito_con_tiempos = ""
             for segment in resultado_wisper_M['segmentos']:
                 start_time = format_time(segment['start'])
                 end_time = format_time(segment['end'])
                 texto_transcrito_con_tiempos += f"[{start_time}-{end_time}]: {segment['text']}\n"
 
-            # Agregar información de idiomas detectados al texto transcrito
-            nuevo_texto = f"Transcripción {archivo}:\n\n{texto_transcrito_con_tiempos}\nPalabras: {resultado_wisper_M['palabras']}\nInaudibles: {resultado_wisper_M['inaudibles']}\n\n"
+            nuevo_texto = f"Transcripción {archivo}:\n\n{texto_transcrito_con_tiempos}\n"
+            nuevo_texto += f"Palabras: {resultado_wisper_M['palabras']}\n"
+            nuevo_texto += f"Tiempo de transcripción: {tiempo_transcripcion:.2f} segundos\n\n"
 
             text_area.insert(tk.END, nuevo_texto)
             text_area.see(tk.END)
 
-            # Actualizar barra de progreso para cada archivo
             progress_bar["value"] = ((index + 1) / total_archivos) * 100
             ventana.update_idletasks()
 
         except Exception as e:
-            logger.error(f"Error al procesar el archivo {archivo}: {e}")
-            messagebox.showerror("Error", f"Error al procesar el archivo {archivo}: {e}")
+            logger.error(f"Error al procesar el archivo {archivo}: {str(e)}", exc_info=True)
+            messagebox.showerror("Error", f"Error al procesar el archivo {archivo}: {str(e)}")
 
-    # Limpiar el estado de la interfaz una vez finalizada la transcripción
     archivo_procesando.set("")
 
-    if transcripcion_en_curso:
-        messagebox.showinfo("Información", f"Transcripción completa para {total_archivos} archivo(s).")
+    tiempo_total = time.time() - tiempo_inicio_total
 
-    # Restaurar el estado inicial de los botones y la barra de progreso
+    if transcripcion_en_curso:
+        mensaje = f"Transcripción completa para {total_archivos} archivo(s).\n"
+        mensaje += f"Tiempo total de transcripción: {tiempo_total:.2f} segundos."
+        messagebox.showinfo("Información", mensaje)
+        logger.info(mensaje)
+
     transcripcion_en_curso = False
     boton_transcribir.config(text="Transcribir")
     progress_bar.pack_forget()
