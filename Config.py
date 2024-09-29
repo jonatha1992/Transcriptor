@@ -1,12 +1,6 @@
-import platform
-import subprocess
-import winreg
-import urllib.error
-import urllib.request
 import os
 import logging
 from logging.handlers import RotatingFileHandler
-import socket
 import sys
 from googletrans import LANGUAGES
 import datetime
@@ -85,35 +79,6 @@ def check_proxy():
         return f"Proxy configurado:\nHTTP: {http_proxy}\nHTTPS: {https_proxy}"
     else:
         return "No se detectó ningún proxy configurado"
-
-
-def detectar_y_configurar_proxy():
-    import urllib.request
-
-    proxy_handler = urllib.request.ProxyHandler()
-    opener = urllib.request.build_opener(proxy_handler)
-    try:
-        opener.open("http://www.google.com", timeout=5)
-        logger.info("Conexión directa exitosa, no se necesita proxy.")
-        return False
-    except Exception:
-        logger.info("Conexión directa fallida, configurando proxy...")
-        os.environ["http_proxy"] = "http://proxy.psa.gob.ar:3128"
-        os.environ["https_proxy"] = "http://proxy.psa.gob.ar:3128"
-        try:
-            proxy_handler = urllib.request.ProxyHandler(
-                {
-                    "http": "http://proxy.psa.gob.ar:3128",
-                    "https": "http://proxy.psa.gob.ar:3128",
-                }
-            )
-            opener = urllib.request.build_opener(proxy_handler)
-            opener.open("http://www.google.com", timeout=5)
-            logger.info("Proxy configurado exitosamente.")
-            return True
-        except Exception:
-            logger.error("No se pudo establecer conexión incluso con el proxy.")
-            return False
 
 
 def check_dependencies():

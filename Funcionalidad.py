@@ -1,4 +1,3 @@
-import io
 import shutil  # Asegúrate de importar io al inicio de tu script
 from tkinter import messagebox
 import whisper
@@ -12,10 +11,11 @@ from mutagen import File
 import wave
 import contextlib
 import time
-from Config import *
+from config import *
 from pydub import AudioSegment
 from tkinter import messagebox, filedialog
 import numpy as np
+
 
 idiomas_alrevez = {v.capitalize(): k for k, v in LANGUAGES.items()}
 
@@ -79,29 +79,6 @@ def obtener_duracion_audio(ruta_archivo):
             pass
 
     return 0
-
-
-def traducir_texto(texto, idioma_salida):
-    try:
-        if check_proxy() == "Proxy configurado:":
-            proxy_config = {
-                "http": "http://proxy.psa.gob.ar:3128",
-                "https": "http://proxy.psa.gob.ar:3128",
-            }
-            translator = Translator(proxies=proxy_config)
-        else:
-            translator = Translator()
-
-        traduccion = translator.translate(texto, dest=idioma_salida)
-        if traduccion:
-            logger.info(f"Texto traducido: {traduccion.text}")
-            return traduccion.text
-        else:
-            logger.error("La traducción devolvió un resultado vacío.")
-            return f"Error al traducir el texto."
-    except Exception as e:
-        logger.error(f"Error al traducir texto: {e}")
-        return f"Error al traducir texto: {e}"
 
 
 def seleccionar_archivos(lista_archivos, lista_archivos_paths):
@@ -256,13 +233,11 @@ def iniciar_transcripcion_thread(
     ventana,
     boton_transcribir,
     combobox_idioma_entrada,
-    combobox_idioma_salida,
-    checkBox,
     combobox_modelo
 ):
-    global transcripcion_activa, transcripcion_en_curso, model_whisper
-    from Reproductor import reproductor
 
+    global transcripcion_activa, transcripcion_en_curso, model_whisper
+    from reproductor import reproductor
     if reproductor.reproduciendo:
         messagebox.showwarning(
             "Advertencia",
@@ -301,13 +276,10 @@ def iniciar_transcripcion_thread(
                 text_area,
                 archivo_procesando,
                 lista_archivos_paths,
-                transcripcion_resultado,
                 progress_bar,
                 ventana,
                 boton_transcribir,
                 combobox_idioma_entrada,
-                combobox_idioma_salida,
-                checkBox,
             ),
             daemon=True,
         ).start()
@@ -469,13 +441,10 @@ def iniciar_transcripcion(
     text_area,
     archivo_procesando,
     lista_archivos_paths,
-    transcripcion_resultado,
     progress_bar,
     ventana,
     boton_transcribir,
     combobox_idioma_entrada,
-    combobox_idioma_salida,
-    checkBox,
 ):
     """
     Función principal para manejar la transcripción de audio usando Whisper.
@@ -519,21 +488,11 @@ def iniciar_transcripcion(
                 messagebox.showwarning("Advertencia", "Se detuvo la transcripción.")
                 break
 
-            Traducir = checkBox.get()
-            if Traducir:
-                idioma_salida = idiomas.get(combobox_idioma_salida.get())
-                resultado_wisper_M['transcripcion'] = traducir_texto(resultado_wisper_M['transcripcion'], idioma_salida)
-
-            # Usar el diccionario para obtener nombres de idiomas
-            # idiomas_detectados = [idiomas_alrevez.get(codigo, codigo) for codigo in resultado_wisper_M['idiomas_detectados']]
-            # idiomas_str = ', '.join(idiomas_detectados)
-
             # Construir el texto transcrito con tiempos
             texto_transcrito_con_tiempos = ""
             for segment in resultado_wisper_M['segmentos']:
                 start_time = format_time(segment['start'])
                 end_time = format_time(segment['end'])
-                # language_name = idiomas_alrevez.get(segment['language'], segment['language'])
                 texto_transcrito_con_tiempos += f"[{start_time}-{end_time}]: {segment['text']}\n"
 
             # Agregar información de idiomas detectados al texto transcrito

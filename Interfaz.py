@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
-from Funcionalidad import *
-from Reproductor import *
-from Config import idiomas
+from funcionalidad import *
+from reproductor import *
+from config import idiomas
 
 
 def crear_interfaz(ventana):
@@ -83,8 +83,6 @@ def crear_interfaz(ventana):
             ventana,
             boton_transcribir,
             combobox_idioma_entrada,
-            combobox_idioma_salida,
-            check_idioma_salida_var,
             combobox_modelo),
     )
     boton_transcribir.pack(side=tk.LEFT, padx=5)
@@ -116,7 +114,7 @@ def crear_interfaz(ventana):
     )
     progress_bar.pack_forget()
 
-    MODELOS_WHISPER = ["base", "small", "medium"]
+    MODELOS_WHISPER = ["base", "small", "medium", "large"]
 
     frame_modelo = tk.Frame(ventana)
     frame_modelo.pack(side=tk.TOP, pady=5)
@@ -143,23 +141,6 @@ def crear_interfaz(ventana):
     )
     combobox_idioma_entrada.set("Spanish")
     combobox_idioma_entrada.pack(side=tk.LEFT, padx=5)
-
-    check_idioma_salida_var = tk.BooleanVar()
-    check_idioma_salida = tk.Checkbutton(
-        frame_idioma,
-        text="Traducir (API google Translator requiere conexión a internet ):",
-        variable=check_idioma_salida_var,
-        command=lambda: toggle_traduccion(check_idioma_salida_var, combobox_idioma_salida)
-    )
-    check_idioma_salida.pack(side=tk.LEFT, padx=5)
-
-    combobox_idioma_salida = ttk.Combobox(
-        frame_idioma,
-        values=list(idiomas.keys()),
-        state="disabled"  # Inicialmente deshabilitado
-    )
-    combobox_idioma_salida.set("Spanish")
-    combobox_idioma_salida.pack(side=tk.LEFT, padx=5)
 
     frame_reproduccion = tk.Frame(ventana)
     frame_reproduccion.pack(side=tk.TOP, pady=5)
@@ -258,10 +239,3 @@ def activar_boton_borrar(event, boton_borrar):
 def borrar_y_actualizar(lista_archivos, lista_archivos_paths, boton_borrar):
     if borrar_archivo(lista_archivos, lista_archivos_paths):
         boton_borrar.config(state="disabled")
-
-
-def toggle_traduccion(check_var, combobox):
-    if check_var.get():
-        combobox.config(state="readonly")
-    else:
-        combobox.config(state="disabled")
