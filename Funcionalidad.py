@@ -19,8 +19,6 @@ import io
 from contextlib import redirect_stdout, redirect_stderr
 import sys
 
-idiomas_alrevez = {v.capitalize(): k for k, v in LANGUAGES.items()}
-
 
 def redirect_ffmpeg_output():
     if sys.platform == 'win32':
@@ -265,7 +263,10 @@ def iniciar_transcripcion_thread(
     progress_bar,
     ventana,
     boton_transcribir,
+    var_idioma_entrada,
+    var_idioma_salida,
     combobox_idioma_entrada,
+    combobox_idioma_salida,
     combobox_modelo
 ):
     global transcripcion_activa, transcripcion_en_curso, model_whisper
@@ -310,7 +311,10 @@ def iniciar_transcripcion_thread(
                 progress_bar,
                 ventana,
                 boton_transcribir,
+                var_idioma_entrada,
+                var_idioma_salida,
                 combobox_idioma_entrada,
+                combobox_idioma_salida,
             ),
             daemon=True,
         ).start()
@@ -408,65 +412,18 @@ def eliminar_archivo_con_reintento(ruta_archivo, max_intentos=5, retraso_base=0.
                 return False
 
 
-def procesar_audio_por_fragmentos_whisper(audio_file, model, progress_bar, ventana, archivo_procesando, idioma_entrada):
-    fragmentos, tiempos_inicio = dividir_audio_por_fragmentos(audio_file)
-    transcripcion_completa = ""
-    segmentos_totales = []
-    filename = os.path.basename(audio_file)
-
-    for idx, (fragmento, inicio_fragmento) in enumerate(zip(fragmentos, tiempos_inicio)):
-        with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as temp_file:
-            temp_file_path = temp_file.name
-            try:
-                fragmento.export(temp_file_path, format="wav")
-
-                with io.StringIO() as buf, redirect_stdout(buf), redirect_stderr(buf):
-                    result = model.transcribe(temp_file_path, fp16=False, language=idioma_entrada)
-
-                for segment in result['segments']:
-                    segment_start = segment['start'] + inicio_fragmento
-                    segment_end = segment['end'] + inicio_fragmento
-                    segment_text = segment['text']
-
-                    segmentos_totales.append({
-                        'start': segment_start,
-                        'end': segment_end,
-                        'text': segment_text,
-                    })
-
-                    transcripcion_completa += segment_text + " "
-
-            except Exception as e:
-                logger.error(f"Error al procesar el fragmento {idx} de {filename}: {e}")
-            finally:
-                if not eliminar_archivo_con_reintento(temp_file_path):
-                    logger.warning(f"No se pudo eliminar el archivo temporal: {temp_file_path}")
-
-        progress = ((idx + 1) / len(fragmentos)) * 100
-        ventana.after(0, lambda p=progress: progress_bar.config(value=p))
-        ventana.after(0, lambda f=filename, p=int(progress): archivo_procesando.set(f"Procesando: {f} - {p}% completado"))
-
-    palabras_totales = len(transcripcion_completa.split())
-
-    return {
-        "filename": filename,
-        "archivo": audio_file,
-        "transcripcion": transcripcion_completa,
-        "num_chunks": len(fragmentos),
-        "palabras": palabras_totales,
-        "segmentos": segmentos_totales
-    }
-
-
 def iniciar_transcripcion(
-    lista_archivos,
-    text_area,
-    archivo_procesando,
-    lista_archivos_paths,
-    progress_bar,
-    ventana,
-    boton_transcribir,
-    combobox_idioma_entrada,
+        lista_archivos,
+        text_area,
+        archivo_procesando,
+        lista_archivos_paths,
+        progress_bar,
+        ventana,
+        boton_transcribir,
+        var_idioma_entrada,
+        var_idioma_salida,
+        combobox_idioma_entrada,
+        combobox_idioma_salida,
 ):
     global transcripcion_en_curso
     seleccion = lista_archivos.curselection()
@@ -481,7 +438,9 @@ def iniciar_transcripcion(
     transcripcion_en_curso = True
     boton_transcribir.config(text="Detener Transcripción")
     progress_bar.pack(pady=5, padx=60, fill=tk.X)
-    idioma_entrada = idiomas.get(combobox_idioma_entrada.get())
+
+    idioma_entrada = idiomas_invertidos.get(combobox_idioma_entrada.get()) if var_idioma_entrada.get() else None
+    idioma_salida = idiomas_invertidos.get(combobox_idioma_salida.get()) if var_idioma_salida.get() else None
 
     tiempo_inicio_total = time.time()
 
@@ -499,22 +458,25 @@ def iniciar_transcripcion(
 
             iniciar_transcripcion_whisper = time.time()
             resultado_wisper_M = procesar_audio_por_fragmentos_whisper(
-                audio_file, model_whisper, progress_bar, ventana, archivo_procesando, idioma_entrada)
-            tiempo_transcripcion = time.time() - iniciar_transcripcion_whisper
+                audio_file, model_whisper, progress_bar, ventana, archivo_procesando,
+                idioma_entrada, idioma_salida)
+            tiempo_transcripcion = format_time(time.time() - iniciar_transcripcion_whisper)
 
-            if resultado_wisper_M is None:
-                messagebox.showwarning("Advertencia", "Se detuvo la transcripción.")
-                break
-
-            texto_transcrito_con_tiempos = ""
+            nuevo_texto = f"Transcripción {archivo}:\n\n"
             for segment in resultado_wisper_M['segmentos']:
                 start_time = format_time(segment['start'])
                 end_time = format_time(segment['end'])
-                texto_transcrito_con_tiempos += f"[{start_time}-{end_time}]: {segment['text']}\n"
+                nuevo_texto += f"[{start_time}-{end_time}]: {segment['text']}\n"
 
-            nuevo_texto = f"Transcripción {archivo}:\n\n{texto_transcrito_con_tiempos}\n"
-            nuevo_texto += f"Palabras: {resultado_wisper_M['palabras']}\n"
-            nuevo_texto += f"Tiempo de transcripción: {tiempo_transcripcion:.2f} segundos\n\n"
+            nuevo_texto += f"\nPalabras: {resultado_wisper_M['palabras']}\n"
+            nuevo_texto += f"Tiempo de transcripción: {tiempo_transcripcion} \n"
+            nuevo_texto += f"Idioma usado para transcripción: {resultado_wisper_M['idioma_usado']}\n"
+
+            if resultado_wisper_M['idiomas_detectados']:
+                nuevo_texto += "Idiomas detectados:\n"
+                for lang, count in resultado_wisper_M['idiomas_detectados'].items():
+                    nuevo_texto += f"  - {idiomas.get(lang, lang)}: {count} fragmento(s)\n"
+            nuevo_texto += "\n"
 
             text_area.insert(tk.END, nuevo_texto)
             text_area.see(tk.END)
@@ -528,11 +490,13 @@ def iniciar_transcripcion(
 
     archivo_procesando.set("")
 
-    tiempo_total = time.time() - tiempo_inicio_total
+    tiempo_total = format_time(time.time() - tiempo_inicio_total)
 
     if transcripcion_en_curso:
         mensaje = f"Transcripción completa para {total_archivos} archivo(s).\n"
-        mensaje += f"Tiempo total de transcripción: {tiempo_total:.2f} segundos."
+        mensaje += f"Tiempo total de transcripción: {tiempo_total}."
+        text_area.insert(tk.END, mensaje)
+        text_area.see(tk.END)
         messagebox.showinfo("Información", mensaje)
         logger.info(mensaje)
 
@@ -541,3 +505,79 @@ def iniciar_transcripcion(
     progress_bar.pack_forget()
     progress_bar["value"] = 0
     archivo_procesando.set("")
+
+
+def procesar_audio_por_fragmentos_whisper(
+        audio_file,
+        model,
+        progress_bar,
+        ventana,
+        archivo_procesando,
+        idioma_entrada=None,
+        idioma_salida=None):
+
+    fragmentos, tiempos_inicio = dividir_audio_por_fragmentos(audio_file)
+    transcripcion_completa = ""
+    segmentos_totales = []
+    filename = os.path.basename(audio_file)
+    idiomas_detectados = {}
+
+    # Determinar el idioma a usar para la transcripción
+    idioma_transcripcion = idioma_salida or idioma_entrada or None
+
+    for idx, (fragmento, inicio_fragmento) in enumerate(zip(fragmentos, tiempos_inicio)):
+        with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as temp_file:
+            temp_file_path = temp_file.name
+            try:
+                fragmento.export(temp_file_path, format="wav")
+
+                with io.StringIO() as buf, redirect_stdout(buf), redirect_stderr(buf):
+                    # Detectamos el idioma solo si no se especificó idioma de entrada
+                    if idioma_entrada is None:
+                        audio = whisper.load_audio(temp_file_path)
+                        audio = whisper.pad_or_trim(audio)
+                        mel = whisper.log_mel_spectrogram(audio).to(model.device)
+                        _, probs = model.detect_language(mel)
+                        detected_lang = max(probs, key=probs.get)
+                        idiomas_detectados[detected_lang] = idiomas_detectados.get(detected_lang, 0) + 1
+
+                    # Realizamos la transcripción
+                    if idioma_transcripcion:
+                        result = model.transcribe(temp_file_path, fp16=False, language=idioma_transcripcion)
+                    else:
+                        result = model.transcribe(temp_file_path, fp16=False)
+
+                for segment in result['segments']:
+                    segment_start = segment['start'] + inicio_fragmento
+                    segment_end = segment['end'] + inicio_fragmento
+                    segment_text = segment['text']
+
+                    segmentos_totales.append({
+                        'start': segment_start,
+                        'end': segment_end,
+                        'text': segment_text
+                    })
+
+                    transcripcion_completa += segment_text + " "
+
+            except Exception as e:
+                logger.error(f"Error al procesar el fragmento {idx} de {filename}: {e}")
+            finally:
+                if not eliminar_archivo_con_reintento(temp_file_path):
+                    logger.warning(f"No se pudo eliminar el archivo temporal: {temp_file_path}")
+
+        progress = ((idx + 1) / len(fragmentos)) * 100
+        ventana.after(0, lambda p=progress: progress_bar.config(value=p))
+        ventana.after(0, lambda f=filename, p=int(progress): archivo_procesando.set(f"Procesando: {f} - {p}% completado"))
+
+    palabras_totales = len(transcripcion_completa.split())
+    return {
+        "filename": filename,
+        "archivo": audio_file,
+        "transcripcion": transcripcion_completa,
+        "num_chunks": len(fragmentos),
+        "palabras": palabras_totales,
+        "segmentos": segmentos_totales,
+        "idioma_usado": idiomas.get(idioma_transcripcion, "auto-detectado") if idioma_transcripcion else "auto-detectado",
+        "idiomas_detectados": idiomas_detectados if idioma_entrada is None else {}
+    }

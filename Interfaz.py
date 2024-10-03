@@ -3,11 +3,39 @@ from tkinter import ttk
 from funcionalidad import *
 from reproductor import *
 from config import idiomas
+from PIL import Image, ImageTk  # Asegúrate de tener Pillow instalado
+
+
+def cargar_icono(ruta, tamaño):
+    """
+    Función para cargar una imagen y cambiar su tamaño.
+    """
+    imagen = Image.open(ruta)
+    return ImageTk.PhotoImage(imagen)
 
 
 def crear_interfaz(ventana):
     ventana.geometry("1200x700")
     archivo_procesando = tk.StringVar()
+
+    # Cargar iconos
+    try:
+        icon_play = tk.PhotoImage(file="icons/play.png")
+        icon_pause = tk.PhotoImage(file="icons/pause.png")
+        icon_stop = tk.PhotoImage(file="icons/stop.png")
+        icon_forward = tk.PhotoImage(file="icons/forward.png")
+        icon_backward = tk.PhotoImage(file="icons/backward.png")
+    except Exception as e:
+        messagebox.showerror("Error de Iconos", f"No se pudieron cargar los iconos: {e}")
+        # Asignar texto por defecto si hay error
+        icon_play = icon_pause = icon_stop = icon_forward = icon_backward = None
+
+    ventana.icon_play = icon_play
+    ventana.icon_pause = icon_pause
+    ventana.icon_stop = icon_stop
+    ventana.icon_foward = icon_forward
+    ventana.icon_backward = icon_backward
+
     lista_archivos_paths = {}
     transcripcion_resultado = ""
 
@@ -82,7 +110,10 @@ def crear_interfaz(ventana):
             progress_bar,
             ventana,
             boton_transcribir,
+            var_idioma_entrada,
+            var_idioma_salida,
             combobox_idioma_entrada,
+            combobox_idioma_salida,
             combobox_modelo),
     )
     boton_transcribir.pack(side=tk.LEFT, padx=5)
@@ -126,28 +157,61 @@ def crear_interfaz(ventana):
         values=MODELOS_WHISPER,
         state="readonly"
     )
-    combobox_modelo.set("small")
+    combobox_modelo.set("medium")
     combobox_modelo.pack(side=tk.LEFT, padx=5)
 
     frame_idioma = tk.Frame(ventana)
     frame_idioma.pack(side=tk.TOP, pady=5)
+    # Variables de control para los Checkbuttons
+    var_idioma_entrada = tk.BooleanVar(value=True)
+    var_idioma_salida = tk.BooleanVar(value=True)
 
-    label_idioma_salida = tk.Label(frame_idioma, text="Idioma:")
-    label_idioma_salida.pack(side=tk.LEFT, padx=5)
+    check_idioma_entrada = tk.Checkbutton(
+        frame_idioma,
+        text="Idioma Entrada:",
+        variable=var_idioma_entrada,
+        command=lambda: toggle_combobox(combobox_idioma_entrada, var_idioma_entrada)
+    )
+    check_idioma_entrada.pack(side=tk.LEFT, padx=5)
 
     combobox_idioma_entrada = ttk.Combobox(
         frame_idioma,
-        values=list(idiomas.keys())
+        state="readonly",
+        values=list(idiomas.values()),
     )
     combobox_idioma_entrada.set("Spanish")
     combobox_idioma_entrada.pack(side=tk.LEFT, padx=5)
 
+    check_idioma_salida = tk.Checkbutton(
+        frame_idioma,
+        text="Idioma Salida:",
+        variable=var_idioma_salida,
+        command=lambda: toggle_combobox(combobox_idioma_salida, var_idioma_salida)
+    )
+    check_idioma_salida.pack(side=tk.LEFT, padx=5)
+
+    combobox_idioma_salida = ttk.Combobox(
+        frame_idioma,
+        state="readonly",
+        values=list(idiomas.values())
+    )
+    combobox_idioma_salida.set("Spanish")
+    combobox_idioma_salida.pack(side=tk.LEFT, padx=5)
+
     frame_reproduccion = tk.Frame(ventana)
     frame_reproduccion.pack(side=tk.TOP, pady=5)
 
+    boton_retroceder = tk.Button(
+        frame_reproduccion,
+        image=icon_backward,
+        state="disabled",
+        command=lambda: retroceder(label_tiempo),
+    )
+    boton_retroceder.pack(side=tk.LEFT, padx=5)
+
     boton_reproducir = tk.Button(
         frame_reproduccion,
-        text="Reproducir",
+        image=icon_play,
         command=lambda: reproducir(
             lista_archivos,
             lista_archivos_paths,
@@ -160,20 +224,12 @@ def crear_interfaz(ventana):
     )
     boton_reproducir.pack(side=tk.LEFT, padx=5)
 
-    boton_retroceder = tk.Button(
-        frame_reproduccion,
-        text="Retroceder 5s",
-        state="disabled",
-        command=lambda: retroceder(label_tiempo),
-    )
-    boton_retroceder.pack(side=tk.LEFT, padx=5)
-
     lista_archivos.bind(
         "<<ListboxSelect>>", lambda event: activar_boton_borrar(event, boton_borrar)
     )
     boton_pausar_reanudar = tk.Button(
         frame_reproduccion,
-        text="Pausar",
+        image=icon_pause,
         state="disabled",
         command=lambda: pausar_reanudar(
             boton_pausar_reanudar, label_reproduccion, label_tiempo
@@ -183,7 +239,7 @@ def crear_interfaz(ventana):
 
     boton_adelantar = tk.Button(
         frame_reproduccion,
-        text="Adelantar 5s",
+        image=icon_forward,
         state="disabled",
         command=lambda: adelantar(label_tiempo),
     )
@@ -191,6 +247,7 @@ def crear_interfaz(ventana):
     boton_detener = tk.Button(
         frame_reproduccion,
         text="Detener",
+        image=icon_stop,
         command=lambda: detener_reproduccion(
             boton_pausar_reanudar,
             label_reproduccion,
@@ -216,6 +273,7 @@ def crear_interfaz(ventana):
         font=("Arial", 10, "bold"),
     )
     label_creditos.pack()
+    # Guardar la referencia de la imagen para que no se elimine
 
 
 def centrar_ventana(ventana):
@@ -239,3 +297,10 @@ def activar_boton_borrar(event, boton_borrar):
 def borrar_y_actualizar(lista_archivos, lista_archivos_paths, boton_borrar):
     if borrar_archivo(lista_archivos, lista_archivos_paths):
         boton_borrar.config(state="disabled")
+
+
+def toggle_combobox(combobox, var):
+    if var.get():
+        combobox.config(state="readonly")
+    else:
+        combobox.config(state="disabled")

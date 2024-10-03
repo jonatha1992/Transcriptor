@@ -3,7 +3,7 @@ from tkinter import messagebox
 from interfaz import crear_interfaz, centrar_ventana
 from config import *
 from reproductor import pygame
-# from password_window import PasswordWindow
+from password_window import PasswordWindow
 
 
 def main():
@@ -16,7 +16,6 @@ def main():
         crear_interfaz(ventana)
         centrar_ventana(ventana)
 
-        # ventana.withdraw()  # Oculta la ventana principal
         # PasswordWindow(ventana)  # Crea la ventana de contraseña
 
         # Ejecutar la aplicación

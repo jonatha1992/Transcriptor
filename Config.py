@@ -53,7 +53,8 @@ transcripcion_activa = False
 transcripcion_en_curso = False
 
 
-idiomas = {v.capitalize(): k for k, v in LANGUAGES.items()}
+idiomas = {k: v.capitalize() for k, v in LANGUAGES.items()}
+idiomas_invertidos = {v.capitalize(): k for k, v in LANGUAGES.items()}
 
 
 def resource_path(relative_path):

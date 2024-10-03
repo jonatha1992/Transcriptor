@@ -1330,3 +1330,292 @@ Tiempo total de transcripción: 203.08 segundos.
 2024-09-29 10:00:55,767 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpn0y_w63w.wav
 2024-09-29 10:00:58,100 - config - INFO - Transcripción completa para 1 archivo(s).
 Tiempo total de transcripción: 201.21 segundos.
+2024-09-30 12:19:49,254 - config - INFO - Configuración inicial completada
+2024-09-30 12:23:01,101 - config - INFO - Configuración inicial completada
+2024-09-30 12:57:10,001 - config - INFO - Configuración inicial completada
+2024-09-30 13:04:58,958 - config - INFO - Configuración inicial completada
+2024-09-30 13:08:38,115 - config - INFO - Configuración inicial completada
+2024-09-30 13:10:59,640 - config - INFO - Configuración inicial completada
+2024-09-30 13:18:02,342 - config - INFO - Configuración inicial completada
+2024-09-30 13:43:06,297 - config - INFO - Configuración inicial completada
+2024-09-30 13:43:24,322 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-30 13:43:24,333 - config - INFO - Procesando archivo: C:/Users/jonat/Downloads/Audio en inglés Donald Trump_ No podemos mantener EEUU cerrado durante cinco años.mp3
+2024-09-30 13:44:01,766 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpjtj46m0v.wav
+2024-09-30 13:44:01,767 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpjtj46m0v.wav
+2024-09-30 13:44:35,949 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpt4rkalzd.wav
+2024-09-30 13:44:35,951 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpt4rkalzd.wav
+2024-09-30 13:45:12,410 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpwru9zvns.wav
+2024-09-30 13:45:12,412 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpwru9zvns.wav
+2024-09-30 13:45:41,176 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmprut_s58r.wav
+2024-09-30 13:45:41,178 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmprut_s58r.wav
+2024-09-30 13:46:15,381 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpg_4ovvyt.wav
+2024-09-30 13:46:15,382 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpg_4ovvyt.wav
+2024-09-30 15:41:53,564 - config - INFO - Configuración inicial completada
+2024-09-30 15:47:08,526 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-30 15:47:08,608 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.m4a
+2024-09-30 15:47:35,121 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpgkcbawz3.wav
+2024-09-30 15:47:35,124 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpgkcbawz3.wav
+2024-09-30 15:47:43,889 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpprucbc5k.wav
+2024-09-30 15:47:43,890 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpprucbc5k.wav
+2024-09-30 15:47:46,967 - config - INFO - Transcripción completa para 1 archivo(s).
+Tiempo total de transcripción: 35.31 segundos.
+2024-09-30 15:55:43,411 - config - INFO - Configuración inicial completada
+2024-09-30 15:56:01,040 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-30 15:56:01,056 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/B-11016-2020-05-22-162737-3.wav
+2024-09-30 15:56:28,505 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp1t973up2.wav
+2024-09-30 15:56:28,506 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp1t973up2.wav
+2024-09-30 15:56:51,540 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpnbssuij5.wav
+2024-09-30 15:56:51,542 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpnbssuij5.wav
+2024-09-30 15:57:16,171 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpjbdhbddh.wav
+2024-09-30 15:57:16,173 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpjbdhbddh.wav
+2024-09-30 15:59:50,060 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpfrwtaf0m.wav
+2024-09-30 15:59:50,063 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpfrwtaf0m.wav
+2024-09-30 16:02:19,593 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpou3ygh5_.wav
+2024-09-30 16:02:19,597 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpou3ygh5_.wav
+2024-09-30 16:02:59,780 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpdzxg90gm.wav
+2024-09-30 16:02:59,782 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpdzxg90gm.wav
+2024-09-30 16:04:15,728 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpeaqi7lc6.wav
+2024-09-30 16:04:15,730 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpeaqi7lc6.wav
+2024-09-30 16:04:58,014 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp91qi6ofm.wav
+2024-09-30 16:04:58,015 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp91qi6ofm.wav
+2024-09-30 16:05:37,536 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpkkk53nvs.wav
+2024-09-30 16:05:37,537 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpkkk53nvs.wav
+2024-09-30 16:06:22,729 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp_y9sq0l6.wav
+2024-09-30 16:06:22,732 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp_y9sq0l6.wav
+2024-09-30 16:07:03,252 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp9v8ixx6k.wav
+2024-09-30 16:07:03,253 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp9v8ixx6k.wav
+2024-09-30 16:08:43,594 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpv7nxrb7e.wav
+2024-09-30 16:08:43,596 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpv7nxrb7e.wav
+2024-09-30 16:08:53,139 - config - INFO - Transcripción completa para 1 archivo(s).
+Tiempo total de transcripción: 762.66 segundos.
+2024-09-30 16:11:30,278 - config - INFO - Configuración inicial completada
+2024-09-30 16:11:45,842 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-30 16:11:45,851 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-09-30 16:12:10,788 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpoakknlb9.wav
+2024-09-30 16:12:10,789 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpoakknlb9.wav
+2024-09-30 16:12:22,341 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpaay3k2cy.wav
+2024-09-30 16:12:22,342 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpaay3k2cy.wav
+2024-09-30 16:12:22,348 - config - ERROR - Error al procesar el archivo INGLES_PRESENTACION.wav (00:38): 'en'
+Traceback (most recent call last):
+  File "C:\Users\jonat\OneDrive\Escritorio\Repositorio\jonatha1992\Transcriptor\funcionalidad.py", line 625, in iniciar_transcripcion
+    nuevo_texto += f"  - {idiomas_alrevez[lang]}: {count} fragmento(s)\n"
+                          ~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'en'
+2024-09-30 16:12:33,020 - config - INFO - Transcripción completa para 1 archivo(s).
+Tiempo total de transcripción: 45.61 segundos.
+2024-09-30 16:13:36,265 - config - INFO - Configuración inicial completada
+2024-09-30 16:14:02,937 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-30 16:14:02,959 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-09-30 16:14:43,700 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpfg2x03q6.wav
+2024-09-30 16:14:43,702 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpfg2x03q6.wav
+2024-09-30 16:15:03,619 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpi52i8knr.wav
+2024-09-30 16:15:03,619 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpi52i8knr.wav
+2024-09-30 16:16:56,399 - config - INFO - Configuración inicial completada
+2024-09-30 16:17:08,305 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-30 16:17:08,321 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-09-30 16:17:36,638 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmptuyetp0q.wav
+2024-09-30 16:17:36,640 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmptuyetp0q.wav
+2024-09-30 16:17:53,090 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp3c3t5phm.wav
+2024-09-30 16:17:53,092 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp3c3t5phm.wav
+2024-09-30 16:22:46,311 - config - INFO - Configuración inicial completada
+2024-09-30 16:22:57,597 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-30 16:22:57,617 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-09-30 16:23:26,842 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp0ouolybz.wav
+2024-09-30 16:23:26,845 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp0ouolybz.wav
+2024-09-30 16:23:39,423 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmptdpieexd.wav
+2024-09-30 16:23:39,426 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmptdpieexd.wav
+2024-09-30 16:24:00,035 - config - INFO - Transcripción completa para 1 archivo(s).
+Tiempo total de transcripción: 59.72 segundos.
+2024-09-30 16:24:27,350 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-30 16:24:27,361 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-09-30 16:24:55,029 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpvg4gt9u5.wav
+2024-09-30 16:24:55,031 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpvg4gt9u5.wav
+2024-09-30 16:25:18,619 - config - INFO - Configuración inicial completada
+2024-09-30 16:25:39,191 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-30 16:26:34,905 - config - INFO - Configuración inicial completada
+2024-09-30 16:29:28,606 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-30 16:32:54,613 - config - INFO - Configuración inicial completada
+2024-09-30 16:33:08,494 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-30 16:34:25,930 - config - INFO - Configuración inicial completada
+2024-09-30 16:34:42,731 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-30 16:37:51,260 - config - INFO - Configuración inicial completada
+2024-09-30 16:38:04,720 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-09-30 16:38:04,732 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-09-30 16:38:27,444 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpdgm8my_a.wav
+2024-09-30 16:38:27,445 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpdgm8my_a.wav
+2024-09-30 16:38:34,528 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpdd_5mcnj.wav
+2024-09-30 16:38:34,531 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpdd_5mcnj.wav
+2024-09-30 16:38:37,539 - config - INFO - Transcripción completa para 1 archivo(s).
+Tiempo total de transcripción: 29.82 segundos.
+2024-09-30 16:41:31,220 - config - INFO - Configuración inicial completada
+2024-10-01 09:47:14,210 - __main__ - INFO - Configuración inicial completada
+2024-10-01 09:47:41,379 - config - INFO - Configuración inicial completada
+2024-10-01 09:48:04,217 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 09:48:04,242 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-10-01 09:48:44,920 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpjc8_ng5d.wav
+2024-10-01 09:48:44,922 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpjc8_ng5d.wav
+2024-10-01 09:49:05,244 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpz_hs8jc7.wav
+2024-10-01 09:49:05,245 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpz_hs8jc7.wav
+2024-10-01 09:50:23,432 - config - INFO - Transcripción completa para 1 archivo(s).
+Tiempo total de transcripción: 61.03 segundos.
+2024-10-01 10:02:15,762 - config - INFO - Configuración inicial completada
+2024-10-01 10:02:42,917 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 10:02:42,941 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-10-01 10:03:24,616 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpa6vz38co.wav
+2024-10-01 10:03:24,617 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpa6vz38co.wav
+2024-10-01 10:03:50,455 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpkwmomyai.wav
+2024-10-01 10:03:50,457 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpkwmomyai.wav
+2024-10-01 10:03:50,479 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335566.wav
+2024-10-01 10:04:29,270 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpe8tsu13l.wav
+2024-10-01 10:04:29,272 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpe8tsu13l.wav
+2024-10-01 10:05:08,488 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpql91gyka.wav
+2024-10-01 10:05:08,489 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpql91gyka.wav
+2024-10-01 10:05:41,299 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpves_oxmb.wav
+2024-10-01 10:05:41,299 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpves_oxmb.wav
+2024-10-01 10:05:41,320 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA LLAMADA1.mp4
+2024-10-01 10:06:20,531 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmphrl1d_yz.wav
+2024-10-01 10:06:20,532 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmphrl1d_yz.wav
+2024-10-01 10:07:28,992 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpn6jd4zj4.wav
+2024-10-01 10:07:28,993 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpn6jd4zj4.wav
+2024-10-01 10:08:10,372 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpllxlof02.wav
+2024-10-01 10:08:10,373 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpllxlof02.wav
+2024-10-01 10:08:37,098 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpmt8uqisq.wav
+2024-10-01 10:08:37,099 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpmt8uqisq.wav
+2024-10-01 10:15:22,145 - config - INFO - Transcripción completa para 3 archivo(s).
+Tiempo total de transcripción: 354.17 segundos.
+2024-10-01 10:15:33,388 - config - INFO - Intentando convertir: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA LLAMADA1.mp4
+2024-10-01 10:15:33,390 - config - INFO - Formato de audio detectado: mp4
+2024-10-01 10:15:33,391 - config - INFO - El archivo WAV ya existe: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA LLAMADA1.wav
+2024-10-01 10:17:51,415 - config - INFO - Modelo Whisper 'medium' cargado correctamente.
+2024-10-01 10:17:51,456 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/PRUEBA LLAMADA1.mp4
+2024-10-01 10:20:18,871 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp_9pko8r0.wav
+2024-10-01 10:20:18,872 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp_9pko8r0.wav
+2024-10-01 10:21:52,728 - config - INFO - Configuración inicial completada
+2024-10-01 10:22:17,275 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 10:24:10,964 - config - INFO - Configuración inicial completada
+2024-10-01 10:24:21,218 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 10:37:05,100 - config - INFO - Configuración inicial completada
+2024-10-01 10:37:13,792 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 10:38:14,227 - config - INFO - Configuración inicial completada
+2024-10-01 10:38:27,567 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 10:45:25,433 - config - INFO - Configuración inicial completada
+2024-10-01 10:45:49,423 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 10:47:17,674 - config - INFO - Configuración inicial completada
+2024-10-01 10:47:26,228 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 10:49:15,812 - config - INFO - Configuración inicial completada
+2024-10-01 10:49:26,907 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 10:51:19,435 - config - INFO - Configuración inicial completada
+2024-10-01 10:51:34,978 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 11:02:56,482 - config - INFO - Configuración inicial completada
+2024-10-01 11:04:31,113 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 11:04:31,124 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-10-01 11:11:44,729 - config - INFO - Configuración inicial completada
+2024-10-01 11:14:15,660 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 11:15:41,956 - config - INFO - Configuración inicial completada
+2024-10-01 11:15:50,835 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 11:22:02,335 - config - INFO - Configuración inicial completada
+2024-10-01 11:22:13,359 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 11:22:13,381 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-10-01 11:22:49,840 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpykv59062.wav
+2024-10-01 11:22:49,841 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpykv59062.wav
+2024-10-01 11:22:58,909 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp06m_pjzl.wav
+2024-10-01 11:22:58,911 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp06m_pjzl.wav
+2024-10-01 11:23:15,221 - config - INFO - Transcripción completa para 1 archivo(s).
+Tiempo total de transcripción: 45.54 segundos.
+2024-10-01 11:40:18,559 - config - INFO - Configuración inicial completada
+2024-10-01 11:40:29,067 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 11:40:29,085 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-10-01 11:40:59,142 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp96doyi0h.wav
+2024-10-01 11:40:59,144 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp96doyi0h.wav
+2024-10-01 11:41:13,807 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp4nbchm9z.wav
+2024-10-01 11:41:13,809 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp4nbchm9z.wav
+2024-10-01 11:41:26,497 - config - INFO - Transcripción completa para 1 archivo(s).
+Tiempo total de transcripción: 53.79 segundos.
+2024-10-01 11:47:17,844 - config - INFO - Configuración inicial completada
+2024-10-01 11:47:30,642 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 11:47:30,660 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-10-01 11:48:12,182 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpoozsvirs.wav
+2024-10-01 11:48:12,184 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpoozsvirs.wav
+2024-10-01 11:48:33,533 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpogij227k.wav
+2024-10-01 11:48:33,534 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpogij227k.wav
+2024-10-01 11:56:50,559 - config - INFO - Transcripción completa para 1 archivo(s).
+Tiempo total de transcripción: 556.22 segundos.
+2024-10-01 12:36:02,982 - config - INFO - Configuración inicial completada
+2024-10-01 12:36:39,405 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 12:36:39,445 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-10-01 12:37:14,451 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp30ccsvol.wav
+2024-10-01 12:37:14,452 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp30ccsvol.wav
+2024-10-01 12:37:27,102 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmphhmeusge.wav
+2024-10-01 12:37:27,103 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmphhmeusge.wav
+2024-10-01 12:37:36,431 - config - INFO - Transcripción completa para 1 archivo(s).
+Tiempo total de transcripción: 54.76 segundos.
+2024-10-01 12:41:43,632 - config - INFO - Configuración inicial completada
+2024-10-01 12:42:59,581 - config - INFO - Configuración inicial completada
+2024-10-01 12:43:21,861 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 12:43:21,925 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-10-01 12:44:10,092 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp3ozit5b2.wav
+2024-10-01 12:44:10,093 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmp3ozit5b2.wav
+2024-10-01 12:44:42,674 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpglmt1btf.wav
+2024-10-01 12:44:42,675 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpglmt1btf.wav
+2024-10-01 12:45:06,660 - config - INFO - Transcripción completa para 1 archivo(s).
+Tiempo total de transcripción: 91.15 segundos.
+2024-10-01 12:45:58,149 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 12:45:58,172 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-10-01 12:46:42,661 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpd6bcc6ah.wav
+2024-10-01 12:46:42,662 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpd6bcc6ah.wav
+2024-10-01 12:47:01,164 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpa1t4pn3d.wav
+2024-10-01 12:47:01,165 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpa1t4pn3d.wav
+2024-10-01 12:47:04,211 - config - INFO - Transcripción completa para 1 archivo(s).
+Tiempo total de transcripción: 63.00 segundos.
+2024-10-01 12:48:02,000 - config - INFO - Modelo Whisper 'small' cargado correctamente.
+2024-10-01 12:48:02,020 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/INGLES_PRESENTACION.wav
+2024-10-01 12:48:46,425 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpxsx8zkof.wav
+2024-10-01 12:48:46,426 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpxsx8zkof.wav
+2024-10-01 12:49:12,348 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpamqiegcu.wav
+2024-10-01 12:49:12,349 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpamqiegcu.wav
+2024-10-01 12:49:18,927 - config - INFO - Transcripción completa para 1 archivo(s).
+Tiempo total de transcripción: 70.34 segundos.
+2024-10-01 12:50:20,966 - config - INFO - Configuración inicial completada
+2024-10-01 12:51:15,414 - config - INFO - Configuración inicial completada
+2024-10-03 10:21:01,787 - config - INFO - Configuración inicial completada
+2024-10-03 10:25:31,529 - config - INFO - Configuración inicial completada
+2024-10-03 10:32:07,033 - config - INFO - Modelo Whisper 'medium' cargado correctamente.
+2024-10-03 10:32:07,123 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-10-03 10:34:22,053 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmphqtzjunr.wav
+2024-10-03 10:34:22,054 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmphqtzjunr.wav
+2024-10-03 10:34:59,468 - config - INFO - Configuración inicial completada
+2024-10-03 10:35:59,297 - config - INFO - Modelo Whisper 'medium' cargado correctamente.
+2024-10-03 10:35:59,441 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-10-03 10:38:03,404 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmprq6yy0zy.wav
+2024-10-03 10:38:03,405 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmprq6yy0zy.wav
+2024-10-03 10:39:03,041 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpfv4m5z8s.wav
+2024-10-03 10:39:03,043 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpfv4m5z8s.wav
+2024-10-03 10:39:03,050 - config - ERROR - Error al procesar el archivo LP41335178.wav (00:47): Unknown format code 'f' for object of type 'str'
+Traceback (most recent call last):
+  File "C:\Users\jonat\OneDrive\Escritorio\Repositorio\jonatha1992\Transcriptor\funcionalidad.py", line 472, in iniciar_transcripcion
+    nuevo_texto += f"Tiempo de transcripción: {tiempo_transcripcion:.2f} segundos\n"
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Unknown format code 'f' for object of type 'str'
+2024-10-03 10:39:09,949 - config - INFO - Transcripción completa para 1 archivo(s).
+Tiempo total de transcripción: 00:03:07.
+2024-10-03 10:41:44,417 - config - INFO - Configuración inicial completada
+2024-10-03 10:44:38,173 - config - INFO - Modelo Whisper 'medium' cargado correctamente.
+2024-10-03 10:44:38,244 - config - INFO - Procesando archivo: C:/Users/jonat/OneDrive/Escritorio/Repositorio/jonatha1992/Transcriptor/Audios/LP41335178.wav
+2024-10-03 10:46:50,240 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpqiwbnw5s.wav
+2024-10-03 10:46:50,241 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpqiwbnw5s.wav
+2024-10-03 10:47:45,403 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpq78kvat3.wav
+2024-10-03 10:47:45,404 - config - WARNING - No se pudo eliminar el archivo temporal: C:\Users\jonat\AppData\Local\Temp\tmpq78kvat3.wav
+2024-10-03 10:47:49,559 - config - INFO - Transcripción completa para 1 archivo(s).
+Tiempo total de transcripción: 00:03:07.
+2024-10-03 11:21:48,828 - config - INFO - Configuración inicial completada
+2024-10-03 11:23:13,606 - config - INFO - Configuración inicial completada
+2024-10-03 11:28:25,567 - config - INFO - Configuración inicial completada
+2024-10-03 11:28:51,791 - config - INFO - Configuración inicial completada
+2024-10-03 11:29:46,272 - config - INFO - Configuración inicial completada
+2024-10-03 11:30:36,348 - config - INFO - Configuración inicial completada
+2024-10-03 11:32:22,381 - config - INFO - Configuración inicial completada
+2024-10-03 11:33:04,034 - config - INFO - Configuración inicial completada
+2024-10-03 11:36:23,889 - config - INFO - Configuración inicial completada
+2024-10-03 11:53:30,913 - config - INFO - Configuración inicial completada
+2024-10-03 11:54:20,648 - config - INFO - Configuración inicial completada
+2024-10-03 12:04:16,320 - config - INFO - Configuración inicial completada
