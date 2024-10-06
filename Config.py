@@ -70,6 +70,8 @@ def resource_path(relative_path):
         alternative_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), relative_path)
         if os.path.exists(alternative_path):
             return alternative_path
+
+    print(f"Cargando recurso desde: {full_path}")
     return full_path
 
 

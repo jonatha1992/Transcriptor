@@ -82,12 +82,12 @@ class ReproductorAudio:
 reproductor = ReproductorAudio()
 
 
-def actualizar_tiempo(label):
-    def actualizar():
-        label.config(text=reproductor.obtener_tiempo_formateado())
-        label.after(100, actualizar)
+# def actualizar_tiempo(label):
+#     def actualizar():
+#         label.config(text=reproductor.obtener_tiempo_formateado())
+#         label.after(100, actualizar)
 
-    actualizar()
+#     actualizar()
 
 
 def actualizar_label_reproduccion(label):
@@ -168,9 +168,10 @@ def detener_reproduccion(
     label_tiempo,
     boton_adelantar,
     boton_retroceder,
+    icon_play,
 ):
     reproductor.detener()
-    boton_pausar_reanudar.config(text="Pausar", state="disabled")
+    boton_pausar_reanudar.config(image=icon_play)
     boton_adelantar.config(state="disabled")
     boton_retroceder.config(state="disabled")
     actualizar_label_reproduccion(label_reproduccion)
@@ -188,4 +189,79 @@ def retroceder(label_tiempo):
 
 def adelantar(label_tiempo):
     reproductor.adelantar(5)
+    actualizar_tiempo(label_tiempo)
+
+
+def actualizar_tiempo(label):
+    def actualizar():
+        label.config(text=reproductor.obtener_tiempo_formateado())
+        label.after(100, actualizar)
+
+    actualizar()
+
+
+def reproducir_pausar(
+    boton_pausar_reanudar,
+    boton_detener,
+    boton_adelantar,
+    boton_retroceder,
+    label_reproduccion,
+    label_tiempo,
+    lista_archivos,
+    lista_archivos_paths,
+    icon_play,
+    icon_pause,
+):
+    seleccion = lista_archivos.curselection()
+
+    if not seleccion:
+        messagebox.showwarning("Advertencia", "Por favor, seleccione un archivo de audio primero.")
+        return
+
+    indice_seleccionado = seleccion[0]
+    item_seleccionado = lista_archivos.get(indice_seleccionado)
+    ruta_archivo = next(key for key, value in lista_archivos_paths.items() if value == item_seleccionado)
+    boton_detener.config(state="normal")
+    boton_adelantar.config(state="normal")
+    boton_retroceder.config(state="normal")
+
+    # Si el archivo seleccionado es diferente del que está en reproducción
+    if reproductor.audio_actual != ruta_archivo:
+        # Detener el archivo actual
+        if reproductor.reproduciendo:
+            messagebox.showinfo("Advertencia", "Detenga la reproducción.")  # Asegúrate de detener cualquier archivo en reproducción
+            return
+        # Iniciar la reproducción del nuevo archivo
+        try:
+            reproductor.iniciar(ruta_archivo)
+            boton_pausar_reanudar.config(image=icon_pause)  # Cambiar al ícono de pausar
+            label_reproduccion.config(text=f"Reproduciendo: {os.path.basename(ruta_archivo)}")
+        except pygame.error:
+            try:
+                wav_path = convertir_a_wav(ruta_archivo)
+                reproductor.iniciar(wav_path)
+                messagebox.showinfo(
+                    "Conversión",
+                    f"El archivo se ha convertido a WAV para su reproducción: {wav_path}",
+                )
+            except Exception as e:
+                messagebox.showerror(
+                    "Error de conversión",
+                    f"No se pudo convertir ni reproducir el archivo: {str(e)}",
+                )
+                return
+    else:
+        # Si el archivo seleccionado es el mismo que está en reproducción
+        if reproductor.reproduciendo:
+            # Retrasar 1 segundo antes de pausar
+            reproductor.retroceder(1)
+            reproductor.pausar()
+            boton_pausar_reanudar.config(image=icon_play)  # Cambiar al ícono de reproducir
+            label_reproduccion.config(text=f"En Pausa: {os.path.basename(ruta_archivo)}")
+        else:
+            # Si el archivo está en pausa, reanudar
+            reproductor.reanudar()
+            boton_pausar_reanudar.config(image=icon_pause)  # Cambiar al ícono de pausar
+            label_reproduccion.config(text=f"Reproduciendo: {os.path.basename(ruta_archivo)}")
+
     actualizar_tiempo(label_tiempo)

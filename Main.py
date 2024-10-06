@@ -16,7 +16,7 @@ def main():
         crear_interfaz(ventana)
         centrar_ventana(ventana)
 
-        # PasswordWindow(ventana)  # Crea la ventana de contraseña
+        PasswordWindow(ventana)  # Crea la ventana de contraseña
 
         # Ejecutar la aplicación
         ventana.mainloop()

@@ -6,25 +6,34 @@ from config import idiomas
 from PIL import Image, ImageTk  # Asegúrate de tener Pillow instalado
 
 
-def cargar_icono(ruta, tamaño):
-    """
-    Función para cargar una imagen y cambiar su tamaño.
-    """
-    imagen = Image.open(ruta)
-    return ImageTk.PhotoImage(imagen)
-
-
 def crear_interfaz(ventana):
     ventana.geometry("1200x700")
     archivo_procesando = tk.StringVar()
 
     # Cargar iconos
     try:
-        icon_play = tk.PhotoImage(file="icons/play.png")
-        icon_pause = tk.PhotoImage(file="icons/pause.png")
-        icon_stop = tk.PhotoImage(file="icons/stop.png")
-        icon_forward = tk.PhotoImage(file="icons/forward.png")
-        icon_backward = tk.PhotoImage(file="icons/backward.png")
+        # icon_play_image = Image.open(resource_path("icons/play.png"))
+        # icon_play = tk.PhotoImage(icon_play_image)
+
+        # icon_pause = tk.PhotoImage(resource_path("icons/pause.png"))
+        # icon_stop = tk.PhotoImage(resource_path("icons/stop.png"))
+        # icon_forward = tk.PhotoImage(resource_path("icons/forward.png"))
+        # icon_backward = tk.PhotoImage(resource_path("icons/backward.png"))
+
+        icon_play_image = Image.open(resource_path("icons/play.png"))
+        icon_play = ImageTk.PhotoImage(icon_play_image)
+
+        icon_pause_image = Image.open(resource_path("icons/pause.png"))
+        icon_pause = ImageTk.PhotoImage(icon_pause_image)
+
+        icon_stop_image = Image.open(resource_path("icons/stop.png"))
+        icon_stop = ImageTk.PhotoImage(icon_stop_image)
+
+        icon_forward_image = Image.open(resource_path("icons/forward.png"))
+        icon_forward = ImageTk.PhotoImage(icon_forward_image)
+
+        icon_backward_image = Image.open(resource_path("icons/backward.png"))
+        icon_backward = ImageTk.PhotoImage(icon_backward_image)
     except Exception as e:
         messagebox.showerror("Error de Iconos", f"No se pudieron cargar los iconos: {e}")
         # Asignar texto por defecto si hay error
@@ -209,32 +218,26 @@ def crear_interfaz(ventana):
     )
     boton_retroceder.pack(side=tk.LEFT, padx=5)
 
-    boton_reproducir = tk.Button(
-        frame_reproduccion,
-        image=icon_play,
-        command=lambda: reproducir(
-            lista_archivos,
-            lista_archivos_paths,
-            boton_pausar_reanudar,
-            label_reproduccion,
-            label_tiempo,
-            boton_adelantar,
-            boton_retroceder,
-        ),
-    )
-    boton_reproducir.pack(side=tk.LEFT, padx=5)
-
     lista_archivos.bind(
         "<<ListboxSelect>>", lambda event: activar_boton_borrar(event, boton_borrar)
     )
+
     boton_pausar_reanudar = tk.Button(
         frame_reproduccion,
-        image=icon_pause,
-        state="disabled",
-        command=lambda: pausar_reanudar(
-            boton_pausar_reanudar, label_reproduccion, label_tiempo
-        ),
-    )
+        image=icon_play,
+        command=lambda: reproducir_pausar(
+            boton_pausar_reanudar,
+            boton_retroceder,
+            boton_adelantar,
+            boton_detener,
+            label_reproduccion,
+            label_tiempo,
+            lista_archivos,
+            lista_archivos_paths,
+            icon_play,
+            icon_pause,
+        ),)
+
     boton_pausar_reanudar.pack(side=tk.LEFT, padx=5)
 
     boton_adelantar = tk.Button(
@@ -247,6 +250,7 @@ def crear_interfaz(ventana):
     boton_detener = tk.Button(
         frame_reproduccion,
         text="Detener",
+        state="disabled",
         image=icon_stop,
         command=lambda: detener_reproduccion(
             boton_pausar_reanudar,
@@ -254,6 +258,7 @@ def crear_interfaz(ventana):
             label_tiempo,
             boton_adelantar,
             boton_retroceder,
+            icon_play
         ),
     )
     boton_detener.pack(side=tk.LEFT, padx=5)
