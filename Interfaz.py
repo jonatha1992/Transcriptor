@@ -12,14 +12,6 @@ def crear_interfaz(ventana):
 
     # Cargar iconos
     try:
-        # icon_play_image = Image.open(resource_path("icons/play.png"))
-        # icon_play = tk.PhotoImage(icon_play_image)
-
-        # icon_pause = tk.PhotoImage(resource_path("icons/pause.png"))
-        # icon_stop = tk.PhotoImage(resource_path("icons/stop.png"))
-        # icon_forward = tk.PhotoImage(resource_path("icons/forward.png"))
-        # icon_backward = tk.PhotoImage(resource_path("icons/backward.png"))
-
         icon_play_image = Image.open(resource_path("icons/play.png"))
         icon_play = ImageTk.PhotoImage(icon_play_image)
 
