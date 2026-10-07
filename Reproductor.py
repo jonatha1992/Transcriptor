@@ -1,6 +1,7 @@
 import pygame
 import time
 import os
+import Config
 from Config import *
 from tkinter import messagebox
 from Funcionalidad import obtener_duracion_audio, convertir_a_wav
@@ -108,7 +109,7 @@ def reproducir(
     boton_adelantar,
     boton_retroceder,
 ):
-    if transcripcion_en_curso:
+    if Config.transcripcion_en_curso:
         messagebox.showwarning(
             "Advertencia",
             "Hay una transcripción en curso. Por favor, espere a que termine.",

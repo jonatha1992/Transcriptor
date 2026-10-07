@@ -1,3 +1,4 @@
+import Config
 from Config import logger, ffmpeg_path
 import os
 import speech_recognition as sr
@@ -125,7 +126,7 @@ def transcribir_archivo(audio_path, idioma_entrada):
 
 def traducir_texto(texto, idioma_salida):
     try:
-        if check_proxy() == "Proxy configurado:":
+        if check_proxy().startswith("Proxy configurado:"):
             proxy_config = {
                 "http": "http://proxy.psa.gob.ar:3128",
                 "https": "http://proxy.psa.gob.ar:3128",
@@ -285,17 +286,20 @@ def iniciar_transcripcion_thread(
             "Advertencia", "Seleccione un archivo de audio para transcribir."
         )
         transcripcion_en_curso = False
+        Config.transcripcion_en_curso = False
         return
 
     if transcripcion_activa:
         transcripcion_activa = False
         transcripcion_en_curso = False
+        Config.transcripcion_en_curso = False
         boton_transcribir.config(text="Transcribir")
         progress_bar["value"] = 0
         progress_bar.pack_forget()
     else:
         transcripcion_activa = True
         transcripcion_en_curso = True
+        Config.transcripcion_en_curso = True
         boton_transcribir.config(text="Detener Transcripción")
         progress_bar["value"] = 0
         progress_bar.pack(pady=5, padx=60, fill=tk.X)
@@ -508,17 +512,26 @@ def procesar_audio(audio_file, idioma_entrada, text_area, progress_bar, ventana)
 
     # Transcribir los chunks
     transcripcion_completa = []
+    errores_count = 0
+    valid_chunks_count = 0
     for i, chunk in enumerate(chunks):
         if len(chunk) < 1000:  # Ignorar chunks menores a 1 segundo
             continue
+        valid_chunks_count += 1
         _, texto = transcribir_chunk(recognizer, chunk, idioma_entrada, i)
+        if texto.startswith("[error"):
+            errores_count += 1
+            continue
         transcripcion_completa.append(texto)
 
         # Actualizar progreso
         progress_bar["value"] = (i + 1) / len(chunks) * 100
         ventana.update_idletasks()
 
-    transcripcion_final = " ".join(transcripcion_completa).strip()
+    if valid_chunks_count > 0 and errores_count == valid_chunks_count:
+        transcripcion_final = "[error: fallo la conexion con el servicio de reconocimiento]"
+    else:
+        transcripcion_final = " ".join(transcripcion_completa).strip()
     palabras, inaudibles = contar_palabras_y_inaudibles(transcripcion_final)
     return {
         "filename": filename,
@@ -557,6 +570,7 @@ def iniciar_transcripcion(
 
     transcripcion_activa = True
     transcripcion_en_curso = True
+    Config.transcripcion_en_curso = True
     boton_transcribir.config(text="Detener Transcripción")
 
     for index, archivo in enumerate(archivos_seleccionados):
@@ -601,3 +615,4 @@ def iniciar_transcripcion(
     progress_bar.pack_forget()
     progress_bar["value"] = 0
     transcripcion_en_curso = False
+    Config.transcripcion_en_curso = False
